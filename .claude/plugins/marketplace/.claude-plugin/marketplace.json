@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "hackia-local",
+  "metadata": {
+    "description": "Plugins locales del vault hackia para Edgar y Jose."
+  },
+  "owner": {
+    "name": "hackia"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-vault",
+      "description": "Validación automática de formato Obsidian (frontmatter, wikilinks, nodos huérfanos, Mermaid) para el vault hackia. Incluye skill /obsidian-validator y hook PostToolUse.",
+      "version": "1.0.0",
+      "author": {
+        "name": "hackia"
+      },
+      "source": "../obsidian-vault/",
+      "category": "productivity",
+      "tags": ["obsidian", "vault", "markdown", "validation", "hackia"]
+    }
+  ]
+}

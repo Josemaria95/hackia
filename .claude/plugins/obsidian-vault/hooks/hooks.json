@@ -1,0 +1,17 @@
+{
+  "description": "Validación PostToolUse de formato Obsidian en archivos .md del vault hackia",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ${CLAUDE_PLUGIN_ROOT}/hooks/validate_md.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

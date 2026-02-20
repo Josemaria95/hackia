@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:help.obsidian.md)",
+      "WebSearch",
+      "Bash(find:*)",
+      "WebFetch(domain:obsidian.rocks)",
+      "Bash(git add:*)"
+    ]
+  }
+}

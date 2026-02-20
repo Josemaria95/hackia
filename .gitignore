@@ -1,0 +1,5 @@
+# Configuración personal de Obsidian (no compartir entre usuarios)
+.obsidian/
+
+# Archivos temporales de Obsidian
+*.base

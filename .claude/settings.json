@@ -1,0 +1,37 @@
+{
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1"
+  },
+
+  "enabledPlugins": {
+    "skill-creator@claude-plugins-official": true,
+    "explanatory-output-style@claude-code-plugins": true,
+    "claude-md-management@claude-plugins-official": true,
+    "obsidian-vault@hackia-local": true
+  },
+
+  "extraKnownMarketplaces": {
+    "hackia-local": {
+      "source": {
+        "source": "directory",
+        "path": ".claude/plugins/marketplace"
+      }
+    }
+  },
+
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/plugins/obsidian-vault/hooks/validate_md.py",
+            "timeout": 10,
+            "statusMessage": "Validando formato Obsidian..."
+          }
+        ]
+      }
+    ]
+  }
+}
