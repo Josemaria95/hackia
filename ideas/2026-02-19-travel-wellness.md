@@ -40,6 +40,61 @@ Este segmento tiene un puente directo con [[2026-02-19-viajes-corporativos-datos
 
 ---
 
+## Flujo de valor
+
+```mermaid
+graph TD
+    subgraph HOY["Hoy: wellness corporativo sin datos"]
+        A1["RRHH sabe que hay burnout<br/>(89% en Chile)"] --> X1["Compra retiros genéricos<br/>o no hace nada"]
+        A2["Proveedor wellness<br/>(spa, retiro, hotel boutique)"] --> X2["Vende experiencia genérica<br/>sin personalizar"]
+        X1 --> X3["No puede medir si sirvió"]
+        X2 --> X3
+    end
+
+    subgraph PRODUCTO["Producto: matching + medición de outcomes"]
+        B1["Perfil del empleado:<br/>rol, nivel de estrés,<br/>objetivo de bienestar"] --> B2["Motor de matching"]
+        B3["Catálogo de experiencias<br/>wellness con datos reales"] --> B2
+        B2 --> B4["Recomendación personalizada:<br/>este retiro para este perfil"]
+        B4 --> B5["Medición pre/post:<br/>encuesta + datos de RRHH"]
+        B5 --> B6["Dashboard de ROI:<br/>inversión → reducción<br/>ausentismo/rotación"]
+    end
+
+    subgraph VALOR["Valor B2B"]
+        B4 --> C1["Empleado recibe experiencia<br/>que le sirve, no genérica"]
+        B6 --> C2["RRHH justifica presupuesto<br/>ante finanzas con datos"]
+        B6 --> C3["Proveedor wellness<br/>diferencia su oferta<br/>con métricas de outcome"]
+    end
+
+    X3 -.->|"hackia conecta"| B1
+    X2 -.->|"hackia conecta"| B3
+
+    style HOY fill:#fee,stroke:#c33
+    style PRODUCTO fill:#eff,stroke:#39c
+    style VALOR fill:#efe,stroke:#3c3
+```
+
+## Customer journey: Gerenta de RRHH — empresa de 300 empleados
+
+```mermaid
+graph TD
+    J1["😤 DOLOR<br/>Ausentismo subió 20%.<br/>Encuesta dice burnout.<br/>El directorio pide acciones"]
+    J2["🤷 OPCIONES ACTUALES<br/>Gympass, charla motivacional,<br/>o retiro grupal sin medir"]
+    J3["💡 ENCUENTRA HACKIA<br/>Recomienda experiencia wellness<br/>por perfil y mide outcome"]
+    J4["🧪 PILOTO<br/>20 empleados del área<br/>con más rotación.<br/>Encuesta pre + retiro + post"]
+    J5["📈 RESULTADO<br/>Grupo del retiro X redujo<br/>ausentismo 35% vs. control"]
+    J6["💰 CONTRATA<br/>Paquete anual.<br/>Comisión por reserva<br/>+ fee por analytics"]
+    J7["🔄 EXPANSIÓN<br/>RRHH muestra datos al directorio.<br/>Presupuesto de bienestar crece"]
+
+    J1 --> J2 --> J3 --> J4 --> J5 --> J6 --> J7
+
+    style J1 fill:#fdd,stroke:#c33
+    style J3 fill:#ddf,stroke:#33c
+    style J5 fill:#dfd,stroke:#3c3
+    style J6 fill:#ffd,stroke:#cc3
+```
+
+---
+
 ## Preguntas a validar
 
 1. ¿Hay empresas que ya incluyen wellness travel en sus paquetes de beneficios?

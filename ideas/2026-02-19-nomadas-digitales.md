@@ -34,6 +34,60 @@ Las empresas que permiten trabajo remoto tampoco tienen herramientas para gestio
 
 ---
 
+## Flujo de valor
+
+```mermaid
+graph TD
+    subgraph HOY["Hoy: decisiones con información dispersa"]
+        A1["Nómada busca destino"] --> X1["Numbeo: promedios genéricos<br/>Nomad List: datos desactualizados<br/>Reddit: anécdotas"]
+        A2["Empresa permite<br/>work from anywhere"] --> X2["No tiene herramienta<br/>para gestionar compliance<br/>fiscal, seguro, zonas horarias"]
+        X1 --> X3["Decisión basada<br/>en intuición y suerte"]
+        X2 --> X4["Riesgo legal<br/>sin visibilidad"]
+    end
+
+    subgraph PRODUCTO["Producto: datos reales + gestión B2B"]
+        B1["Datos verificados por destino:<br/>costo real por perfil,<br/>internet medido,<br/>comunidad activa"] --> B2["Comparador inteligente"]
+        B3["Capa B2B:<br/>compliance fiscal por país,<br/>seguro médico,<br/>zonas horarias del equipo"] --> B4["Dashboard empresa"]
+        B2 --> B5["Recomendación:<br/>este destino para<br/>tu perfil y presupuesto"]
+        B4 --> B6["Vista empresa:<br/>dónde está cada empleado,<br/>qué riesgos hay,<br/>qué cuesta"]
+    end
+
+    subgraph VALOR["Valor entregado"]
+        B5 --> C1["Nómada elige mejor<br/>y no pierde 2 semanas<br/>en destino equivocado"]
+        B6 --> C2["HR gestiona equipos<br/>remotos sin riesgo legal"]
+        B6 --> C3["Empresa ofrece<br/>work-from-anywhere<br/>como beneficio real"]
+    end
+
+    X3 -.->|"hackia reemplaza"| B2
+    X4 -.->|"hackia reemplaza"| B4
+
+    style HOY fill:#fee,stroke:#c33
+    style PRODUCTO fill:#eff,stroke:#39c
+    style VALOR fill:#efe,stroke:#3c3
+```
+
+## Customer journey: Head of People — startup de 80 personas, equipos distribuidos
+
+```mermaid
+graph TD
+    J1["😤 DOLOR<br/>3 empleados quieren trabajar<br/>desde Colombia y no sé<br/>qué implicaciones fiscales tiene"]
+    J2["🔍 BUSCA<br/>Pregunta al abogado laboral.<br/>Respuesta: depende.<br/>Asesoría: $2K por país"]
+    J3["💡 ENCUENTRA HACKIA<br/>Compliance por país +<br/>costos + riesgos"]
+    J4["🧪 PRUEBA<br/>Consulta Colombia, México<br/>y Portugal. Ve requisitos,<br/>seguro y zona horaria"]
+    J5["📋 DECIDE<br/>Aprueba Colombia y México.<br/>Portugal tiene riesgo<br/>fiscal que no vale"]
+    J6["💰 CONTRATA<br/>$50/empleado remoto/mes<br/>monitoreo de compliance"]
+    J7["🔄 RETENCIÓN<br/>Lo usa como beneficio<br/>en job postings"]
+
+    J1 --> J2 --> J3 --> J4 --> J5 --> J6 --> J7
+
+    style J1 fill:#fdd,stroke:#c33
+    style J3 fill:#ddf,stroke:#33c
+    style J5 fill:#dfd,stroke:#3c3
+    style J6 fill:#ffd,stroke:#cc3
+```
+
+---
+
 ## Preguntas a validar
 
 1. ¿Cuántas empresas medianas en LATAM ya tienen política de "work from anywhere"?

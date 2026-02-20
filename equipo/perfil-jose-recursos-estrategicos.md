@@ -9,8 +9,6 @@ miro: ""
 
 # Perfil estratégico: Jose Muñoz — recursos para hackia
 
-> Nota de calibración: El perfil de Jose en CLAUDE.md lo describe como "Analista de Datos Sr. en entorno corporativo tipo Bimbo". El CV real muestra algo diferente: es **Data Engineer en Baufest** (consultora de TI/datos con clientes enterprise en LATAM y EE.UU.), con experiencia previa en consultoría BI (Business Analytics SAC) y análisis en empresas medianas peruanas. Esto modifica algunas ventajas y gaps — actualizarlo en CLAUDE.md antes de la próxima sesión.
-
 ## Propósito / Lo que lo mueve
 
 **Tecnología y producto que ayude a la gente.** Jose no construye pipelines de datos por construirlos — su motivación es que la tecnología llegue a ser algo que genuinamente mejora la vida de las personas. No le interesa el dato por el dato, le interesa el dato que cambia una decisión, que reduce una fricción, que le da poder a alguien que antes no lo tenía.
