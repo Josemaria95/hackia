@@ -86,3 +86,76 @@ Los tags combinan **tipo** (qué es la nota) + **industria** (en qué mercado). 
 Miro → ideas/ → (tracción) → proyectos/ → vibecoding → prompts/
 
 Al evaluar una idea, consultar `equipo/` para saber quién puede ejecutar qué parte y qué gaps hay.
+
+---
+
+## Estructura del vault Obsidian (auditada 2026-02-21)
+
+### Inventario de archivos
+
+| Carpeta | Archivos | Descripcion |
+|---------|----------|-------------|
+| `ideas/` | 10 archivos `.md` | 1 hub estrategico (`espacio-de-oportunidad.md`) + 9 hipotesis |
+| `equipo/` | 2 archivos `.md` | Perfiles de Edgar y Jose con habilidades por hipotesis |
+| `deepresearch/` | 8 archivos `.md` | TAM/SAM/SOM y analisis competitivo por hipotesis |
+| **Total** | **20 archivos `.md`** | |
+
+### Mapa de relaciones (wikilinks)
+
+```
+espacio-de-oportunidad.md  (hub central — nodo de mayor grado)
+├── ideas/2026-02-19-viajes-corporativos-datos.md ←→ deepresearch/viajes-corporativos-datos-research.md
+├── ideas/2026-02-19-travel-wellness.md           ←→ deepresearch/travel-wellness-research.md
+├── ideas/2026-02-19-nomadas-digitales.md          ←→ deepresearch/nomadas-digitales-research.md
+├── ideas/2026-02-19-travel-educacion.md           ←→ deepresearch/travel-educacion-research.md
+├── ideas/2026-02-20-ruta-viva-salud-mental-cultural-b2b2c.md ←→ deepresearch/ruta-viva-salud-mental-cultural-research.md
+├── ideas/2026-02-20-datos-salud-mental-modelos-riesgo.md      ←→ deepresearch/datos-salud-mental-empleados-research.md
+├── ideas/2026-02-20-hospedaje-guia-compatriotas.md            ←→ deepresearch/hospedaje-compatriotas-research.md
+├── ideas/2026-02-20-recomendacion-restaurantes-nacionalidad.md ←→ deepresearch/restaurantes-nacionalidad-research.md
+├── ideas/2026-02-20-comunidad-salud-mental-viajes-gamificacion.md (brainstorming, sin deep research propio)
+├── equipo/perfil-edgar-recursos-estrategicos.md
+└── equipo/perfil-jose-recursos-estrategicos.md
+```
+
+### Convenciones de wikilinks
+
+Cada nota debe tener al final un bloque de navegacion con este formato:
+
+**Para ideas (hipotesis):**
+```markdown
+> Deep research detallado en [[nombre-del-research]]
+
+→ Contexto: [[espacio-de-oportunidad]] (Prioridad X)
+→ Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]
+```
+
+**Para deep research:**
+```markdown
+→ Idea principal: [[nombre-de-la-idea|Titulo corto]]
+→ Contexto: [[espacio-de-oportunidad]]
+```
+
+**Para perfiles de equipo:**
+```markdown
+[[espacio-de-oportunidad]]
+```
+
+**Reglas de wikilinks:**
+- Usar la forma mas corta posible (sin prefijo de carpeta): `[[nombre-del-archivo]]`, NO `[[carpeta/nombre-del-archivo]]`
+- Obsidian resuelve automaticamente los links por nombre de archivo unico (aliases ayudan)
+- Los aliases en frontmatter permiten referenciar un archivo por su nombre corto
+- Toda idea debe linkar a `espacio-de-oportunidad` y a ambos perfiles de equipo
+- Todo deep research debe linkar a su idea principal y a `espacio-de-oportunidad`
+- `espacio-de-oportunidad` es el hub: debe linkar a todas las ideas, todos los deep research y ambos perfiles
+
+### Prioridades actuales (Feb 2026)
+
+| Prioridad | Idea | Score |
+|-----------|------|-------|
+| 0 | Ruta Viva — Bienestar emocional + exploracion cultural (B2B2C) | 8.0/10 |
+| 0 | Datos de salud mental para modelos de riesgo (B2B) | por evaluar |
+| 0.5 | Hospedaje entre compatriotas | 6.8/10 |
+| 0.5 | Restaurantes segun nacionalidad | 6.2/10 |
+| 1 | Bienestar + gestion de viajes corporativos | 8/10 |
+| 2 | Travel x Educacion (intercambios + PIE) | 6/10 |
+| 3 | Travel x Nomadismo | 7/10 |

@@ -1,9 +1,10 @@
 ---
 title: "Deep Research: Travel × Wellness — TAM/SAM/SOM Chile-LATAM"
+aliases: [travel-wellness-research]
 date: 2026-02-20
-tags: [deepresearch, travel, wellness, mercado]
-idea: "[[2026-02-19-travel-wellness]]"
+tags: [mercado, travel, wellness]
 status: completado
+miro: ""
 ---
 
 # Deep Research: Travel × Wellness — TAM/SAM/SOM Chile-LATAM
@@ -406,4 +407,5 @@ El siguiente paso recomendado es **validación cualitativa con 10 directores de 
 
 ---
 
-[[2026-02-19-travel-wellness]]
+→ Idea principal: [[2026-02-19-travel-wellness|Travel x Wellness]]
+→ Contexto: [[espacio-de-oportunidad]]

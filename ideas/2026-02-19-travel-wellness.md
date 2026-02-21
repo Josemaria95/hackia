@@ -108,3 +108,10 @@ graph TD
 - [ ] Edgar: mapear qué proveedores de wellness travel existen en LATAM y qué datos manejan
 - [ ] Buscar si hay estudios sobre ROI de wellness travel en contexto corporativo
 - [ ] Evaluar si el ángulo B2B2C (empresa → empleado → proveedor de wellness) es viable
+
+---
+
+> Deep research detallado en [[travel-wellness-research]]
+
+→ Contexto: [[espacio-de-oportunidad]] (Prioridad 1)
+→ Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]

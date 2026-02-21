@@ -1,9 +1,10 @@
 ---
 title: "Deep Research: Travel × Corporativo — TAM/SAM/SOM Chile-LATAM"
+aliases: [viajes-corporativos-datos-research]
 date: 2026-02-20
-tags: [deepresearch, travel, corporativo, mercado]
-idea: "[[2026-02-19-viajes-corporativos-datos]]"
+tags: [mercado, travel, corporativo]
 status: completado
+miro: ""
 ---
 
 # Deep Research: Datos y Bienestar en Viajes Corporativos — Chile y LATAM
@@ -398,4 +399,5 @@ El espacio existe, el dolor es real, y la competencia local es inexistente. El e
 
 ---
 
-[[2026-02-19-viajes-corporativos-datos]]
+→ Idea principal: [[2026-02-19-viajes-corporativos-datos|Travel x Corporativo]]
+→ Contexto: [[espacio-de-oportunidad]]

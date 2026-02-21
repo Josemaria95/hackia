@@ -2,7 +2,7 @@
 title: "Recomendación de restaurantes según nacionalidad del viajero"
 aliases: [restaurantes-nacionalidad, food-recs, gastronomia-viajeros]
 date: 2026-02-20
-tags: [hipotesis, travel, producto]
+tags: [hipotesis, travel]
 status: explorando
 miro: ""
 ---
@@ -72,7 +72,7 @@ Un viajero llega a una ciudad nueva y no sabe dónde comer. Las plataformas exis
 
 ---
 
-> Deep research detallado en [[deepresearch/restaurantes-nacionalidad-research|Deep Research: Restaurantes según nacionalidad]]
+> Deep research detallado en [[restaurantes-nacionalidad-research]]
 
 → Contexto: [[espacio-de-oportunidad]] (Prioridad 0.5)
 → Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]

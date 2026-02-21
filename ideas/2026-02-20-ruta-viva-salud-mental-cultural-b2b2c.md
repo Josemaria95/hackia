@@ -145,7 +145,7 @@ Ambas ideas anteriores son FEATURES de Ruta Viva, no productos separados.
 
 ---
 
-> Deep research detallado en [[deepresearch/ruta-viva-salud-mental-cultural-research|Deep Research: Ruta Viva]]
+> Deep research detallado en [[ruta-viva-salud-mental-cultural-research]]
 
 ---
 

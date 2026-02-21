@@ -110,3 +110,10 @@ El mercado de información para nómadas existe (Nomad List, Teleport) pero:
 - [ ] Investigar tamaño real del segmento nómada digital en LATAM
 - [ ] Revisar qué hace Nomad List y dónde deja valor en la mesa
 - [ ] Explorar si el ángulo B2B (empresas con equipos remotos) es más viable que B2C
+
+---
+
+> Deep research detallado en [[nomadas-digitales-research]]
+
+→ Contexto: [[espacio-de-oportunidad]] (Prioridad 3)
+→ Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]

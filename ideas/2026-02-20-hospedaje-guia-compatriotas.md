@@ -90,7 +90,7 @@ Mientras tanto, hay miles de **compatriotas viviendo en ese país** que conocen 
 
 ---
 
-> Deep research detallado en [[deepresearch/hospedaje-compatriotas-research|Deep Research: Hospedaje entre compatriotas]]
+> Deep research detallado en [[hospedaje-compatriotas-research]]
 
 → Contexto: [[espacio-de-oportunidad]] (Prioridad 0.5)
 → Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]

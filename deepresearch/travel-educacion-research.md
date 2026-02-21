@@ -1,9 +1,10 @@
 ---
 title: "Deep Research: Travel × Educación — TAM/SAM/SOM Chile-LATAM"
+aliases: [travel-educacion-research]
 date: 2026-02-20
-tags: [deepresearch, travel, educacion, mercado]
-idea: "[[2026-02-19-travel-educacion]]"
+tags: [mercado, travel, educacion]
 status: completado
+miro: ""
 ---
 
 # Deep Research: Travel × Educación — TAM/SAM/SOM Chile-LATAM
@@ -426,4 +427,5 @@ El modelo que maximiza transparencia (reviews completamente neutros, sin comisi�
 
 ---
 
-[[2026-02-19-travel-educacion]]
+→ Idea principal: [[2026-02-19-travel-educacion|Travel x Educacion]]
+→ Contexto: [[espacio-de-oportunidad]]

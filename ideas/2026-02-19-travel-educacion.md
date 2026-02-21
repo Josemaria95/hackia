@@ -163,3 +163,10 @@ Esta hipótesis tiene prioridad **baja** — el mercado es más fragmentado y el
 - [ ] Investigar tamaño del mercado de intercambios educativos en LATAM
 - [ ] Identificar jugadores actuales (EF, AFS, programas universitarios propios)
 - [ ] Evaluar si el dolor es suficientemente grande para justificar construcción
+
+---
+
+> Deep research detallado en [[travel-educacion-research]]
+
+→ Contexto: [[espacio-de-oportunidad]] (Prioridad 2)
+→ Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]

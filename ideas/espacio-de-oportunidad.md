@@ -70,7 +70,26 @@ La idea más fuerte del repo. Plataforma B2B2C de bienestar emocional que usa la
 - **Gap honesto**: ninguno es psicólogo (necesitan asesor clínico). Sin experiencia en gamificación ni en productos consumer.
 
 → [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c]] · [[2026-02-20-comunidad-salud-mental-viajes-gamificacion|Brainstorming de variantes]]
-→ [[ruta-viva-salud-mental-cultural-research]] · [[datos-salud-mental-empleados-research]]
+→ [[ruta-viva-salud-mental-cultural-research]]
+
+---
+
+### ⚡ Prioridad 0: Datos de salud mental para modelos de riesgo (B2B)
+**Score: por evaluar** | Urgencia: alta (ventana regulatoria Chile + mercado data de salud)
+
+Plataforma B2B que recolecta datos de salud mental de empleados de forma ética y continua — cruzando cuestionarios validados (PHQ-9, GAD-7, WHO-5, SUSESO/ISTAS-21), datos proxy del HRIS y señales de engagement — para construir modelos de riesgo que predicen burnout, depresión y rotación ANTES de que ocurran.
+
+- El core business es el **dato predictivo**, no la intervención. Las aseguradoras, mutuales y empleadores pagan por saber quién va a tener un claim mañana.
+- Swiss Re + Wysa ya validaron el modelo (partnership activa con aseguradoras en 3 continentes).
+- Chile tiene una puerta de entrada única: SUSESO/ISTAS-21 es obligatorio → todas las empresas ya miden riesgos psicosociales → esta plataforma es la intervención + el monitoreo continuo que falta.
+- Ley 21.719 (dic 2026) endurece regulación de datos de salud → diseñar para cumplimiento desde día 1 es ventaja competitiva vs. incumbentes laxos.
+
+**Fit real del equipo:**
+- Jose: rol central — pipeline ETL multi-fuente, modelos predictivos (Databricks/Spark), dashboard B2B, conoce ciclo de compra enterprise
+- Edgar: experiencia CEAPSI (salud mental), licitaciones públicas, red para validar con profesionales de salud
+- **Gap honesto**: ninguno tiene experiencia en modelos actuariales ni red en aseguradoras/mutuales
+
+→ [[2026-02-20-datos-salud-mental-modelos-riesgo]] · [[datos-salud-mental-empleados-research]] · [[datos-salud-mental-clientes-research]]
 
 ---
 

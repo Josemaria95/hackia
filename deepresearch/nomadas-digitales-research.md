@@ -1,9 +1,10 @@
 ---
 title: "Deep Research: Travel × Nomadismo — TAM/SAM/SOM Chile-LATAM"
+aliases: [nomadas-digitales-research]
 date: 2026-02-20
-tags: [deepresearch, travel, nomadas, mercado]
-idea: "[[2026-02-19-nomadas-digitales]]"
+tags: [mercado, travel, nomadas]
 status: completado
+miro: ""
 ---
 
 # Deep Research: Infraestructura de Datos para Nómadas Digitales — TAM/SAM/SOM Chile-LATAM
@@ -417,4 +418,5 @@ Las cifras de "40 millones de nómadas digitales" incluyen definiciones muy ampl
 
 ---
 
-[[2026-02-19-nomadas-digitales]]
+→ Idea principal: [[2026-02-19-nomadas-digitales|Travel x Nomadismo]]
+→ Contexto: [[espacio-de-oportunidad]]

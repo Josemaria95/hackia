@@ -9,7 +9,10 @@ miro: ""
 
 # Deep Research: Datos de salud mental de empleados — mercado, actores y regulación
 
-> Investigación exhaustiva sobre qué datos de salud mental de empleados existen, quién los valora, quién los recolecta/vende, y cuál es el marco legal. Preparada como insumo estratégico para [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c|Ruta Viva]].
+> Investigación exhaustiva sobre qué datos de salud mental de empleados existen, quién los valora, quién los recolecta/vende, y cuál es el marco legal.
+
+→ Idea principal: [[2026-02-20-datos-salud-mental-modelos-riesgo|Datos de salud mental para modelos de riesgo]]
+→ También alimenta: [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c|Ruta Viva]]
 
 ---
 
@@ -724,3 +727,8 @@ MODELO RECOMENDADO:
 - [Mozilla — Privacy Not Included: Mental Health Apps](https://www.mozillafoundation.org/en/privacynotincluded/articles/are-mental-health-apps-better-or-worse-at-privacy-in-2023/)
 - [Contxto — LATAM Mental Health Startups](https://contxto.com/en/startups/latam-startups-that-focus-on-mental-health/)
 - [Future Market Insights — Stress Tracking Devices](https://www.futuremarketinsights.com/reports/stress-tracking-devices-market)
+
+---
+
+→ Idea principal: [[2026-02-20-datos-salud-mental-modelos-riesgo|Datos de salud mental para modelos de riesgo]]
+→ Contexto: [[espacio-de-oportunidad]]

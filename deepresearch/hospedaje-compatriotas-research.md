@@ -9,7 +9,7 @@ miro: ""
 
 # Deep Research: Hospedaje y guía entre compatriotas en el extranjero
 
-> Investigación detallada como insumo para [[ideas/2026-02-20-hospedaje-guia-compatriotas|Hospedaje y guía entre compatriotas]]
+> Investigación detallada como insumo para [[2026-02-20-hospedaje-guia-compatriotas|Hospedaje y guia entre compatriotas]]
 
 ---
 
@@ -501,4 +501,9 @@ Basado en la investigación, los pasos concretos son:
 
 10. **Contactar a Diaspora.Black**: explorar si hay sinergia o aprendizajes compartidos. Su modelo de Platform 3.0 con AI podría ser referencia técnica.
 11. **Consultar abogado** sobre Fair Housing Act y regulaciones de short-term rental en Madrid/España
-12. **Evaluar si el componente "guía" puede ser el producto standalone** en ciudades donde el hospedaje esté regulado — "Tu guía compatriota en [ciudad]" sin hospedaje
+12. **Evaluar si el componente "guía" puede ser el producto standalone** en ciudades donde el hospedaje esté regulado -- "Tu guia compatriota en [ciudad]" sin hospedaje
+
+---
+
+→ Idea principal: [[2026-02-20-hospedaje-guia-compatriotas|Hospedaje entre compatriotas]]
+→ Contexto: [[espacio-de-oportunidad]]

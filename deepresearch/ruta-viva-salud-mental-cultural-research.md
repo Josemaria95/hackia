@@ -9,7 +9,7 @@ miro: ""
 
 # Deep Research: Ruta Viva — Bienestar emocional y exploración cultural
 
-> Investigación detallada como insumo para [[ideas/2026-02-20-ruta-viva-salud-mental-cultural-b2b2c|Ruta Viva B2B2C]]
+> Investigación detallada como insumo para [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c|Ruta Viva B2B2C]]
 
 ---
 
@@ -500,3 +500,8 @@ Las métricas que importan a cada stakeholder:
 
 ### ¿Qué ciudades de LATAM tienen la mayor diversidad cultural para lanzar primero?
 **Santiago** (1.6M inmigrantes, 8.8% de población), **CDMX** (la más diversa por volumen, 700K+ expats), **São Paulo** (la más multicultural de LATAM por tradición histórica), **Bogotá** (gran comunidad venezolana). Santiago es la mejor opción para MVP por diversidad + fit del equipo + momento político (SERMIG, declaración OMS).
+
+---
+
+→ Idea principal: [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c|Ruta Viva]]
+→ Contexto: [[espacio-de-oportunidad]]

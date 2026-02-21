@@ -121,3 +121,10 @@ graph TD
 - [ ] Jose: mapear los pain points reales de su empresa con viajes corporativos
 - [ ] Identificar si algún competidor ya resuelve esto (y por qué no ha escalado)
 - [ ] Definir el MVP mínimo: ¿encuesta post-viaje + dashboard básico?
+
+---
+
+> Deep research detallado en [[viajes-corporativos-datos-research]]
+
+→ Contexto: [[espacio-de-oportunidad]] (Prioridad 1)
+→ Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]

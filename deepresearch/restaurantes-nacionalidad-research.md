@@ -2,14 +2,14 @@
 title: "Deep Research: Recomendación de restaurantes según nacionalidad del viajero"
 aliases: [restaurantes-nacionalidad-research]
 date: 2026-02-20
-tags: [mercado, travel, producto]
+tags: [mercado, travel]
 status: explorando
 miro: ""
 ---
 
 # Deep Research: Recomendación de restaurantes según nacionalidad del viajero
 
-> Investigación detallada como insumo para [[ideas/2026-02-20-recomendacion-restaurantes-nacionalidad|Recomendación de restaurantes según nacionalidad]]
+> Investigación detallada como insumo para [[2026-02-20-recomendacion-restaurantes-nacionalidad|Recomendacion de restaurantes segun nacionalidad]]
 
 ---
 
@@ -295,3 +295,8 @@ Basado en la investigación, los pasos concretos son:
 5. **Explorar alianza con Qloo**:
    - Qloo tiene la infraestructura de "taste AI" pero no un producto vertical para turistas
    - Investigar si hay oportunidad de construir sobre su API en lugar de competir
+
+---
+
+→ Idea principal: [[2026-02-20-recomendacion-restaurantes-nacionalidad|Restaurantes segun nacionalidad]]
+→ Contexto: [[espacio-de-oportunidad]]
