@@ -54,6 +54,42 @@ No existe en Chile ni en la región andina una solución que combine producto de
 
 ## Hipótesis activas
 
+### ⚡ Prioridad 0: Ruta Viva — Bienestar emocional + exploración cultural (B2B2C)
+**Score: 8.0/10** | Urgencia: alta (white space legítimo, sin competidor directo)
+
+La idea más fuerte del repo. Plataforma B2B2C de bienestar emocional que usa la exploración cultural gamificada **en tu propia ciudad** para reducir soledad, ansiedad social y rigidez mental. Las organizaciones compran licencias por empleado/estudiante y reciben dashboards de impacto en bienestar.
+
+- Soledad declarada prioridad global por la OMS (2023). Chile firmó la declaración conjunta (2024).
+- White space legítimo: nadie combina salud mental + cultura + gamificación + comunidad + B2B2C.
+- Santiago tiene 1.6M inmigrantes (8.8% de población) — contenido cultural abundante.
+- **Absorbe las ideas de restaurantes y hospedaje como features**: restaurante étnico = desafío nivel 2, hospedaje con compatriotas = desafío nivel 5.
+
+**Fit real del equipo:**
+- Edgar: experiencia en CEAPSI (salud mental), conoce licitaciones públicas chilenas, red de contactos en travel para reclutar "guías locales"
+- Jose: pipeline de datos para métricas de bienestar, dashboards B2B (Power BI/Databricks), sabe cómo las empresas aprueban compras de software
+- **Gap honesto**: ninguno es psicólogo (necesitan asesor clínico). Sin experiencia en gamificación ni en productos consumer.
+
+→ [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c]] · [[2026-02-20-comunidad-salud-mental-viajes-gamificacion|Brainstorming de variantes]]
+→ [[ruta-viva-salud-mental-cultural-research]] · [[datos-salud-mental-empleados-research]]
+
+---
+
+### 🟠 Prioridad 0.5: Ideas satélite — features de Ruta Viva o standalone
+
+Estas dos ideas nacieron en la sesión del 20-Feb. Tienen valor propio pero son más fuertes como features dentro de Ruta Viva.
+
+**Hospedaje entre compatriotas** (6.8/10)
+Marketplace que conecta viajeros con compatriotas residentes en el país destino. Match por nacionalidad. Dolor más tangible que restaurantes (seguridad, idioma, aislamiento). Riesgo: cold-start de marketplace y regulaciones de short-term rental.
+
+→ [[2026-02-20-hospedaje-guia-compatriotas]] · [[hospedaje-compatriotas-research]]
+
+**Restaurantes según nacionalidad** (6.2/10)
+Motor de recomendación que personaliza sugerencias gastronómicas según la cultura de origen del viajero. Mercado enorme pero defensibilidad baja (Google podría hacerlo mañana).
+
+→ [[2026-02-20-recomendacion-restaurantes-nacionalidad]] · [[restaurantes-nacionalidad-research]]
+
+---
+
 ### 🔴 Prioridad 1: Bienestar + gestión de viajes corporativos
 **Score mercado: 8/10** | Urgencia: alta (reloj Onfly)
 

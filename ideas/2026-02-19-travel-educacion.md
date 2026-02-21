@@ -11,7 +11,7 @@ miro: ""
 
 > Hipótesis central: **Los programas de intercambio y travel educativo son caros y opacos en resultados — nadie mide qué tan buena inversión es realmente.**
 
-Contexto macro: [[2026-02-19-espacio-de-oportunidad]] | Research de mercado: [[travel-educacion-research]]
+Contexto macro: [[espacio-de-oportunidad]] | Research de mercado: [[travel-educacion-research]]
 
 ---
 

@@ -11,7 +11,7 @@ miro: ""
 
 > Hipótesis central: **El turismo de bienestar crece 2x más rápido que el turismo general pero no hay una capa de datos que lo haga inteligente.**
 
-Contexto macro: [[2026-02-19-espacio-de-oportunidad]] | Research de mercado: [[travel-wellness-research]]
+Contexto macro: [[espacio-de-oportunidad]] | Research de mercado: [[travel-wellness-research]]
 
 ---
 

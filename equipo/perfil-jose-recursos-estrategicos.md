@@ -100,6 +100,10 @@ No es posible identificar contactos nominales desde el CV. Lo que sí se puede h
 | [[2026-02-19-nomadas-digitales]] | Construir el pipeline de datos de destinos (scraping + APIs + limpieza); diseñar la arquitectura de datos del comparador; definir qué datos son confiables vs. ruido | Validar si el nómada digital paga por datos (no es su segmento); generar contenido sobre destinos; conectar con proveedores de alojamiento o coworking |
 | [[2026-02-19-travel-wellness]] | Diseñar el modelo de datos pre/post bienestar; construir la capa de analytics para medir ROI de wellness en empresas; integrar datos de RRHH con datos de proveedores wellness | Identificar qué proveedores de wellness travel existen y tienen datos; entender la experiencia del viajero wellness; acceder al comprador corporativo de beneficios (ese es RRHH, no IT) |
 | [[2026-02-19-travel-educacion]] | Construir un scraper de programas de intercambio y sus precios; modelar la base de datos de outcomes por programa; diseñar métricas de ROI para empresa que financia formación | Validar el dolor con familias o estudiantes (B2C puro); entender el proceso de venta de programas educativos; tiene poco valor agregado aquí vs. las otras hipótesis |
+| [[2026-02-20-ruta-viva-salud-mental-cultural-b2b2c]] | **Rol central.** Pipeline de datos para métricas de bienestar y engagement (UCLA-8, WHO-5, Big Five). Dashboard B2B con Power BI/Databricks para reportes a empresas. Sabe cómo las empresas aprueban compras de software B2B (ciclo de venta, lenguaje para IT vs. finanzas vs. negocio). Puede activar red Baufest para primeros pilotos corporativos. Su propósito ("tecnología que ayude a la gente") está 100% alineado. | No tiene experiencia en gamificación ni en productos consumer. No conoce el ecosistema de wellness B2B2C desde dentro. No tiene red en comunidades de inmigrantes ni en municipalidades. |
+| [[2026-02-20-hospedaje-guia-compatriotas]] | Puede construir la plataforma: matching algorithm, sistema de pagos (Stripe Connect), verificación de identidad, analytics. Ha visto cómo se escalan productos tech en enterprise. Puede diseñar el modelo de datos del marketplace. | No tiene red en comunidades de migrantes ni en el sector de alojamiento. No tiene experiencia con marketplaces two-sided. |
+| [[2026-02-20-recomendacion-restaurantes-nacionalidad]] | Puede construir el pipeline de datos: scraping de reseñas, NLP para clasificar por nacionalidad/idioma (FastText), modelo de recomendación. Conoce cómo integrar estos sistemas en productos enterprise (API B2B para hoteles). | No tiene datos propios de restaurantes ni relaciones en la industria gastronómica. El gap de food-tech es significativo. |
+| [[2026-02-20-comunidad-salud-mental-viajes-gamificacion]] | Brainstorming de variantes que alimentó Ruta Viva. Jose aporta la evaluación de viabilidad técnica de cada variante y el criterio de "¿esto realmente ayuda a alguien?" como filtro. | Las variantes requieren validación — aún no hay hipótesis definida para este brainstorming. |
 
 ---
 
@@ -152,4 +156,4 @@ Acciones que Jose puede hacer **sin necesitar a Edgar ni a un developer**:
 
 ---
 
-[[2026-02-19-espacio-de-oportunidad]]
+[[espacio-de-oportunidad]]

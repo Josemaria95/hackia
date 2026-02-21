@@ -11,7 +11,7 @@ miro: ""
 
 > Hipótesis central: **El mercado de nómadas digitales y reubicación temporal no tiene infraestructura de datos consolidada.**
 
-Contexto macro: [[2026-02-19-espacio-de-oportunidad]] | Research de mercado: [[nomadas-digitales-research]]
+Contexto macro: [[espacio-de-oportunidad]] | Research de mercado: [[nomadas-digitales-research]]
 
 ---
 

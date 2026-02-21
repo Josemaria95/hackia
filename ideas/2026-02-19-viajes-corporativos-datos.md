@@ -11,7 +11,7 @@ miro: ""
 
 > Hipótesis central: **Las empresas no saben si sus políticas de viaje retienen o desgastan talento.**
 
-Contexto macro: [[2026-02-19-espacio-de-oportunidad]] | Research de mercado: [[viajes-corporativos-datos-research]]
+Contexto macro: [[espacio-de-oportunidad]] | Research de mercado: [[viajes-corporativos-datos-research]]
 
 ---
 
