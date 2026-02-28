@@ -54,7 +54,28 @@ No existe en Chile ni en la región andina una solución que combine producto de
 
 ## Hipótesis activas
 
-### ⚡ Prioridad 0: Ruta Viva — Bienestar emocional + exploración cultural (B2B2C)
+### 🏆 Prioridad 0 CONVERGENTE: Hachiko — Tu Refugio en el Bolsillo
+**Status: en-progreso** | Documento maestro: [[hachiko-proyecto-maestro]]
+
+Convergencia de tres ideas del repo en un solo producto coherente:
+- **[[2026-02-20-datos-salud-mental-modelos-riesgo]]** → la capa de datos B2B (el backend estratégico)
+- **[[2026-02-24-tamagotchi-coach-laboral]]** → la capa de gamificación B2B2C (el frontend emocional)
+- **Brand Book** (`assets/brandbook and research comp.md`) → identidad visual y posicionamiento
+
+**Qué es Hachiko**: El puente gamificado entre el mundo HealthTech/investigación y el cambio cultural de cómo LATAM trata la salud mental laboral. La mascota es el frontend emocional. Los datos son el backend estratégico. La transformación cultural es el flywheel de largo plazo.
+
+**Los tres planos**:
+1. Empleado: Cuida a Hachiko (Tamagotchi) → Hachiko lo cuida a él (LLM coach)
+2. Empresa/HR: Dashboard de riesgo agregado por equipo (N≥30, nunca individual)
+3. Mutual/Aseguradora: Modelos de riesgo actuariales, benchmarks de industria, cumplimiento ISTAS-21
+
+**Por qué ahora**: Ley 21.719 (dic 2026) + Circular N°3243 + NOM-035 crean demanda regulatoria built-in. Nadie en YC está atacando este gap: preventivo + datos/predictivo + gamificado + LATAM.
+
+→ Ver [[hachiko-proyecto-maestro]] para arquitectura completa, GTM, modelo de negocio, y primeros pasos.
+
+---
+
+### ⚡ Prioridad 0 (componente): Ruta Viva — Bienestar emocional + exploración cultural (B2B2C)
 **Score: 8.0/10** | Urgencia: alta (white space legítimo, sin competidor directo)
 
 La idea más fuerte del repo. Plataforma B2B2C de bienestar emocional que usa la exploración cultural gamificada **en tu propia ciudad** para reducir soledad, ansiedad social y rigidez mental. Las organizaciones compran licencias por empleado/estudiante y reciben dashboards de impacto en bienestar.

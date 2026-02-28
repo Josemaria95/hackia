@@ -1,0 +1,37 @@
+﻿Brand Book: VitaPet (Concepto)
+Mercado: HealthTech + Gamificación | Público: Latam
+1. Esencia de Marca
+La marca busca transformar el cuidado de la salud de una obligación a una experiencia de acompañamiento emocional. El objetivo es generar confianza médica sin la frialdad de una clínica, utilizando la gamificación como motor de retención.
+Atributos de Personalidad
+* Empatía: Entiende los ritmos del usuario.
+* Optimismo: Celebra cada pequeño logro.
+* Cercanía: Habla como un amigo, no como un doctor.
+* Vitalidad: Refleja energía a través del movimiento y el color.
+2. Estrategia de la Mascota
+La mascota es un "Compañero de Aliento". No es un juez de salud, sino un facilitador que progresa junto al usuario.
+* Morfología: Formas orgánicas, redondeadas y "squishy" (blandas). Evita ángulos rectos para reducir la percepción de "estricto".
+* Interacción: Debe reaccionar físicamente a los hábitos del usuario (parpadear, flotar, cambiar de expresión).
+* Voz y Tono:
+   * Uso de Tú/Vos (cercanía regional).
+   * Humor ligero para notificaciones.
+   * Refuerzo positivo constante.
+3. Identidad Visual
+Paleta de Colores (Regla 60-30-10)
+Para mantener el equilibrio entre "Salud" y "Juego":
+1. Dominante (60%) - Blanco Humo (#F8F9FA): Representa limpieza, orden y espacio para respirar (contexto médico).
+2. Secundario (30%) - Azul Eléctrico (#4A90E2): Representa seguridad, tecnología y confianza en el manejo de datos.
+3. Acento/Mascota (10%) - Verde Menta (#2EE59D): El color de la vida, el crecimiento y la dopamina por logros.
+Acentos de Estado:
+* Coral (#FF7F50): Alertas y llamadas a la acción (CTAs).
+* Amarillo Sol (#FFD166): Recompensas, "Level Up" y felicidad.
+Tipografía
+* Principal (Títulos/Voz): Fredoka. Fuente redondeada que transmite amabilidad y elimina el estrés.
+* Secundaria (Datos/UI): Outfit. Fuente geométrica moderna que asegura legibilidad y un look "tech" profesional.
+4. Principios de Gamificación
+* Feedback Inmediato: Cada acción de salud (ej. tomar agua) genera una reacción visual de la mascota.
+* Progresión Visual: La mascota gana accesorios o cambia de entorno conforme el usuario sube de nivel.
+* Micro-momentos de Alegría: Animaciones cortas y vibrantes para evitar que el registro de datos se sienta como una tarea.
+5. Aplicación en Producto (UX/UI)
+* Layout: Limpio, con tarjetas de bordes muy redondeados (mínimo 24px).
+* Micro-copys: "¡Buen trabajo!", "Vamos por un poco de agua", "Me siento con mucha energía gracias a ti".
+* Navegación: Iconografía minimalista con grosores de línea consistentes con la tipografía Outfit.
