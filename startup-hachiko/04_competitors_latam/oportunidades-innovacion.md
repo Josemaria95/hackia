@@ -66,12 +66,12 @@ Resultado: datos mas honestos, mas frecuentes, sin fatiga.
 
 ---
 
-## Gap 3: Canal mutuales sin herramienta digital de intervencion
+## Gap 3: Canal mutuales sin herramienta digital de prevencion
 
 ### Que existe hoy
 - Las mutuales chilenas (ACHS, Mutual de Seguridad, IST) estan obligadas por la Circular N°3243 a intervenir en empresas con riesgo alto en ISTAS-21
 - Las herramientas disponibles son: talleres presenciales, consultoria de psicologos laborales, material impreso, cartillas PDF
-- No existe una herramienta digital que la mutual pueda ofrecer a sus empresas afiliadas para intervencion continua
+- No existe una herramienta digital que la mutual pueda ofrecer a sus empresas afiliadas para prevencion continua
 
 ### Por que falla lo existente
 - Los talleres presenciales tienen alcance limitado (1-2 horas, no escalable)
@@ -174,7 +174,7 @@ Importante: todos los cruces se hacen con datos **agregados por equipo/departame
 El compliance regulatorio en salud mental laboral en LATAM se maneja como un proceso separado del wellness:
 - La empresa aplica ISTAS-21 por un lado (o contrata consultora)
 - Compra una app de wellness por otro lado
-- No hay conexion entre el diagnostico regulatorio y la herramienta de intervencion
+- No hay conexion entre el diagnostico regulatorio y la herramienta de prevencion
 
 ### Como Hachiko llena el gap
 Compliance como feature nativa del producto:

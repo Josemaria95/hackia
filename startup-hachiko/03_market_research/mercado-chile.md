@@ -46,10 +46,10 @@ El cuestionario evalua 5 dimensiones de riesgo psicosocial:
 ### Limitaciones actuales del ISTAS-21
 - **Una foto al ano:** no captura variacion estacional ni el impacto de eventos puntuales
 - **Efecto encuesta:** empleados responden lo que creen que HR quiere escuchar, o boicotean por desconfianza
-- **Sin herramienta de intervencion:** el ISTAS-21 diagnostica pero no ofrece solucion. Las empresas quedan solas para intervenir
+- **Sin herramienta de prevencion continua:** el ISTAS-21 diagnostica pero no ofrece solucion. Las empresas quedan solas para intervenir
 - **Datos no accionables en tiempo real:** los resultados llegan semanas despues de la aplicacion
 
-**Oportunidad para Hachiko:** ser la herramienta de intervencion continua que el ISTAS-21 no provee — monitoreo en tiempo real que complementa la foto anual.
+**Oportunidad para Hachiko:** ser la herramienta de prevencion continua que el ISTAS-21 no provee — monitoreo en tiempo real que complementa la foto anual.
 
 ---
 
@@ -68,7 +68,7 @@ Las mutuales cumplen esta obligacion con:
 - Talleres presenciales (1-2 horas, baja retencion)
 - Material impreso / cartillas PDF
 - Consultoria puntual de psicologos laborales
-- **No tienen herramienta digital escalable** para intervencion continua
+- **No tienen herramienta digital escalable** de prevencion continua
 
 ### Oportunidad para Hachiko
 Un producto white-label que la mutual ofrece a sus empresas afiliadas como parte de su asistencia tecnica. La mutual cumple la Circular, la empresa recibe una herramienta real, y Hachiko gana distribucion masiva.
@@ -173,11 +173,11 @@ ISTAS-21 diagnostica ──→ identifica riesgo alto ──→ Circular N°3243
                                                             │
                                                             ▼
                                                    Hachiko: herramienta digital de
-                                                   intervencion continua, medible,
+                                                   prevencion continua, medible,
                                                    escalable, que cumple Ley 21.719
 ```
 
-**No existe hoy en Chile una herramienta digital de intervencion post-ISTAS-21 que sea:**
+**No existe hoy en Chile una herramienta digital de prevencion continua post-ISTAS-21 que sea:**
 1. Continua (no puntual)
 2. Medible (con datos en tiempo real)
 3. Escalable (via mutuales)

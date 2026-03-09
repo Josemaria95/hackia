@@ -120,7 +120,7 @@ Ocho tendencias macro que definen el espacio donde Hachiko opera. Cada una repre
 - Las mutuales buscan activamente soluciones digitales escalables para cumplir esta obligacion.
 - Un contrato con una mutual da acceso inmediato a decenas de miles de empresas afiliadas.
 
-**Implicacion para Hachiko:** El modelo white-label para mutuales ($2-4/emp/mes) es potencialmente el canal de distribucion mas poderoso. Una mutual que adopte Hachiko como herramienta de intervencion post-ISTAS-21 genera escala inmediata sin CAC directo por empresa.
+**Implicacion para Hachiko:** El modelo white-label para mutuales ($2-4/emp/mes) es potencialmente el canal de distribucion mas poderoso. Una mutual que adopte Hachiko como herramienta de prevencion continua post-ISTAS-21 genera escala inmediata sin CAC directo por empresa.
 
 **Riesgo:** Las mutuales son lentas para decidir (6-12 meses), tienen politicas de adquisicion rigidas, y pueden intentar construir internamente. Hay que llegar primero y demostrar resultados en piloto.
 

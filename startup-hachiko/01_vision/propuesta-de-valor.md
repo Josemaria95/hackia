@@ -91,7 +91,7 @@ Hachiko opera en tres planos simultaneos (ver [[hachiko-proyecto-maestro]], secc
 
 ### Pains
 
-- ISTAS-21 genera el diagnostico pero no tienen herramienta digital para la intervencion
+- ISTAS-21 genera el diagnostico pero no tienen herramienta digital de prevencion continua
 - Asisten a miles de empresas con procesos manuales y consultores presenciales
 - No tienen datos longitudinales de bienestar — solo la foto anual del ISTAS
 - Los claims de salud mental crecen ano a ano sin visibilidad predictiva
@@ -112,7 +112,7 @@ Hachiko opera en tres planos simultaneos (ver [[hachiko-proyecto-maestro]], secc
 
 | Componente | Empleado | HR Manager | Mutual |
 |------------|----------|------------|--------|
-| Mascota virtual con coaching IA | Companero emocional + micro-coaching diario | Alta participacion voluntaria | Herramienta de intervencion post-ISTAS |
+| Mascota virtual con coaching IA | Companero emocional + micro-coaching diario | Alta participacion voluntaria | Herramienta de prevencion continua post-ISTAS |
 | Instrumentos clinicos camuflados (WHO-5, PHQ-2, GAD-7) | "Como amanecio tu pet?" — no siente que lo miden | Datos de bienestar continuos, no solo anuales | Medicion longitudinal para modelos de riesgo |
 | Dashboard de riesgo agregado | No lo ve (privacidad) | Indicadores por equipo, alertas tempranas | Benchmarks por industria y region |
 | Integracion HRIS | No lo ve | Cruza bienestar con ausentismo, rotacion, overtime | Datos enriquecidos para scoring |
@@ -131,7 +131,7 @@ Hachiko opera en tres planos simultaneos (ver [[hachiko-proyecto-maestro]], secc
 > "Datos continuos de bienestar laboral por equipo, con alertas tempranas de riesgo, sin invadir la privacidad del empleado — y con participacion superior al 65%."
 
 ### Para la mutual
-> "La intervencion digital post-ISTAS-21 que necesitas desplegar en miles de empresas, con datos que mejoran tus modelos actuariales."
+> "La herramienta de prevencion continua post-ISTAS-21 que necesitas desplegar en miles de empresas, con datos que mejoran tus modelos actuariales."
 
 ### UVP consolidada
 > **Hachiko transforma la obligacion de medir salud mental laboral en una experiencia que el empleado quiere usar, que HR puede medir, y que la mutual puede escalar — con privacidad radical y datos predictivos que hoy no existen en LATAM.**

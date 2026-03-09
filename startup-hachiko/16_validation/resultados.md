@@ -47,7 +47,7 @@ Este documento se ira llenando a medida que se ejecuten los experimentos de vali
 
 ---
 
-## Hipotesis 4: Mutuales adoptan herramienta digital post-ISTAS-21
+## Hipotesis 4: Mutuales adoptan herramienta digital de prevencion post-ISTAS-21
 
 **Fecha de prueba**:
 **Metodo**:

@@ -62,7 +62,7 @@ Metodologia general: Lean Startup (build-measure-learn), entrevistas Jobs-to-be-
 
 ## H4
 
-**"Las mutuales necesitan y adoptaran una herramienta digital de intervencion post-ISTAS-21."**
+**"Las mutuales necesitan y adoptaran una herramienta digital de prevencion continua post-ISTAS-21."**
 
 - **Test**: Entrevistar a 2-3 contactos en mutuales (ACHS, Mutual de Seguridad, IST). Entender su proceso actual, presupuesto y disposicion a adoptar herramientas externas.
 - **Metricas**:

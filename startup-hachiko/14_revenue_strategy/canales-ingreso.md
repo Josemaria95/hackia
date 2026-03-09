@@ -61,7 +61,7 @@ status: en-progreso
 - LTV:CAC de 45:1 a 65:1 (el mejor ratio de todos los canales)
 - Volumen masivo: una mutual tiene miles de empresas afiliadas
 - Credibilidad instantanea: "respaldado por ACHS" abre puertas
-- Alineacion regulatoria: las mutuales necesitan herramientas post-ISTAS-21
+- Alineacion regulatoria: las mutuales necesitan herramientas de prevencion continua post-ISTAS-21
 
 **Riesgos:**
 - Ciclo de decision muy largo (meses de comites)

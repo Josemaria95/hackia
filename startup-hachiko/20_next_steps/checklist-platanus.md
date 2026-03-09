@@ -7,25 +7,36 @@ status: en-progreso
 
 # Checklist — Aplicacion a Platanus Venture
 
+> **DEADLINE: Sabado 29 de marzo 2026 a las 23:59**
+> Platanus abrio el 4 de marzo. Quedan 21 dias desde el 8 de marzo.
+> Se aplica SIN datos de piloto — con demo funcional, research, equipo y LOIs tempranas.
+
 ---
 
-## Antes de aplicar
+## Antes de aplicar (todo listo para el 28 de marzo)
 
-### Producto
-- [ ] MVP funcional (app movil + dashboard HR)
-- [ ] Al menos 1 piloto completado con metricas documentadas
-- [ ] Participation rate >60% en piloto (Dia 30)
-- [ ] Al menos 1 HR manager dice "pagaria por esto" (con precio)
+### Producto (lo que podemos mostrar sin piloto)
+- [ ] MVP funcional demostrable (app movil + dashboard HR)
+- [ ] Video demo de 2-3 minutos (flujo completo: onboarding → check-in → mascota → dashboard)
+- [ ] Screenshots reales de la app para el deck
+- [ ] Al menos 1 LOI de empresa comprometida para piloto
 
 ### Materiales
 - [ ] One-pager de 1 pagina (PDF)
-- [ ] Pitch deck (10-12 slides)
+- [ ] Pitch deck (10-12 slides) — con demo, NO con metricas de piloto
 - [ ] Proyecciones financieras (12-18 meses)
 - [ ] Ask claro: cuanto piden y para que se usara
+- [ ] Formulario de aplicacion de Platanus completo
 
 ### Equipo
 - [ ] Perfiles de founders actualizados
 - [ ] Narrativa de por que este equipo para este problema
+
+### Evidencia sin piloto (lo que SI podemos incluir)
+- [ ] Research de mercado (TAM/SAM/SOM, regulacion chilena, competidores)
+- [ ] Validacion clinica (feedback de psicologo sobre instrumentos camuflados)
+- [ ] Feedback cualitativo de HR managers (entrevistas de discovery)
+- [ ] LOIs o cartas de intencion de empresas interesadas en piloto
 
 ---
 
@@ -38,7 +49,7 @@ status: en-progreso
 
 ### Slide 2: Problema
 - $1 trillon perdido globalmente por depresion y ansiedad en el trabajo (OMS).
-- En Chile: ISTAS-21 muestra el problema pero no existe solucion digital para la intervencion.
+- En Chile: ISTAS-21 muestra el problema pero no existe solucion digital de prevencion continua.
 - Las herramientas actuales tienen <5% de adoption rate.
 - Los empleados no confian en las herramientas de su empresa.
 
@@ -56,7 +67,7 @@ status: en-progreso
 ### Slide 5: Como funciona — 3 planos
 - **Empleado**: cuida a su mascota, recibe coaching, sus datos son privados.
 - **Empresa (HR)**: dashboard con datos agregados por equipo, alertas de riesgo, reportes de cumplimiento.
-- **Mutual**: herramienta de intervencion post-ISTAS-21 para sus empresas afiliadas.
+- **Mutual**: herramienta de prevencion continua que complementa el ISTAS-21 para sus empresas afiliadas.
 
 ### Slide 6: Mercado
 - TAM: $15.6B (salud mental corporativa global).
@@ -116,16 +127,15 @@ status: en-progreso
 
 ---
 
-## Timeline de preparacion
+## Timeline de preparacion (21 dias: Mar 8-29)
 
-| Semana | Actividad | Owner |
-|--------|----------|-------|
-| Semana 1-2 | Construir MVP (Sprint 1) | Jose |
-| Semana 3-4 | Piloto + recolectar metricas (Sprint 2) | Ambos |
-| Semana 5 | Preparar deck con datos reales del piloto | Edgar |
-| Semana 5 | Proyecciones financieras | Jose |
-| Semana 6 | Revisar deck, practicar pitch | Ambos |
-| Semana 6 | Aplicar a Platanus | Ambos |
+| Semana | Fechas | Actividad | Owner |
+|--------|--------|----------|-------|
+| Semana 1 | Mar 8-14 | MVP core (mascota + check-in + API) + estructura deck + outreach empresas | Jose (tech), Edgar (deck + ventas) |
+| Semana 2 | Mar 15-21 | MVP completo (dashboard + auth + coaching) + discovery HR + psicologo | Jose (tech), Edgar (validacion) |
+| Semana 3 | Mar 22-28 | Testing + deploy + video demo + deck final + formulario Platanus | Ambos |
+| **★ Deadline** | **Mar 29** | **Enviar aplicacion antes de las 23:59** | **Ambos** |
+| Post-Platanus | Abr 1+ | Lanzar pilotos. Si Platanus invita a entrevistas, actualizar deck con data real. | Ambos |
 
 ---
 

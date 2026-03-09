@@ -103,7 +103,7 @@ Negociacion de contrato (legal, TI, finanzas) ──→ Firma ──→ Rollout 
 ## Como Hachiko le vende a Patricia
 
 ### Primer contacto
-Patricia asiste a un seminario de SUSESO sobre innovacion en prevencion de riesgos psicosociales. Hachiko presenta un caso: "Empresa mediana reduce risk score de 7.2 a 5.8 en 90 dias con herramienta digital de intervencion continua". Patricia se acerca despues de la presentacion.
+Patricia asiste a un seminario de SUSESO sobre innovacion en prevencion de riesgos psicosociales. Hachiko presenta un caso: "Empresa mediana reduce risk score de 7.2 a 5.8 en 90 dias con herramienta digital de prevencion continua". Patricia se acerca despues de la presentacion.
 
 ### La propuesta
 Hachiko le propone un modelo white-label:
@@ -115,7 +115,7 @@ Hachiko le propone un modelo white-label:
 ### Lo que la convence
 1. **Escala:** una herramienta digital llega a 10,000 empleados al mismo tiempo. 15 psicologos, no.
 2. **Medicion:** puede demostrar a SUSESO que la intervencion funciona con datos longitudinales, no con fotos de talleres.
-3. **Diferenciacion:** si su mutual es la primera en ofrecer una herramienta digital de intervencion, gana ventaja competitiva sobre las otras 2 mutuales.
+3. **Diferenciacion:** si su mutual es la primera en ofrecer una herramienta digital de prevencion continua, gana ventaja competitiva sobre las otras 2 mutuales.
 4. **Costo-efectividad:** $3/emp/mes x 10,000 empleados = $30,000/mes. Vs enviar psicologos a 50 empresas: $150,000/mes.
 5. **Compliance Ley 21.719:** Hachiko ya cumple la nueva ley de datos — la mutual no tiene que preocuparse por riesgo legal.
 
@@ -157,7 +157,7 @@ Si el piloto funciona y se firma contrato con la mutual:
 |---------|-------------------|-------------------|
 | Cobertura (empresas atendidas) | Cumplimiento de Circular N°3243 | Dashboard mutual: empresas activas vs empresas con riesgo alto |
 | Tasa de adopcion por empresa | Demuestra que la herramienta se usa (no como los talleres) | Dashboard mutual: % empleados activos por empresa |
-| Cambio en risk score | Evidencia de que la intervencion funciona | Dashboard mutual: tendencia por empresa y agregado |
+| Cambio en risk score | Evidencia de que la prevencion funciona | Dashboard mutual: tendencia por empresa y agregado |
 | Costo por empleado intervenido | Justifica presupuesto vs intervencion presencial | Reporte automatico de costo-efectividad |
 | Satisfaccion de empresa afiliada | Retencion de afiliados en la mutual | NPS del HR manager (encuesta integrada) |
 | Reporte para SUSESO | Evidencia formal de intervencion | Exportacion automatica de datos de intervencion |

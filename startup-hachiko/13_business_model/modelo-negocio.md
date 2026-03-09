@@ -17,7 +17,7 @@ status: en-progreso
 ## Key Activities
 
 - Desarrollo y mantenimiento de la app (frontend + backend + modelos de IA)
-- Coaching IA: entrenamiento y ajuste de modelos de lenguaje para intervenciones de bienestar
+- Coaching IA: entrenamiento y ajuste de modelos de lenguaje para prevencion y bienestar
 - Pipeline de datos: ingesta, procesamiento y anonimizacion de datos de bienestar laboral
 - Venta B2B: ciclo consultivo con HR managers y decision makers
 - Validacion clinica: estudios con universidades y mutuales para demostrar eficacia
@@ -44,7 +44,7 @@ status: en-progreso
 - Dashboard con alertas tempranas por area/equipo
 
 **Para la mutual (channel + buyer):**
-- Herramienta digital de intervencion post-ISTAS-21
+- Herramienta digital de prevencion continua que complementa el ISTAS-21
 - Reduccion de claims y siniestralidad laboral
 - White-label bajo su propia marca
 - Datos agregados para actualizacion de protocolos

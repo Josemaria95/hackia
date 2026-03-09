@@ -23,7 +23,7 @@ Transformar la salud mental laboral en LATAM, pasando de encuestas puntuales y p
 |----------|-----|----------------------|
 | **Empleados** | End-user | Usan la app diariamente: cuidan a su mascota virtual, reciben coaching personalizado. Generan datos como consecuencia del juego. |
 | **HR Managers** | Comprador / Decision-maker | Acceden al dashboard B2B con metricas agregadas de riesgo, participacion y tendencias. Justifican la compra ante CFO. |
-| **Mutuales** (ACHS, Mutual de Seguridad, IST) | Canal de distribucion | Despliegan Hachiko como herramienta de intervencion post-ISTAS-21. Acceso a ~270,000 empresas afiliadas en Chile. |
+| **Mutuales** (ACHS, Mutual de Seguridad, IST) | Canal de distribucion | Despliegan Hachiko como herramienta de prevencion continua que complementa el ISTAS-21. Acceso a ~270,000 empresas afiliadas en Chile. |
 | **CFO / Finance** | Aprobador de presupuesto | Necesita ver ROI: reduccion de rotacion, ausentismo, siniestralidad. |
 | **Psicologo organizacional** | Asesor clinico | Valida que los instrumentos camuflados (PHQ-2, WHO-5) mantengan validez psicometrica. |
 
@@ -45,7 +45,7 @@ Transformar la salud mental laboral en LATAM, pasando de encuestas puntuales y p
 - Participacion alta del equipo (>60%) sin tener que obligar a nadie
 
 ### Mutuales
-- Herramienta digital de intervencion para cumplir con la Circular N°3243 de SUSESO
+- Herramienta digital de prevencion continua para cumplir con la Circular N°3243 de SUSESO
 - Benchmarks por industria para priorizar sus propios recursos de prevencion
 - Reduccion de siniestralidad medible (claims de salud mental)
 - Solucion white-label que puedan desplegar bajo su propia marca

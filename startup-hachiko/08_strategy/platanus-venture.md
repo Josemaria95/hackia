@@ -91,7 +91,7 @@ Este insight viene de la interseccion de tres campos que raramente se cruzan:
 | Moat | Por que es dificil de replicar |
 |------|-------------------------------|
 | **Datos longitudinales propietarios** | Cada semana de uso acumula datos que nadie mas tiene. Un competidor necesita 12+ meses para igualar. |
-| **Canal mutuales** | Si Hachiko es la herramienta estandar de intervencion post-ISTAS-21 de una mutual, el switching cost es alto. |
+| **Canal mutuales** | Si Hachiko es la herramienta estandar de prevencion continua que complementa el ISTAS-21 de una mutual, el switching cost es alto. |
 | **Cumplimiento regulatorio** | Disenado para Ley 21.719 desde dia 1. Competidores internacionales (Spring Health, Lyra) no estan en Chile ni cumplen regulacion local. |
 | **Confianza cultural** | En un mercado post-BetterHelp/Cerebral, la confianza del usuario es el activo mas escaso. Track record limpio + Privacy Manifesto auditado = ventaja no-comprable. |
 

@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hachiko — Estrategia Completa</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #F8F9FA;
+  --blue: #4A90E2;
+  --blue-dark: #2A6FC2;
+  --green: #2EE59D;
+  --green-dark: #1CB87A;
+  --coral: #FF7F50;
+  --yellow: #FFD166;
+  --dark: #1A1A2E;
+  --dark-soft: #2D2D44;
+  --gray: #6B7280;
+  --gray-light: #E5E7EB;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Slide container */
+.deck {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 80px;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.slide.prev {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+/* Slide layouts */
+.slide-content {
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Typography */
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--green);
+}
+
+h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+p, li {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #D1D5DB;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: var(--gray);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+strong { color: var(--white); font-weight: 600; }
+
+/* Accent text */
+.accent { color: var(--green); }
+.accent-blue { color: var(--blue); }
+.accent-coral { color: var(--coral); }
+.accent-yellow { color: var(--yellow); }
+
+/* Big number */
+.big-number {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.big-number-label {
+  font-size: 1.1rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  transition: border-color 0.3s;
+}
+
+.card:hover { border-color: var(--blue); }
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 0.95rem;
+}
+
+th {
+  text-align: left;
+  padding: 12px 16px;
+  background: rgba(74,144,226,0.15);
+  color: var(--blue);
+  font-weight: 600;
+  border-bottom: 2px solid rgba(74,144,226,0.3);
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: #D1D5DB;
+}
+
+tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Diagram boxes */
+.diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 32px 0;
+}
+
+.diagram-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  background: rgba(74,144,226,0.12);
+  border: 1px solid rgba(74,144,226,0.3);
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 0.95rem;
+  min-width: 160px;
+}
+
+.box.green {
+  background: rgba(46,229,157,0.1);
+  border-color: rgba(46,229,157,0.3);
+}
+
+.box.coral {
+  background: rgba(255,127,80,0.1);
+  border-color: rgba(255,127,80,0.3);
+}
+
+.box.yellow {
+  background: rgba(255,209,102,0.1);
+  border-color: rgba(255,209,102,0.3);
+}
+
+.arrow-down {
+  font-size: 1.4rem;
+  color: var(--gray);
+}
+
+/* Two columns */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 24px;
+}
+
+.two-col-wide {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  margin-top: 24px;
+}
+
+/* Lists */
+ul { list-style: none; padding-left: 0; }
+ul li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+}
+
+/* Versus layout */
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.8rem;
+  color: var(--coral);
+  padding-top: 40px;
+}
+
+/* Quadrant map */
+.quadrant {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  margin: 24px auto;
+}
+
+.quadrant-axis-x, .quadrant-axis-y {
+  position: absolute;
+  background: rgba(255,255,255,0.15);
+}
+
+.quadrant-axis-x {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.quadrant-axis-y {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+.q-label {
+  position: absolute;
+  font-size: 0.75rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.q-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.q-dot-label {
+  position: absolute;
+  transform: translate(-50%, 12px);
+  font-size: 0.7rem;
+  color: #D1D5DB;
+  white-space: nowrap;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-top: 24px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue), var(--green));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid var(--dark);
+}
+
+.timeline-item.active-item::before {
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(46,229,157,0.4);
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.timeline-text {
+  font-size: 0.95rem;
+  color: #D1D5DB;
+}
+
+.timeline-amount {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--green);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Flywheel */
+.flywheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.fly-step {
+  background: rgba(74,144,226,0.08);
+  border: 1px solid rgba(74,144,226,0.2);
+  border-radius: 12px;
+  padding: 14px 32px;
+  text-align: center;
+  font-size: 0.95rem;
+  width: 70%;
+  color: #D1D5DB;
+  transition: all 0.3s;
+}
+
+.fly-step:hover {
+  border-color: var(--green);
+  background: rgba(46,229,157,0.06);
+}
+
+.fly-arrow {
+  color: var(--green);
+  font-size: 1.2rem;
+}
+
+/* Tag pills */
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tag {
+  background: rgba(74,144,226,0.15);
+  color: var(--blue);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag.green { background: rgba(46,229,157,0.12); color: var(--green); }
+.tag.coral { background: rgba(255,127,80,0.12); color: var(--coral); }
+
+/* Stat row */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 6px;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: linear-gradient(transparent, rgba(26,26,46,0.95));
+  z-index: 100;
+}
+
+.nav-btn {
+  background: rgba(74,144,226,0.15);
+  border: 1px solid rgba(74,144,226,0.3);
+  color: var(--blue);
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(74,144,226,0.25);
+  border-color: var(--blue);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.nav-counter {
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  transition: width 0.4s ease;
+  z-index: 101;
+}
+
+/* Special slides */
+.slide-cover {
+  background: radial-gradient(ellipse at 30% 50%, rgba(74,144,226,0.08) 0%, transparent 70%),
+              radial-gradient(ellipse at 70% 80%, rgba(46,229,157,0.06) 0%, transparent 60%);
+}
+
+.slide-dark {
+  background: var(--dark);
+}
+
+.slide-blue {
+  background: linear-gradient(135deg, #1e3a5f 0%, var(--dark) 100%);
+}
+
+.slide-accent {
+  background: radial-gradient(ellipse at 50% 50%, rgba(46,229,157,0.06) 0%, transparent 70%);
+}
+
+/* Risk bar */
+.risk-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0;
+}
+
+.risk-fill {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--coral);
+}
+
+.risk-label {
+  font-size: 0.85rem;
+  color: #D1D5DB;
+  min-width: 200px;
+}
+
+.risk-score {
+  font-size: 0.85rem;
+  color: var(--coral);
+  font-weight: 600;
+  min-width: 30px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .slide { padding: 40px 32px; }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.6rem; }
+  .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 24px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .cards { grid-template-columns: 1fr; }
+  .quadrant { width: 300px; height: 260px; }
+}
+
+/* Keyboard hint */
+.kb-hint {
+  position: fixed;
+  bottom: 60px;
+  right: 40px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+  z-index: 100;
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 0: Cover -->
+<div class="slide slide-cover active" data-slide="0">
+  <div class="slide-content" style="text-align:center;">
+    <p style="font-size:0.9rem; color:var(--blue); letter-spacing:4px; text-transform:uppercase; margin-bottom:24px;">Estrategia completa</p>
+    <h1 style="font-size:4.5rem; margin-bottom:4px;">Hachiko</h1>
+    <p style="font-family:'Fredoka'; font-size:1.6rem; color:var(--green); margin-bottom:48px;">Tu Refugio en el Bolsillo</p>
+    <p style="color:var(--gray); font-size:1.1rem; max-width:600px; margin:0 auto 48px;">Una mascota virtual que transforma el cuidado de la salud mental laboral en datos accionables — sin que nadie se sienta vigilado.</p>
+    <div class="tags" style="justify-content:center;">
+      <span class="tag">HealthTech</span>
+      <span class="tag green">Gamificacion</span>
+      <span class="tag">B2B2C</span>
+      <span class="tag green">LATAM</span>
+    </div>
+    <p style="color:var(--gray); font-size:0.85rem; margin-top:60px;">Edgar &amp; Jose | Marzo 2026</p>
+  </div>
+</div>
+
+<!-- SLIDE 1: El problema -->
+<div class="slide slide-dark" data-slide="1">
+  <div class="slide-content">
+    <h2>El Problema</h2>
+    <h1>La gente se enferma de estres en el trabajo <br><span class="accent-coral">y nadie se da cuenta hasta que es tarde</span></h1>
+    <div class="stats" style="margin-top:48px;">
+      <div class="stat">
+        <div class="stat-number" style="color:var(--coral);">$1T</div>
+        <div class="stat-label">perdidos al ano por depresion y ansiedad laboral (OMS)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3-5%</div>
+        <div class="stat-label">de empleados usan los programas de asistencia (EAP)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="color:var(--yellow);">1x</div>
+        <div class="stat-label">al ano se mide el riesgo psicosocial (ISTAS-21)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="color:var(--coral);">0</div>
+        <div class="stat-label">herramientas digitales de prevencion continua en LATAM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: Lo que existe no funciona -->
+<div class="slide" data-slide="2">
+  <div class="slide-content">
+    <h2>Hoy</h2>
+    <h1>Lo que existe no funciona</h1>
+    <table style="margin-top:32px;">
+      <thead>
+        <tr><th>Que hacen hoy</th><th>Cual es el problema</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Encuesta anual (ISTAS-21)</strong></td><td>Es una foto de un dia. No muestra tendencias. Cuando ves los resultados, ya paso.</td></tr>
+        <tr><td><strong>Programas de asistencia (EAP)</strong></td><td>Solo 3-5% lo usa. Ir al psicologo "de la empresa" da miedo.</td></tr>
+        <tr><td><strong>Yoga, fruta, meditacion</strong></td><td>Suena bonito pero no se mide. El CEO pregunta "cuanto nos ahorra?" y nadie responde.</td></tr>
+        <tr><td><strong>Encuestas de clima</strong></td><td>Nadie las llena con honestidad. Se archivan y no pasa nada.</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:32px; font-size:1.1rem; color:var(--coral); font-weight:500;">Resultado: cuando HR se entera de que alguien tiene burnout, es porque ya renuncio o se tomo licencia.</p>
+  </div>
+</div>
+
+<!-- SLIDE 3: La pregunta -->
+<div class="slide slide-blue" data-slide="3">
+  <div class="slide-content" style="text-align:center;">
+    <h2 style="font-size:1rem; letter-spacing:3px; text-transform:uppercase;">La pregunta clave</h2>
+    <h1 style="font-size:2.6rem; max-width:800px; margin: 32px auto;">Como haces que un empleado te cuente voluntariamente como se siente, <span class="accent">todos los dias</span>, sin que sienta que lo estan vigilando?</h1>
+    <div class="two-col" style="max-width:700px; margin:48px auto 0; text-align:left;">
+      <div>
+        <p style="font-size:1.5rem; color:var(--coral); font-family:'Fredoka'; margin-bottom:12px;">Hoy</p>
+        <p>"Califica tu nivel de estres del 1 al 5"</p>
+        <p style="color:var(--gray); font-size:0.9rem; margin-top:8px;">El empleado pone 3 para que nadie pregunte. O no lo llena.</p>
+      </div>
+      <div>
+        <p style="font-size:1.5rem; color:var(--green); font-family:'Fredoka'; margin-bottom:12px;">Con Hachiko</p>
+        <p>"Tu mascota esta cansada... que paso hoy?"</p>
+        <p style="color:var(--gray); font-size:0.9rem; margin-top:8px;">El empleado cuida a su pet. Los datos son consecuencia del juego.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: La idea -->
+<div class="slide slide-accent" data-slide="4">
+  <div class="slide-content">
+    <h2>La Solucion</h2>
+    <h1>Una mascota virtual que recolecta datos de salud mental <span class="accent">a traves del juego</span></h1>
+    <div class="two-col" style="margin-top:40px;">
+      <div>
+        <h3 style="color:var(--green);">Lo que el usuario ve</h3>
+        <ul>
+          <li><strong>"Tu mascota esta cansada"</strong> — le pregunta como estuvo su dia</li>
+          <li><strong>"Como amanecio tu pet?"</strong> — revisa su bienestar semanal</li>
+          <li><strong>"Tu pet evoluciono"</strong> — celebra su constancia</li>
+          <li><strong>Un consejo personalizado</strong> — coaching diario en 90 segundos</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--blue);">Lo que el sistema mide</h3>
+        <ul>
+          <li><strong>PHQ-2 proxy</strong> — nivel de energia + estado de animo (depresion)</li>
+          <li><strong>WHO-5</strong> — indice de bienestar validado clinicamente</li>
+          <li><strong>Engagement</strong> — frecuencia, horarios, patrones de uso</li>
+          <li><strong>Risk score</strong> — datos agregados para el dashboard de HR</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:36px; text-align:center; font-size:1.15rem; color:var(--green); font-weight:500;">El empleado no esta siendo medido. Esta cuidando algo.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5: Tres niveles de datos -->
+<div class="slide" data-slide="5">
+  <div class="slide-content">
+    <h2>Tres Niveles</h2>
+    <h1>Los datos sirven a todos sin sacrificar a nadie</h1>
+    <div class="diagram" style="margin-top:36px;">
+      <div class="box green" style="width:70%;">
+        <strong style="color:var(--green);">Nivel 1 — Para el empleado</strong><br>
+        <span style="font-size:0.9rem;">Su mascota, su coach, sus insights. Todo privado. Puede borrar sus datos cuando quiera.</span>
+      </div>
+      <div class="arrow-down">&#9660;</div>
+      <p style="font-size:0.75rem; color:var(--gray);">datos anonimizados, nunca individuales, solo si N &ge; 30</p>
+      <div class="arrow-down">&#9660;</div>
+      <div class="box" style="width:70%;">
+        <strong style="color:var(--blue);">Nivel 2 — Para RRHH / la empresa</strong><br>
+        <span style="font-size:0.9rem;">Dashboard: "El equipo de Ventas tiene riesgo alto de burnout". NUNCA: "Juan Perez esta deprimido".</span>
+      </div>
+      <div class="arrow-down">&#9660;</div>
+      <p style="font-size:0.75rem; color:var(--gray);">estadisticas de muchas empresas, minimo N &ge; 100</p>
+      <div class="arrow-down">&#9660;</div>
+      <div class="box yellow" style="width:70%;">
+        <strong style="color:var(--yellow);">Nivel 3 — Para mutuales / aseguradoras</strong><br>
+        <span style="font-size:0.9rem;">Benchmarks: "Las empresas tech tienen 40% mas estres que retail". Modelos de riesgo actuarial.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: Que es una mutual -->
+<div class="slide slide-blue" data-slide="6">
+  <div class="slide-content">
+    <h2>Contexto clave</h2>
+    <h1>Que es una mutual <span style="color:var(--gray); font-size:1.8rem;">(y por que importa)</span></h1>
+    <p style="margin:20px 0 32px; font-size:1.1rem;">En Chile, toda empresa esta obligada a estar afiliada a una <strong>mutual de seguridad</strong>. Son 3 y cubren al 100% del mercado.</p>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+      <div class="card" style="text-align:center;">
+        <span class="card-icon" style="font-size:2.5rem; color:var(--blue);">ACHS</span>
+        <p style="font-family:'Fredoka'; font-size:1.8rem; color:var(--white);">108,000</p>
+        <p>empresas</p>
+        <p style="font-size:0.85rem; color:var(--blue);">40% del mercado</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="card-icon" style="font-size:2.5rem; color:var(--green);">MdS</span>
+        <p style="font-family:'Fredoka'; font-size:1.8rem; color:var(--white);">94,500</p>
+        <p>empresas</p>
+        <p style="font-size:0.85rem; color:var(--green);">35% del mercado</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="card-icon" style="font-size:2.5rem; color:var(--yellow);">IST</span>
+        <p style="font-family:'Fredoka'; font-size:1.8rem; color:var(--white);">67,500</p>
+        <p>empresas</p>
+        <p style="font-size:0.85rem; color:var(--yellow);">25% del mercado</p>
+      </div>
+    </div>
+    <p style="margin-top:32px; text-align:center; font-size:1.1rem;">Las mutuales estan <strong style="color:var(--coral);">obligadas por ley</strong> a ayudar a empresas con riesgo alto de estres. <br>Pero <strong>no tienen herramienta digital</strong> para hacerlo. Ahi entramos nosotros.</p>
+  </div>
+</div>
+
+<!-- SLIDE 7: B2B2C -->
+<div class="slide" data-slide="7">
+  <div class="slide-content">
+    <h2>Modelo de Negocio</h2>
+    <h1>B2B2C: la empresa paga, <span class="accent">el empleado usa gratis</span></h1>
+    <div class="diagram" style="margin-top:36px;">
+      <div class="diagram-row">
+        <div class="box coral" style="min-width:220px;">
+          <strong style="color:var(--coral);">Mutual o Empresa</strong><br>
+          <span style="font-size:0.85rem;">Paga $6-14 / empleado / mes</span>
+        </div>
+        <div style="font-size:2rem; color:var(--gray);">&#8594;</div>
+        <div class="box green" style="min-width:220px;">
+          <strong style="color:var(--green);">HACHIKO</strong><br>
+          <span style="font-size:0.85rem;">Mascota + Coaching + Datos</span>
+        </div>
+        <div style="font-size:2rem; color:var(--gray);">&#8594;</div>
+        <div class="box" style="min-width:220px;">
+          <strong style="color:var(--blue);">Empleado</strong><br>
+          <span style="font-size:0.85rem;">Usa gratis la app con su pet</span>
+        </div>
+      </div>
+    </div>
+    <table style="margin-top:40px;">
+      <thead>
+        <tr><th>Plan</th><th>Para quien</th><th>Precio</th><th>Incluye</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Starter</strong></td><td>Empresas &lt;100 empleados</td><td style="color:var(--green);">$6/emp/mes</td><td>App + dashboard basico</td></tr>
+        <tr><td><strong>Professional</strong></td><td>100-500 empleados</td><td style="color:var(--green);">$10/emp/mes</td><td>+ alertas + coaching IA + reportes</td></tr>
+        <tr><td><strong>Enterprise</strong></td><td>500+ empleados</td><td style="color:var(--green);">$14/emp/mes</td><td>+ API + SSO + modelo predictivo</td></tr>
+        <tr><td><strong>White-label</strong></td><td>Mutuales (volumen)</td><td style="color:var(--green);">$2-4/emp/mes</td><td>Todo bajo la marca de la mutual</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SLIDE 8: Por que Chile ahora -->
+<div class="slide slide-accent" data-slide="8">
+  <div class="slide-content">
+    <h2>Timing</h2>
+    <h1>Por que Chile y <span class="accent-coral">por que ahora</span></h1>
+    <p class="subtitle">Tres leyes nos abren la puerta</p>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+      <div class="card">
+        <h3 style="color:var(--blue);">ISTAS-21</h3>
+        <div class="tags"><span class="tag">Ya vigente</span></div>
+        <p style="margin-top:12px;">Todas las empresas obligadas a medir riesgos psicosociales. Muestra el problema pero <strong>no ofrece solucion digital</strong>.</p>
+        <p style="color:var(--green); margin-top:12px; font-size:0.9rem;">Hachiko = la solucion continua</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--green);">Circular N&#176;3243</h3>
+        <div class="tags"><span class="tag green">Ya vigente</span></div>
+        <p style="margin-top:12px;">Obliga a mutuales a intervenir en empresas con riesgo alto. Hoy lo hacen con talleres presenciales. <strong>No escala.</strong></p>
+        <p style="color:var(--green); margin-top:12px; font-size:0.9rem;">Hachiko = herramienta escalable</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--coral);">Ley 21.719</h3>
+        <div class="tags"><span class="tag coral">Dic 2026</span></div>
+        <p style="margin-top:12px;">Proteccion de datos mas estricta de LATAM. Apps gringas no estan preparadas. <strong>Barrera de entrada</strong> para competidores.</p>
+        <p style="color:var(--green); margin-top:12px; font-size:0.9rem;">Hachiko = compliance desde dia 1</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: Competencia -->
+<div class="slide" data-slide="9">
+  <div class="slide-content">
+    <h2>Competencia</h2>
+    <h1>Nadie ocupa nuestro espacio</h1>
+    <div class="two-col-wide" style="margin-top:32px;">
+      <div>
+        <div style="position:relative; width:100%; max-width:500px; height:360px; margin:0 auto;">
+          <!-- Axes -->
+          <div style="position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(255,255,255,0.1);"></div>
+          <div style="position:absolute; top:50%; left:0; right:0; height:1px; background:rgba(255,255,255,0.1);"></div>
+          <!-- Labels -->
+          <div style="position:absolute; top:8px; left:50%; transform:translateX(-50%); font-size:0.7rem; color:var(--blue); text-transform:uppercase; letter-spacing:1px;">Datos / Predictivo</div>
+          <div style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); font-size:0.7rem; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Clinico / Terapia</div>
+          <div style="position:absolute; left:8px; top:50%; transform:translateY(-50%); font-size:0.7rem; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Reactivo</div>
+          <div style="position:absolute; right:8px; top:50%; transform:translateY(-50%); font-size:0.7rem; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Preventivo</div>
+          <!-- Hachiko -->
+          <div style="position:absolute; top:18%; right:18%; background:var(--green); width:16px; height:16px; border-radius:50%; box-shadow:0 0 20px rgba(46,229,157,0.5);"></div>
+          <div style="position:absolute; top:12%; right:4%; font-size:0.8rem; color:var(--green); font-weight:600;">HACHIKO</div>
+          <!-- Competitors -->
+          <div style="position:absolute; top:65%; left:20%; background:var(--gray); width:8px; height:8px; border-radius:50%;"></div>
+          <div style="position:absolute; top:70%; left:14%; font-size:0.65rem; color:var(--gray);">Modern Health</div>
+          <div style="position:absolute; top:72%; left:30%; background:var(--gray); width:8px; height:8px; border-radius:50%;"></div>
+          <div style="position:absolute; top:77%; left:26%; font-size:0.65rem; color:var(--gray);">Selia</div>
+          <div style="position:absolute; top:60%; left:38%; background:var(--gray); width:8px; height:8px; border-radius:50%;"></div>
+          <div style="position:absolute; top:55%; left:34%; font-size:0.65rem; color:var(--gray);">Momentu</div>
+          <div style="position:absolute; top:40%; right:25%; background:var(--gray); width:8px; height:8px; border-radius:50%;"></div>
+          <div style="position:absolute; top:35%; right:22%; font-size:0.65rem; color:var(--gray);">Yerbo</div>
+          <div style="position:absolute; top:58%; left:15%; background:var(--gray); width:8px; height:8px; border-radius:50%;"></div>
+          <div style="position:absolute; top:58%; left:3%; font-size:0.65rem; color:var(--gray);">Woebot</div>
+          <div style="position:absolute; top:55%; right:15%; background:var(--gray); width:8px; height:8px; border-radius:50%;"></div>
+          <div style="position:absolute; top:50%; right:8%; font-size:0.65rem; color:var(--gray);">Betterfly</div>
+          <!-- Gap label -->
+          <div style="position:absolute; top:20%; right:12%; width:120px; height:60px; border:1px dashed rgba(46,229,157,0.3); border-radius:8px;"></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:var(--green); margin-top:16px;">El gap que nadie ocupa</h3>
+        <ul style="margin-top:12px;">
+          <li><strong>Preventivo</strong> (antes de que pase, no despues)</li>
+          <li><strong>Datos/predictivo</strong> (no solo terapia)</li>
+          <li><strong>Gamificado</strong> (8 Core Drives, no solo badges)</li>
+          <li><strong>LATAM-native</strong> (regulacion local desde dia 1)</li>
+        </ul>
+        <p style="margin-top:24px; font-size:0.95rem; color:var(--gray);">La mayoria de competidores estan abajo a la izquierda: ofrecen terapia cuando ya es tarde.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: Psicologia -->
+<div class="slide slide-dark" data-slide="10">
+  <div class="slide-content">
+    <h2>La Ciencia</h2>
+    <h1>8 motivadores humanos <span style="color:var(--gray); font-size:1.6rem;">(la mayoria de apps solo usan 2)</span></h1>
+    <div class="cards" style="grid-template-columns:repeat(4,1fr); gap:16px; margin-top:28px;">
+      <div class="card" style="padding:18px;">
+        <p style="font-size:0.75rem; color:var(--blue); margin-bottom:4px;">CD1 — Proposito</p>
+        <p style="font-size:0.85rem;">"Cada check-in tuyo suma al primer benchmark de Chile"</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <p style="font-size:0.75rem; color:var(--blue); margin-bottom:4px;">CD2 — Logro</p>
+        <p style="font-size:0.85rem;">Tu mascota evoluciona a los 30, 60 y 90 dias</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <p style="font-size:0.75rem; color:var(--blue); margin-bottom:4px;">CD3 — Creatividad</p>
+        <p style="font-size:0.85rem;">Tu decides como cuidar al pet. No hay respuestas "correctas"</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <p style="font-size:0.75rem; color:var(--green); margin-bottom:4px;">CD4 — Propiedad</p>
+        <p style="font-size:0.85rem;">El pet es TUYO. Tus datos son tuyos. Puedes borrar todo.</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <p style="font-size:0.75rem; color:var(--blue); margin-bottom:4px;">CD5 — Social</p>
+        <p style="font-size:0.85rem;">"Tu equipo tiene el mejor indice de bienestar"</p>
+      </div>
+      <div class="card" style="padding:18px; border-color:rgba(255,127,80,0.2);">
+        <p style="font-size:0.75rem; color:var(--coral); margin-bottom:4px;">CD6 — Escasez</p>
+        <p style="font-size:0.85rem;">Solo 2 sesiones de coaching profundo por semana</p>
+      </div>
+      <div class="card" style="padding:18px; border-color:rgba(255,127,80,0.2);">
+        <p style="font-size:0.75rem; color:var(--coral); margin-bottom:4px;">CD7 — Curiosidad</p>
+        <p style="font-size:0.85rem;">Nunca sabes que consejo te dara el coach hoy</p>
+      </div>
+      <div class="card" style="padding:18px; border-color:rgba(255,127,80,0.2);">
+        <p style="font-size:0.75rem; color:var(--coral); margin-bottom:4px;">CD8 — Evitar la perdida</p>
+        <p style="font-size:0.85rem;">El pet decae suavemente si no lo cuidas (nunca muere)</p>
+      </div>
+    </div>
+    <p style="margin-top:20px; text-align:center; font-size:0.9rem; color:var(--gray);">Framework Octalysis de Yu-kai Chou. Los drives en <span style="color:var(--coral);">coral</span> se usan con cuidado etico: motivar, nunca manipular.</p>
+  </div>
+</div>
+
+<!-- SLIDE 11: Tecnologia -->
+<div class="slide" data-slide="11">
+  <div class="slide-content">
+    <h2>Tecnologia</h2>
+    <h1>El 90% funciona en tu celular. <span class="accent">Privado y rapido.</span></h1>
+    <div class="diagram" style="margin-top:36px;">
+      <div class="diagram-row" style="gap:40px;">
+        <div class="box green" style="min-width:300px; padding:24px;">
+          <strong style="color:var(--green); font-size:1.1rem;">Tu celular</strong><br><br>
+          <span style="font-size:0.9rem; text-align:left; display:block;">
+            Mascota virtual<br>
+            Check-in diario<br>
+            Coach basico (IA local)<br>
+            <strong>90% de las interacciones</strong><br>
+            <span style="color:var(--green);">Datos sensibles nunca salen</span>
+          </span>
+        </div>
+        <div style="font-size:1.5rem; color:var(--gray);">
+          &#8596;<br>
+          <span style="font-size:0.7rem;">solo 10%</span>
+        </div>
+        <div class="box" style="min-width:300px; padding:24px;">
+          <strong style="color:var(--blue); font-size:1.1rem;">La nube</strong><br><br>
+          <span style="font-size:0.9rem; text-align:left; display:block;">
+            Coaching profundo (IA avanzada)<br>
+            Dashboard para HR<br>
+            Datos agregados (nunca individuales)<br>
+            <strong>Solo cuando es necesario</strong><br>
+            <span style="color:var(--blue);">Encriptado + aislado por empresa</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="tags" style="justify-content:center; margin-top:36px;">
+      <span class="tag">React Native</span>
+      <span class="tag">Supabase</span>
+      <span class="tag green">IA local (Phi-4)</span>
+      <span class="tag">Claude Haiku</span>
+      <span class="tag">Cloudflare</span>
+      <span class="tag">Databricks</span>
+    </div>
+    <p style="text-align:center; margin-top:20px; font-size:0.9rem; color:var(--gray);">Costo del MVP: ~$0-25/mes (todo en tiers gratuitos)</p>
+  </div>
+</div>
+
+<!-- SLIDE 12: Privacidad -->
+<div class="slide slide-blue" data-slide="12">
+  <div class="slide-content">
+    <h2>Privacidad</h2>
+    <h1>Esto es <span class="accent-coral">no-negociable</span></h1>
+    <div class="two-col" style="margin-top:36px;">
+      <div>
+        <h3 style="color:var(--green);">Lo que es del empleado (privado, siempre)</h3>
+        <ul>
+          <li>Su mascota y su historial</li>
+          <li>Su coaching personalizado</li>
+          <li>Sus datos (puede exportarlos o borrarlos)</li>
+          <li>El derecho a salirse en cualquier momento</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--blue);">Lo que ve la empresa (agregado, anonimo)</h3>
+        <ul>
+          <li>Dashboard de equipo (solo si N &ge; 30)</li>
+          <li>Benchmarks de industria</li>
+          <li>Alertas de riesgo del grupo (nunca individuales)</li>
+          <li>ROI de la plataforma</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:36px; border-color:rgba(255,127,80,0.3); background:rgba(255,127,80,0.05);">
+      <h3 style="color:var(--coral); margin-bottom:12px;">Hachiko NUNCA:</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px 24px; font-size:0.95rem;">
+        <p>Vende datos individuales a nadie</p>
+        <p>Comparte datos con publicidad</p>
+        <p>Deja que el jefe vea datos de un empleado</p>
+        <p>Obliga al empleado a usar la app</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:20px; font-size:0.9rem; color:var(--gray);">BetterHelp fue multada con $7.8M por vender datos de salud mental. Un solo escandalo destruye el negocio.</p>
+  </div>
+</div>
+
+<!-- SLIDE 13: Numeros -->
+<div class="slide" data-slide="13">
+  <div class="slide-content">
+    <h2>Proyecciones</h2>
+    <h1>Los numeros <span style="color:var(--gray); font-size:1.6rem;">(honestos)</span></h1>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr); margin-top:32px;">
+      <div class="card" style="text-align:center;">
+        <p style="font-size:0.8rem; color:var(--gray); text-transform:uppercase; letter-spacing:1px;">Conservador — Mes 12</p>
+        <p style="font-family:'Fredoka'; font-size:2.4rem; color:var(--blue); margin:12px 0 4px;">$21,500</p>
+        <p style="font-size:0.85rem; color:var(--gray);">/mes</p>
+        <p style="font-size:0.85rem; margin-top:12px;">10 empresas directas<br>1 piloto mutual</p>
+        <p style="font-size:0.9rem; color:var(--blue); margin-top:8px;">$258K ARR</p>
+      </div>
+      <div class="card" style="text-align:center; border-color:rgba(46,229,157,0.3);">
+        <p style="font-size:0.8rem; color:var(--green); text-transform:uppercase; letter-spacing:1px;">Realista — Mes 18</p>
+        <p style="font-family:'Fredoka'; font-size:2.4rem; color:var(--green); margin:12px 0 4px;">$80,000</p>
+        <p style="font-size:0.85rem; color:var(--gray);">/mes</p>
+        <p style="font-size:0.85rem; margin-top:12px;">25 empresas + 1 mutual<br>+ benchmarks</p>
+        <p style="font-size:0.9rem; color:var(--green); margin-top:8px;">$960K ARR</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <p style="font-size:0.8rem; color:var(--yellow); text-transform:uppercase; letter-spacing:1px;">Optimista — Mes 12</p>
+        <p style="font-family:'Fredoka'; font-size:2.4rem; color:var(--yellow); margin:12px 0 4px;">$57,000</p>
+        <p style="font-size:0.85rem; color:var(--gray);">/mes + funding</p>
+        <p style="font-size:0.85rem; margin-top:12px;">15 empresas + mutual<br>+ Platanus $150-300K</p>
+        <p style="font-size:0.9rem; color:var(--yellow); margin-top:8px;">$684K ARR</p>
+      </div>
+    </div>
+    <div class="stats" style="margin-top:36px;">
+      <div class="stat">
+        <div class="stat-number" style="font-size:2rem;">~80%</div>
+        <div class="stat-label">Margen bruto</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="font-size:2rem; color:var(--blue);">6:1</div>
+        <div class="stat-label">LTV:CAC directo</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="font-size:2rem; color:var(--yellow);">45:1</div>
+        <div class="stat-label">LTV:CAC via mutual</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="font-size:2rem;">4-5</div>
+        <div class="stat-label">Empresas para break-even</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: Equipo -->
+<div class="slide slide-accent" data-slide="14">
+  <div class="slide-content">
+    <h2>El Equipo</h2>
+    <h1>Dos perfiles que cubren el problema completo</h1>
+    <div class="two-col" style="margin-top:36px;">
+      <div class="card" style="padding:32px;">
+        <h3 style="color:var(--coral); font-size:1.3rem;">Edgar</h3>
+        <p style="color:var(--green); font-size:0.85rem; margin-bottom:16px;">Producto / Ventas / Dominio salud mental</p>
+        <ul style="font-size:0.95rem;">
+          <li>7 anos en travel corporativo (Newstilo)</li>
+          <li>1 ano en CEAPSI: salud mental desde adentro</li>
+          <li>Fundador de kntor.travel</li>
+          <li>20 clientes B2B corporativos</li>
+          <li>Certificado AI Agents + Claude Code</li>
+        </ul>
+        <p style="margin-top:16px; font-size:0.9rem; color:var(--coral);"><strong>Superpower:</strong> abre puertas con el problema de salud mental</p>
+      </div>
+      <div class="card" style="padding:32px;">
+        <h3 style="color:var(--blue); font-size:1.3rem;">Jose</h3>
+        <p style="color:var(--green); font-size:0.85rem; margin-bottom:16px;">Tecnologia / Datos / Arquitectura</p>
+        <ul style="font-size:0.95rem;">
+          <li>Data Engineer en Baufest (consultora enterprise)</li>
+          <li>Azure + Databricks + Spark + Delta Lake</li>
+          <li>Ha visto como empresas grandes compran tech</li>
+          <li>BI en retail, educacion, logistica, mineria</li>
+          <li>Sabe hablar con IT, finanzas y negocio</li>
+        </ul>
+        <p style="margin-top:16px; font-size:0.9rem; color:var(--blue);"><strong>Superpower:</strong> cierra con el caso de datos y construye el pipeline</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:24px; font-size:0.95rem; color:var(--gray);"><strong>Gap honesto:</strong> necesitan asesor clinico (psicologo organizacional) y asesor legal en datos de salud.</p>
+  </div>
+</div>
+
+<!-- SLIDE 15: Moats -->
+<div class="slide slide-dark" data-slide="15">
+  <div class="slide-content">
+    <h2>Defensibilidad</h2>
+    <h1>4 escudos que hacen a Hachiko <span class="accent">dificil de copiar</span></h1>
+    <div class="cards" style="grid-template-columns:repeat(2,1fr); margin-top:32px;">
+      <div class="card">
+        <span class="card-icon" style="color:var(--blue);">01</span>
+        <h3 style="color:var(--white);">Datos longitudinales propietarios</h3>
+        <p>Cada semana se acumulan datos de bienestar que no existen en ningun otro lugar de LATAM. Un competidor necesita 12+ meses para igualar.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" style="color:var(--green);">02</span>
+        <h3 style="color:var(--white);">Canal de mutuales</h3>
+        <p>Si una mutual adopta Hachiko, ya entreno consultores, integro la plataforma, la recomendo a miles de empresas. Cambiar tiene costo altisimo.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" style="color:var(--yellow);">03</span>
+        <h3 style="color:var(--white);">Regulacion como barrera</h3>
+        <p>Ley 21.719 (la mas estricta de LATAM). Competidores gringos no estan preparados. Hachiko cumple desde el dia 1 = ventaja de incumbente.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" style="color:var(--coral);">04</span>
+        <h3 style="color:var(--white);">Confianza cultural</h3>
+        <p>Post-BetterHelp/Cerebral, la confianza es el activo mas escaso. Un historial limpio + Privacy Manifesto auditado no se compra — se construye.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 16: Plan de accion -->
+<div class="slide" data-slide="16">
+  <div class="slide-content">
+    <h2>Plan de Accion</h2>
+    <h1>De cero a <span class="accent">$80K/mes</span> en 18 meses</h1>
+    <div class="timeline" style="margin-top:32px;">
+      <div class="timeline-item active-item">
+        <div class="timeline-date">Ahora — Mes 3 (Mar-May 2026)</div>
+        <div class="timeline-text">Construir MVP. Pilotos con 2-3 empresas. Validar con psicologos. Aplicar a Platanus.</div>
+        <div class="timeline-amount">$0 MRR (validacion)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mes 4-6 (Jun-Ago 2026)</div>
+        <div class="timeline-text">Convertir pilotos a clientes pagos. 3-5 empresas nuevas. Primer acercamiento a mutuales.</div>
+        <div class="timeline-amount">$5,000-15,000 MRR</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mes 7-12 (Sep 2026 - Feb 2027)</div>
+        <div class="timeline-text">10-15 empresas directas. 1 contrato mutual. Primer benchmark. Contratar primer empleado.</div>
+        <div class="timeline-amount">$15,000-40,000 MRR</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mes 12-18 (2027)</div>
+        <div class="timeline-text">25+ empresas. Mutual(es) activa(s). Explorar Mexico (NOM-035). Modelo predictivo.</div>
+        <div class="timeline-amount">$40,000-80,000 MRR</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 17: Riesgos -->
+<div class="slide slide-dark" data-slide="17">
+  <div class="slide-content">
+    <h2>Riesgos</h2>
+    <h1>Somos honestos sobre lo que puede fallar</h1>
+    <div style="margin-top:32px;">
+      <div class="risk-bar">
+        <span class="risk-label"><strong>Abandono semana 3-4</strong></span>
+        <div class="risk-fill" style="width:320px; background:var(--coral);"></div>
+        <span class="risk-score">16</span>
+      </div>
+      <div class="risk-bar">
+        <span class="risk-label"><strong>Burnout fundadores (somos 2)</strong></span>
+        <div class="risk-fill" style="width:320px; background:var(--coral);"></div>
+        <span class="risk-score">16</span>
+      </div>
+      <div class="risk-bar">
+        <span class="risk-label">Mutuales no compran</span>
+        <div class="risk-fill" style="width:300px; background:var(--yellow);"></div>
+        <span class="risk-score">15</span>
+      </div>
+      <div class="risk-bar">
+        <span class="risk-label">Baja participacion empleados</span>
+        <div class="risk-fill" style="width:300px; background:var(--yellow);"></div>
+        <span class="risk-score">15</span>
+      </div>
+      <div class="risk-bar">
+        <span class="risk-label">Percepcion de vigilancia</span>
+        <div class="risk-fill" style="width:300px; background:var(--yellow);"></div>
+        <span class="risk-score">15</span>
+      </div>
+      <div class="risk-bar">
+        <span class="risk-label">Instrumentos camuflados invalidados</span>
+        <div class="risk-fill" style="width:240px; background:var(--blue);"></div>
+        <span class="risk-score">12</span>
+      </div>
+      <div class="risk-bar">
+        <span class="risk-label">Incidente de privacidad</span>
+        <div class="risk-fill" style="width:200px; background:var(--blue);"></div>
+        <span class="risk-score">10</span>
+      </div>
+    </div>
+    <p style="margin-top:28px; font-size:0.95rem; color:var(--gray);">Cada riesgo tiene mitigacion definida. Revision mensual obligatoria. Criterios Go/No-Go claros en mes 3.</p>
+  </div>
+</div>
+
+<!-- SLIDE 18: Go/No-Go -->
+<div class="slide" data-slide="18">
+  <div class="slide-content">
+    <h2>Validacion</h2>
+    <h1>En 3 meses sabremos si esto funciona</h1>
+    <div class="two-col" style="margin-top:32px;">
+      <div>
+        <h3 style="color:var(--green); font-size:1.2rem;">GO (cumplir 4 de 6)</h3>
+        <table>
+          <tbody>
+            <tr><td style="color:var(--green);">&#9632;</td><td>Al menos 2 empresas aceptan piloto</td></tr>
+            <tr><td style="color:var(--green);">&#9632;</td><td>Participacion > 60% a 30 dias</td></tr>
+            <tr><td style="color:var(--green);">&#9632;</td><td>Al menos 1 HR dice "pagaria por esto"</td></tr>
+            <tr><td style="color:var(--green);">&#9632;</td><td>NPS > 30 de empleados</td></tr>
+            <tr><td style="color:var(--green);">&#9632;</td><td>Psicologo valida instrumentos</td></tr>
+            <tr><td style="color:var(--green);">&#9632;</td><td>MVP construido en 4-6 semanas</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="color:var(--coral); font-size:1.2rem;">NO-GO (si cualquiera es true)</h3>
+        <table>
+          <tbody>
+            <tr><td style="color:var(--coral);">&#9632;</td><td>Ninguna empresa acepta piloto (ni gratis)</td></tr>
+            <tr><td style="color:var(--coral);">&#9632;</td><td>Participacion < 40% a dia 14</td></tr>
+            <tr><td style="color:var(--coral);">&#9632;</td><td>Empleados no confian en la privacidad</td></tr>
+            <tr><td style="color:var(--coral);">&#9632;</td><td>HR dice "ya tenemos algo que funciona"</td></tr>
+            <tr><td style="color:var(--coral);">&#9632;</td><td>Legal dice que viola Ley 21.719</td></tr>
+            <tr><td style="color:var(--coral);">&#9632;</td><td>Clinico dice que el camuflaje invalida los instrumentos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 19: Flywheel -->
+<div class="slide slide-accent" data-slide="19">
+  <div class="slide-content" style="text-align:center;">
+    <h2>El Flywheel</h2>
+    <h1>Por que esto crece solo</h1>
+    <div class="flywheel" style="margin-top:36px;">
+      <div class="fly-step">Mas empleados usan Hachiko</div>
+      <div class="fly-arrow">&#9660;</div>
+      <div class="fly-step">Mas datos de salud mental laboral en Chile</div>
+      <div class="fly-arrow">&#9660;</div>
+      <div class="fly-step" style="border-color:rgba(46,229,157,0.4); background:rgba(46,229,157,0.08);"><strong style="color:var(--green);">"Estado de Salud Mental Laboral en Chile 2027"</strong><br><span style="font-size:0.85rem;">Este dato NO EXISTE hoy en ningun lugar</span></div>
+      <div class="fly-arrow">&#9660;</div>
+      <div class="fly-step">SUSESO, mutuales, medios y gobierno lo citan</div>
+      <div class="fly-arrow">&#9660;</div>
+      <div class="fly-step">Hachiko = LA referencia de salud mental laboral en LATAM</div>
+      <div class="fly-arrow">&#9660;</div>
+      <div class="fly-step">Mas empresas quieren estar en el benchmark</div>
+      <div class="fly-arrow" style="color:var(--blue);">&#8634; vuelve al inicio</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 20: Cierre -->
+<div class="slide slide-cover" data-slide="20">
+  <div class="slide-content" style="text-align:center;">
+    <h1 style="font-size:3.5rem; margin-bottom:8px;">Hachiko</h1>
+    <p style="font-family:'Fredoka'; font-size:1.4rem; color:var(--green); margin-bottom:48px;">Tu Refugio en el Bolsillo</p>
+    <div style="max-width:600px; margin:0 auto; text-align:left;">
+      <table>
+        <tbody>
+          <tr><td style="color:var(--blue); font-weight:600; width:140px;">Problema</td><td>$1T perdido. Nadie sabe como estan sus empleados hasta que es tarde.</td></tr>
+          <tr><td style="color:var(--green); font-weight:600;">Solucion</td><td>Mascota virtual que recolecta datos de salud mental a traves del juego.</td></tr>
+          <tr><td style="color:var(--yellow); font-weight:600;">Modelo</td><td>B2B2C. Empresas/mutuales pagan $6-14/emp/mes. Empleado usa gratis.</td></tr>
+          <tr><td style="color:var(--coral); font-weight:600;">Mercado</td><td>270,000 empresas en Chile obligadas a medir. Mutuales obligadas a intervenir.</td></tr>
+          <tr><td style="color:var(--blue); font-weight:600;">Ventaja</td><td>8 Core Drives + datos unicos + canal mutual + compliance nativo.</td></tr>
+          <tr><td style="color:var(--green); font-weight:600;">Equipo</td><td>Edgar (salud + ventas) + Jose (datos + tech).</td></tr>
+          <tr><td style="color:var(--yellow); font-weight:600;">Plan</td><td>MVP 4 semanas. Pilotos mes 2. Platanus mes 3. $80K MRR mes 18.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:48px; font-size:1.2rem; color:var(--white); font-weight:500;">El empleado cuida a Hachiko. Hachiko cuida al empleado. <br><span class="accent">Los datos cuidan al sistema.</span></p>
+    <p style="margin-top:36px; color:var(--gray); font-size:0.9rem;">Edgar &amp; Jose | contacto@hachiko.app</p>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">&#8592; Anterior</button>
+  <span class="nav-counter" id="counter">1 / 21</span>
+  <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente &#8594;</button>
+</div>
+
+<div class="kb-hint">Flechas del teclado para navegar</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function updateSlide() {
+  slides.forEach((s, i) => {
+    s.classList.remove('active', 'prev');
+    if (i === current) s.classList.add('active');
+    else if (i < current) s.classList.add('prev');
+  });
+  progress.style.width = ((current / (total - 1)) * 100) + '%';
+  counter.textContent = (current + 1) + ' / ' + total;
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === total - 1;
+}
+
+function changeSlide(dir) {
+  const next = current + dir;
+  if (next >= 0 && next < total) {
+    current = next;
+    updateSlide();
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+  if (e.key === 'Home') { current = 0; updateSlide(); }
+  if (e.key === 'End') { current = total - 1; updateSlide(); }
+});
+
+// Touch support
+let touchStartX = 0;
+document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+document.addEventListener('touchend', (e) => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+});
+
+updateSlide();
+</script>
+
+</body>
+</html>

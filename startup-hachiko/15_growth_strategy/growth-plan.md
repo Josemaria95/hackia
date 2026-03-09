@@ -14,9 +14,9 @@ Framework AARRR (Pirate Metrics) aplicado a Hachiko B2B2C.
 ## 1. ACQUISITION (Adquisicion)
 
 ### Canal primario: Referencia desde mutuales
-- La ACHS (u otra mutual) recomienda Hachiko a sus empresas afiliadas como herramienta de intervencion post-ISTAS-21.
+- La ACHS (u otra mutual) recomienda Hachiko a sus empresas afiliadas como herramienta de prevencion continua que complementa el ISTAS-21.
 - La mutual actua como canal de distribucion con confianza preexistente.
-- Integracion en el flujo de la Circular N°3243: despues del diagnostico, Hachiko es la intervencion digital.
+- Integracion en el flujo de la Circular N°3243: despues del diagnostico, Hachiko es la herramienta de prevencion continua digital.
 
 ### Canal secundario: Outreach directo a HR managers
 - Prospeccion via LinkedIn a gerentes de personas / jefes de bienestar.

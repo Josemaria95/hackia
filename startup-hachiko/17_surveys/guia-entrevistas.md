@@ -86,8 +86,8 @@ Misma estructura que HR, pero ajustar contexto: "Entendemos que las mutuales tie
 1. Como esta impactando la Circular N°3243 a sus empresas afiliadas?
 2. Que porcentaje de sus empresas afiliadas han aplicado ISTAS-21 en el ultimo ciclo?
 3. Cuantas de esas empresas resultaron con dimensiones en riesgo alto?
-4. Que herramientas digitales ofrecen actualmente para la etapa de intervencion?
-5. Tienen algun software propio o comprado para seguimiento post-ISTAS-21?
+4. Que herramientas digitales ofrecen actualmente para prevencion continua?
+5. Tienen algun software propio o comprado para prevencion continua post-ISTAS-21?
 
 ### Seccion 2: Necesidades y dolores (10 minutos)
 
@@ -99,9 +99,9 @@ Misma estructura que HR, pero ajustar contexto: "Entendemos que las mutuales tie
 
 ### Seccion 3: Concepto Hachiko (15 minutos)
 
-_[Mostrar one-pager + mockup. Enfasis en: Hachiko como herramienta de intervencion post-ISTAS-21 que la mutual puede ofrecer a sus empresas afiliadas.]_
+_[Mostrar one-pager + mockup. Enfasis en: Hachiko como herramienta de prevencion continua que complementa el ISTAS-21 que la mutual puede ofrecer a sus empresas afiliadas.]_
 
-11. Que les parece el concepto como herramienta de intervencion para sus afiliados?
+11. Que les parece el concepto como herramienta de prevencion continua para sus afiliados?
 12. Les interesaria una solucion white-label con su marca?
 13. Que datos o reportes necesitarian ver ellos como mutual?
 14. Que barreras ven para adoptar algo asi?

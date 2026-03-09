@@ -114,7 +114,7 @@ Modelo SaaS por empleado por mes, escalonado por tamano de empresa:
 El ISTAS-21 es la puerta de entrada natural:
 - Crear guia practica: "Que hacer despues de que tu empresa sale en riesgo alto en ISTAS-21"
 - Posicionar Hachiko como la respuesta a la pregunta que todas las empresas se hacen post-ISTAS-21
-- SEO para keywords: "intervencion ISTAS-21", "riesgo psicosocial Chile", "herramienta digital salud mental laboral"
+- SEO para keywords: "prevencion ISTAS-21", "riesgo psicosocial Chile", "herramienta digital salud mental laboral"
 
 ---
 

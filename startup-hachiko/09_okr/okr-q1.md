@@ -5,42 +5,44 @@ tags: [estrategia, wellness, corporativo]
 status: en-progreso
 ---
 
-# OKR Q1 2026 — Validar PMF y Preparar Platanus
+# OKR Q1 2026 — Aplicar a Platanus y Validar PMF
 
 ## Objetivo
 
-Validar que Hachiko genera engagement sostenido en empleados y datos valiosos para HR, preparando evidencia suficiente para aplicar a Platanus Venture.
+Enviar aplicacion a Platanus Venture antes del 29 de marzo con MVP demostrable + narrativa solida, y validar que Hachiko genera engagement sostenido en empleados.
+
+> **DEADLINE CRITICO:** Platanus Venture cierra el **29 de marzo a las 23:59**. Se aplica sin datos de piloto — con demo funcional, research, equipo y LOIs tempranas.
 
 ---
 
 ## Key Results
 
-### KR1: Construir MVP funcional (mascota + check-in + dashboard) en 4 semanas
+### KR1: Enviar aplicacion a Platanus Venture antes del 29 de marzo
 
-- **Medicion**: app desplegada en TestFlight/Play Store beta
+- **Medicion**: aplicacion enviada (deck + formulario + demo/video del MVP)
+- **Responsable**: ambos
+- **Deadline**: **29 de marzo 2026 (23:59, inamovible)**
+- **Estado**: pendiente
+
+### KR2: Construir MVP funcional demostrable en 3 semanas
+
+- **Medicion**: app desplegada en TestFlight/APK beta, video demo de 2-3 min
 - **Responsable**: Jose (tech) + Edgar (producto/UX)
-- **Deadline**: 2 de abril 2026
+- **Deadline**: 28 de marzo 2026
 - **Estado**: pendiente
 
-### KR2: Conseguir 3-5 empresas para piloto (minimo 100 empleados totales)
+### KR3: Conseguir 2-5 empresas comprometidas para piloto
 
-- **Medicion**: LOIs o acuerdos de piloto firmados
+- **Medicion**: LOIs firmadas o acuerdos de piloto por email
 - **Responsable**: Edgar (outreach) + Jose (caso de datos)
-- **Deadline**: 19 de marzo 2026 (primeros contactos), 2 de abril (firmados)
+- **Deadline**: 28 de marzo (al menos 1 LOI para incluir en Platanus), abril (resto)
 - **Estado**: pendiente
 
-### KR3: Lograr >60% de participacion sostenida a 30 dias en al menos 1 piloto
+### KR4: Lograr >60% de participacion sostenida a 30 dias en al menos 1 piloto
 
 - **Medicion**: DAU/MAU, check-ins por semana
 - **Responsable**: ambos
-- **Deadline**: 30 dias post-inicio del primer piloto
-- **Estado**: pendiente
-
-### KR4: Completar deck de Platanus Venture con metricas reales del piloto
-
-- **Medicion**: deck listo, metricas incluidas
-- **Responsable**: ambos
-- **Deadline**: primera semana de abril 2026
+- **Deadline**: 30 dias post-inicio del primer piloto (~fin de abril)
 - **Estado**: pendiente
 
 ### KR5: Obtener validacion de 1 profesional clinico sobre instrumentos camuflados
@@ -56,11 +58,11 @@ Validar que Hachiko genera engagement sostenido en empleados y datos valiosos pa
 
 | Semana | Fechas | Foco principal | KRs asociados |
 |--------|--------|----------------|---------------|
-| 1 | Mar 6-12 | Setup tech + primeros contactos empresas | KR1, KR2 |
-| 2 | Mar 13-19 | MVP core (mascota + check-in) + outreach activo | KR1, KR2 |
-| 3 | Mar 20-26 | Dashboard HR + onboarding pilotos + contacto psicologo | KR1, KR2, KR5 |
-| 4 | Mar 27 - Abr 2 | Deploy beta + inicio pilotos + deck Platanus | KR1, KR2, KR4 |
-| 5-8 | Abr 3-30 | Pilotos activos + recoleccion de metricas | KR3, KR4 |
+| 1 | Mar 8-14 | Setup tech + mascota + API + outreach empresas + estructura deck Platanus | KR1, KR2, KR3 |
+| 2 | Mar 15-21 | Check-in + coaching + dashboard HR + copy + discovery HR + psicologo | KR2, KR3, KR5 |
+| 3 | Mar 22-28 | Testing + deploy + video demo + deck Platanus final + formulario | KR1, KR2, KR3 |
+| **★** | **Mar 29** | **ENVIAR PLATANUS (deadline 23:59)** | **KR1** |
+| 4-8 | Mar 29 - May 2 | Lanzar pilotos + recolectar metricas + entrevistas HR + Go/No-Go | KR3, KR4 |
 
 ---
 
