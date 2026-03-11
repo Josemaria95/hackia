@@ -7,16 +7,25 @@ status: en-progreso
 
 # Go-to-Market — Hachiko Kids
 
-## Posicionamiento
+## Posicionamiento (lenguaje conductual)
 
-> **"El companero digital que ayuda a tu hijo a entender sus emociones — y te ayuda a ti a entenderlo a el."**
+> **"Entiende por que tu hijo se comporta asi — a traves de como cuida a su mascota."**
 
 No somos:
 - Una app de terapia (no diagnosticamos, no reemplazamos al profesional)
-- Un juego mas (tiene proposito clinico, genera datos reales)
-- Un instrumento de screening (aun — primero validamos)
+- Un juego mas (genera patrones de comportamiento reales)
+- Una app de salud mental (eso es Fase 2, si los datos lo ameritan)
 
-Somos: **Screen time con proposito** que genera datos emocionales continuos.
+Somos: **Screen time con proposito** que revela patrones de comportamiento y te da tips concretos para actuar.
+
+### Lo que decimos vs lo que NO decimos
+
+| Decimos (Fase 1) | NO decimos |
+|---|---|
+| "Tu hijo no sigue instrucciones? Entiende por que" | "Detecta trastornos de conducta" |
+| "Patrones de comportamiento semanales" | "Screening de salud mental infantil" |
+| "Tips de crianza basados en lo que hace tu hijo" | "Intervenciones terapeuticas" |
+| "Si el patron persiste, sugerimos hablar con el pediatra" | "Tu hijo podria tener ansiedad" |
 
 ---
 
@@ -48,16 +57,16 @@ El B2C nos da traccion rapida y datos. El B2B nos da escala y revenue.
 ## Freemium vs Premium
 
 ### Free (siempre gratis)
-- Mascota con check-in diario (5 emociones)
+- Mascota con situacion conductual diaria + emocion
 - Reaccion de mascota
-- Resumen semanal basico (7 emojis + dias activos)
+- Resumen semanal basico de comportamiento (socializacion, instrucciones, animo)
 - 1 micro-actividad de regulacion/dia
 
 ### Premium ($5 USD/mes por nino)
-- Resumen diario (no solo semanal)
-- Guias semanales padre-hijo ("3 actividades para esta semana")
-- Alertas: "Notamos un patron de [emocion] los [dias] — sugerimos conversar"
-- Compartir datos con profesional de salud (genera link seguro)
+- Resumen diario de comportamiento (no solo semanal)
+- Tips personalizados segun patron detectado ("Tu hijo evita socializar los lunes — prueba invitar un amigo a casa")
+- Alertas: "Este patron se mantiene 3+ semanas — sugerimos mencionarlo al pediatra"
+- Compartir resumen con profesional (genera link seguro)
 - Evolucion de mascota (cambia cada 30 dias)
 - Stickers y personalizacion extra
 
@@ -86,13 +95,15 @@ El B2C nos da traccion rapida y datos. El B2B nos da escala y revenue.
 - **Meta:** Coeficiente viral >0.5 (cada 2 usuarios traen 1)
 
 ### Canal 3: Content marketing — Instagram/TikTok (CAC $15-30)
-- Cuenta de Hachiko Kids con contenido para padres:
-  - "5 senales de que tu hijo necesita apoyo emocional"
-  - "Que hacer cuando tu hijo dice 'estoy bien' pero no lo esta"
-  - "Screen time productivo: ¿existe?"
+- Cuenta de Hachiko Kids con contenido conductual para padres:
+  - "5 razones por las que tu hijo no sigue instrucciones (y que hacer)"
+  - "Tu hijo no quiere compartir? Es mas normal de lo que crees"
+  - "Rabietas a los 5 anos: cuando preocuparse y cuando no"
+  - "Screen time con proposito: ¿existe?"
 - Video corto del nino interactuando con mascota (permiso del padre)
 - Meta/Instagram Ads segmentados: madres 28-42, Santiago, intereses en crianza
 - **Meta:** 500 descargas/mes en mes 3-6
+- **Nota:** El contenido habla de COMPORTAMIENTOS, no de salud mental. Esto multiplica la audiencia 5-10x.
 
 ### Canal 4: Clinicas como partner B2B (CAC $200-500)
 - Demo al director o psicologo jefe

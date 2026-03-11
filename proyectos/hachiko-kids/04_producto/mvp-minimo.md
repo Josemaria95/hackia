@@ -11,13 +11,13 @@ status: en-progreso
 
 > **H1:** "Ninos de 4-12 anos interactuaran voluntariamente con una mascota virtual al menos 4 veces por semana durante 30 dias."
 >
-> **H2:** "Los padres consideran util recibir un resumen semanal de patrones emocionales de su hijo."
+> **H2:** "Los padres consideran util recibir un resumen semanal de patrones de comportamiento de su hijo con tips accionables."
 >
-> **H3:** "Un profesional de salud mental infantil considera que los datos generados son clinicamente relevantes."
+> **H3 (Fase 2):** "Un profesional de salud infantil considera que los datos de comportamiento son un complemento util entre consultas."
 
 Si H1 falla → no hay producto.
 Si H2 falla → no hay quien pague (B2C).
-Si H3 falla → no hay canal B2B.
+H3 no bloquea el MVP — se valida despues con datos reales del piloto.
 
 ---
 
@@ -28,8 +28,8 @@ Si H3 falla → no hay canal B2B.
 | Feature | Detalle | Tiempo dev (con IA) |
 |---------|---------|---------------------|
 | Elegir mascota | 3-4 opciones (gato, perro, conejo, panda). Ponerle nombre. | 2-3 horas |
-| Elegir emocion | "Como se siente [nombre]?" — 5 caritas. 1 toque. | 1-2 horas |
-| Reaccion de mascota | Mascota cambia expresion segun emocion elegida (5 estados = 5 imagenes) | 2-3 horas |
+| Situacion + emocion | "¿Que quiere hacer [nombre]?" (situacion conductual) + "¿Como se siente?" (5 caritas) | 2-3 horas |
+| Reaccion de mascota | Mascota reacciona a la decision del nino (5 reacciones visuales) | 2-3 horas |
 | Micro-actividad | 1 actividad post-check-in: "Respira con [nombre]" (animacion simple) | 2-3 horas |
 | Sticker diario | Cada dia que abre, gana 1 sticker para la mascota | 1-2 horas |
 
@@ -83,7 +83,7 @@ Si H3 falla → no hay canal B2B.
 | LLM cloud coaching | Costo innecesario. Actividades pre-armadas |
 | Unity 3D mascota | PNG/SVG estaticos con 5 estados es suficiente |
 | Evolucion de mascota | Validar enganche primero, evolucion despues |
-| Dashboard clinico | Entrevistas con clinicos primero, dashboard despues |
+| Dashboard clinico | Fase 2 — primero validar con padres |
 | Offline sync | WiFi en casa es suficiente para piloto |
 | Encriptacion pgsodium | Piloto con datos minimos, sin PII sensible |
 | Multi-tenancy complejo | 1 tabla parents, 1 tabla children |
@@ -117,18 +117,25 @@ DIA 1 (padre):
   Descarga app → Crea cuenta → Agrega nombre del hijo → Listo
 
 DIA 1 (nino):
-  Abre app → Elige mascota → Pone nombre → "Como se siente [Luna]?"
-  → Toca carita → Luna reacciona → "Respira con Luna" → Sticker ⭐
+  Abre app → Elige mascota → Pone nombre
+  → "Luna quiere jugar — ¿sola o con amigos?" (situacion)
+  → "¿Cómo se siente Luna?" (carita)
+  → Luna reacciona → "Respira con Luna" → Sticker ⭐
   → Fin (90 segundos)
 
 DIA 2-30 (nino):
-  Abre app → "Como se siente [Luna] hoy?" → Carita → Reaccion
-  → Micro-actividad aleatoria → Sticker → Fin
+  Abre app → Situacion del dia (rotativa: compartir, ordenar, jugar, enojarse...)
+  → "¿Como se siente Luna?" → Carita → Reaccion
+  → Micro-actividad → Sticker → Fin
 
 CADA LUNES (padre):
   Push: "Resumen semanal de Luna"
-  → Abre → Ve 7 emojis, dias activos, emocion dominante
-  → Cierra (30 segundos)
+  → Abre → Ve patrones de comportamiento:
+     🤝 Socialización: prefirió jugar sola 3/5 días
+     📋 Instrucciones: ayudó a ordenar 4/5 veces
+     😊 Ánimo: más contenta hacia el fin de semana
+  → Tip: "Los lunes son más difíciles. Un ritual de despedida puede ayudar."
+  → Cierra (45 segundos)
 ```
 
 ---
@@ -163,7 +170,7 @@ Con IA se puede automatizar el concierge:
 
 ## Wireframes conceptuales
 
-### Pantalla nino (check-in)
+### Pantalla nino (situacion conductual)
 
 ```
 ┌─────────────────────────┐
@@ -171,48 +178,59 @@ Con IA se puede automatizar el concierge:
 │      🐱 Luna            │
 │   [imagen mascota]      │
 │                         │
+│  Luna quiere jugar...   │
+│                         │
+│  🧸 Sola   👫 Con un    │
+│             amigo       │
+│  👥 Con muchos amigos   │
+│                         │
+└─────────────────────────┘
+```
+
+### Pantalla nino (emocion + reaccion)
+
+```
+┌─────────────────────────┐
+│                         │
 │  ¿Cómo se siente Luna? │
 │                         │
 │  😄  😐  😢  😠  😨    │
 │                         │
-│                         │
-└─────────────────────────┘
-```
-
-### Pantalla nino (post check-in)
-
-```
-┌─────────────────────────┐
-│                         │
-│    🐱 Luna está triste  │
-│   [mascota acurrucada]  │
-│                         │
+│  → Luna se acurruca     │
 │  "Está bien estar       │
 │   triste a veces"       │
 │                         │
 │  [Respirar con Luna 🌬] │
-│                         │
 │        ⭐ +1 sticker    │
 └─────────────────────────┘
 ```
 
-### Pantalla padre (resumen semanal)
+### Pantalla padre (resumen semanal conductual)
 
 ```
-┌─────────────────────────┐
-│  Semana de Luna         │
-│  (3-9 marzo)            │
-│                         │
-│  L   M   M   J   V  S  D│
-│  😢  😠  😐  😄  😄 😄 --│
-│                         │
-│  Dias activos: 6/7      │
-│  Emocion frecuente: 😄  │
-│                         │
-│  💡 "Los lunes parecen  │
-│  mas dificiles"         │
-│                         │
-└─────────────────────────┘
+┌──────────────────────────┐
+│  Semana de Luna          │
+│  (3-9 marzo)             │
+│                          │
+│  🤝 Socialización        │
+│  Prefirió jugar sola 3/5 │
+│                          │
+│  📋 Instrucciones        │
+│  Ayudó a ordenar 4/5     │
+│                          │
+│  😤 Regulación           │
+│  Eligió "respirar" 2/3   │
+│                          │
+│  😊 Ánimo                │
+│  L😢 M😠 M😐 J😄 V😄    │
+│                          │
+│  💡 "Los lunes parecen   │
+│  más difíciles. Un ritual│
+│  de despedida de 2 min   │
+│  puede ayudar."          │
+│                          │
+│  Dias activos: 5/7       │
+└──────────────────────────┘
 ```
 
 ---
@@ -249,9 +267,9 @@ Con IA se puede automatizar el concierge:
 
 | Resultado | Accion |
 |-----------|--------|
-| Ninos usan >4 dias/semana + padres valoran resumen + clinico dice "util" | **GO** — Invertir en producto real |
-| Ninos usan pero padres no miran resumen | Pivotar a B2C puro (gamificacion) |
-| Padres valoran pero ninos no enganchan | Redisenar mecanica de mascota |
+| Ninos usan >4 dias/semana + padres valoran resumen conductual + tips utiles | **GO** — Invertir en producto real. Fase 2: validar con clinicos. |
+| Ninos usan pero padres no miran resumen | Probar formato distinto (WhatsApp, push con resumen inline) |
+| Padres valoran pero ninos no enganchan | Redisenar mecanica de mascota / situaciones |
 | Nadie usa | Pivotar o descartar concepto |
 
 ---

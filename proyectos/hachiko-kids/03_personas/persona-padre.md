@@ -27,22 +27,23 @@ Carolina googleo "mi hija no quiere ir al colegio" un martes a las 11pm. Encontr
 
 ## Jobs to be done
 
-1. **Entender** que siente mi hija cuando me dice "bien" o "no se"
-2. **Detectar** si es algo serio o "cosa de la edad"
-3. **Actuar** con algo concreto mientras espera la hora con el profesional
+1. **Entender** por que mi hija se comporta asi (no me hace caso, se aisla, tiene rabietas)
+2. **Saber** si es "cosa de la edad" o debo preocuparme
+3. **Actuar** con algo concreto ESTA semana (no teoria de crianza)
 4. **No sentir culpa** por no estar mas presente (trabaja 9+ horas)
 5. **Dar pantalla con proposito** en vez de YouTube
 
-## Pains
+## Pains (en lenguaje de padre, NO clinico)
 
 | Pain | Intensidad |
 |------|------------|
-| "No se si lo que le pasa es normal o grave" | 10/10 |
-| "Espero meses para que un profesional la vea" | 9/10 |
+| "Mi hija no hace caso y no se si es normal" | 10/10 |
 | "No me cuenta nada, dice que todo esta bien" | 9/10 |
+| "Se aisla en el recreo y la profesora me dice que esta rara" | 9/10 |
+| "Tiene rabietas que no se como manejar" | 8/10 |
 | "Me siento culpable por trabajar tanto" | 8/10 |
 | "Le paso la tablet para que se entretenga y me siento mal" | 7/10 |
-| "Los articulos de internet me confunden mas" | 6/10 |
+| "Googleo y cada articulo dice algo distinto" | 6/10 |
 
 ## Comportamiento de compra
 
@@ -62,29 +63,34 @@ Carolina googleo "mi hija no quiere ir al colegio" un martes a las 11pm. Encontr
 ## Carolina con Hachiko Kids
 
 ### Descubrimiento
-La pediatra de Emilia le dice: "Mientras esperamos la hora con psicologia, usa esta app. Emilia juega con una mascota y yo recibo datos que me ayudan a entender como esta."
+Carolina ve un reel en Instagram: "¿Tu hijo no sigue instrucciones? No es que sea 'porfiado'. Esta app te muestra POR QUE se comporta asi." Descarga la app esa misma noche.
 
-**Insight:** La recomendacion del profesional de salud es el canal mas poderoso. No es una app — es una "indicacion medica".
+**Insight alternativo (Fase 2):** La pediatra de Emilia le dice: "Usa esta app — Emilia juega con una mascota y me llegan datos de como esta." Pero esto es canal secundario, no la puerta de entrada.
 
 ### Semana 1
 Descarga la app. Crea cuenta. Emilia elige su mascota (Luna). Carolina ve el "panel para padres": un resumen con 4 emojis representando la semana de Emilia. Vacio aun.
 
 ### Semana 2
-Lunes: notificacion "Resumen semanal de Luna (la mascota de Emilia) disponible". Abre y ve:
+Lunes: notificacion "Resumen semanal de Luna disponible". Abre y ve:
 - Emilia interactuo 5 de 7 dias
-- Emociones mas frecuentes: triste (lunes, martes), tranquila (jueves, viernes)
-- Sugerencia: "Los lunes parecen dificiles. Un ritual de despedida de 2 minutos puede ayudar."
+- Socializacion: prefiere que Luna juegue sola 4/5 dias (lunes y martes especialmente)
+- Instrucciones: ayudo a Luna a ordenar 3/5 veces (mejorando vs semana 1)
+- Regulacion: cuando Luna se enojo, eligio "respirar" 2 de 3 veces
+- Tip: "Los lunes parecen mas dificiles. Un ritual de despedida de 2 minutos puede ayudar."
 
 Carolina prueba el ritual el lunes siguiente. Emilia llora menos.
 
 ### Semana 4
-Carolina tiene la hora con la psicologa del PIE. Le muestra el resumen de 4 semanas. La psicologa dice: "Esto es oro — nunca tengo datos asi entre sesiones."
+El resumen muestra: "El patron de preferir jugar sola los lunes se mantiene hace 4 semanas."
+La app sugiere: "Podria ser util mencionarlo en la proxima visita al pediatra. ¿Quieres generar un resumen para compartir?"
+
+Carolina comparte el resumen con la psicologa del PIE. La psicologa dice: "Esto es muy util — nunca tengo este tipo de datos entre sesiones." → **Canal B2B se activa organicamente.**
 
 ### Conversion a premium
 Carolina usaba la version gratuita (resumen semanal basico). Paga $5/mes para:
-- Resumen diario (no solo semanal)
-- Guias de actividades padre-hijo
-- Compartir datos con profesional de salud
+- Resumen diario de comportamiento (no solo semanal)
+- Tips personalizados segun patron de su hija
+- Compartir resumen con profesional
 
 ## Metricas de exito (perspectiva padre)
 
