@@ -7,7 +7,13 @@
       "WebFetch(domain:obsidian.rocks)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(cp:*)",
+      "Bash(do:*)",
+      "Bash(python3:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(echo:*)",
+      "Bash(echo {\n  \"tool_name\": \"Bash\",\n  \"tool_input\": {\n    \"command\": \"git push origin --force main\"\n  }\n}:*)"
     ]
   }
 }
