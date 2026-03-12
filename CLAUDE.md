@@ -22,11 +22,19 @@ Captura ideas, explora proyectos y genera prototipos rápidos con IA.
 4. ¿El mercado combinado (travel + corporativo) es suficientemente grande?
 
 ## Estructura
-- `ideas/` — Problemas, hipótesis y soluciones organizadas por industria
+- `ideas/` — Problemas, hipótesis y soluciones organizadas por industria (11 archivos, hub central: `espacio-de-oportunidad.md`)
 - `equipo/` — Perfiles estratégicos del equipo: qué sabe cada uno, su red y cómo aplica a las hipótesis
 - `proyectos/` — Ideas con tracción, en desarrollo activo
+  - `hachiko-proyecto-maestro.md` — Documento central del proyecto Hachiko
+  - `hachiko-arquitectura.md` — Arquitectura técnica completa
+  - `datos-salud-mental-propuesta-proyecto.md` — MindRisk (ahora parte de Hachiko)
+  - `hachiko-pitch-deck.html` — Presentación HTML
+  - `hachiko-kids/` — Pivot a salud mental infantil (11 docs, 6 secciones)
+- `startup-hachiko/` — Playbook operativo completo (52 archivos, 20 secciones numeradas + planes + presentaciones)
+- `hachiko-app-memory.md` — Especificación técnica completa de la app (stack, API, schema, IA)
+- `deepresearch/` — TAM/SAM/SOM y análisis competitivo por hipótesis (9 archivos)
+- `assets/` — Brand book, research competitivo, Octalysis CSV, PDFs de perfiles
 - `prompts/` — Biblioteca de prompts reutilizables
-- `assets/` — Screenshots de Miro e imágenes
 - `archivo/` — Ideas descartadas o pausadas (nunca borrar)
 
 ## Formato de notas (siempre)
@@ -89,16 +97,20 @@ Al evaluar una idea, consultar `equipo/` para saber quién puede ejecutar qué p
 
 ---
 
-## Estructura del vault Obsidian (auditada 2026-02-21)
+## Estructura del vault Obsidian (auditada 2026-03-12)
 
 ### Inventario de archivos
 
 | Carpeta | Archivos | Descripcion |
 |---------|----------|-------------|
-| `ideas/` | 10 archivos `.md` | 1 hub estrategico (`espacio-de-oportunidad.md`) + 9 hipotesis |
+| `ideas/` | 11 archivos `.md` | 1 hub estrategico (`espacio-de-oportunidad.md`) + 10 hipotesis |
 | `equipo/` | 2 archivos `.md` | Perfiles de Edgar y Jose con habilidades por hipotesis |
-| `deepresearch/` | 8 archivos `.md` | TAM/SAM/SOM y analisis competitivo por hipotesis |
-| **Total** | **20 archivos `.md`** | |
+| `deepresearch/` | 9 archivos `.md` | TAM/SAM/SOM y analisis competitivo por hipotesis |
+| `proyectos/` | 4 archivos + `hachiko-kids/` (11 archivos) | Proyecto Hachiko (maestro + arquitectura + pitch + propuesta original) + pivot Kids |
+| `startup-hachiko/` | 52 archivos `.md` + 2 `.html` | Playbook operativo: 20 secciones + planes + presentaciones |
+| `assets/` | 4 archivos + 2 PDFs | Brand book, research YC, Octalysis, perfiles |
+| raiz | `hachiko-app-memory.md` | Especificacion tecnica completa de la app |
+| **Total** | **~139 archivos** | |
 
 ### Mapa de relaciones (wikilinks)
 
@@ -113,8 +125,15 @@ espacio-de-oportunidad.md  (hub central — nodo de mayor grado)
 ├── ideas/2026-02-20-hospedaje-guia-compatriotas.md            ←→ deepresearch/hospedaje-compatriotas-research.md
 ├── ideas/2026-02-20-recomendacion-restaurantes-nacionalidad.md ←→ deepresearch/restaurantes-nacionalidad-research.md
 ├── ideas/2026-02-20-comunidad-salud-mental-viajes-gamificacion.md (brainstorming, sin deep research propio)
+├── ideas/2026-02-24-tamagotchi-coach-laboral.md (convergio en Hachiko)
 ├── equipo/perfil-edgar-recursos-estrategicos.md
 └── equipo/perfil-jose-recursos-estrategicos.md
+
+hachiko-proyecto-maestro.md (documento central del proyecto activo)
+├── hachiko-arquitectura.md
+├── hachiko-app-memory.md (spec tecnica)
+├── startup-hachiko/ (20 secciones operativas)
+└── hachiko-kids/ (pivot infantil)
 ```
 
 ### Convenciones de wikilinks
@@ -148,14 +167,33 @@ Cada nota debe tener al final un bloque de navegacion con este formato:
 - Todo deep research debe linkar a su idea principal y a `espacio-de-oportunidad`
 - `espacio-de-oportunidad` es el hub: debe linkar a todas las ideas, todos los deep research y ambos perfiles
 
-### Prioridades actuales (Feb 2026)
+### Prioridades actuales (Mar 2026)
 
-| Prioridad | Idea | Score |
-|-----------|------|-------|
-| 0 | Ruta Viva — Bienestar emocional + exploracion cultural (B2B2C) | 8.0/10 |
-| 0 | Datos de salud mental para modelos de riesgo (B2B) | por evaluar |
-| 0.5 | Hospedaje entre compatriotas | 6.8/10 |
-| 0.5 | Restaurantes segun nacionalidad | 6.2/10 |
-| 1 | Bienestar + gestion de viajes corporativos | 8/10 |
-| 2 | Travel x Educacion (intercambios + PIE) | 6/10 |
-| 3 | Travel x Nomadismo | 7/10 |
+**Proyecto activo: Hachiko** — convergencia de Ruta Viva + datos salud mental + tamagotchi coach laboral.
+App B2B2C de bienestar emocional gamificado para empleados. Ver `proyectos/hachiko-proyecto-maestro.md`.
+
+| Prioridad | Idea / Proyecto | Status |
+|-----------|----------------|--------|
+| **ACTIVO** | **Hachiko** — bienestar emocional B2B2C (mascota + datos + mutuales) | en-progreso |
+| **ACTIVO** | **Hachiko Kids** — pivot a salud mental infantil | en-progreso |
+| pausada | Hospedaje entre compatriotas | 6.8/10 |
+| pausada | Restaurantes segun nacionalidad | 6.2/10 |
+| pausada | Bienestar + gestion de viajes corporativos | 8/10 |
+| pausada | Travel x Educacion (intercambios + PIE) | 6/10 |
+| pausada | Travel x Nomadismo | 7/10 |
+
+### Estructura de startup-hachiko/ (playbook operativo)
+
+20 secciones numeradas que cubren el ciclo completo de la startup:
+
+| Secciones | Contenido |
+|-----------|-----------|
+| `01_vision/` – `05_buyer_persona/` | Vision, research, mercado Chile, competidores LATAM, 4 buyer personas |
+| `06_product/` – `07_mvp/` | Arquitectura, features, user journey, MVP, experimentos |
+| `08_strategy/` – `10_sprints/` | Estrategia general, Plan B, Platanus, OKRs Q1, sprints 1-2 |
+| `11_data_detection/` – `12_psychology_gamification/` | Modelo datos, privacidad, senales smartphone, Octalysis, mecanicas |
+| `13_business_model/` – `15_growth_strategy/` | Modelo negocio, pricing, unit economics, revenue, growth |
+| `16_validation/` – `17_surveys/` | Plan validacion, encuestas, guia entrevistas |
+| `18_subagents/` – `20_next_steps/` | Catalogo subagentes, riesgos, checklist Platanus, roadmap |
+| `planes/` | Plan estrategico + tactico + operativo |
+| `presentaciones/` | Presentacion HTML + version "para dummies" |
