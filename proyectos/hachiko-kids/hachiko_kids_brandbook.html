@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hachiko Kids — Brand Identity Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  /* Paleta Hachiko Kids */
+  --hk-purple-50:#F0EDFF;  --hk-purple-100:#D4CCFF; --hk-purple-200:#B8AAFF;
+  --hk-purple-300:#9C88FF; --hk-purple-500:#7B61FF; --hk-purple-700:#5A3FD6;
+  --hk-purple-900:#2D1F6B;
+  --hk-mint-50:#ECFDF5;    --hk-mint-100:#D1FAE5;   --hk-mint-200:#A7F3D0;
+  --hk-mint-300:#6EE7B7;   --hk-mint-500:#34D399;   --hk-mint-700:#059669;
+  --hk-mint-900:#064E3B;
+  --hk-orange-50:#FFF7ED;  --hk-orange-100:#FFEDD5; --hk-orange-200:#FED7AA;
+  --hk-orange-300:#FDBA74; --hk-orange-500:#F97316; --hk-orange-700:#C2410C;
+  --hk-orange-900:#7C2D12;
+  --hk-gray-50:#F9FAFB;    --hk-gray-100:#F3F4F6;   --hk-gray-200:#E5E7EB;
+  --hk-gray-300:#D1D5DB;   --hk-gray-500:#6B7280;   --hk-gray-700:#374151;
+  --hk-gray-900:#111827;
+  --hk-dark:#1E1145;
+  --f-display:'Fredoka', sans-serif;
+  --f-body:'Inter', sans-serif;
+}
+body{background:var(--hk-gray-50);font-family:var(--f-body);color:var(--hk-gray-900);}
+
+/* ── HEADER ── */
+header{
+  background:var(--hk-dark);
+  padding:48px 64px;
+  position:relative;
+  overflow:hidden;
+}
+header::before{
+  content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;
+  border-radius:50%;background:var(--hk-purple-700);opacity:.35;
+}
+header::after{
+  content:'';position:absolute;top:60px;right:120px;width:180px;height:180px;
+  border-radius:50%;background:var(--hk-purple-500);opacity:.2;
+}
+.header-content{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+.header-left{display:flex;align-items:center;gap:24px;}
+.header-mascot{
+  width:90px;height:90px;background:var(--hk-purple-500);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;position:relative;
+  box-shadow:0 0 0 6px rgba(123,97,255,.3);
+}
+.header-mascot::before,.header-mascot::after{
+  content:'';position:absolute;top:-8px;width:28px;height:28px;
+  background:var(--hk-purple-300);border-radius:50%;
+}
+.header-mascot::before{left:8px;}
+.header-mascot::after{right:8px;}
+.mascot-face{
+  width:60px;height:60px;background:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.mascot-eye{width:10px;height:12px;background:var(--hk-gray-900);border-radius:50%;}
+.mascot-nose{
+  position:absolute;top:calc(50% + 8px);left:50%;transform:translateX(-50%);
+  width:8px;height:6px;background:var(--hk-purple-300);border-radius:50%;
+}
+.header-text h1{
+  font-family:var(--f-display);font-size:36px;font-weight:700;color:#fff;
+  line-height:1.1;
+}
+.header-text h1 span{color:var(--hk-purple-300);}
+.header-tagline{
+  display:inline-block;margin-top:12px;padding:6px 20px;
+  background:rgba(123,97,255,.25);border-radius:24px;
+  font-family:var(--f-display);font-size:14px;font-weight:500;
+  color:var(--hk-purple-200);font-style:italic;
+}
+.header-right{text-align:right;position:relative;z-index:1;}
+.header-eyebrow{
+  font-family:var(--f-body);font-size:10px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--hk-purple-300);
+  display:block;margin-bottom:4px;
+}
+.header-version{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);}
+.header-pills{display:flex;gap:8px;margin-top:12px;justify-content:flex-end;}
+.header-pill{
+  font-family:var(--f-body);font-size:9px;font-weight:500;
+  letter-spacing:.06em;padding:4px 12px;border-radius:20px;
+  border:1px solid rgba(123,97,255,.3);color:var(--hk-purple-200);
+}
+
+/* ── STRIPE ── */
+.brand-stripe{height:6px;display:flex;}
+.ss{flex:1;}
+
+/* ── MAIN ── */
+main{padding:52px 64px 80px;}
+.section{margin-bottom:56px;}
+.section-label{
+  font-family:var(--f-body);font-size:10px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--hk-gray-500);
+  border-bottom:2px solid var(--hk-purple-100);padding-bottom:10px;margin-bottom:24px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-size:11px;font-weight:700;
+  color:#fff;
+}
+
+/* ── NAV / TOC ── */
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.toc-card{
+  background:#fff;border-radius:12px;padding:20px;
+  border-left:4px solid var(--hk-purple-500);
+  cursor:pointer;transition:transform .15s,box-shadow .15s;
+}
+.toc-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(123,97,255,.12);}
+.toc-card h3{font-family:var(--f-display);font-size:16px;font-weight:600;color:var(--hk-gray-900);margin-bottom:4px;}
+.toc-card p{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);line-height:1.5;}
+
+/* ── PURPOSE BANNER ── */
+.purpose-banner{
+  background:var(--hk-dark);border-radius:16px;padding:36px 40px;
+  position:relative;overflow:hidden;color:#fff;margin-bottom:28px;
+}
+.purpose-banner::after{
+  content:'';position:absolute;top:-40px;right:-30px;width:200px;height:200px;
+  border-radius:50%;background:var(--hk-purple-700);opacity:.4;
+}
+.purpose-label{
+  font-family:var(--f-body);font-size:9px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--hk-orange-300);margin-bottom:12px;
+  position:relative;z-index:1;
+}
+.purpose-text{
+  font-family:var(--f-display);font-size:24px;font-weight:600;line-height:1.35;
+  max-width:600px;position:relative;z-index:1;
+}
+.purpose-sub{
+  font-family:var(--f-body);font-size:13px;color:var(--hk-gray-300);
+  margin-top:12px;max-width:560px;line-height:1.6;position:relative;z-index:1;
+}
+
+/* ── CONCEPT (Espejo Amigable) ── */
+.concept-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-bottom:28px;}
+.concept-card{
+  background:#fff;border-radius:14px;padding:28px 24px;text-align:center;
+  border:1px solid var(--hk-gray-200);
+}
+.concept-card.child{border-left:4px solid var(--hk-purple-500);}
+.concept-card.parent{border-left:4px solid var(--hk-mint-500);}
+.concept-icon{
+  width:48px;height:48px;border-radius:50%;display:inline-flex;
+  align-items:center;justify-content:center;margin-bottom:12px;font-size:20px;
+}
+.concept-card.child .concept-icon{background:var(--hk-purple-100);color:var(--hk-purple-700);}
+.concept-card.parent .concept-icon{background:var(--hk-mint-100);color:var(--hk-mint-700);}
+.concept-role{
+  font-family:var(--f-display);font-size:15px;font-weight:600;
+  color:var(--hk-purple-500);margin-bottom:6px;
+}
+.concept-card.parent .concept-role{color:var(--hk-mint-700);}
+.concept-desc{font-family:var(--f-body);font-size:12px;color:var(--hk-gray-500);line-height:1.5;}
+.concept-bridge{
+  text-align:center;font-family:var(--f-display);font-size:14px;font-weight:600;
+  color:var(--hk-gray-500);font-style:italic;
+}
+
+/* ── VALUES GRID ── */
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.value-card{
+  background:#fff;border-radius:12px;padding:20px;display:flex;gap:14px;
+  align-items:flex-start;border:1px solid var(--hk-gray-200);
+}
+.value-icon{
+  width:40px;height:40px;min-width:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.value-card:nth-child(1) .value-icon{background:var(--hk-purple-100);color:var(--hk-purple-500);}
+.value-card:nth-child(2) .value-icon{background:var(--hk-mint-100);color:var(--hk-mint-500);}
+.value-card:nth-child(3) .value-icon{background:var(--hk-orange-100);color:var(--hk-orange-500);}
+.value-card:nth-child(4) .value-icon{background:var(--hk-purple-100);color:var(--hk-purple-500);}
+.value-name{font-family:var(--f-display);font-size:14px;font-weight:600;color:var(--hk-gray-900);}
+.value-desc{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);margin-top:3px;line-height:1.5;}
+
+/* ── VERBAL IDENTITY ── */
+.persona-stack{display:flex;flex-direction:column;gap:16px;margin-bottom:28px;}
+.persona-card{
+  background:#fff;border-radius:12px;padding:22px 24px;
+  border:1px solid var(--hk-gray-200);
+}
+.persona-badge{
+  display:inline-block;padding:3px 12px;border-radius:20px;
+  font-family:var(--f-body);font-size:10px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;
+}
+.persona-card:nth-child(1) .persona-badge{background:var(--hk-purple-500);color:#fff;}
+.persona-card:nth-child(2) .persona-badge{background:var(--hk-mint-500);color:#fff;}
+.persona-card:nth-child(3) .persona-badge{background:var(--hk-orange-500);color:#fff;}
+.persona-title{font-family:var(--f-display);font-size:16px;font-weight:600;color:var(--hk-gray-900);margin-bottom:4px;}
+.persona-desc{font-family:var(--f-body);font-size:12px;color:var(--hk-gray-500);margin-bottom:10px;line-height:1.5;}
+.persona-example{
+  padding:10px 16px;border-radius:8px;
+  font-family:var(--f-body);font-size:12px;font-style:italic;
+  color:var(--hk-gray-700);line-height:1.5;
+}
+.persona-card:nth-child(1) .persona-example{background:var(--hk-purple-50);border-left:3px solid var(--hk-purple-500);}
+.persona-card:nth-child(2) .persona-example{background:var(--hk-mint-50);border-left:3px solid var(--hk-mint-500);}
+.persona-card:nth-child(3) .persona-example{background:var(--hk-orange-50);border-left:3px solid var(--hk-orange-300);}
+
+/* Language comparison */
+.lang-banner{
+  background:var(--hk-gray-700);border-radius:14px;padding:28px 32px;color:#fff;
+  position:relative;overflow:hidden;
+}
+.lang-banner::before{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:6px;
+  background:var(--hk-orange-300);
+}
+.lang-label{
+  font-family:var(--f-body);font-size:9px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--hk-orange-300);margin-bottom:8px;
+}
+.lang-title{font-family:var(--f-display);font-size:20px;font-weight:600;margin-bottom:16px;}
+.lang-row{
+  display:flex;align-items:center;gap:12px;margin-bottom:10px;
+  font-family:var(--f-body);font-size:13px;
+}
+.lang-bad{
+  background:rgba(239,68,68,.15);color:#FCA5A5;padding:4px 12px;
+  border-radius:6px;min-width:200px;
+}
+.lang-arrow{color:var(--hk-gray-500);font-size:16px;}
+.lang-good{
+  background:rgba(52,211,153,.15);color:var(--hk-mint-200);padding:4px 12px;
+  border-radius:6px;
+}
+
+/* ── HERO SWATCHES ── */
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.hero-swatch{
+  border-radius:14px;overflow:hidden;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .15s;
+}
+.hero-swatch:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(123,97,255,.15);}
+.hero-color{height:100px;}
+.hero-info{background:#fff;padding:14px 16px;}
+.hero-name{font-family:var(--f-display);font-size:14px;font-weight:600;color:var(--hk-gray-900);display:block;}
+.hero-role{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500);display:block;margin-top:2px;line-height:1.4;}
+.hero-hex{font-family:'Courier New',monospace;font-size:12px;font-weight:700;color:var(--hk-purple-500);display:block;margin-top:8px;}
+.hero-tags{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;}
+.hero-tag{
+  font-family:var(--f-body);font-size:8px;font-weight:600;
+  padding:2px 8px;border-radius:10px;border:1px solid var(--hk-gray-200);
+  color:var(--hk-gray-500);
+}
+
+/* ── RAMP BAR ── */
+.ramp-row{display:flex;border-radius:12px;overflow:hidden;height:56px;margin-bottom:10px;}
+.ramp-stop{flex:1;cursor:pointer;position:relative;transition:flex .18s;}
+.ramp-stop:hover{flex:1.8;}
+.ramp-tip{
+  position:absolute;bottom:0;left:0;right:0;text-align:center;
+  font-family:var(--f-body);font-size:8px;font-weight:700;padding:4px 0;
+  opacity:0;transition:opacity .15s;
+}
+.ramp-stop:hover .ramp-tip{opacity:1;}
+
+/* ── SWATCH GRID ── */
+.swatch-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+.swatch{border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid rgba(0,0,0,.05);transition:transform .12s;}
+.swatch:hover{transform:scale(1.07);}
+.swatch-color{height:44px;}
+.swatch-info{background:#fff;padding:6px 8px;}
+.swatch-stop{font-family:var(--f-body);font-size:9px;font-weight:500;color:var(--hk-gray-500);display:block;}
+.swatch-hex{font-family:'Courier New',monospace;font-size:10px;font-weight:600;color:var(--hk-gray-700);}
+
+/* ── MASCOT STATES ── */
+.mascot-intro{
+  background:var(--hk-purple-50);border-radius:14px;padding:24px 28px;
+  border:1px solid var(--hk-purple-100);margin-bottom:20px;
+}
+.mascot-intro h3{font-family:var(--f-display);font-size:18px;font-weight:600;color:var(--hk-gray-900);margin-bottom:6px;}
+.mascot-intro p{font-family:var(--f-body);font-size:12px;color:var(--hk-gray-500);line-height:1.6;}
+.states-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px;}
+.state-card{
+  background:#fff;border-radius:14px;padding:24px;
+  border:2px solid var(--hk-purple-100);
+  display:flex;gap:20px;align-items:flex-start;
+}
+.state-luna{
+  width:80px;height:80px;min-width:80px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.state-luna-inner{
+  width:50px;height:50px;background:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.luna-eye{width:7px;height:9px;background:var(--hk-gray-900);border-radius:50%;margin:0 4px;}
+.state-card:nth-child(1) .state-luna{background:var(--hk-purple-300);}
+.state-card:nth-child(2) .state-luna{background:var(--hk-purple-200);opacity:.7;}
+.state-card:nth-child(3) .state-luna{background:var(--hk-orange-300);}
+.state-card:nth-child(4) .state-luna{background:var(--hk-mint-300);}
+/* Ears */
+.state-luna::before,.state-luna::after{
+  content:'';position:absolute;top:-6px;width:20px;height:20px;
+  border-radius:50%;
+}
+.state-luna::before{left:6px;}
+.state-luna::after{right:6px;}
+.state-card:nth-child(1) .state-luna::before,.state-card:nth-child(1) .state-luna::after{background:var(--hk-purple-300);}
+.state-card:nth-child(2) .state-luna::before,.state-card:nth-child(2) .state-luna::after{background:var(--hk-purple-200);}
+.state-card:nth-child(3) .state-luna::before,.state-card:nth-child(3) .state-luna::after{background:var(--hk-orange-300);}
+.state-card:nth-child(4) .state-luna::before,.state-card:nth-child(4) .state-luna::after{background:var(--hk-mint-300);}
+
+.state-badge{
+  display:inline-block;padding:3px 10px;border-radius:6px;
+  font-family:var(--f-body);font-size:9px;font-weight:700;
+  color:#fff;margin-bottom:6px;
+}
+.state-card:nth-child(1) .state-badge{background:var(--hk-purple-500);}
+.state-card:nth-child(2) .state-badge{background:var(--hk-purple-300);}
+.state-card:nth-child(3) .state-badge{background:var(--hk-orange-500);}
+.state-card:nth-child(4) .state-badge{background:var(--hk-mint-500);}
+.state-name{font-family:var(--f-display);font-size:15px;font-weight:600;color:var(--hk-gray-900);margin-bottom:4px;}
+.state-desc{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);line-height:1.5;margin-bottom:6px;}
+.state-tag{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-family:var(--f-body);font-size:9px;font-weight:500;
+  background:var(--hk-gray-100);color:var(--hk-gray-500);margin-right:4px;margin-bottom:4px;
+}
+.state-triggers{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500);margin-top:8px;}
+.state-triggers strong{color:var(--hk-gray-700);font-weight:600;font-size:9px;letter-spacing:.08em;text-transform:uppercase;}
+.state-triggers ul{margin-top:4px;padding-left:14px;}
+.state-triggers li{margin-bottom:2px;}
+.mascot-principle{
+  background:var(--hk-gray-700);border-radius:12px;padding:20px 24px;color:#fff;
+}
+.mascot-principle-label{
+  font-family:var(--f-body);font-size:9px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--hk-purple-300);margin-bottom:6px;
+}
+.mascot-principle h4{font-family:var(--f-display);font-size:16px;font-weight:600;margin-bottom:4px;}
+.mascot-principle p{font-family:var(--f-body);font-size:12px;color:var(--hk-gray-300);line-height:1.5;}
+
+/* ── TYPOGRAPHY ── */
+.fonts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.font-card{
+  background:#fff;border-radius:12px;padding:24px 20px;
+  border:1px solid var(--hk-gray-200);
+}
+.font-tag{
+  display:inline-block;font-family:var(--f-body);font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;
+  margin-bottom:12px;
+}
+.font-card:nth-child(1) .font-tag{background:var(--hk-purple-100);color:var(--hk-purple-700);}
+.font-card:nth-child(2) .font-tag{background:var(--hk-mint-100);color:var(--hk-mint-700);}
+.font-sample{margin-bottom:14px;line-height:1.15;}
+.font-name{
+  font-family:var(--f-body);font-size:11px;font-weight:700;
+  color:var(--hk-purple-500);letter-spacing:.06em;text-transform:uppercase;
+  display:block;margin-bottom:4px;
+}
+.font-use{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500);display:block;line-height:1.5;}
+.font-use-context{
+  font-family:var(--f-body);font-size:10px;color:var(--hk-mint-700);
+  margin-top:4px;display:block;
+}
+
+.type-hierarchy{
+  background:#fff;border-radius:12px;padding:28px 24px;
+  border:1px solid var(--hk-gray-200);
+}
+.type-hierarchy-label{
+  font-family:var(--f-body);font-size:9px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:20px;
+}
+.type-row{
+  border-bottom:1px solid var(--hk-gray-100);padding-bottom:12px;margin-bottom:12px;
+  display:flex;align-items:baseline;justify-content:space-between;
+}
+.type-row:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.type-spec{
+  font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500);
+  white-space:nowrap;margin-left:16px;
+}
+
+/* ── UX GUIDELINES ── */
+.ux-split{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ux-panel{background:#fff;border-radius:14px;padding:28px 24px;border:1px solid var(--hk-gray-200);}
+.ux-panel-label{
+  font-family:var(--f-body);font-size:9px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:12px;
+}
+.ux-panel:nth-child(1) .ux-panel-label{color:var(--hk-purple-500);}
+.ux-panel:nth-child(2) .ux-panel-label{color:var(--hk-mint-700);}
+.ux-panel h3{font-family:var(--f-display);font-size:20px;font-weight:600;color:var(--hk-gray-900);margin-bottom:16px;}
+.ux-item{
+  display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;
+}
+.ux-dot{
+  width:32px;height:32px;min-width:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+}
+.ux-panel:nth-child(1) .ux-dot{background:var(--hk-purple-100);color:var(--hk-purple-500);}
+.ux-panel:nth-child(2) .ux-dot{background:var(--hk-mint-100);color:var(--hk-mint-700);}
+.ux-item-title{font-family:var(--f-display);font-size:13px;font-weight:600;color:var(--hk-gray-900);}
+.ux-item-desc{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);margin-top:2px;line-height:1.4;}
+
+/* Tip rule */
+.tip-rule{
+  background:var(--hk-gray-50);border-radius:10px;padding:16px 18px;
+  border:1px solid var(--hk-gray-200);margin-top:16px;
+}
+.tip-rule-title{font-family:var(--f-display);font-size:13px;font-weight:600;color:var(--hk-gray-900);margin-bottom:8px;}
+.tip-rule-sub{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);margin-bottom:12px;}
+.tip-flow{display:flex;flex-direction:column;gap:8px;}
+.tip-box{padding:10px 14px;border-radius:8px;font-family:var(--f-body);font-size:12px;line-height:1.4;}
+.tip-box.dato{background:#FEE2E2;color:#991B1B;border-left:3px solid #EF4444;}
+.tip-box.accion{background:var(--hk-mint-50);color:var(--hk-mint-900);border-left:3px solid var(--hk-mint-500);}
+.tip-arrow{text-align:center;color:var(--hk-gray-500);font-size:16px;}
+.ux-principles{display:flex;gap:10px;margin-top:16px;}
+.ux-principle{
+  flex:1;display:flex;gap:8px;align-items:center;
+  padding:10px 12px;background:var(--hk-gray-50);border-radius:8px;
+}
+.ux-principle-dot{
+  width:10px;height:10px;min-width:10px;border-radius:50%;
+}
+.ux-principle:nth-child(1) .ux-principle-dot{background:var(--hk-purple-500);}
+.ux-principle:nth-child(2) .ux-principle-dot{background:var(--hk-orange-500);}
+.ux-principle:nth-child(3) .ux-principle-dot{background:var(--hk-mint-500);}
+.ux-principle span{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-700);}
+.ux-principle strong{font-weight:600;}
+
+/* ── MANIFESTO ── */
+.manifesto-hero{
+  background:var(--hk-dark);border-radius:20px;padding:48px 52px;
+  position:relative;overflow:hidden;color:#fff;margin-bottom:24px;
+}
+.manifesto-hero::before{
+  content:'';position:absolute;top:-60px;right:-40px;width:250px;height:250px;
+  border-radius:50%;background:var(--hk-purple-700);opacity:.35;
+}
+.manifesto-quote-mark{
+  font-family:var(--f-display);font-size:64px;color:var(--hk-purple-500);
+  line-height:1;margin-bottom:-12px;position:relative;z-index:1;
+}
+.manifesto-quote{
+  font-family:var(--f-display);font-size:24px;font-weight:600;line-height:1.45;
+  position:relative;z-index:1;max-width:600px;
+}
+.manifesto-quote em{color:var(--hk-mint-300);font-style:normal;}
+.manifesto-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.pillar-card{
+  background:#fff;border-radius:12px;padding:24px 20px;text-align:center;
+  border-top:4px solid transparent;
+}
+.pillar-card:nth-child(1){border-top-color:var(--hk-purple-500);}
+.pillar-card:nth-child(2){border-top-color:var(--hk-mint-500);}
+.pillar-card:nth-child(3){border-top-color:var(--hk-orange-500);}
+.pillar-icon{
+  width:44px;height:44px;border-radius:50%;display:inline-flex;
+  align-items:center;justify-content:center;margin-bottom:10px;font-size:18px;
+}
+.pillar-card:nth-child(1) .pillar-icon{background:var(--hk-purple-100);color:var(--hk-purple-500);}
+.pillar-card:nth-child(2) .pillar-icon{background:var(--hk-mint-100);color:var(--hk-mint-700);}
+.pillar-card:nth-child(3) .pillar-icon{background:var(--hk-orange-100);color:var(--hk-orange-700);}
+.pillar-name{font-family:var(--f-display);font-size:14px;font-weight:600;color:var(--hk-gray-900);margin-bottom:6px;}
+.pillar-desc{font-family:var(--f-body);font-size:11px;color:var(--hk-gray-500);line-height:1.5;}
+.manifesto-closing{
+  text-align:center;font-family:var(--f-body);font-size:13px;
+  color:var(--hk-gray-500);font-style:italic;
+}
+
+/* ── SEMANTIC ── */
+.semantic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.sem-swatch{border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid rgba(0,0,0,.05);}
+.sem-color{height:56px;}
+.sem-info{background:#fff;padding:10px 12px;}
+.sem-name{font-family:var(--f-display);font-size:13px;font-weight:600;color:var(--hk-gray-900);display:block;}
+.sem-role{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500);display:block;margin-top:2px;}
+.sem-hex{font-family:'Courier New',monospace;font-size:10px;font-weight:600;color:var(--hk-purple-500);display:block;margin-top:5px;}
+
+/* ── CSS CODE ── */
+.code-block{background:var(--hk-gray-900);border-radius:14px;padding:24px 28px;position:relative;}
+.code-pre{
+  font-family:'Courier New',monospace;font-size:11px;color:var(--hk-gray-300);
+  line-height:1.9;white-space:pre;overflow-x:auto;
+}
+.code-pre .k{color:var(--hk-purple-300);} .code-pre .v{color:var(--hk-mint-300);}
+.copy-btn{
+  position:absolute;top:16px;right:16px;background:var(--hk-gray-700);
+  border:1px solid var(--hk-gray-500);color:var(--hk-gray-300);padding:5px 14px;
+  border-radius:6px;font-family:var(--f-body);font-size:11px;font-weight:600;cursor:pointer;
+}
+.copy-btn:hover{background:var(--hk-gray-500);color:#fff;}
+
+/* ── USAGE PREVIEW ── */
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.preview-dark{background:var(--hk-dark);border-radius:14px;padding:28px 26px;}
+.preview-light{background:#fff;border-radius:14px;padding:28px 26px;border:1px solid var(--hk-gray-200);}
+.p-badge{
+  display:inline-block;padding:3px 12px;border-radius:20px;
+  font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.p-title{font-family:var(--f-display);font-size:19px;font-weight:600;margin-bottom:6px;line-height:1.25;}
+.p-sub{font-family:var(--f-body);font-size:12px;line-height:1.6;}
+.p-btn{
+  display:inline-block;margin-top:16px;padding:9px 22px;border-radius:24px;
+  font-family:var(--f-display);font-size:12px;font-weight:600;letter-spacing:.04em;
+  cursor:pointer;border:none;
+}
+
+/* ── TOAST ── */
+#toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);
+  background:var(--hk-dark);color:#fff;padding:10px 24px;border-radius:24px;
+  font-family:var(--f-body);font-size:12px;font-weight:600;
+  border-left:3px solid var(--hk-purple-500);
+  opacity:0;transition:all .22s;pointer-events:none;z-index:9999;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--hk-dark);padding:20px 64px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+footer .f-left{font-family:var(--f-body);font-size:10px;font-weight:500;color:var(--hk-gray-500);letter-spacing:.06em;}
+footer .f-center{font-family:var(--f-body);font-size:11px;font-style:italic;color:var(--hk-purple-300);}
+footer .f-right{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  header{padding:32px 24px;}
+  main{padding:32px 24px 60px;}
+  .hero-grid,.semantic-grid{grid-template-columns:repeat(2,1fr);}
+  .swatch-grid{grid-template-columns:repeat(4,1fr);}
+  .fonts-grid,.usage-grid,.ux-split,.states-grid,.values-grid,.concept-grid,.manifesto-pillars{grid-template-columns:1fr;}
+  .toc-grid{grid-template-columns:1fr;}
+  footer{padding:16px 24px;flex-direction:column;gap:6px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header>
+  <div class="header-content">
+    <div class="header-left">
+      <div class="header-mascot">
+        <div class="mascot-face">
+          <div class="mascot-eye"></div>
+          <div class="mascot-eye"></div>
+        </div>
+        <div class="mascot-nose"></div>
+      </div>
+      <div class="header-text">
+        <h1>Hachiko <span>Kids</span></h1>
+        <div class="header-tagline">"Traduciendo el juego en bienestar"</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="header-eyebrow">Brand Identity Guidelines</span>
+      <span class="header-version">Brandbook v1.0 — 2025</span>
+      <div class="header-pills">
+        <span class="header-pill">Bienestar Emocional</span>
+        <span class="header-pill">Crianza Consciente</span>
+        <span class="header-pill">Psicología Lúdica</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="brand-stripe">
+  <div class="ss" style="background:var(--hk-purple-500);"></div>
+  <div class="ss" style="background:var(--hk-purple-300);"></div>
+  <div class="ss" style="background:var(--hk-mint-200);"></div>
+  <div class="ss" style="background:var(--hk-orange-300);"></div>
+  <div class="ss" style="background:var(--hk-gray-100);"></div>
+</div>
+
+<main>
+
+  <!-- ═══ TABLE OF CONTENTS ═══ -->
+  <div class="section">
+    <div class="section-label">
+      <span>Contenidos</span>
+    </div>
+    <div class="toc-grid">
+      <div class="toc-card" onclick="document.getElementById('s1').scrollIntoView({behavior:'smooth'})">
+        <h3><span style="color:var(--hk-purple-500);">01</span> Estrategia de Marca</h3>
+        <p>El Propósito, El Concepto, Los Valores</p>
+      </div>
+      <div class="toc-card" onclick="document.getElementById('s2').scrollIntoView({behavior:'smooth'})">
+        <h3><span style="color:var(--hk-mint-500);">02</span> Identidad Verbal</h3>
+        <p>Voz, Tono y Lenguaje de Crianza</p>
+      </div>
+      <div class="toc-card" onclick="document.getElementById('s3').scrollIntoView({behavior:'smooth'})">
+        <h3><span style="color:var(--hk-orange-500);">03</span> Identidad Visual</h3>
+        <p>Logotipo, Paleta de Colores y Tipografía</p>
+      </div>
+      <div class="toc-card" onclick="document.getElementById('s4').scrollIntoView({behavior:'smooth'})">
+        <h3><span style="color:var(--hk-purple-500);">04</span> Sistema de Mascota</h3>
+        <p>Luna — Los 4 Estados Emocionales</p>
+      </div>
+      <div class="toc-card" onclick="document.getElementById('s5').scrollIntoView({behavior:'smooth'})">
+        <h3><span style="color:var(--hk-mint-500);">05</span> Guías de UX</h3>
+        <p>Experiencia para el Niño y el Padre</p>
+      </div>
+      <div class="toc-card" onclick="document.getElementById('s6').scrollIntoView({behavior:'smooth'})">
+        <h3><span style="color:var(--hk-orange-500);">06</span> Manifiesto</h3>
+        <p>El Juramento de Diseño</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 01 ESTRATEGIA DE MARCA ═══ -->
+  <div class="section" id="s1">
+    <div class="section-label">
+      <span class="section-num" style="background:var(--hk-purple-500);">01</span>
+      <span>Estrategia de Marca — El fundamento de todo lo que construimos</span>
+    </div>
+
+    <div class="purpose-banner">
+      <div class="purpose-label">El propósito — Por qué existimos</div>
+      <div class="purpose-text">Cerrar la brecha de comunicación entre el mundo interior del niño y el entendimiento del adulto.</div>
+      <div class="purpose-sub">No diagnosticamos. Traducimos comportamientos para que ningún niño se sienta solo en su emoción y ningún padre se sienta perdido en su crianza.</div>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card child">
+        <div class="concept-icon">&#9632;</div>
+        <div class="concept-role">El Niño</div>
+        <div class="concept-desc">Ve su emoción reflejada en la mascota (proyección)</div>
+      </div>
+      <div class="concept-bridge">"El Espejo<br>Amigable"</div>
+      <div class="concept-card parent">
+        <div class="concept-icon">&#9632;&#9632;&#9632;</div>
+        <div class="concept-role">El Padre</div>
+        <div class="concept-desc">Ve el comportamiento en datos accionables</div>
+      </div>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">&#10084;</div>
+        <div>
+          <div class="value-name">Empatía Radical</div>
+          <div class="value-desc">Diseñamos desde el nivel de los ojos del niño.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#10003;</div>
+        <div>
+          <div class="value-name">Claridad Sin Culpa</div>
+          <div class="value-desc">Datos para ayudar, no para juzgar la paternidad.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9632;</div>
+        <div>
+          <div class="value-name">Seguridad Nativa</div>
+          <div class="value-desc">La privacidad y el bienestar son la base de cada píxel.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9632;</div>
+        <div>
+          <div class="value-name">Lúdico-Científico</div>
+          <div class="value-desc">Rigor de la psicología conductual + magia del juego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 02 IDENTIDAD VERBAL ═══ -->
+  <div class="section" id="s2">
+    <div class="section-label">
+      <span class="section-num" style="background:var(--hk-mint-500);">02</span>
+      <span>Identidad Verbal — Voz, tono y lenguaje para cada audiencia</span>
+    </div>
+
+    <div class="persona-stack">
+      <div class="persona-card">
+        <span class="persona-badge">El Niño</span>
+        <div class="persona-title">Compañero de Aventuras</div>
+        <div class="persona-desc">Lúdico, breve y empoderador. No da órdenes, hace preguntas.</div>
+        <div class="persona-example"><strong>Ejemplo:</strong> "¿Cómo se siente Luna hoy? ¡Tú decides!"</div>
+      </div>
+      <div class="persona-card">
+        <span class="persona-badge">El Padre</span>
+        <div class="persona-title">Guía Confiable</div>
+        <div class="persona-desc">Empático, pragmático y libre de tecnicismos. Usa Lenguaje de Crianza.</div>
+        <div class="persona-example"><strong>Ejemplo:</strong> "Esta semana, Mateo necesitó más tiempo para calmarse los lunes."</div>
+      </div>
+      <div class="persona-card">
+        <span class="persona-badge">El Profesional</span>
+        <div class="persona-title">Aliado Estratégico</div>
+        <div class="persona-desc">Basado en evidencia, preciso y orientado a la eficiencia clínica.</div>
+        <div class="persona-example"><strong>Ejemplo:</strong> "Indicadores de regulación emocional: 3 episodios/semana (-40%)."</div>
+      </div>
+    </div>
+
+    <div class="lang-banner">
+      <div class="lang-label">Lenguaje de Crianza — No Clínico</div>
+      <div class="lang-title">Hablamos como padres, no como manuales.</div>
+      <div class="lang-row">
+        <span class="lang-bad">&#10007; Trastorno del espectro</span>
+        <span class="lang-arrow">&#8594;</span>
+        <span class="lang-good">&#10003; Prefiere sus propias reglas de juego</span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-bad">&#10007; Déficit atencional</span>
+        <span class="lang-arrow">&#8594;</span>
+        <span class="lang-good">&#10003; Le cuesta seguir instrucciones largas</span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-bad">&#10007; Crisis de angustia</span>
+        <span class="lang-arrow">&#8594;</span>
+        <span class="lang-good">&#10003; Se siente abrumado los lunes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 03 IDENTIDAD VISUAL ═══ -->
+  <div class="section" id="s3">
+    <div class="section-label">
+      <span class="section-num" style="background:var(--hk-orange-500);">03</span>
+      <span>Identidad Visual — Color, tipografía y geometría de marca</span>
+    </div>
+
+    <!-- Hero Colors -->
+    <div style="margin-bottom:32px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:16px;">Paleta de Colores — Energía Calma</div>
+      <div class="hero-grid">
+        <div class="hero-swatch" onclick="copy('#7B61FF')">
+          <div class="hero-color" style="background:#7B61FF;"></div>
+          <div class="hero-info">
+            <span class="hero-name">Morado Hachiko</span>
+            <span class="hero-role">Intuición y equilibrio. Color de Luna.</span>
+            <span class="hero-hex">#7B61FF</span>
+            <div class="hero-tags">
+              <span class="hero-tag">Primario</span>
+              <span class="hero-tag">Mascota</span>
+              <span class="hero-tag">CTAs</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-swatch" onclick="copy('#A7F3D0')">
+          <div class="hero-color" style="background:#A7F3D0;"></div>
+          <div class="hero-info">
+            <span class="hero-name">Verde Menta</span>
+            <span class="hero-role">Crecimiento y calma. Tips positivos.</span>
+            <span class="hero-hex">#A7F3D0</span>
+            <div class="hero-tags">
+              <span class="hero-tag">Éxitos</span>
+              <span class="hero-tag">Tips</span>
+              <span class="hero-tag">Logros</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-swatch" onclick="copy('#FDBA74')">
+          <div class="hero-color" style="background:#FDBA74;"></div>
+          <div class="hero-info">
+            <span class="hero-name">Naranja Suave</span>
+            <span class="hero-role">Energía y juego. Atención del niño.</span>
+            <span class="hero-hex">#FDBA74</span>
+            <div class="hero-tags">
+              <span class="hero-tag">Alertas</span>
+              <span class="hero-tag">Juego</span>
+              <span class="hero-tag">Energía</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-swatch" onclick="copy('#F3F4F6')">
+          <div class="hero-color" style="background:#F3F4F6;border-bottom:1px solid #E5E7EB;"></div>
+          <div class="hero-info">
+            <span class="hero-name">Gris Piedra</span>
+            <span class="hero-role">Neutralidad. Dashboard adulto.</span>
+            <span class="hero-hex">#F3F4F6</span>
+            <div class="hero-tags">
+              <span class="hero-tag">Fondos</span>
+              <span class="hero-tag">Datos</span>
+              <span class="hero-tag">UI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Morado Ramp -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:12px;">Morado Hachiko — escala de profundidad</div>
+      <div class="ramp-row">
+        <div class="ramp-stop" style="background:#F0EDFF;" onclick="copy('#F0EDFF')"><div class="ramp-tip" style="color:#2D1F6B;">50</div></div>
+        <div class="ramp-stop" style="background:#D4CCFF;" onclick="copy('#D4CCFF')"><div class="ramp-tip" style="color:#2D1F6B;">100</div></div>
+        <div class="ramp-stop" style="background:#B8AAFF;" onclick="copy('#B8AAFF')"><div class="ramp-tip" style="color:#2D1F6B;">200</div></div>
+        <div class="ramp-stop" style="background:#9C88FF;" onclick="copy('#9C88FF')"><div class="ramp-tip" style="color:#fff;">300</div></div>
+        <div class="ramp-stop" style="background:#7B61FF;" onclick="copy('#7B61FF')"><div class="ramp-tip" style="color:#fff;">500 &#9733;</div></div>
+        <div class="ramp-stop" style="background:#5A3FD6;" onclick="copy('#5A3FD6')"><div class="ramp-tip" style="color:#fff;">700</div></div>
+        <div class="ramp-stop" style="background:#2D1F6B;" onclick="copy('#2D1F6B')"><div class="ramp-tip" style="color:#fff;">900</div></div>
+      </div>
+      <div class="swatch-grid">
+        <div class="swatch" onclick="copy('#F0EDFF')"><div class="swatch-color" style="background:#F0EDFF;"></div><div class="swatch-info"><span class="swatch-stop">50</span><span class="swatch-hex">#F0EDFF</span></div></div>
+        <div class="swatch" onclick="copy('#D4CCFF')"><div class="swatch-color" style="background:#D4CCFF;"></div><div class="swatch-info"><span class="swatch-stop">100</span><span class="swatch-hex">#D4CCFF</span></div></div>
+        <div class="swatch" onclick="copy('#B8AAFF')"><div class="swatch-color" style="background:#B8AAFF;"></div><div class="swatch-info"><span class="swatch-stop">200</span><span class="swatch-hex">#B8AAFF</span></div></div>
+        <div class="swatch" onclick="copy('#9C88FF')"><div class="swatch-color" style="background:#9C88FF;"></div><div class="swatch-info"><span class="swatch-stop">300</span><span class="swatch-hex">#9C88FF</span></div></div>
+        <div class="swatch" onclick="copy('#7B61FF')"><div class="swatch-color" style="background:#7B61FF;"></div><div class="swatch-info"><span class="swatch-stop">500</span><span class="swatch-hex">#7B61FF</span></div></div>
+        <div class="swatch" onclick="copy('#5A3FD6')"><div class="swatch-color" style="background:#5A3FD6;"></div><div class="swatch-info"><span class="swatch-stop">700</span><span class="swatch-hex">#5A3FD6</span></div></div>
+        <div class="swatch" onclick="copy('#2D1F6B')"><div class="swatch-color" style="background:#2D1F6B;"></div><div class="swatch-info"><span class="swatch-stop">900</span><span class="swatch-hex">#2D1F6B</span></div></div>
+      </div>
+    </div>
+
+    <!-- Verde Menta Ramp -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:12px;">Verde Menta — escala completa</div>
+      <div class="ramp-row">
+        <div class="ramp-stop" style="background:#ECFDF5;" onclick="copy('#ECFDF5')"><div class="ramp-tip" style="color:#064E3B;">50</div></div>
+        <div class="ramp-stop" style="background:#D1FAE5;" onclick="copy('#D1FAE5')"><div class="ramp-tip" style="color:#064E3B;">100</div></div>
+        <div class="ramp-stop" style="background:#A7F3D0;" onclick="copy('#A7F3D0')"><div class="ramp-tip" style="color:#064E3B;">200 &#9733;</div></div>
+        <div class="ramp-stop" style="background:#6EE7B7;" onclick="copy('#6EE7B7')"><div class="ramp-tip" style="color:#064E3B;">300</div></div>
+        <div class="ramp-stop" style="background:#34D399;" onclick="copy('#34D399')"><div class="ramp-tip" style="color:#fff;">500</div></div>
+        <div class="ramp-stop" style="background:#059669;" onclick="copy('#059669')"><div class="ramp-tip" style="color:#fff;">700</div></div>
+        <div class="ramp-stop" style="background:#064E3B;" onclick="copy('#064E3B')"><div class="ramp-tip" style="color:#fff;">900</div></div>
+      </div>
+      <div class="swatch-grid">
+        <div class="swatch" onclick="copy('#ECFDF5')"><div class="swatch-color" style="background:#ECFDF5;"></div><div class="swatch-info"><span class="swatch-stop">50</span><span class="swatch-hex">#ECFDF5</span></div></div>
+        <div class="swatch" onclick="copy('#D1FAE5')"><div class="swatch-color" style="background:#D1FAE5;"></div><div class="swatch-info"><span class="swatch-stop">100</span><span class="swatch-hex">#D1FAE5</span></div></div>
+        <div class="swatch" onclick="copy('#A7F3D0')"><div class="swatch-color" style="background:#A7F3D0;"></div><div class="swatch-info"><span class="swatch-stop">200</span><span class="swatch-hex">#A7F3D0</span></div></div>
+        <div class="swatch" onclick="copy('#6EE7B7')"><div class="swatch-color" style="background:#6EE7B7;"></div><div class="swatch-info"><span class="swatch-stop">300</span><span class="swatch-hex">#6EE7B7</span></div></div>
+        <div class="swatch" onclick="copy('#34D399')"><div class="swatch-color" style="background:#34D399;"></div><div class="swatch-info"><span class="swatch-stop">500</span><span class="swatch-hex">#34D399</span></div></div>
+        <div class="swatch" onclick="copy('#059669')"><div class="swatch-color" style="background:#059669;"></div><div class="swatch-info"><span class="swatch-stop">700</span><span class="swatch-hex">#059669</span></div></div>
+        <div class="swatch" onclick="copy('#064E3B')"><div class="swatch-color" style="background:#064E3B;"></div><div class="swatch-info"><span class="swatch-stop">900</span><span class="swatch-hex">#064E3B</span></div></div>
+      </div>
+    </div>
+
+    <!-- Naranja Ramp -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:12px;">Naranja Suave — escala completa</div>
+      <div class="ramp-row">
+        <div class="ramp-stop" style="background:#FFF7ED;" onclick="copy('#FFF7ED')"><div class="ramp-tip" style="color:#7C2D12;">50</div></div>
+        <div class="ramp-stop" style="background:#FFEDD5;" onclick="copy('#FFEDD5')"><div class="ramp-tip" style="color:#7C2D12;">100</div></div>
+        <div class="ramp-stop" style="background:#FED7AA;" onclick="copy('#FED7AA')"><div class="ramp-tip" style="color:#7C2D12;">200</div></div>
+        <div class="ramp-stop" style="background:#FDBA74;" onclick="copy('#FDBA74')"><div class="ramp-tip" style="color:#7C2D12;">300 &#9733;</div></div>
+        <div class="ramp-stop" style="background:#F97316;" onclick="copy('#F97316')"><div class="ramp-tip" style="color:#fff;">500</div></div>
+        <div class="ramp-stop" style="background:#C2410C;" onclick="copy('#C2410C')"><div class="ramp-tip" style="color:#fff;">700</div></div>
+        <div class="ramp-stop" style="background:#7C2D12;" onclick="copy('#7C2D12')"><div class="ramp-tip" style="color:#fff;">900</div></div>
+      </div>
+      <div class="swatch-grid">
+        <div class="swatch" onclick="copy('#FFF7ED')"><div class="swatch-color" style="background:#FFF7ED;"></div><div class="swatch-info"><span class="swatch-stop">50</span><span class="swatch-hex">#FFF7ED</span></div></div>
+        <div class="swatch" onclick="copy('#FFEDD5')"><div class="swatch-color" style="background:#FFEDD5;"></div><div class="swatch-info"><span class="swatch-stop">100</span><span class="swatch-hex">#FFEDD5</span></div></div>
+        <div class="swatch" onclick="copy('#FED7AA')"><div class="swatch-color" style="background:#FED7AA;"></div><div class="swatch-info"><span class="swatch-stop">200</span><span class="swatch-hex">#FED7AA</span></div></div>
+        <div class="swatch" onclick="copy('#FDBA74')"><div class="swatch-color" style="background:#FDBA74;"></div><div class="swatch-info"><span class="swatch-stop">300</span><span class="swatch-hex">#FDBA74</span></div></div>
+        <div class="swatch" onclick="copy('#F97316')"><div class="swatch-color" style="background:#F97316;"></div><div class="swatch-info"><span class="swatch-stop">500</span><span class="swatch-hex">#F97316</span></div></div>
+        <div class="swatch" onclick="copy('#C2410C')"><div class="swatch-color" style="background:#C2410C;"></div><div class="swatch-info"><span class="swatch-stop">700</span><span class="swatch-hex">#C2410C</span></div></div>
+        <div class="swatch" onclick="copy('#7C2D12')"><div class="swatch-color" style="background:#7C2D12;"></div><div class="swatch-info"><span class="swatch-stop">900</span><span class="swatch-hex">#7C2D12</span></div></div>
+      </div>
+    </div>
+
+    <!-- Neutros -->
+    <div style="margin-bottom:32px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:12px;">Neutros — Gris Piedra</div>
+      <div class="swatch-grid">
+        <div class="swatch" onclick="copy('#F9FAFB')"><div class="swatch-color" style="background:#F9FAFB;border-bottom:1px solid #E5E7EB;"></div><div class="swatch-info"><span class="swatch-stop">50</span><span class="swatch-hex">#F9FAFB</span></div></div>
+        <div class="swatch" onclick="copy('#F3F4F6')"><div class="swatch-color" style="background:#F3F4F6;border-bottom:1px solid #E5E7EB;"></div><div class="swatch-info"><span class="swatch-stop">100</span><span class="swatch-hex">#F3F4F6</span></div></div>
+        <div class="swatch" onclick="copy('#E5E7EB')"><div class="swatch-color" style="background:#E5E7EB;"></div><div class="swatch-info"><span class="swatch-stop">200</span><span class="swatch-hex">#E5E7EB</span></div></div>
+        <div class="swatch" onclick="copy('#D1D5DB')"><div class="swatch-color" style="background:#D1D5DB;"></div><div class="swatch-info"><span class="swatch-stop">300</span><span class="swatch-hex">#D1D5DB</span></div></div>
+        <div class="swatch" onclick="copy('#6B7280')"><div class="swatch-color" style="background:#6B7280;"></div><div class="swatch-info"><span class="swatch-stop">500</span><span class="swatch-hex">#6B7280</span></div></div>
+        <div class="swatch" onclick="copy('#374151')"><div class="swatch-color" style="background:#374151;"></div><div class="swatch-info"><span class="swatch-stop">700</span><span class="swatch-hex">#374151</span></div></div>
+        <div class="swatch" onclick="copy('#111827')"><div class="swatch-color" style="background:#111827;"></div><div class="swatch-info"><span class="swatch-stop">900</span><span class="swatch-hex">#111827</span></div></div>
+      </div>
+    </div>
+
+    <!-- Semantic -->
+    <div style="margin-bottom:32px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:12px;">Colores semánticos</div>
+      <div class="semantic-grid">
+        <div class="sem-swatch" onclick="copy('#34D399')">
+          <div class="sem-color" style="background:#34D399;"></div>
+          <div class="sem-info"><span class="sem-name">Éxito / Logro</span><span class="sem-role">Actividades completadas, progreso</span><span class="sem-hex">#34D399</span></div>
+        </div>
+        <div class="sem-swatch" onclick="copy('#FDBA74')">
+          <div class="sem-color" style="background:#FDBA74;"></div>
+          <div class="sem-info"><span class="sem-name">Atención</span><span class="sem-role">Alertas suaves, micro-momentos</span><span class="sem-hex">#FDBA74</span></div>
+        </div>
+        <div class="sem-swatch" onclick="copy('#FCA5A5')">
+          <div class="sem-color" style="background:#FCA5A5;"></div>
+          <div class="sem-info"><span class="sem-name">Cuidado</span><span class="sem-role">Señales emocionales del niño</span><span class="sem-hex">#FCA5A5</span></div>
+        </div>
+        <div class="sem-swatch" onclick="copy('#7B61FF')">
+          <div class="sem-color" style="background:#7B61FF;"></div>
+          <div class="sem-info"><span class="sem-name">Información</span><span class="sem-role">Insights y datos del dashboard</span><span class="sem-hex">#7B61FF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:16px;">Sistema Tipográfico</div>
+      <div class="fonts-grid">
+        <div class="font-card">
+          <span class="font-tag">Tipografía primaria</span>
+          <div class="font-sample" style="font-family:'Fredoka',sans-serif;font-size:32px;font-weight:600;color:var(--hk-purple-700);">Fredoka One</div>
+          <span class="font-name">Fredoka</span>
+          <span class="font-use">Sans Serif redondeada. Infantil-profesional.</span>
+          <span class="font-use-context">Niños &middot; Titulares &middot; App UI &middot; Voz de Luna</span>
+        </div>
+        <div class="font-card">
+          <span class="font-tag">Tipografía secundaria</span>
+          <div class="font-sample" style="font-family:'Inter',sans-serif;font-size:28px;font-weight:600;color:var(--hk-gray-700);">Inter / Roboto</div>
+          <span class="font-name">Inter</span>
+          <span class="font-use">Legibilidad en datos y reportes. Precisión técnica.</span>
+          <span class="font-use-context">Padres &middot; Dashboards &middot; Reportes</span>
+        </div>
+      </div>
+
+      <div class="type-hierarchy">
+        <div class="type-hierarchy-label">Jerarquía tipográfica</div>
+        <div class="type-row">
+          <span style="font-family:'Fredoka',sans-serif;font-size:32px;font-weight:600;color:var(--hk-gray-900);">Título principal</span>
+          <span class="type-spec">Fredoka &middot; 20pt Display</span>
+        </div>
+        <div class="type-row">
+          <span style="font-family:'Fredoka',sans-serif;font-size:22px;font-weight:500;color:var(--hk-gray-900);">Encabezado de sección</span>
+          <span class="type-spec">Fredoka &middot; 16pt Heading</span>
+        </div>
+        <div class="type-row">
+          <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:var(--hk-gray-700);">Cuerpo de texto para interfaces y reportes</span>
+          <span class="type-spec">Inter Regular &middot; 11pt Body</span>
+        </div>
+        <div class="type-row">
+          <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--hk-gray-500);">Caption — etiqueta pequeña, nota al pie</span>
+          <span class="type-spec">Inter &middot; 9pt Caption</span>
+        </div>
+        <div class="type-row">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--hk-gray-500);">Label</span>
+          <span class="type-spec">Inter Medium &middot; 8pt Label</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage Preview -->
+    <div>
+      <div style="font-family:var(--f-body);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hk-gray-500);margin-bottom:12px;">Combinaciones en uso</div>
+      <div class="usage-grid">
+        <div class="preview-dark">
+          <div class="p-badge" style="background:var(--hk-purple-500);color:#fff;">App del niño</div>
+          <div class="p-title" style="font-family:var(--f-display);color:#fff;">¿Cómo se siente Luna hoy?</div>
+          <div class="p-sub" style="color:var(--hk-purple-200);">Toca a Luna para contarle cómo fue tu día. ¡Ella te escucha!</div>
+          <button class="p-btn" style="background:var(--hk-mint-300);color:var(--hk-gray-900);">Jugar con Luna</button>
+        </div>
+        <div class="preview-light">
+          <div class="p-badge" style="background:var(--hk-gray-100);color:var(--hk-gray-700);">Dashboard padre</div>
+          <div class="p-title" style="font-family:var(--f-body);font-weight:600;color:var(--hk-gray-900);">Resumen semanal de Mateo</div>
+          <div class="p-sub" style="color:var(--hk-gray-500);">Esta semana mostró más interés en actividades grupales. 3 check-ins completados.</div>
+          <button class="p-btn" style="background:var(--hk-purple-500);color:#fff;">Ver detalles</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 04 SISTEMA DE MASCOTA ═══ -->
+  <div class="section" id="s4">
+    <div class="section-label">
+      <span class="section-num" style="background:var(--hk-purple-500);">04</span>
+      <span>Sistema de Mascota — Luna, la mascota líquida de Hachiko Kids</span>
+    </div>
+
+    <div class="mascot-intro">
+      <h3>Luna no es un dibujo estático.</h3>
+      <p>Es un indicador de estado emocional. Su cuerpo, color y movimiento reflejan exactamente lo que el niño siente, creando un espejo visual de la emoción.</p>
+    </div>
+
+    <div class="states-grid">
+      <div class="state-card">
+        <div class="state-luna">
+          <div class="state-luna-inner">
+            <div class="luna-eye"></div>
+            <div class="luna-eye"></div>
+          </div>
+        </div>
+        <div>
+          <span class="state-badge">01</span>
+          <div class="state-name">Estado Feliz</div>
+          <div class="state-desc">Cuerpo expandido, ojos brillantes, movimientos fluidos.</div>
+          <span class="state-tag">Expansión</span>
+          <span class="state-tag">Brillo</span>
+          <span class="state-tag">Fluidez</span>
+          <div class="state-triggers">
+            <strong>Activado cuando:</strong>
+            <ul>
+              <li>El niño completa una actividad</li>
+              <li>Logra un objetivo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="state-card">
+        <div class="state-luna">
+          <div class="state-luna-inner">
+            <div class="luna-eye" style="height:6px;"></div>
+            <div class="luna-eye" style="height:6px;"></div>
+          </div>
+        </div>
+        <div>
+          <span class="state-badge">02</span>
+          <div class="state-name">Estado Triste</div>
+          <div class="state-desc">Cuerpo encogido (acurrucado), colores más pálidos, mirada baja.</div>
+          <span class="state-tag">Contracción</span>
+          <span class="state-tag">Desaturación</span>
+          <span class="state-tag">Postura baja</span>
+          <div class="state-triggers">
+            <strong>Activado cuando:</strong>
+            <ul>
+              <li>El niño reporta tristeza</li>
+              <li>Evita actividades</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="state-card">
+        <div class="state-luna">
+          <div class="state-luna-inner">
+            <div class="luna-eye" style="transform:rotate(-10deg);"></div>
+            <div class="luna-eye" style="transform:rotate(10deg);"></div>
+          </div>
+        </div>
+        <div>
+          <span class="state-badge">03</span>
+          <div class="state-name">Estado Enojado</div>
+          <div class="state-desc">Vibración visual leve, cejas sutilmente inclinadas (sin asustar).</div>
+          <span class="state-tag">Vibración</span>
+          <span class="state-tag">Saturación</span>
+          <span class="state-tag">Cejas sutiles</span>
+          <div class="state-triggers">
+            <strong>Activado cuando:</strong>
+            <ul>
+              <li>Frustración reportada</li>
+              <li>Interacciones rápidas y repetitivas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="state-card">
+        <div class="state-luna">
+          <div class="state-luna-inner">
+            <div class="luna-eye" style="width:9px;height:12px;"></div>
+            <div class="luna-eye" style="width:9px;height:12px;"></div>
+          </div>
+        </div>
+        <div>
+          <span class="state-badge">04</span>
+          <div class="state-name">Estado Miedo</div>
+          <div class="state-desc">Ojos más grandes, posición de alerta o escondida.</div>
+          <span class="state-tag">Ojos grandes</span>
+          <span class="state-tag">Alerta</span>
+          <span class="state-tag">Ocultamiento</span>
+          <div class="state-triggers">
+            <strong>Activado cuando:</strong>
+            <ul>
+              <li>El niño evita responder</li>
+              <li>Selecciona emociones negativas repetidamente</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mascot-principle">
+      <div class="mascot-principle-label">Principio de diseño de la mascota</div>
+      <h4>La mascota nunca asusta. Siempre valida.</h4>
+      <p>Cada estado es diseñado para generar reconocimiento seguro, no alarma.</p>
+    </div>
+  </div>
+
+  <!-- ═══ 05 GUÍAS DE UX ═══ -->
+  <div class="section" id="s5">
+    <div class="section-label">
+      <span class="section-num" style="background:var(--hk-mint-500);">05</span>
+      <span>Guías de UX — Micro-momentos y principios de diseño</span>
+    </div>
+
+    <div class="ux-split">
+      <div class="ux-panel" style="background:var(--hk-dark);color:#fff;border:none;">
+        <div class="ux-panel-label" style="color:var(--hk-purple-300);">UX para el niño</div>
+        <h3 style="color:#fff;">Micro-momentos</h3>
+        <div class="ux-item">
+          <div class="ux-dot" style="background:rgba(123,97,255,.3);color:var(--hk-purple-300);">&#9632;</div>
+          <div>
+            <div class="ux-item-title" style="color:#fff;">Máximo 120 segundos</div>
+            <div class="ux-item-desc" style="color:var(--hk-gray-300);">Las sesiones no deben superar este límite</div>
+          </div>
+        </div>
+        <div class="ux-item">
+          <div class="ux-dot" style="background:rgba(52,211,153,.3);color:var(--hk-mint-300);">&#9632;</div>
+          <div>
+            <div class="ux-item-title" style="color:#fff;">Stickers como recompensa</div>
+            <div class="ux-item-desc" style="color:var(--hk-gray-300);">Por expresión emocional, nunca por comportamiento</div>
+          </div>
+        </div>
+        <div class="ux-item">
+          <div class="ux-dot" style="background:rgba(123,97,255,.3);color:var(--hk-purple-300);">&#9632;</div>
+          <div>
+            <div class="ux-item-title" style="color:#fff;">Preguntas, no órdenes</div>
+            <div class="ux-item-desc" style="color:var(--hk-gray-300);">"¿Cómo se siente Luna?" no "Dime cómo te sientes"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ux-panel">
+        <div class="ux-panel-label">UX para el padre</div>
+        <h3>Insight Semanal</h3>
+
+        <div class="tip-rule">
+          <div class="tip-rule-title">La Regla del Tip</div>
+          <div class="tip-rule-sub">Dato negativo &#8594; Acción positiva SIEMPRE</div>
+          <div class="tip-flow">
+            <div class="tip-box dato"><strong>DATO:</strong> "Tu hijo evitó jugar con otros hoy"</div>
+            <div class="tip-arrow">&#8595;</div>
+            <div class="tip-box accion"><strong>TIP DE ACCIÓN:</strong> "Prueba un juego de roles de 5 minutos antes de dormir"</div>
+          </div>
+        </div>
+
+        <div class="ux-principles">
+          <div class="ux-principle">
+            <div class="ux-principle-dot"></div>
+            <span><strong>Sin Tecnicismos</strong><br>Lenguaje de crianza</span>
+          </div>
+          <div class="ux-principle">
+            <div class="ux-principle-dot"></div>
+            <span><strong>Privacidad Total</strong><br>Datos nunca expuestos</span>
+          </div>
+          <div class="ux-principle">
+            <div class="ux-principle-dot"></div>
+            <span><strong>Accionable</strong><br>Siempre un siguiente paso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 06 MANIFIESTO ═══ -->
+  <div class="section" id="s6">
+    <div class="section-label">
+      <span class="section-num" style="background:var(--hk-orange-500);">06</span>
+      <span>Manifiesto — El Juramento de Diseño de Hachiko Kids</span>
+    </div>
+
+    <div class="manifesto-hero">
+      <div class="manifesto-quote-mark">&#10077;</div>
+      <div class="manifesto-quote">
+        Si el niño sonríe al ver la app,<br>
+        <em>hemos ganado su confianza.</em><br><br>
+        Si el padre respira aliviado<br>
+        al leer el resumen,<br>
+        <em>hemos cumplido nuestra misión.</em>
+      </div>
+    </div>
+
+    <div class="manifesto-pillars">
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9632;</div>
+        <div class="pillar-name">El Niño Primero</div>
+        <div class="pillar-desc">Cada decisión de diseño comienza preguntando: ¿el niño se sentirá seguro y comprendido?</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9632;&#9632;</div>
+        <div class="pillar-name">El Padre Empoderado</div>
+        <div class="pillar-desc">Los datos son herramientas de conexión, no de evaluación. Nada que juzgue, todo que une.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9632;</div>
+        <div class="pillar-name">La Ciencia con Alma</div>
+        <div class="pillar-desc">Construimos sobre bases de psicología conductual, pero hablamos el idioma del corazón.</div>
+      </div>
+    </div>
+
+    <div class="manifesto-closing">Todas las emociones son válidas. Todas merecen ser escuchadas.</div>
+  </div>
+
+  <!-- ═══ CSS VARIABLES ═══ -->
+  <div class="section">
+    <div class="section-label">
+      <span>Variables CSS — listas para usar</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCss()">Copiar todo &#8599;</button>
+      <div class="code-pre" id="css-block"><span class="k">:root</span> {
+  <span class="k">/* Tipografías */</span>
+  <span class="k">--f-display:</span>          <span class="v">'Fredoka', sans-serif</span>;    <span class="k">/* títulos, voz de Luna */</span>
+  <span class="k">--f-body:</span>             <span class="v">'Inter', sans-serif</span>;       <span class="k">/* datos, dashboards */</span>
+
+  <span class="k">/* Morado Hachiko */</span>
+  <span class="k">--hk-purple-50:</span>       <span class="v">#F0EDFF</span>;
+  <span class="k">--hk-purple-100:</span>      <span class="v">#D4CCFF</span>;
+  <span class="k">--hk-purple-200:</span>      <span class="v">#B8AAFF</span>;
+  <span class="k">--hk-purple-300:</span>      <span class="v">#9C88FF</span>;
+  <span class="k">--hk-purple-500:</span>      <span class="v">#7B61FF</span>;   <span class="k">/* base */</span>
+  <span class="k">--hk-purple-700:</span>      <span class="v">#5A3FD6</span>;
+  <span class="k">--hk-purple-900:</span>      <span class="v">#2D1F6B</span>;
+
+  <span class="k">/* Verde Menta */</span>
+  <span class="k">--hk-mint-50:</span>         <span class="v">#ECFDF5</span>;
+  <span class="k">--hk-mint-100:</span>        <span class="v">#D1FAE5</span>;
+  <span class="k">--hk-mint-200:</span>        <span class="v">#A7F3D0</span>;   <span class="k">/* base */</span>
+  <span class="k">--hk-mint-300:</span>        <span class="v">#6EE7B7</span>;
+  <span class="k">--hk-mint-500:</span>        <span class="v">#34D399</span>;
+  <span class="k">--hk-mint-700:</span>        <span class="v">#059669</span>;
+  <span class="k">--hk-mint-900:</span>        <span class="v">#064E3B</span>;
+
+  <span class="k">/* Naranja Suave */</span>
+  <span class="k">--hk-orange-50:</span>       <span class="v">#FFF7ED</span>;
+  <span class="k">--hk-orange-100:</span>      <span class="v">#FFEDD5</span>;
+  <span class="k">--hk-orange-200:</span>      <span class="v">#FED7AA</span>;
+  <span class="k">--hk-orange-300:</span>      <span class="v">#FDBA74</span>;   <span class="k">/* base */</span>
+  <span class="k">--hk-orange-500:</span>      <span class="v">#F97316</span>;
+  <span class="k">--hk-orange-700:</span>      <span class="v">#C2410C</span>;
+  <span class="k">--hk-orange-900:</span>      <span class="v">#7C2D12</span>;
+
+  <span class="k">/* Gris Piedra (Neutros) */</span>
+  <span class="k">--hk-gray-50:</span>         <span class="v">#F9FAFB</span>;
+  <span class="k">--hk-gray-100:</span>        <span class="v">#F3F4F6</span>;   <span class="k">/* base */</span>
+  <span class="k">--hk-gray-200:</span>        <span class="v">#E5E7EB</span>;
+  <span class="k">--hk-gray-300:</span>        <span class="v">#D1D5DB</span>;
+  <span class="k">--hk-gray-500:</span>        <span class="v">#6B7280</span>;
+  <span class="k">--hk-gray-700:</span>        <span class="v">#374151</span>;
+  <span class="k">--hk-gray-900:</span>        <span class="v">#111827</span>;
+
+  <span class="k">/* Dark (header/fondos oscuros) */</span>
+  <span class="k">--hk-dark:</span>            <span class="v">#1E1145</span>;
+}</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <span class="f-left">Hachiko Kids &mdash; Brand Identity Guidelines</span>
+  <span class="f-center">"Traduciendo el juego en bienestar"</span>
+  <span class="f-right">Brandbook v1.0 &mdash; 2025 &middot; Confidencial</span>
+</footer>
+
+<div id="toast"></div>
+<script>
+function copy(h){navigator.clipboard.writeText(h).catch(function(){});showToast('Copiado: '+h);}
+function copyCss(){navigator.clipboard.writeText(document.getElementById('css-block').innerText).catch(function(){});showToast('Variables CSS copiadas');}
+function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+</script>
+</body>
+</html>
