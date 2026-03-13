@@ -45,25 +45,11 @@ header::after{
 .header-content{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:32px;}
 .header-left{display:flex;align-items:center;gap:24px;}
 .header-mascot{
-  width:90px;height:90px;background:var(--hk-purple-500);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;position:relative;
-  box-shadow:0 0 0 6px rgba(123,97,255,.3);
+  width:90px;height:90px;
+  display:flex;align-items:center;justify-content:center;
+  filter:drop-shadow(0 0 8px rgba(123,97,255,.4));
 }
-.header-mascot::before,.header-mascot::after{
-  content:'';position:absolute;top:-8px;width:28px;height:28px;
-  background:var(--hk-purple-300);border-radius:50%;
-}
-.header-mascot::before{left:8px;}
-.header-mascot::after{right:8px;}
-.mascot-face{
-  width:60px;height:60px;background:#fff;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-}
-.mascot-eye{width:10px;height:12px;background:var(--hk-gray-900);border-radius:50%;}
-.mascot-nose{
-  position:absolute;top:calc(50% + 8px);left:50%;transform:translateX(-50%);
-  width:8px;height:6px;background:var(--hk-purple-300);border-radius:50%;
-}
+.header-mascot img{width:100%;height:100%;object-fit:contain;}
 .header-text h1{
   font-family:var(--f-display);font-size:36px;font-weight:700;color:#fff;
   line-height:1.1;
@@ -290,29 +276,23 @@ main{padding:52px 64px 80px;}
   display:flex;gap:20px;align-items:flex-start;
 }
 .state-luna{
-  width:80px;height:80px;min-width:80px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;position:relative;
+  width:80px;height:80px;min-width:80px;
+  display:flex;align-items:center;justify-content:center;
 }
-.state-luna-inner{
-  width:50px;height:50px;background:#fff;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;position:relative;
+.state-luna img{width:100%;height:100%;object-fit:contain;}
+/* Feliz: normal, escala expandida */
+.state-card:nth-child(1) .state-luna img{transform:scale(1.05);filter:drop-shadow(0 2px 6px rgba(123,97,255,.3));}
+/* Triste: desaturado, encogido */
+.state-card:nth-child(2) .state-luna img{transform:scale(0.88);filter:saturate(0.45) brightness(1.1) drop-shadow(0 2px 6px rgba(0,0,0,.1));}
+/* Enojado: saturado, vibración sutil */
+.state-card:nth-child(3) .state-luna img{filter:saturate(1.4) hue-rotate(15deg) drop-shadow(0 2px 6px rgba(249,115,22,.3));animation:angry-shake 0.4s ease-in-out infinite;}
+/* Miedo: escala pequeña, alerta */
+.state-card:nth-child(4) .state-luna img{transform:scale(0.82);filter:saturate(0.7) brightness(0.95) hue-rotate(-30deg) drop-shadow(0 2px 6px rgba(52,211,153,.3));}
+@keyframes angry-shake{
+  0%,100%{transform:translateX(0);}
+  25%{transform:translateX(-1.5px);}
+  75%{transform:translateX(1.5px);}
 }
-.luna-eye{width:7px;height:9px;background:var(--hk-gray-900);border-radius:50%;margin:0 4px;}
-.state-card:nth-child(1) .state-luna{background:var(--hk-purple-300);}
-.state-card:nth-child(2) .state-luna{background:var(--hk-purple-200);opacity:.7;}
-.state-card:nth-child(3) .state-luna{background:var(--hk-orange-300);}
-.state-card:nth-child(4) .state-luna{background:var(--hk-mint-300);}
-/* Ears */
-.state-luna::before,.state-luna::after{
-  content:'';position:absolute;top:-6px;width:20px;height:20px;
-  border-radius:50%;
-}
-.state-luna::before{left:6px;}
-.state-luna::after{right:6px;}
-.state-card:nth-child(1) .state-luna::before,.state-card:nth-child(1) .state-luna::after{background:var(--hk-purple-300);}
-.state-card:nth-child(2) .state-luna::before,.state-card:nth-child(2) .state-luna::after{background:var(--hk-purple-200);}
-.state-card:nth-child(3) .state-luna::before,.state-card:nth-child(3) .state-luna::after{background:var(--hk-orange-300);}
-.state-card:nth-child(4) .state-luna::before,.state-card:nth-child(4) .state-luna::after{background:var(--hk-mint-300);}
 
 .state-badge{
   display:inline-block;padding:3px 10px;border-radius:6px;
@@ -554,11 +534,7 @@ footer .f-right{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500
   <div class="header-content">
     <div class="header-left">
       <div class="header-mascot">
-        <div class="mascot-face">
-          <div class="mascot-eye"></div>
-          <div class="mascot-eye"></div>
-        </div>
-        <div class="mascot-nose"></div>
+        <img src="logo.svg" alt="Luna — Mascota Hachiko Kids">
       </div>
       <div class="header-text">
         <h1>Hachiko <span>Kids</span></h1>
@@ -980,10 +956,7 @@ footer .f-right{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500
     <div class="states-grid">
       <div class="state-card">
         <div class="state-luna">
-          <div class="state-luna-inner">
-            <div class="luna-eye"></div>
-            <div class="luna-eye"></div>
-          </div>
+          <img src="logo.svg" alt="Luna feliz">
         </div>
         <div>
           <span class="state-badge">01</span>
@@ -1003,10 +976,7 @@ footer .f-right{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500
       </div>
       <div class="state-card">
         <div class="state-luna">
-          <div class="state-luna-inner">
-            <div class="luna-eye" style="height:6px;"></div>
-            <div class="luna-eye" style="height:6px;"></div>
-          </div>
+          <img src="logo.svg" alt="Luna triste">
         </div>
         <div>
           <span class="state-badge">02</span>
@@ -1026,10 +996,7 @@ footer .f-right{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500
       </div>
       <div class="state-card">
         <div class="state-luna">
-          <div class="state-luna-inner">
-            <div class="luna-eye" style="transform:rotate(-10deg);"></div>
-            <div class="luna-eye" style="transform:rotate(10deg);"></div>
-          </div>
+          <img src="logo.svg" alt="Luna enojada">
         </div>
         <div>
           <span class="state-badge">03</span>
@@ -1049,10 +1016,7 @@ footer .f-right{font-family:var(--f-body);font-size:10px;color:var(--hk-gray-500
       </div>
       <div class="state-card">
         <div class="state-luna">
-          <div class="state-luna-inner">
-            <div class="luna-eye" style="width:9px;height:12px;"></div>
-            <div class="luna-eye" style="width:9px;height:12px;"></div>
-          </div>
+          <img src="logo.svg" alt="Luna asustada">
         </div>
         <div>
           <span class="state-badge">04</span>
