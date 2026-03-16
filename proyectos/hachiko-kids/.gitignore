@@ -1,0 +1,7 @@
+.obsidian/
+.DS_Store
+node_modules/
+.expo/
+dist/
+.env
+.env.local

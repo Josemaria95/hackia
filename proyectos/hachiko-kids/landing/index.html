@@ -85,6 +85,24 @@
       letter-spacing: -0.5px;
     }
     .nav-brand span { color: var(--text); }
+    .lang-toggle {
+      position: absolute;
+      right: 24px;
+      background: var(--cream);
+      border: 2px solid #ede5dc;
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--coral);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover {
+      background: #FFF0F0;
+      border-color: var(--coral);
+    }
 
     /* --- HERO --- */
     .hero {
@@ -570,6 +588,7 @@
       .proof-inner { gap: 32px; }
       .proof-number { font-size: 1.8rem; }
       .pains h2, .how h2, .form-inner h2 { font-size: 1.5rem; }
+      .lang-toggle { right: 16px; padding: 5px 12px; }
     }
   </style>
 </head>
@@ -578,6 +597,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-brand">Hachiko <span>Kids</span></div>
+    <button id="lang-toggle" class="lang-toggle">EN</button>
   </nav>
 
   <!-- HERO -->
@@ -588,44 +608,41 @@
       <img src="img/conejo.png" alt="Conejito kawaii">
       <img src="img/panda.png" alt="Pandita kawaii">
     </div>
-    <div class="hero-badge">Para padres de niños de 4 a 12 años</div>
-    <h1>Tu hijo juega.<br><em>Tú lo entiendes.</em></h1>
-    <p class="hero-subtitle">Una mascota virtual que tu hijo cuida con cariño. Cada decisión que toma revela patrones de su comportamiento — y tú recibes tips concretos para actuar esta semana.</p>
-    <div class="hero-stat">
-      <span class="dot"></span>
-      1 de cada 4 niños en Chile presenta dificultades emocionales o de conducta
-    </div>
+    <div class="hero-badge" data-i18n="heroBadge">Para padres de niños de 4 a 12 años</div>
+    <h1 data-i18n="heroTitle">Tu hijo juega.<br><em>Tú lo entiendes.</em></h1>
+    <p class="hero-subtitle" data-i18n="heroSubtitle">Una mascota virtual que tu hijo cuida con cariño. Cada decisión que toma revela patrones de su comportamiento — y tú recibes tips concretos para actuar esta semana.</p>
+    <div class="hero-stat" data-i18n="heroStat"><span class="dot"></span>1 de cada 4 niños en Chile presenta dificultades emocionales o de conducta</div>
     <br>
-    <a href="#formulario" class="hero-cta">Quiero saber cuando esté lista</a>
-    <p class="hero-sub">Responde 5 preguntas (2 min). Sin compromiso.</p>
+    <a href="#formulario" class="hero-cta" data-i18n="heroCta">Quiero saber cuando esté lista</a>
+    <p class="hero-sub" data-i18n="heroSub">Responde 5 preguntas (2 min). Sin compromiso.</p>
   </section>
 
   <!-- PAIN POINTS -->
   <section class="pains">
     <div class="pains-inner animate-in">
-      <span class="section-label">Te suena familiar?</span>
-      <h2>Sabes que algo pasa, pero no sabes qué</h2>
-      <p>No necesitas un diagnóstico para querer entender a tu hijo.</p>
+      <span class="section-label" data-i18n="painsLabel">Te suena familiar?</span>
+      <h2 data-i18n="painsTitle">Sabes que algo pasa, pero no sabes qué</h2>
+      <p data-i18n="painsSubtitle">No necesitas un diagnóstico para querer entender a tu hijo.</p>
       <div class="pain-cards">
         <div class="pain-card">
           <span class="emoji">😤</span>
-          <strong>"No me hace caso y no sé si es normal"</strong>
-          <span>Le dices 5 veces lo mismo. No sabes si es su edad o algo que necesita atención.</span>
+          <strong data-i18n="pain1Title">"No me hace caso y no sé si es normal"</strong>
+          <span data-i18n="pain1Text">Le dices 5 veces lo mismo. No sabes si es su edad o algo que necesita atención.</span>
         </div>
         <div class="pain-card">
           <span class="emoji">😢</span>
-          <strong>"No quiere ir al colegio y no me dice por qué"</strong>
-          <span>La profesora dice que "está distraído". Tú sientes que hay algo más.</span>
+          <strong data-i18n="pain2Title">"No quiere ir al colegio y no me dice por qué"</strong>
+          <span data-i18n="pain2Text">La profesora dice que "está distraído". Tú sientes que hay algo más.</span>
         </div>
         <div class="pain-card">
           <span class="emoji">😠</span>
-          <strong>"Las rabietas son cada vez más intensas"</strong>
-          <span>Googlear a las 11pm solo te da 47 artículos contradictorios y más angustia.</span>
+          <strong data-i18n="pain3Title">"Las rabietas son cada vez más intensas"</strong>
+          <span data-i18n="pain3Text">Googlear a las 11pm solo te da 47 artículos contradictorios y más angustia.</span>
         </div>
         <div class="pain-card">
           <span class="emoji">😶</span>
-          <strong>"Se aísla y no sé cómo ayudarlo"</strong>
-          <span>En el recreo juega solo. En casa se encierra. Y tú no encuentras cómo llegar a él.</span>
+          <strong data-i18n="pain4Title">"Se aísla y no sé cómo ayudarlo"</strong>
+          <span data-i18n="pain4Text">En el recreo juega solo. En casa se encierra. Y tú no encuentras cómo llegar a él.</span>
         </div>
       </div>
     </div>
@@ -634,27 +651,27 @@
   <!-- HOW IT WORKS -->
   <section class="how">
     <div class="animate-in">
-      <span class="section-label">Cómo funciona</span>
-      <h2>60 segundos al día que cambian la conversación</h2>
+      <span class="section-label" data-i18n="howLabel">Cómo funciona</span>
+      <h2 data-i18n="howTitle">60 segundos al día que cambian la conversación</h2>
     </div>
     <div class="steps">
       <div class="step animate-in">
         <div class="step-icon">🐱</div>
-        <p class="step-num">Paso 1</p>
-        <h3>Tu hijo cuida su mascota</h3>
-        <p>Elige un animalito, le pone nombre y decide cómo juega, qué siente y cómo reacciona. Para él es un juego.</p>
+        <p class="step-num" data-i18n="step1Num">Paso 1</p>
+        <h3 data-i18n="step1Title">Tu hijo cuida su mascota</h3>
+        <p data-i18n="step1Text">Elige un animalito, le pone nombre y decide cómo juega, qué siente y cómo reacciona. Para él es un juego.</p>
       </div>
       <div class="step animate-in">
         <div class="step-icon">📊</div>
-        <p class="step-num">Paso 2</p>
-        <h3>Tú ves los patrones</h3>
-        <p>Cada semana recibes un resumen claro: si prefiere jugar solo, si sigue instrucciones, cómo maneja la frustración.</p>
+        <p class="step-num" data-i18n="step2Num">Paso 2</p>
+        <h3 data-i18n="step2Title">Tú ves los patrones</h3>
+        <p data-i18n="step2Text">Cada semana recibes un resumen claro: si prefiere jugar solo, si sigue instrucciones, cómo maneja la frustración.</p>
       </div>
       <div class="step animate-in">
         <div class="step-icon">💡</div>
-        <p class="step-num">Paso 3</p>
-        <h3>Actúas con tips concretos</h3>
-        <p>Sugerencias prácticas para esta semana. Si un patrón persiste, te sugerimos hablarlo con el pediatra.</p>
+        <p class="step-num" data-i18n="step3Num">Paso 3</p>
+        <h3 data-i18n="step3Title">Actúas con tips concretos</h3>
+        <p data-i18n="step3Text">Sugerencias prácticas para esta semana. Si un patrón persiste, te sugerimos hablarlo con el pediatra.</p>
       </div>
     </div>
   </section>
@@ -664,15 +681,15 @@
     <div class="proof-inner">
       <div class="proof-item">
         <span class="proof-number">22%</span>
-        <span class="proof-label">de niños chilenos con<br>dificultades conductuales</span>
+        <span class="proof-label" data-i18n="proof1Label">de niños chilenos con<br>dificultades conductuales</span>
       </div>
       <div class="proof-item">
-        <span class="proof-number">3-6 meses</span>
-        <span class="proof-label">de lista de espera<br>para atención especializada</span>
+        <span class="proof-number" data-i18n="proof2Number">3-6 meses</span>
+        <span class="proof-label" data-i18n="proof2Label">de lista de espera<br>para atención especializada</span>
       </div>
       <div class="proof-item">
-        <span class="proof-number">60 seg</span>
-        <span class="proof-label">al día es lo que necesita<br>tu hijo con la app</span>
+        <span class="proof-number" data-i18n="proof3Number">60 seg</span>
+        <span class="proof-label" data-i18n="proof3Label">al día es lo que necesita<br>tu hijo con la app</span>
       </div>
     </div>
   </section>
@@ -680,110 +697,303 @@
   <!-- FORM -->
   <section class="form-section" id="formulario">
     <div class="form-inner animate-in">
-      <span class="section-label">Estamos construyéndola</span>
-      <h2>Ayúdanos a hacerla para ti</h2>
-      <p>5 preguntas rápidas y te avisamos apenas esté lista.</p>
+      <span class="section-label" data-i18n="formLabel">Estamos construyéndola</span>
+      <h2 data-i18n="formTitle">Ayúdanos a hacerla para ti</h2>
+      <p data-i18n="formSubtitle">5 preguntas rápidas y te avisamos apenas esté lista.</p>
 
       <form id="hachiko-form" action="https://formspree.io/f/xnjgdrwj" method="POST" data-sheets-url="https://script.google.com/macros/s/AKfycbxYx5b0FMXCaHxgTzItXveeO3Qtnbp1CdueL3gLYRi4LyPN8QeUjZJcc0oYvEi9-XywTw/exec">
 
         <!-- Pregunta 1: Hijos -->
         <div class="field">
-          <label>1. ¿Cuántos hijos tienes y de qué edad?</label>
-          <input type="text" name="hijos" placeholder="Ej: 2 hijos, de 5 y 8 años" required>
+          <label data-i18n="q1Label">1. ¿Cuántos hijos tienes y de qué edad?</label>
+          <input type="text" name="hijos" data-i18n-placeholder="q1Placeholder" placeholder="Ej: 2 hijos, de 5 y 8 años" required>
         </div>
 
         <!-- Pregunta 2: Comportamientos (checkboxes) -->
         <div class="field">
-          <label>2. ¿Qué comportamientos te preocupan?</label>
-          <p class="hint">Selecciona todos los que apliquen.</p>
+          <label data-i18n="q2Label">2. ¿Qué comportamientos te preocupan?</label>
+          <p class="hint" data-i18n="q2Hint">Selecciona todos los que apliquen.</p>
           <div class="checkbox-group">
-            <label><input type="checkbox" name="comportamientos" value="rabietas"> Rabietas intensas</label>
-            <label><input type="checkbox" name="comportamientos" value="no-sigue-instrucciones"> No sigue instrucciones</label>
-            <label><input type="checkbox" name="comportamientos" value="no-socializa"> No socializa</label>
-            <label><input type="checkbox" name="comportamientos" value="ansiedad-colegio"> Ansiedad por el colegio</label>
-            <label><input type="checkbox" name="comportamientos" value="aislamiento"> Se aísla</label>
-            <label><input type="checkbox" name="comportamientos" value="problemas-dormir"> Problemas para dormir</label>
-            <label><input type="checkbox" name="comportamientos" value="agresividad"> Agresividad</label>
+            <label><input type="checkbox" name="comportamientos" value="rabietas"> <span data-i18n="cb1">Rabietas intensas</span></label>
+            <label><input type="checkbox" name="comportamientos" value="no-sigue-instrucciones"> <span data-i18n="cb2">No sigue instrucciones</span></label>
+            <label><input type="checkbox" name="comportamientos" value="no-socializa"> <span data-i18n="cb3">No socializa</span></label>
+            <label><input type="checkbox" name="comportamientos" value="ansiedad-colegio"> <span data-i18n="cb4">Ansiedad por el colegio</span></label>
+            <label><input type="checkbox" name="comportamientos" value="aislamiento"> <span data-i18n="cb5">Se aísla</span></label>
+            <label><input type="checkbox" name="comportamientos" value="problemas-dormir"> <span data-i18n="cb6">Problemas para dormir</span></label>
+            <label><input type="checkbox" name="comportamientos" value="agresividad"> <span data-i18n="cb7">Agresividad</span></label>
           </div>
-          <input type="text" name="comportamientos_otro" placeholder="Otro (opcional)" style="margin-top: 12px;">
+          <input type="text" name="comportamientos_otro" data-i18n-placeholder="q2OtroPlaceholder" placeholder="Otro (opcional)" style="margin-top: 12px;">
         </div>
 
         <!-- Pregunta 3: Usarías la app -->
         <div class="field">
-          <label>3. ¿Usarías una app donde tu hijo cuida una mascota y tú recibes un resumen de su comportamiento?</label>
+          <label data-i18n="q3Label">3. ¿Usarías una app donde tu hijo cuida una mascota y tú recibes un resumen de su comportamiento?</label>
           <div class="radio-cards">
             <label class="radio-card">
               <input type="radio" name="usaria" value="si-seguro" required>
-              <span>Sí, seguro</span>
+              <span data-i18n="q3Opt1">Sí, seguro</span>
             </label>
             <label class="radio-card">
               <input type="radio" name="usaria" value="probablemente">
-              <span>Probablemente sí</span>
+              <span data-i18n="q3Opt2">Probablemente sí</span>
             </label>
             <label class="radio-card">
               <input type="radio" name="usaria" value="no-se">
-              <span>No estoy seguro/a</span>
+              <span data-i18n="q3Opt3">No estoy seguro/a</span>
             </label>
             <label class="radio-card">
               <input type="radio" name="usaria" value="no">
-              <span>No la usaría</span>
+              <span data-i18n="q3Opt4">No la usaría</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 4: Pagarías -->
         <div class="field">
-          <label>4. ¿Pagarías $3-5 USD/mes por esto?</label>
+          <label data-i18n="q4Label">4. ¿Pagarías $3-5 USD/mes por esto?</label>
           <div class="radio-cards">
             <label class="radio-card">
               <input type="radio" name="pagaria" value="si" required>
-              <span>Sí, lo vale</span>
+              <span data-i18n="q4Opt1">Sí, lo vale</span>
             </label>
             <label class="radio-card">
               <input type="radio" name="pagaria" value="depende">
-              <span>Depende de los resultados</span>
+              <span data-i18n="q4Opt2">Depende de los resultados</span>
             </label>
             <label class="radio-card">
               <input type="radio" name="pagaria" value="solo-gratis">
-              <span>Solo si es gratis</span>
+              <span data-i18n="q4Opt3">Solo si es gratis</span>
             </label>
             <label class="radio-card">
               <input type="radio" name="pagaria" value="pagaria-mas">
-              <span>Pagaría más si funciona</span>
+              <span data-i18n="q4Opt4">Pagaría más si funciona</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 5: Email -->
         <div class="field">
-          <label>5. Tu email para avisarte cuando esté lista</label>
+          <label data-i18n="q5Label">5. Tu email para avisarte cuando esté lista</label>
           <input type="email" name="email" placeholder="tu@email.com" required>
-          <p class="hint">Solo para avisarte. Sin spam, lo prometemos.</p>
+          <p class="hint" data-i18n="q5Hint">Solo para avisarte. Sin spam, lo prometemos.</p>
         </div>
 
         <input type="hidden" name="_replyto" value="">
         <input type="hidden" name="_subject" value="Nueva respuesta — Hachiko Kids Landing">
 
-        <button type="submit" class="submit-btn">Enviar y avisarme cuando esté lista</button>
-        <p class="submit-note">Tus respuestas nos ayudan a construir algo que realmente sirva.</p>
+        <button type="submit" class="submit-btn" data-i18n="submitBtn">Enviar y avisarme cuando esté lista</button>
+        <p class="submit-note" data-i18n="submitNote">Tus respuestas nos ayudan a construir algo que realmente sirva.</p>
       </form>
 
       <div class="thank-you" id="thank-you">
         <span class="emoji">🎉</span>
-        <h3>Gracias, tu voz importa</h3>
-        <p>Te avisaremos apenas esté lista. Estamos construyendo algo que realmente ayude a las familias.</p>
-        <span class="share-hint">¿Conoces a otro papá o mamá que le interese? Comparte este link</span>
+        <h3 data-i18n="thankTitle">Gracias, tu voz importa</h3>
+        <p data-i18n="thankText">Te avisaremos apenas esté lista. Estamos construyendo algo que realmente ayude a las familias.</p>
+        <span class="share-hint" data-i18n="thankShare">¿Conoces a otro papá o mamá que le interese? Comparte este link</span>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>Hachiko Kids — Hecho con cariño en Chile</p>
-    <p>No reemplaza la consulta profesional. Si crees que tu hijo necesita ayuda urgente, consulta a tu pediatra.</p>
+    <p data-i18n="footer1">Hachiko Kids — Hecho con cariño en Chile</p>
+    <p data-i18n="footer2">No reemplaza la consulta profesional. Si crees que tu hijo necesita ayuda urgente, consulta a tu pediatra.</p>
   </footer>
 
   <script>
+    // --- i18n translations ---
+    var translations = {
+      es: {
+        pageTitle: 'Hachiko Kids — Entiende por qué tu hijo se comporta así',
+        metaDescription: 'Tu hijo cuida una mascota virtual. Tú recibes patrones de su comportamiento y tips concretos cada semana. Sin culpa, sin diagnósticos.',
+        heroBadge: 'Para padres de niños de 4 a 12 años',
+        heroTitle: 'Tu hijo juega.<br><em>Tú lo entiendes.</em>',
+        heroSubtitle: 'Una mascota virtual que tu hijo cuida con cariño. Cada decisión que toma revela patrones de su comportamiento — y tú recibes tips concretos para actuar esta semana.',
+        heroStat: '<span class="dot"></span>1 de cada 4 niños en Chile presenta dificultades emocionales o de conducta',
+        heroCta: 'Quiero saber cuando esté lista',
+        heroSub: 'Responde 5 preguntas (2 min). Sin compromiso.',
+        painsLabel: 'Te suena familiar?',
+        painsTitle: 'Sabes que algo pasa, pero no sabes qué',
+        painsSubtitle: 'No necesitas un diagnóstico para querer entender a tu hijo.',
+        pain1Title: '"No me hace caso y no sé si es normal"',
+        pain1Text: 'Le dices 5 veces lo mismo. No sabes si es su edad o algo que necesita atención.',
+        pain2Title: '"No quiere ir al colegio y no me dice por qué"',
+        pain2Text: 'La profesora dice que "está distraído". Tú sientes que hay algo más.',
+        pain3Title: '"Las rabietas son cada vez más intensas"',
+        pain3Text: 'Googlear a las 11pm solo te da 47 artículos contradictorios y más angustia.',
+        pain4Title: '"Se aísla y no sé cómo ayudarlo"',
+        pain4Text: 'En el recreo juega solo. En casa se encierra. Y tú no encuentras cómo llegar a él.',
+        howLabel: 'Cómo funciona',
+        howTitle: '60 segundos al día que cambian la conversación',
+        step1Num: 'Paso 1',
+        step1Title: 'Tu hijo cuida su mascota',
+        step1Text: 'Elige un animalito, le pone nombre y decide cómo juega, qué siente y cómo reacciona. Para él es un juego.',
+        step2Num: 'Paso 2',
+        step2Title: 'Tú ves los patrones',
+        step2Text: 'Cada semana recibes un resumen claro: si prefiere jugar solo, si sigue instrucciones, cómo maneja la frustración.',
+        step3Num: 'Paso 3',
+        step3Title: 'Actúas con tips concretos',
+        step3Text: 'Sugerencias prácticas para esta semana. Si un patrón persiste, te sugerimos hablarlo con el pediatra.',
+        proof1Label: 'de niños chilenos con<br>dificultades conductuales',
+        proof2Number: '3-6 meses',
+        proof2Label: 'de lista de espera<br>para atención especializada',
+        proof3Number: '60 seg',
+        proof3Label: 'al día es lo que necesita<br>tu hijo con la app',
+        formLabel: 'Estamos construyéndola',
+        formTitle: 'Ayúdanos a hacerla para ti',
+        formSubtitle: '5 preguntas rápidas y te avisamos apenas esté lista.',
+        q1Label: '1. ¿Cuántos hijos tienes y de qué edad?',
+        q1Placeholder: 'Ej: 2 hijos, de 5 y 8 años',
+        q2Label: '2. ¿Qué comportamientos te preocupan?',
+        q2Hint: 'Selecciona todos los que apliquen.',
+        cb1: 'Rabietas intensas',
+        cb2: 'No sigue instrucciones',
+        cb3: 'No socializa',
+        cb4: 'Ansiedad por el colegio',
+        cb5: 'Se aísla',
+        cb6: 'Problemas para dormir',
+        cb7: 'Agresividad',
+        q2OtroPlaceholder: 'Otro (opcional)',
+        q3Label: '3. ¿Usarías una app donde tu hijo cuida una mascota y tú recibes un resumen de su comportamiento?',
+        q3Opt1: 'Sí, seguro',
+        q3Opt2: 'Probablemente sí',
+        q3Opt3: 'No estoy seguro/a',
+        q3Opt4: 'No la usaría',
+        q4Label: '4. ¿Pagarías $3-5 USD/mes por esto?',
+        q4Opt1: 'Sí, lo vale',
+        q4Opt2: 'Depende de los resultados',
+        q4Opt3: 'Solo si es gratis',
+        q4Opt4: 'Pagaría más si funciona',
+        q5Label: '5. Tu email para avisarte cuando esté lista',
+        q5Hint: 'Solo para avisarte. Sin spam, lo prometemos.',
+        submitBtn: 'Enviar y avisarme cuando esté lista',
+        submitNote: 'Tus respuestas nos ayudan a construir algo que realmente sirva.',
+        thankTitle: 'Gracias, tu voz importa',
+        thankText: 'Te avisaremos apenas esté lista. Estamos construyendo algo que realmente ayude a las familias.',
+        thankShare: '¿Conoces a otro papá o mamá que le interese? Comparte este link',
+        footer1: 'Hachiko Kids — Hecho con cariño en Chile',
+        footer2: 'No reemplaza la consulta profesional. Si crees que tu hijo necesita ayuda urgente, consulta a tu pediatra.',
+        submitting: 'Enviando...',
+        submitError: 'Error — intenta de nuevo'
+      },
+      en: {
+        pageTitle: 'Hachiko Kids — Understand why your child behaves that way',
+        metaDescription: 'Your child cares for a virtual pet. You receive behavioral patterns and practical tips every week. No guilt, no diagnoses.',
+        heroBadge: 'For parents of children ages 4 to 12',
+        heroTitle: 'Your child plays.<br><em>You understand.</em>',
+        heroSubtitle: 'A virtual pet your child cares for with love. Every decision they make reveals behavioral patterns — and you get practical tips to act on this week.',
+        heroStat: '<span class="dot"></span>1 in 4 children shows emotional or behavioral difficulties',
+        heroCta: 'Let me know when it\'s ready',
+        heroSub: 'Answer 5 questions (2 min). No commitment.',
+        painsLabel: 'Sound familiar?',
+        painsTitle: 'You know something\'s going on, but you don\'t know what',
+        painsSubtitle: 'You don\'t need a diagnosis to want to understand your child.',
+        pain1Title: '"They won\'t listen and I don\'t know if it\'s normal"',
+        pain1Text: 'You repeat yourself 5 times. You don\'t know if it\'s their age or something that needs attention.',
+        pain2Title: '"They don\'t want to go to school and won\'t tell me why"',
+        pain2Text: 'The teacher says they\'re "distracted." You feel there\'s something more.',
+        pain3Title: '"The tantrums are getting more intense"',
+        pain3Text: 'Googling at 11pm only gives you 47 contradictory articles and more anxiety.',
+        pain4Title: '"They isolate themselves and I don\'t know how to help"',
+        pain4Text: 'At recess they play alone. At home they shut themselves in. And you can\'t find a way to reach them.',
+        howLabel: 'How it works',
+        howTitle: '60 seconds a day that change the conversation',
+        step1Num: 'Step 1',
+        step1Title: 'Your child cares for their pet',
+        step1Text: 'They pick a cute animal, name it, and decide how it plays, feels, and reacts. For them it\'s just a game.',
+        step2Num: 'Step 2',
+        step2Title: 'You see the patterns',
+        step2Text: 'Each week you get a clear summary: if they prefer playing alone, if they follow instructions, how they handle frustration.',
+        step3Num: 'Step 3',
+        step3Title: 'You act with practical tips',
+        step3Text: 'Actionable suggestions for this week. If a pattern persists, we\'ll suggest talking to your pediatrician.',
+        proof1Label: 'of children show<br>behavioral difficulties',
+        proof2Number: '3-6 months',
+        proof2Label: 'waiting list for<br>specialized care',
+        proof3Number: '60 sec',
+        proof3Label: 'per day is all your<br>child needs with the app',
+        formLabel: 'We\'re building it',
+        formTitle: 'Help us build it for you',
+        formSubtitle: '5 quick questions and we\'ll let you know when it\'s ready.',
+        q1Label: '1. How many children do you have and how old are they?',
+        q1Placeholder: 'E.g.: 2 kids, ages 5 and 8',
+        q2Label: '2. What behaviors concern you?',
+        q2Hint: 'Select all that apply.',
+        cb1: 'Intense tantrums',
+        cb2: 'Doesn\'t follow instructions',
+        cb3: 'Doesn\'t socialize',
+        cb4: 'School anxiety',
+        cb5: 'Isolates themselves',
+        cb6: 'Sleep problems',
+        cb7: 'Aggression',
+        q2OtroPlaceholder: 'Other (optional)',
+        q3Label: '3. Would you use an app where your child cares for a pet and you receive a summary of their behavior?',
+        q3Opt1: 'Yes, definitely',
+        q3Opt2: 'Probably yes',
+        q3Opt3: 'Not sure',
+        q3Opt4: 'I wouldn\'t use it',
+        q4Label: '4. Would you pay $3-5 USD/month for this?',
+        q4Opt1: 'Yes, it\'s worth it',
+        q4Opt2: 'Depends on the results',
+        q4Opt3: 'Only if it\'s free',
+        q4Opt4: 'I\'d pay more if it works',
+        q5Label: '5. Your email so we can notify you when it\'s ready',
+        q5Hint: 'Just to notify you. No spam, we promise.',
+        submitBtn: 'Submit and notify me when it\'s ready',
+        submitNote: 'Your answers help us build something that truly works.',
+        thankTitle: 'Thank you, your voice matters',
+        thankText: 'We\'ll let you know as soon as it\'s ready. We\'re building something that truly helps families.',
+        thankShare: 'Know another parent who might be interested? Share this link',
+        footer1: 'Hachiko Kids — Made with love in Chile',
+        footer2: 'This does not replace professional consultation. If you believe your child needs urgent help, consult your pediatrician.',
+        submitting: 'Sending...',
+        submitError: 'Error — try again'
+      }
+    };
+
+    // --- i18n functions ---
+    function detectLang() {
+      var urlLang = new URLSearchParams(window.location.search).get('lang');
+      if (urlLang && translations[urlLang]) return urlLang;
+
+      var saved = localStorage.getItem('hachiko-lang');
+      if (saved && translations[saved]) return saved;
+
+      var browserLang = (navigator.language || navigator.userLanguage || 'es').slice(0, 2);
+      return translations[browserLang] ? browserLang : 'es';
+    }
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      var t = translations[lang];
+
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        el.innerHTML = t[el.dataset.i18n];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        el.placeholder = t[el.dataset.i18nPlaceholder];
+      });
+
+      document.title = t.pageTitle;
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = t.metaDescription;
+
+      var toggle = document.getElementById('lang-toggle');
+      if (toggle) toggle.textContent = lang === 'es' ? 'EN' : 'ES';
+
+      localStorage.setItem('hachiko-lang', lang);
+    }
+
+    // --- i18n init ---
+    var currentLang = detectLang();
+    applyLang(currentLang);
+
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      var next = document.documentElement.lang === 'es' ? 'en' : 'es';
+      applyLang(next);
+    });
+
     // Smooth scroll
     document.querySelector('.hero-cta').addEventListener('click', function(e) {
       e.preventDefault();
@@ -791,7 +1001,7 @@
     });
 
     // Scroll animations
-    const observer = new IntersectionObserver(function(entries) {
+    var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -804,19 +1014,21 @@
     });
 
     // Form submission — sends to both Formspree AND Google Sheets
-    const form = document.getElementById('hachiko-form');
+    var form = document.getElementById('hachiko-form');
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const btn = form.querySelector('.submit-btn');
-      btn.textContent = 'Enviando...';
+      var lang = document.documentElement.lang;
+      var t = translations[lang];
+      var btn = form.querySelector('.submit-btn');
+      btn.textContent = t.submitting;
       btn.disabled = true;
 
       // Collect form data
-      const formData = new FormData(form);
+      var formData = new FormData(form);
 
       // Build JSON for Google Sheets
-      const jsonData = {
+      var jsonData = {
         hijos: formData.get('hijos'),
         comportamientos: formData.getAll('comportamientos').join(', '),
         comportamientos_otro: formData.get('comportamientos_otro'),
@@ -827,7 +1039,7 @@
 
       try {
         // Send to Formspree
-        const formspreePromise = fetch(form.action, {
+        var formspreePromise = fetch(form.action, {
           method: 'POST',
           body: formData,
           headers: { 'Accept': 'application/json' }
@@ -863,17 +1075,17 @@
           }, 5000);
         }
 
-        const response = await formspreePromise;
+        var response = await formspreePromise;
 
         if (response.ok) {
           form.style.display = 'none';
           document.getElementById('thank-you').style.display = 'block';
         } else {
-          btn.textContent = 'Error — intenta de nuevo';
+          btn.textContent = t.submitError;
           btn.disabled = false;
         }
       } catch (err) {
-        btn.textContent = 'Error — intenta de nuevo';
+        btn.textContent = t.submitError;
         btn.disabled = false;
       }
     });
