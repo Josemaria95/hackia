@@ -26,7 +26,7 @@ export const MOOD_STYLES: Record<PetMood, MoodStyle> = {
   sad: {
     scale: 0.88,
     opacity: 0.65,
-    glowColor: colors.purple[300],
+    glowColor: "rgba(0,0,0,0.1)",
     label: "Triste",
   },
   angry: {
@@ -47,16 +47,17 @@ export const MOOD_STYLES: Record<PetMood, MoodStyle> = {
 export interface EmotionOption {
   value: string;
   label: string;
+  emoji: string;
   mood: PetMood;
   color: string;
 }
 
 export const EMOTION_OPTIONS: EmotionOption[] = [
-  { value: "sad", label: "Triste", mood: "sad", color: colors.purple[300] },
-  { value: "angry", label: "Enojado", mood: "angry", color: colors.orange[500] },
-  { value: "neutral", label: "Normal", mood: "neutral", color: colors.gray[500] },
-  { value: "happy", label: "Contento", mood: "happy", color: colors.purple[500] },
-  { value: "very_happy", label: "Muy feliz", mood: "happy", color: colors.mint[500] },
+  { value: "sad", label: "Triste", emoji: "😢", mood: "sad", color: colors.purple[300] },
+  { value: "angry", label: "Enojado", emoji: "😠", mood: "angry", color: colors.orange[500] },
+  { value: "neutral", label: "Normal", emoji: "😐", mood: "neutral", color: colors.gray[500] },
+  { value: "happy", label: "Contento", emoji: "😊", mood: "happy", color: colors.purple[500] },
+  { value: "scared", label: "Asustado", emoji: "😨", mood: "scared", color: colors.mint[500] },
 ];
 
 export interface PetReaction {
@@ -139,16 +140,50 @@ const reactionsByDimension: Record<Dimension, ReactionMap> = {
   },
 };
 
+// When the child's emotion doesn't match the scenario reaction,
+// the mascot ALWAYS acknowledges how the child feels first.
+// Principle: "La mascota nunca invalida. Siempre valida."
+const EMOTION_OVERRIDES: Record<string, PetReaction> = {
+  sad: {
+    mood: "sad",
+    message: "{name} te abraza fuerte. No pasa nada por estar triste, yo estoy contigo.",
+  },
+  angry: {
+    mood: "angry",
+    message: "{name} se queda cerca. Cuando algo nos enoja, se siente grande por dentro. Vamos a respirar juntos.",
+  },
+  scared: {
+    mood: "scared",
+    message: "{name} se acurruca contigo. No tengas miedo, estamos juntos y todo va a estar bien.",
+  },
+};
+
+// Negative emotions that should trigger an override
+const NEGATIVE_EMOTIONS = new Set(["sad", "angry", "scared"]);
+
 export function getPetReaction(
   dimension: Dimension,
   choiceValue: string,
-  petName: string
+  petName: string,
+  emotion?: string
 ): PetReaction {
   const dimensionReactions = reactionsByDimension[dimension];
-  const reaction = dimensionReactions?.[choiceValue] ?? {
+  let reaction = dimensionReactions?.[choiceValue] ?? {
     mood: "neutral" as PetMood,
-    message: `${petName} te acompaña.`,
+    message: `${petName} te acompa\u00F1a.`,
   };
+
+  // If child expressed a negative emotion, always override unless
+  // the scenario reaction already matches (e.g. "explodes" -> sad)
+  if (
+    emotion &&
+    NEGATIVE_EMOTIONS.has(emotion) &&
+    EMOTION_OVERRIDES[emotion] &&
+    reaction.mood !== emotion
+  ) {
+    reaction = EMOTION_OVERRIDES[emotion];
+  }
+
   return {
     ...reaction,
     message: reaction.message.replace(/{name}/g, petName),

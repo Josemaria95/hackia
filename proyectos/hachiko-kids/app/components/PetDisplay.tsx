@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Animated, StyleSheet, Text, View } from "react-native";
 import { MOOD_STYLES, type PetMood } from "../lib/pet-reactions";
-import { theme } from "../lib/theme";
+import { fonts, theme } from "../lib/theme";
 
 interface Props {
   mood: PetMood;
@@ -9,6 +9,7 @@ interface Props {
   size?: number;
   showName?: boolean;
 }
+
 
 export default function PetDisplay({
   mood,
@@ -18,6 +19,8 @@ export default function PetDisplay({
 }: Props) {
   const scale = useRef(new Animated.Value(MOOD_STYLES[mood].scale)).current;
   const opacity = useRef(new Animated.Value(MOOD_STYLES[mood].opacity)).current;
+  const shakeX = useRef(new Animated.Value(0)).current;
+  const shakeAnim = useRef<Animated.CompositeAnimation | null>(null);
 
   useEffect(() => {
     const style = MOOD_STYLES[mood];
@@ -33,6 +36,48 @@ export default function PetDisplay({
         useNativeDriver: true,
       }),
     ]).start();
+
+    // Angry shake
+    if (shakeAnim.current) {
+      shakeAnim.current.stop();
+      shakeAnim.current = null;
+    }
+
+    if (mood === "angry") {
+      shakeAnim.current = Animated.loop(
+        Animated.sequence([
+          Animated.timing(shakeX, {
+            toValue: 1.5,
+            duration: 100,
+            useNativeDriver: true,
+          }),
+          Animated.timing(shakeX, {
+            toValue: -1.5,
+            duration: 100,
+            useNativeDriver: true,
+          }),
+          Animated.timing(shakeX, {
+            toValue: 1.5,
+            duration: 100,
+            useNativeDriver: true,
+          }),
+          Animated.timing(shakeX, {
+            toValue: 0,
+            duration: 100,
+            useNativeDriver: true,
+          }),
+        ])
+      );
+      shakeAnim.current.start();
+    } else {
+      shakeX.setValue(0);
+    }
+
+    return () => {
+      if (shakeAnim.current) {
+        shakeAnim.current.stop();
+      }
+    };
   }, [mood]);
 
   const style = MOOD_STYLES[mood];
@@ -53,14 +98,12 @@ export default function PetDisplay({
       />
       <Animated.Image
         source={require("../assets/logo.png")}
-        style={[
-          {
-            width: size,
-            height: size,
-            transform: [{ scale }],
-            opacity,
-          },
-        ]}
+        style={{
+          width: size,
+          height: size,
+          transform: [{ scale }, { translateX: shakeX }],
+          opacity,
+        }}
         resizeMode="contain"
       />
       {showName && <Text style={styles.name}>{name}</Text>}
@@ -71,5 +114,5 @@ export default function PetDisplay({
 const styles = StyleSheet.create({
   container: { alignItems: "center", justifyContent: "center" },
   glow: { position: "absolute" },
-  name: { fontSize: 20, fontWeight: "600", marginTop: 8, color: theme.dark },
+  name: { fontSize: 20, fontFamily: fonts.displaySemiBold, marginTop: 8, color: theme.dark },
 });

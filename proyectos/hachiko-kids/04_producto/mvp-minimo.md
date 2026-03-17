@@ -27,7 +27,7 @@ H3 no bloquea el MVP — se valida despues con datos reales del piloto.
 
 | Feature | Detalle | Tiempo dev (con IA) |
 |---------|---------|---------------------|
-| Elegir mascota | 3-4 opciones (gato, perro, conejo, panda). Ponerle nombre. | 2-3 horas |
+| Conocer a Luna | Mascota única (Luna). Ponerle nombre. | 1-2 horas |
 | Situacion + emocion | "¿Que quiere hacer [nombre]?" (situacion conductual) + "¿Como se siente?" (5 caritas) | 2-3 horas |
 | Reaccion de mascota | Mascota reacciona a la decision del nino (5 reacciones visuales) | 2-3 horas |
 | Micro-actividad | 1 actividad post-check-in: "Respira con [nombre]" (animacion simple) | 2-3 horas |
@@ -61,7 +61,7 @@ H3 no bloquea el MVP — se valida despues con datos reales del piloto.
 
 | Asset | Herramienta | Tiempo |
 |-------|-------------|--------|
-| 4 mascotas × 5 estados = 20 PNGs | Midjourney / DALL-E / Flux | 2-3 horas |
+| Luna × 5 estados = 5 PNGs | Midjourney / DALL-E / Flux | 1 hora |
 | 30+ stickers | Misma herramienta, estilo consistente | 1-2 horas |
 | Iconos de emociones (5 caritas) | Generados o libres (Noto Emoji) | 30 min |
 | Copy: reacciones de mascota (50+ frases) | Claude / GPT | 30 min |
@@ -102,7 +102,7 @@ H3 no bloquea el MVP — se valida despues con datos reales del piloto.
 | Mobile | React Native (Expo Go) | $0 |
 | Backend | Supabase (free tier) | $0 |
 | API | Supabase Edge Functions o directo al DB | $0 |
-| Assets | 5 PNGs por mascota × 4 mascotas = 20 imagenes | $0 (Midjourney/DALL-E/Flux) |
+| Assets | Luna × 5 estados = 5 PNGs | $0 (Midjourney/DALL-E/Flux) |
 | Copy | 50+ reacciones mascota, mensajes padres | $0 (Claude/GPT) |
 | Push | Expo Notifications | $0 |
 | Coding assistant | Claude Code / Cursor | $0-20/mes |
@@ -117,7 +117,7 @@ DIA 1 (padre):
   Descarga app → Crea cuenta → Agrega nombre del hijo → Listo
 
 DIA 1 (nino):
-  Abre app → Elige mascota → Pone nombre
+  Abre app → Conoce a Luna → Pone nombre
   → "Luna quiere jugar — ¿sola o con amigos?" (situacion)
   → "¿Cómo se siente Luna?" (carita)
   → Luna reacciona → "Respira con Luna" → Sticker ⭐
@@ -146,7 +146,7 @@ Si queremos validar ANTES de escribir codigo:
 
 | Hora | Accion |
 |------|--------|
-| Manana | Generar 20 imagenes de mascota con Midjourney/DALL-E (4 mascotas × 5 emociones). Generar copy de reacciones con Claude (50 frases en 10 min). |
+| Manana | Generar 5 imagenes de Luna con Midjourney/DALL-E (1 mascota × 5 emociones). Generar copy de reacciones con Claude (50 frases en 10 min). |
 | Tarde | Crear grupo WhatsApp con 10 padres. Enviar primera imagen de mascota + 5 emojis. |
 | Dia 2-14 | Cada dia a las 16:00, enviar imagen de mascota + 5 emojis. Padre le muestra al nino, nino elige emoji, padre responde. |
 
@@ -239,7 +239,7 @@ Con IA se puede automatizar el concierge:
 
 | Dia | Jose | Edgar |
 |-----|------|-------|
-| 1 | Setup Expo + Supabase + schema (Claude Code genera scaffold completo) | Generar assets mascota (Midjourney/DALL-E: 20 PNGs). Generar copy reacciones (Claude: 50+ frases) |
+| 1 | Setup Expo + Supabase + schema (Claude Code genera scaffold completo) | Generar assets Luna (Midjourney/DALL-E: 5 PNGs × 5 estados). Generar copy reacciones (Claude: 50+ frases) |
 | 2 | Pantalla mascota + check-in + reaccion (IA genera componentes base) | Contactar 10 familias + 2 clinicos. One-pager del piloto |
 | 3 | Resumen semanal padre + push notification | Seguimiento familias. Disenar onboarding flow |
 | 4 | Testing + bug fixes + deploy Expo Go | Onboarding primeras familias piloto |

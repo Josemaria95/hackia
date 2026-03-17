@@ -13,7 +13,16 @@
       "Bash(python3:*)",
       "WebFetch(domain:docs.anthropic.com)",
       "Bash(echo:*)",
-      "Bash(echo {\n  \"tool_name\": \"Bash\",\n  \"tool_input\": {\n    \"command\": \"git push origin --force main\"\n  }\n}:*)"
+      "Bash(npx @composio/mcp@latest setup \"https://mcp.composio.dev/partner/composio/trello/mcp?customerId=5a94cc20-4061-4271-9c4f-ad08f6c75dfb&agent=claude\" \"trello-1l0ffo-1\" --client claude)",
+      "Bash(claude mcp:*)",
+      "mcp__trello-1l0ffo-1__TRELLO_EXECUTE_TOOL",
+      "mcp__trello-1l0ffo-1__TRELLO_ADD_LISTS",
+      "mcp__trello-1l0ffo-1__TRELLO_ADD_CARDS",
+      "mcp__clickup__clickup_get_workspace_hierarchy",
+      "mcp__clickup__clickup_create_folder",
+      "mcp__clickup__clickup_create_list_in_folder",
+      "mcp__clickup__clickup_get_workspace_members",
+      "mcp__clickup__clickup_create_task"
     ]
   }
 }

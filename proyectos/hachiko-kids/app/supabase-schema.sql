@@ -12,7 +12,7 @@ create table if not exists public.children (
   id uuid primary key default gen_random_uuid(),
   parent_id uuid not null references public.parents(id) on delete cascade,
   name text not null,
-  mascot_type text not null check (mascot_type in ('luna', 'gato', 'perro', 'conejo', 'panda')),
+  mascot_type text not null default 'luna' check (mascot_type = 'luna'),
   mascot_name text not null,
   age_group text not null check (age_group in ('4-6', '7-12')),
   created_at timestamptz default now()
@@ -23,7 +23,7 @@ create table if not exists public.checkins (
   child_id uuid not null references public.children(id) on delete cascade,
   situation text not null,
   situation_choice text not null,
-  emotion text not null check (emotion in ('sad', 'angry', 'neutral', 'happy', 'very_happy')),
+  emotion text not null check (emotion in ('sad', 'angry', 'neutral', 'happy', 'scared')),
   created_at timestamptz default now()
 );
 

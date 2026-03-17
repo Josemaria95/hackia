@@ -5,11 +5,11 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 
 **Pivot** del concepto original Hachiko Corporativo (bienestar adulto) hacia salud mental infantil.
 
-**Estado actual**: Fase de planificación terminada. Documentación, landing page y assets de mascotas listos. MVP móvil aún no construido (0% código de app).
+**Estado actual**: MVP funcional desplegado. App Android (APK via EAS Build) + Supabase backend + landing page + landing piloto. En fase de piloto con familias.
 
 ## Equipo
 - **Edgar** — Experiencia directa en PIE (Programa de Integración Escolar del Mineduc). Coordinó médicos y colegios en CEAPSI. Conoce el flujo clínico-institucional desde adentro. Rol: assets, reclutamiento de familias/clínicos, canal B2B institucional.
-- **Jose Muñoz** — Data Engineer (Databricks, Azure, Spark). Rol: desarrollo técnico del MVP con asistencia de IA.
+- **Jose Muñoz** — Data Engineer (Databricks, Azure, Spark). Rol: desarrollo técnico del MVP con asistencia de IA. Contacto: josemaria.munoz95@gmail.com
 
 ## Propuesta de valor (lenguaje conductual, NO clínico)
 > "Entiende por qué tu hijo se comporta así — a través de cómo cuida a su mascota."
@@ -27,15 +27,37 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 
 | Capa | Tecnología | Costo |
 |------|-----------|-------|
-| Mobile | React Native (Expo Go) | $0 |
+| Mobile | React Native (Expo) + EAS Build | $0 |
 | Backend | Supabase (free tier) | $0 |
 | DB | PostgreSQL (Supabase) | $0 |
-| API | Supabase Edge Functions | $0 |
 | Auth | Supabase Auth (email/password) | $0 |
 | Push | Expo Notifications | $0 |
+| Updates | EAS Update (branch: preview) | $0 |
 | Assets | IA (Midjourney/Flux + Claude) | $0-50 |
-| Landing | HTML estático (Vercel) | $0 |
+| Landing | HTML estático | $0 |
 | Dev Tools | Claude Code + Cursor | $0-20/mes |
+
+## Deploy & distribución
+
+| Recurso | URL / detalle |
+|---------|---------------|
+| Expo project ID | `e46b24fb-84f8-4168-81ef-99dc6d4cee06` |
+| EAS Update branch | `preview` |
+| Android APK (build) | https://expo.dev/accounts/jm95/projects/hachiko-kids/builds/69b9d92e-0c3a-4cc3-b667-93f6e3334ad0 |
+| Android package | `com.jm95.hachikokids` |
+| Supabase project | `zxwaxpattxlhxvqaawnq` |
+| Landing principal | `landing/index.html` |
+| Landing piloto | `landing-piloto/index.html` |
+
+**Publicar un update** (las familias lo reciben sin reinstalar):
+```bash
+cd app && npx eas-cli update --branch preview --message "descripción"
+```
+
+**Crear un nuevo build** (solo si se cambian dependencias nativas):
+```bash
+cd app && npx eas-cli build --profile preview --platform android --non-interactive
+```
 
 ## Esquema de DB (MVP)
 
@@ -44,29 +66,22 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 parents (id UUID PK, email TEXT UNIQUE, created_at TIMESTAMP)
 children (id UUID PK, parent_id UUID FK, name TEXT, mascot_type TEXT, mascot_name TEXT, age_group TEXT, created_at TIMESTAMP)
 checkins (id UUID PK, child_id UUID FK, situation TEXT, situation_choice TEXT, emotion TEXT, created_at TIMESTAMP)
-```
 
-## API Endpoints (MVP)
-
-```
-POST /api/auth/signup        → { email, password } → { user_id, token }
-POST /api/auth/login         → { email, password } → { user_id, token }
-POST /api/children           → { parent_id, name, mascot_type, mascot_name, age_group } → { child_id }
-POST /api/checkins           → { child_id, situation, situation_choice, emotion } → { checkin_id, pet_reaction }
-GET  /api/summary/:child_id  → ?week=2026-W10 → { active_days, emotion_distribution, situation_choices, tip }
+-- Emociones válidas: 'happy', 'sad', 'angry', 'scared', 'neutral'
+-- (migración aplicada 2026-03-16: se reemplazó 'very_happy' por 'scared')
 ```
 
 ## Arquitectura de pantallas
 
 ### Experiencia niño (1 pantalla principal, 60-90 seg/sesión)
-1. **MascotSelectionScreen** — Elegir especie (gato/perro/conejo/panda) + nombre
-2. **DailyCheckInScreen** — Escenario conductual → elección → emoji emoción → reacción mascota → micro-actividad opcional → sticker diario
+1. **MascotSelectionScreen** (`select-mascot.tsx`) — Ponerle nombre a Luna (mascota única)
+2. **DailyCheckInScreen** (`checkin.tsx`) — Escenario conductual → elección → emoji emoción → reacción mascota → respiración opcional → sticker diario
 
 ### Experiencia padre (1 pantalla principal)
-1. **AuthScreen** — Registro email/password
-2. **WeeklySummaryScreen** — Cards por dimensión (social, instrucciones, regulación, ánimo) + tip semanal + botón compartir con profesional
+1. **AuthScreen** (`login.tsx`) — Login + registro email/password (mismo archivo)
+2. **WeeklySummaryScreen** (`summary.tsx`) — Dato + Acción arriba, luego cards por dimensión expandibles + navegación semanal
 
-## 6 dimensiones conductuales
+## 5 dimensiones conductuales (en app)
 
 | Dimensión | Mecánica en app | Padre ve |
 |-----------|----------------|----------|
@@ -74,14 +89,13 @@ GET  /api/summary/:child_id  → ?week=2026-W10 → { active_days, emotion_distr
 | Socialización | "Luna quiere jugar — ¿sola o con amigos?" | "Prefirió sola 3/5 días" |
 | Conducta prosocial | "Otra mascota necesita el juguete de Luna" | "Compartió 2/4 veces" |
 | Regulación emocional | "Luna está enojada — ¿qué quiere hacer?" | "Eligió respirar 2/3 veces" |
-| Ánimo general | "¿Cómo se siente Luna hoy?" (5 emojis) | Progresión L😢M😠X😐J😄V😄 |
-| Señales pasivas | Frecuencia, horario, duración | "Abre más después del colegio" |
+| Ánimo general | Emoción seleccionada por check-in | Timeline visual con círculos de colores por día |
 
 ## Micro-actividades (gameplay, no terapia)
 
 | Actividad | Duración | Practica |
 |-----------|----------|----------|
-| Respirar con Luna | 30s | Respiración diafragmática |
+| Respirar con Luna | 30s (4 ciclos) | Respiración diafragmática |
 | Sacudir energía | 15s | Descarga motora |
 | Pintar sentimientos | 60s | Expresión emocional |
 | Contar estrellas | 45s | Grounding/mindfulness |
@@ -113,55 +127,105 @@ GET  /api/summary/:child_id  → ?week=2026-W10 → { active_days, emotion_distr
 
 ## Estructura del proyecto
 
-Las carpetas numeradas (`01_` a `06_`) son **fases de planificación** (metodología Idear/Simplificar/Prototipar/Validar). Las carpetas sin número (`app/`, `landing/`, `brand/`) son **artefactos de ejecución** — código, sitio web y assets de marca. No se numeran porque no representan un paso en la narrativa del proyecto.
+Las carpetas numeradas (`01_` a `06_`) son **fases de planificación**. Las carpetas sin número (`app/`, `landing/`, `landing-piloto/`) son **artefactos de ejecución**.
 
 ```
 hachiko-kids/
 ├── CLAUDE.md                          ← Este archivo
 ├── README.md                          ← Índice maestro del proyecto
-├── .gitignore                         ← Ignora .obsidian/, node_modules/, .expo/, dist/
+├── .gitignore
+├── .mcp.json                          ← Config MCP (Supabase)
 ├── 01_vision/
-│   └── manifiesto.md                 ← Misión, valores, líneas rojas
+│   └── manifiesto.md
 ├── 02_mercado/
-│   ├── tam-sam-som.md                ← TAM $5-8B global, SAM $230M LATAM, SOM Year 1 $66K ARR
-│   └── propuesta-de-valor.md         ← Props por segmento (niño, padre, clínico)
+│   ├── tam-sam-som.md
+│   └── propuesta-de-valor.md
 ├── 03_personas/
-│   ├── persona-nino.md               ← Emilia, 7 años
-│   ├── persona-padre.md              ← Carolina, 34, ejecutiva
-│   └── persona-clinica.md            ← Dra. Marcela Soto, psicóloga infantil
+│   ├── persona-nino.md
+│   ├── persona-padre.md
+│   └── persona-clinica.md
 ├── 04_producto/
-│   ├── mvp-minimo.md                 ← Spec MVP, stack, timeline 4 días, wireframes
-│   └── instrumentos-clinicos.md      ← 6 dimensiones + micro-actividades + jerarquía comunicacional
+│   ├── mvp-minimo.md
+│   └── instrumentos-clinicos.md
 ├── 05_validacion/
-│   └── plan-validacion.md            ← 4 hipótesis, GO/NO-GO, timeline 6 semanas
+│   └── plan-validacion.md
 ├── 06_estrategia/
-│   └── go-to-market.md               ← Posicionamiento, pricing, canales, unit economics, roadmap 5 meses
-├── app/                               ← MVP móvil (Expo + Supabase) — por construir
-│   └── .gitkeep
+│   └── go-to-market.md
+├── app/                               ← MVP móvil (Expo + Supabase)
+│   ├── app.json                      ← Config Expo + EAS project ID
+│   ├── eas.json                      ← Perfiles de build (preview, production)
+│   ├── .npmrc                        ← legacy-peer-deps=true (requerido por build)
+│   ├── .env                          ← EXPO_PUBLIC_SUPABASE_URL + ANON_KEY
+│   ├── supabase-schema.sql           ← Schema SQL (3 tablas + RLS)
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── src/
+│   │   ├── _layout.tsx              ← Root layout (fonts, auth listener, notifications)
+│   │   ├── index.tsx                ← Redirect a login
+│   │   ├── (auth)/
+│   │   │   ├── _layout.tsx
+│   │   │   └── login.tsx            ← Login + signup (mismo archivo)
+│   │   └── (app)/
+│   │       ├── checkin.tsx          ← Flujo principal niño (escenario→emoción→reacción→respirar→sticker)
+│   │       ├── select-mascot.tsx    ← Nombrar a Luna
+│   │       └── summary.tsx          ← Dashboard semanal padres
+│   ├── lib/
+│   │   ├── supabase.ts             ← Cliente Supabase + SecureStore
+│   │   ├── scenarios.ts            ← Escenarios por dimensión
+│   │   ├── pet-reactions.ts        ← Reacciones de Luna (reglas if/else)
+│   │   ├── theme.ts                ← Colores, fuentes, tema
+│   │   ├── notifications.ts        ← Push notifications (resumen lunes)
+│   │   └── emojis.ts               ← Emojis para emotion picker
+│   ├── components/
+│   │   ├── PetDisplay.tsx           ← Luna con 5 estados de ánimo
+│   │   ├── EmotionPicker.tsx        ← Selector de emoción (5 opciones)
+│   │   ├── ScenarioCard.tsx         ← Tarjeta de escenario conductual
+│   │   └── SummaryCard.tsx          ← Card expandible del dashboard (soporta detailContent ReactNode)
+│   └── assets/
+│       ├── logo.png
+│       ├── icon.png
+│       ├── splash-icon.png
+│       └── android-icon-*.png
 ├── landing/
-│   ├── index.html                    ← Landing page completa (responsive, formulario Formspree)
+│   ├── index.html                    ← Landing principal (responsive, i18n ES/EN, Formspree + Google Sheets)
 │   └── img/
-│       ├── gato.png                  ← Mascota kawaii
-│       ├── perro.png
-│       ├── conejo.png
-│       └── panda.png
-└── mascotas-app.png                  ← Mockup/screenshot referencia
+│       └── gato.png                 ← Luna
+├── landing-piloto/
+│   └── index.html                    ← Landing para familias piloto (QR + APK download + instrucciones)
+└── mascotas-app.png
 ```
 
 ## Flujo de datos (check-in diario)
 
 ```
 Niño abre app → Escenario ("Luna quiere jugar — ¿sola o con amigos?")
-  → Niño elige → Emoji emoción → POST /checkins
+  → Niño elige → Emoji emoción → POST /checkins (con error handling)
   → Backend genera reacción mascota → FE anima
-  → Micro-actividad opcional → Sticker diario
+  → Opción: "Respirar con Luna" (4 ciclos) o "Siguiente"
+  → Sticker estrella → AsyncStorage marca día como done (key: checkin-{childId}-YYYY-MM-DD)
   → Total: ~90 segundos
 
-Lunes 10am → Backend agrega checkins de la semana
-  → Genera resumen (social, instrucciones, regulación, ánimo)
-  → Push notification al padre → Padre abre resumen
-  → Tip: "Los lunes son más difíciles. Intenta un ritual de despedida."
+Lunes 10am → Push notification al padre → Padre abre resumen
+  → Dashboard: Dato + Acción (arriba, visible) → 5 cards por dimensión expandibles
+  → Ánimo: círculos de colores por día (promedio si hay varios check-ins)
+  → Navegación semanal con flechas ◀ ▶
 ```
+
+## Bugs corregidos (2026-03-16)
+
+| Bug | Fix | Archivo |
+|-----|-----|---------|
+| AsyncStorage key con child undefined | Guard clause en `todayKey()` | `checkin.tsx` |
+| todayKey con getMonth() 0-indexed | Cambiado a ISO `YYYY-MM-DD` | `checkin.tsx` |
+| Sin auth state listener | `onAuthStateChange` redirige a login en SIGNED_OUT | `_layout.tsx` |
+| Queries sin error handling | try/catch + estado error + botón "Reintentar" | `checkin.tsx`, `summary.tsx` |
+| Signup sin verificar data.user | Guard antes de navegar | `login.tsx` |
+| Notificación falla silenciosa | `console.warn` en catch | `checkin.tsx` |
+| Summary vacío sin mensaje | Estado vacío con mensaje amigable | `summary.tsx` |
+| DB constraint con 'very_happy' | Migración: reemplazado por 'scared' | Supabase + `supabase-schema.sql` |
+| Emojis no renderizan en custom fonts | Reemplazados por círculos de colores (View components) | `summary.tsx` |
+| Dashboard: Dato/Acción ocultos abajo | Movidos arriba de las dimensiones | `summary.tsx` |
+| Ánimo: múltiples entradas por día | Promedio de scores por día, un indicador por día | `summary.tsx` |
 
 ## Métricas clave MVP
 
@@ -206,6 +270,9 @@ Lunes 10am → Backend agrega checkins de la semana
 - El niño NUNCA debe sentirse evaluado — todo es juego con la mascota
 - Sesiones cortas: 60-90 seg máx para 4-6 años, 90-180 seg para 7-12
 - La mascota NUNCA muere, se enferma ni se va — siempre positiva
-- Assets de mascotas: 4 especies × 5 estados emocionales = 20 PNGs
+- Assets de mascota: Luna con 5 estados emocionales (happy, sad, angry, scared, neutral)
 - Reacciones de mascota: reglas simples (if/else), NO requiere LLM en MVP
-- MVP = Expo Go (sin App Store), Supabase free tier, $0-20/mes total
+- Emojis no funcionan con fuentes custom (Fredoka/Inter) en React Native — usar View components con colores
+- SummaryCard acepta `detailContent` (ReactNode) para contenido visual expandible
+- `.npmrc` con `legacy-peer-deps=true` es requerido para que EAS Build funcione
+- Variables de entorno `EXPO_PUBLIC_*` están configuradas en EAS (environment: preview)

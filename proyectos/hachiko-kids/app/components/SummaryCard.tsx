@@ -1,27 +1,49 @@
-import { StyleSheet, Text, View } from "react-native";
-import { colors, theme } from "../lib/theme";
+import { type ReactNode, useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { colors, fonts, theme } from "../lib/theme";
 
 interface Props {
   title: string;
-  icon: string;
+  iconLabel: string;
   description: string;
+  detail?: string;
+  detailContent?: ReactNode;
   color?: string;
 }
 
 export default function SummaryCard({
   title,
-  icon,
+  iconLabel,
   description,
+  detail,
+  detailContent,
   color = colors.purple[500],
 }: Props) {
+  const [expanded, setExpanded] = useState(false);
+  const hasDetail = !!detail || !!detailContent;
+
   return (
-    <View style={[styles.card, { borderLeftColor: color }]}>
+    <Pressable
+      onPress={hasDetail ? () => setExpanded((v) => !v) : undefined}
+      style={[styles.card, { borderLeftColor: color }]}
+    >
       <View style={styles.header}>
-        <Text style={styles.icon}>{icon}</Text>
+        <View style={[styles.iconCircle, { backgroundColor: color + "20" }]}>
+          <Text style={[styles.iconText, { color }]}>{iconLabel}</Text>
+        </View>
         <Text style={styles.title}>{title}</Text>
+        {hasDetail && (
+          <Text style={styles.chevron}>{expanded ? "\u25B2" : "\u25BC"}</Text>
+        )}
       </View>
       <Text style={styles.description}>{description}</Text>
-    </View>
+      {expanded && (
+        <View style={styles.detailBox}>
+          {detailContent}
+          {detail && <Text style={styles.detailText}>{detail}</Text>}
+        </View>
+      )}
+    </Pressable>
   );
 }
 
@@ -39,7 +61,23 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   header: { flexDirection: "row", alignItems: "center", marginBottom: 8 },
-  icon: { fontSize: 22, marginRight: 8 },
-  title: { fontSize: 16, fontWeight: "600", color: theme.dark },
-  description: { fontSize: 14, color: theme.textSecondary, lineHeight: 20 },
+  iconCircle: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 10,
+  },
+  iconText: { fontSize: 14, fontFamily: fonts.bodySemiBold },
+  title: { fontSize: 16, fontFamily: fonts.bodySemiBold, color: theme.dark, flex: 1 },
+  chevron: { fontSize: 12, color: theme.textLight, marginLeft: 8 },
+  description: { fontSize: 14, fontFamily: fonts.body, color: theme.textSecondary, lineHeight: 20 },
+  detailBox: {
+    marginTop: 10,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: theme.border,
+  },
+  detailText: { fontSize: 13, fontFamily: fonts.body, color: theme.textSecondary, lineHeight: 19 },
 });

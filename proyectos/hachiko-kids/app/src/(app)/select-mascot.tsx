@@ -10,8 +10,12 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 import { supabase } from "../../lib/supabase";
-import { colors, theme } from "../../lib/theme";
+import { colors, fonts, theme } from "../../lib/theme";
 import PetDisplay from "../../components/PetDisplay";
+import {
+  requestNotificationPermissions,
+  scheduleMondaySummaryNotification,
+} from "../../lib/notifications";
 
 const AGE_GROUPS = [
   { value: "4-6", label: "4-6 años" },
@@ -54,6 +58,11 @@ export default function SelectMascotScreen() {
     if (error) {
       Alert.alert("Error", error.message);
       return;
+    }
+
+    const granted = await requestNotificationPermissions();
+    if (granted) {
+      await scheduleMondaySummaryNotification(mascotName.trim());
     }
 
     router.replace("/(app)/checkin");
@@ -129,12 +138,13 @@ const styles = StyleSheet.create({
   content: { paddingHorizontal: 24, paddingTop: 60, paddingBottom: 40 },
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontFamily: fonts.displayBold,
     color: theme.dark,
     textAlign: "center",
   },
   subtitle: {
     fontSize: 15,
+    fontFamily: fonts.display,
     color: theme.textSecondary,
     textAlign: "center",
     marginTop: 8,
@@ -146,7 +156,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    fontWeight: "600",
+    fontFamily: fonts.displaySemiBold,
     color: theme.dark,
     marginBottom: 8,
     marginTop: 4,
@@ -180,5 +190,5 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: "center",
   },
-  startText: { color: "#FFF", fontSize: 18, fontWeight: "700" },
+  startText: { color: "#FFF", fontSize: 18, fontFamily: fonts.displayBold },
 });

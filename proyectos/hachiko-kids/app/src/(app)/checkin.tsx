@@ -16,12 +16,13 @@ import {
   type PetMood,
   type PetReaction,
 } from "../../lib/pet-reactions";
-import { colors, theme } from "../../lib/theme";
+import { colors, fonts, theme } from "../../lib/theme";
 import PetDisplay from "../../components/PetDisplay";
 import ScenarioCard from "../../components/ScenarioCard";
 import EmotionPicker from "../../components/EmotionPicker";
+import { scheduleMondaySummaryNotification } from "../../lib/notifications";
 
-type Step = "loading" | "done_today" | "scenario" | "emotion" | "reaction" | "breathe" | "sticker";
+type Step = "loading" | "done_today" | "scenario" | "emotion" | "reaction" | "breathe" | "sticker" | "error";
 
 interface ChildData {
   id: string;
@@ -38,13 +39,16 @@ export default function CheckInScreen() {
   const [emotion, setEmotion] = useState<string>("");
   const [reaction, setReaction] = useState<PetReaction | null>(null);
   const [petMood, setPetMood] = useState<PetMood>("happy");
+  const [breathCycle, setBreathCycle] = useState(1);
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const breathScale = useRef(new Animated.Value(1)).current;
   const stickerScale = useRef(new Animated.Value(0)).current;
 
   const todayKey = () => {
+    if (!child) return "";
     const d = new Date();
-    return `checkin-${child?.id}-${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    return `checkin-${child.id}-${d.toISOString().slice(0, 10)}`;
   };
 
   useEffect(() => {
@@ -52,36 +56,48 @@ export default function CheckInScreen() {
   }, []);
 
   async function loadChild() {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      router.replace("/(auth)/login");
-      return;
-    }
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (!user) {
+        router.replace("/(auth)/login");
+        return;
+      }
 
-    const { data: children } = await supabase
-      .from("children")
-      .select("id, name, mascot_type, mascot_name")
-      .eq("parent_id", user.id)
-      .limit(1);
+      const { data: children, error } = await supabase
+        .from("children")
+        .select("id, name, mascot_type, mascot_name")
+        .eq("parent_id", user.id)
+        .limit(1);
 
-    if (!children || children.length === 0) {
-      router.replace("/(app)/select-mascot");
-      return;
-    }
+      if (error) throw error;
 
-    const c = children[0];
-    setChild(c);
+      if (!children || children.length === 0) {
+        router.replace("/(app)/select-mascot");
+        return;
+      }
 
-    const done = await AsyncStorage.getItem(
-      `checkin-${c.id}-${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
-    );
-    if (done) {
-      setStep("done_today");
-    } else {
-      setScenario(getScenarioForToday(c.id));
-      setStep("scenario");
+      const c = children[0];
+      setChild(c);
+
+      scheduleMondaySummaryNotification(c.mascot_name).catch((err) => {
+        console.warn("Failed to schedule notification:", err);
+      });
+
+      const done = await AsyncStorage.getItem(
+        `checkin-${c.id}-${new Date().toISOString().slice(0, 10)}`
+      );
+      if (done) {
+        setStep("done_today");
+      } else {
+        setScenario(getScenarioForToday(c.id));
+        setStep("scenario");
+      }
+    } catch (err) {
+      console.warn("loadChild error:", err);
+      setErrorMsg("No pudimos cargar los datos. Revisa tu conexión.");
+      setStep("error");
     }
   }
 
@@ -95,16 +111,21 @@ export default function CheckInScreen() {
       if (!child || !scenario) return;
       setEmotion(emo);
 
-      const r = getPetReaction(scenario.dimension, choiceValue, child.mascot_name);
+      const r = getPetReaction(scenario.dimension, choiceValue, child.mascot_name, emo);
       setReaction(r);
       setPetMood(r.mood);
 
-      await supabase.from("checkins").insert({
-        child_id: child.id,
-        situation: scenario.id,
-        situation_choice: choiceValue,
-        emotion: emo,
-      });
+      try {
+        const { error } = await supabase.from("checkins").insert({
+          child_id: child.id,
+          situation: scenario.id,
+          situation_choice: choiceValue,
+          emotion: emo,
+        });
+        if (error) throw error;
+      } catch (err) {
+        console.warn("checkin insert error:", err);
+      }
 
       setStep("reaction");
     },
@@ -113,17 +134,26 @@ export default function CheckInScreen() {
 
   const startBreathe = useCallback(() => {
     setStep("breathe");
-    const cycles = Array.from({ length: 4 }).flatMap(() => [
+    setBreathCycle(1);
+    const totalCycles = 4;
+    const cycles = Array.from({ length: totalCycles }).flatMap((_, i) => [
       Animated.timing(breathScale, {
         toValue: 1.5,
         duration: 3500,
         useNativeDriver: true,
       }),
-      Animated.timing(breathScale, {
-        toValue: 1,
-        duration: 3500,
-        useNativeDriver: true,
-      }),
+      {
+        start: (cb?: (result: { finished: boolean }) => void) => {
+          setBreathCycle(i + 1);
+          Animated.timing(breathScale, {
+            toValue: 1,
+            duration: 3500,
+            useNativeDriver: true,
+          }).start(cb);
+        },
+        stop: () => {},
+        reset: () => {},
+      } as Animated.CompositeAnimation,
     ]);
     Animated.sequence(cycles).start(() => showSticker());
   }, [breathScale]);
@@ -153,24 +183,45 @@ export default function CheckInScreen() {
     );
   }
 
+  if (step === "error") {
+    return (
+      <View style={styles.center}>
+        <Text style={styles.doneText}>{errorMsg}</Text>
+        <Pressable
+          style={[styles.primaryBtn, { marginTop: 24 }]}
+          onPress={() => {
+            setStep("loading");
+            setErrorMsg("");
+            loadChild();
+          }}
+        >
+          <Text style={styles.primaryBtnText}>Reintentar</Text>
+        </Pressable>
+        <Pressable style={styles.logoutBtn} onPress={handleLogout}>
+          <Text style={styles.logoutText}>Cerrar sesión</Text>
+        </Pressable>
+      </View>
+    );
+  }
+
   if (step === "done_today") {
     return (
       <View style={styles.center}>
         {child && (
-          <PetDisplay mood="happy" name={child.mascot_name} />
+          <PetDisplay mood="happy" name={child.mascot_name} size={220} />
         )}
         <Text style={styles.doneText}>
-          ¡Ya jugaste con {child?.mascot_name} hoy!
+          {"\u00A1"}{child?.mascot_name}{" te espera ma\u00F1ana!"}
         </Text>
-        <Text style={styles.doneSubtext}>Vuelve mañana</Text>
+        <Text style={styles.doneSubtext}>Hoy ya jugaron juntos</Text>
         <Pressable
-          style={styles.primaryBtn}
+          style={styles.secondaryBtn}
           onPress={() => router.push("/(app)/summary")}
         >
-          <Text style={styles.primaryBtnText}>Ver resumen semanal</Text>
+          <Text style={styles.secondaryBtnText}>Resumen semanal (padres)</Text>
         </Pressable>
         <Pressable style={styles.logoutBtn} onPress={handleLogout}>
-          <Text style={styles.logoutText}>Cerrar sesión</Text>
+          <Text style={styles.logoutText}>{"Cerrar sesi\u00F3n"}</Text>
         </Pressable>
       </View>
     );
@@ -233,7 +284,9 @@ export default function CheckInScreen() {
             styles.breatheCircle,
             { transform: [{ scale: breathScale }] },
           ]}
-        />
+        >
+          <Text style={styles.breatheCounterInside}>{breathCycle}</Text>
+        </Animated.View>
         <Text style={styles.breatheHint}>Inhala... Exhala...</Text>
       </View>
     );
@@ -251,9 +304,9 @@ export default function CheckInScreen() {
         <PetDisplay mood="happy" name={child.mascot_name} size={120} />
         <Pressable
           style={[styles.primaryBtn, { marginTop: 24 }]}
-          onPress={() => router.push("/(app)/summary")}
+          onPress={() => setStep("done_today")}
         >
-          <Text style={styles.primaryBtnText}>Ver resumen semanal</Text>
+          <Text style={styles.primaryBtnText}>Volver con {child.mascot_name}</Text>
         </Pressable>
       </View>
     );
@@ -284,13 +337,14 @@ const styles = StyleSheet.create({
   },
   doneText: {
     fontSize: 22,
-    fontWeight: "700",
+    fontFamily: fonts.displayBold,
     color: theme.dark,
     marginTop: 24,
     textAlign: "center",
   },
   doneSubtext: {
     fontSize: 16,
+    fontFamily: fonts.display,
     color: theme.textSecondary,
     marginTop: 8,
     marginBottom: 24,
@@ -301,11 +355,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 14,
   },
-  primaryBtnText: { color: "#FFF", fontSize: 16, fontWeight: "600" },
+  primaryBtnText: { color: "#FFF", fontSize: 16, fontFamily: fonts.displaySemiBold },
+  secondaryBtn: {
+    marginTop: 24,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 14,
+    borderWidth: 2,
+    borderColor: theme.border,
+  },
+  secondaryBtnText: { color: theme.textSecondary, fontSize: 14, fontFamily: fonts.body },
   logoutBtn: { marginTop: 16 },
   logoutText: { color: theme.textLight, fontSize: 14 },
   reactionText: {
     fontSize: 18,
+    fontFamily: fonts.display,
     color: theme.dark,
     textAlign: "center",
     marginTop: 24,
@@ -323,7 +387,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     alignItems: "center",
   },
-  breatheText: { color: "#FFF", fontSize: 17, fontWeight: "600" },
+  breatheText: { color: "#FFF", fontSize: 17, fontFamily: fonts.displaySemiBold },
   skipBtn: {
     paddingVertical: 12,
     alignItems: "center",
@@ -331,19 +395,26 @@ const styles = StyleSheet.create({
   skipText: { color: theme.textLight, fontSize: 15 },
   breatheTitle: {
     fontSize: 22,
-    fontWeight: "600",
+    fontFamily: fonts.displaySemiBold,
     color: theme.dark,
     marginBottom: 40,
   },
   breatheCircle: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+    width: 180,
+    height: 180,
+    borderRadius: 90,
     backgroundColor: colors.mint[300],
-    opacity: 0.6,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  breatheCounterInside: {
+    fontSize: 72,
+    fontFamily: fonts.displayBold,
+    color: "#FFF",
   },
   breatheHint: {
     fontSize: 18,
+    fontFamily: fonts.display,
     color: theme.textSecondary,
     marginTop: 32,
   },
@@ -364,7 +435,7 @@ const styles = StyleSheet.create({
   },
   stickerText: {
     fontSize: 22,
-    fontWeight: "700",
+    fontFamily: fonts.displayBold,
     color: theme.dark,
     marginBottom: 16,
   },

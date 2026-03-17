@@ -38,6 +38,13 @@ export const colors = {
     700: "#374151",
     900: "#111827",
   },
+  red: {
+    50: "#FEE2E2",
+    100: "#FECACA",
+    500: "#EF4444",
+    700: "#B91C1C",
+    900: "#991B1B",
+  },
   dark: "#1E1145",
   white: "#FFFFFF",
 };
@@ -58,4 +65,13 @@ export const theme = {
   textLight: colors.gray[300],
   dark: colors.dark,
   border: colors.gray[200],
+};
+
+export const fonts = {
+  display: "Fredoka",
+  displaySemiBold: "Fredoka-SemiBold",
+  displayBold: "Fredoka-Bold",
+  body: "Inter",
+  bodyMedium: "Inter-Medium",
+  bodySemiBold: "Inter-SemiBold",
 };

@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import type { Scenario } from "../lib/scenarios";
-import { theme } from "../lib/theme";
+import { fonts, theme } from "../lib/theme";
 
 interface Props {
   scenario: Scenario;
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   situation: {
     fontSize: 20,
-    fontWeight: "600",
+    fontFamily: fonts.displaySemiBold,
     color: theme.dark,
     textAlign: "center",
     marginBottom: 24,
@@ -57,5 +57,5 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     alignItems: "center",
   },
-  choiceText: { color: "#FFF", fontSize: 17, fontWeight: "600" },
+  choiceText: { color: "#FFF", fontSize: 17, fontFamily: fonts.displaySemiBold },
 });

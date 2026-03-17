@@ -16,6 +16,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.jm95.hachikokids",
       "adaptiveIcon": {
         "backgroundColor": "#F9FAFB",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -28,8 +29,29 @@
       "bundler": "metro"
     },
     "plugins": [
-      ["expo-router", { "root": "./src" }],
-      "expo-secure-store"
-    ]
+      [
+        "expo-router",
+        {
+          "root": "./src"
+        }
+      ],
+      "expo-secure-store",
+      "expo-notifications"
+    ],
+    "extra": {
+      "router": {
+        "root": "./src"
+      },
+      "eas": {
+        "projectId": "e46b24fb-84f8-4168-81ef-99dc6d4cee06"
+      }
+    },
+    "owner": "jm95",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e46b24fb-84f8-4168-81ef-99dc6d4cee06"
+    }
   }
 }

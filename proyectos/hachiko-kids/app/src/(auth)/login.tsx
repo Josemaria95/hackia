@@ -21,10 +21,15 @@ export default function LoginScreen() {
 
   async function handleSignUp() {
     setLoading(true);
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) {
       setLoading(false);
       Alert.alert("Error", error.message);
+      return;
+    }
+    if (!data.user) {
+      setLoading(false);
+      Alert.alert("Verifica tu email", "Revisa tu bandeja de entrada para confirmar tu cuenta.");
       return;
     }
     // Parent row is created automatically via DB trigger.

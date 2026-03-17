@@ -42,7 +42,7 @@ status: en-progreso
 ## Emilia con Hachiko Kids
 
 ### Dia 1
-Mama le dice "mira, puedes cuidar una mascota en la tablet". Emilia elige un gato. Lo llama "Luna". Elige que Luna sea de color morado.
+Mama le dice "mira, puedes cuidar una mascota en la tablet". Emilia conoce a Luna. Le pone nombre "Lunita".
 
 ### Dia 3
 Abre la app despues del colegio. Luna le pregunta (con iconos, no texto): "Como se siente Luna hoy?" Emilia toca la carita triste. Luna se acurruca y dice "esta bien estar triste". Emilia la acaricia en la pantalla.
