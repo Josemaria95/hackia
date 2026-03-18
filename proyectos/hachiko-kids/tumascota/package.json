@@ -1,0 +1,13 @@
+{
+  "name": "tumascota",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public --project-name=tumascota"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260316.1",
+    "typescript": "^5.9.3",
+    "wrangler": "^3"
+  }
+}
