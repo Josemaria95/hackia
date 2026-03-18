@@ -5,7 +5,7 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 
 **Pivot** del concepto original Hachiko Corporativo (bienestar adulto) hacia salud mental infantil.
 
-**Estado actual**: MVP funcional desplegado. App Android (APK via EAS Build) + Supabase backend + landing page + landing piloto. En fase de piloto con familias.
+**Estado actual**: MVP funcional desplegado. App Android (APK via EAS Build) + Supabase backend + landing page + landing piloto. En fase de piloto con familias. Buscando activamente financiamiento (Salcobrand, ChileMass, Platanus, COPEC UC).
 
 ## Equipo
 - **Edgar** — Experiencia directa en PIE (Programa de Integración Escolar del Mineduc). Coordinó médicos y colegios en CEAPSI. Conoce el flujo clínico-institucional desde adentro. Rol: assets, reclutamiento de familias/clínicos, canal B2B institucional.
@@ -35,6 +35,7 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 | Updates | EAS Update (branch: preview) | $0 |
 | Assets | IA (Midjourney/Flux + Claude) | $0-50 |
 | Landing | HTML estático | $0 |
+| Fonts | Fredoka + Inter (expo-google-fonts) | $0 |
 | Dev Tools | Claude Code + Cursor | $0-20/mes |
 
 ## Deploy & distribución
@@ -127,7 +128,7 @@ checkins (id UUID PK, child_id UUID FK, situation TEXT, situation_choice TEXT, e
 
 ## Estructura del proyecto
 
-Las carpetas numeradas (`01_` a `06_`) son **fases de planificación**. Las carpetas sin número (`app/`, `landing/`, `landing-piloto/`) son **artefactos de ejecución**.
+Las carpetas numeradas (`01_` a `08_`) son **fases de planificación**. Las carpetas sin número (`app/`, `landing/`, `landing-piloto/`) son **artefactos de ejecución**.
 
 ```
 hachiko-kids/
@@ -151,6 +152,11 @@ hachiko-kids/
 │   └── plan-validacion.md
 ├── 06_estrategia/
 │   └── go-to-market.md
+├── 07_financiamiento/
+│   ├── convocatorias.md              ← Repositorio de fondos, aceleradoras y ferias
+│   └── calendario-convocatorias.md   ← Plan de preparación y postulación con fechas críticas
+├── 08_agentes/
+│   └── propuesta-subagentes.md       ← 10 subagentes IA para acelerar crecimiento (prioridad + prompts)
 ├── app/                               ← MVP móvil (Expo + Supabase)
 │   ├── app.json                      ← Config Expo + EAS project ID
 │   ├── eas.json                      ← Perfiles de build (preview, production)
@@ -192,7 +198,8 @@ hachiko-kids/
 │       └── gato.png                 ← Luna
 ├── landing-piloto/
 │   └── index.html                    ← Landing para familias piloto (QR + APK download + instrucciones)
-└── mascotas-app.png
+├── mascotas-app.png
+└── mascotas-no-kwai.jpeg              ← Referencia visual mascotas (estilo no-kawaii)
 ```
 
 ## Flujo de datos (check-in diario)
@@ -265,6 +272,38 @@ Lunes 10am → Push notification al padre → Padre abre resumen
 | Mes 3 | B2B clínicas (2-3 pilotos) |
 | Mes 5 | $5-10K MRR target, considerar funding |
 
+## Financiamiento activo (Mar 2026)
+
+Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendario-convocatorias.md`.
+
+| Convocatoria | Cierre | Status |
+|--------------|--------|--------|
+| Open Salcobrand (UDD Ventures) | 22 mar 2026 | URGENTE — piloto 6 meses en Salcobrand |
+| ChileMass Emprende (CORFO) | ~fines mar 2026 | ALTA — inmersión Boston, requiere persona jurídica |
+| I+D para Innovar (COPEC UC) | 6 abr 2026 | MEDIA — requiere base científica + universidad |
+| Platanus | Rolling | MEDIA — USD 200K x 5.5-7% equity, requiere full-time |
+
+**BLOQUEANTES**: Persona jurídica en Chile (para ChileMass/ProChile). Decisión full-time (para Platanus).
+
+**Materiales pendientes**: Pitch deck base, one-pager, video demo, métricas del piloto.
+
+## Dependencias principales (app)
+
+```json
+"expo": "~54.0.0",
+"react-native": "0.81.5",
+"@supabase/supabase-js": "^2.49.1",
+"expo-router": "~6.0.23",
+"expo-notifications": "~0.32.16",
+"expo-updates": "~29.0.16",
+"expo-font": "~14.0.11",
+"expo-splash-screen": "^55.0.10",
+"@expo-google-fonts/fredoka": "^0.4.1",
+"@expo-google-fonts/inter": "^0.4.2",
+"@react-native-async-storage/async-storage": "2.2.0",
+"expo-secure-store": "~15.0.8"
+```
+
 ## Convenciones de desarrollo
 - Lenguaje de UI para padres: siempre conductual ("no sigue instrucciones"), nunca clínico ("déficit atencional")
 - El niño NUNCA debe sentirse evaluado — todo es juego con la mascota
@@ -276,3 +315,4 @@ Lunes 10am → Push notification al padre → Padre abre resumen
 - SummaryCard acepta `detailContent` (ReactNode) para contenido visual expandible
 - `.npmrc` con `legacy-peer-deps=true` es requerido para que EAS Build funcione
 - Variables de entorno `EXPO_PUBLIC_*` están configuradas en EAS (environment: preview)
+- Nuevo build necesario si se agregan/cambian dependencias nativas (expo-font, expo-splash-screen, expo-updates ya incluidos)
