@@ -20,6 +20,11 @@ Plan de preparacion y postulacion a fondos, aceleradoras y ferias.
 | ChileMass Emprende 2026 | **~Fines marzo 2026** (estimado) | ALTA | Si — tech con potencial global |
 | I+D para Innovar (COPEC UC) | **6 abril 2026** | MEDIA | Parcial — requiere base cientifica |
 | Platanus | Rolling (ventana abierta) | MEDIA | Si — startup tech early-stage |
+| CORFO Capital Semilla Temprano | **28 marzo 2026** | ALTA (9 dias) | Si — fondo early-stage Chile |
+| Wayra Colombia | **31 marzo 2026** | ALTA (12 dias) | Parcial — Healthtech, pero es Colombia |
+| Endeavor Scale-Up Program | Rolling | MEDIA | Si — aceleracion LATAM + red global |
+| Microsoft for Startups Founders Hub | Sin cierre | BAJA (aplicar cuando convenga) | Si — creditos Azure + mentoring, sin equity |
+| ProChile Go Global Program | Por confirmar | MEDIA | Si — expansion internacional, requiere empresa chilena |
 | ANID IDeA Investigacion Tecnologica | **19 marzo 2026** | VENCIDA | Parcial — requiere institucion |
 
 ---
@@ -188,6 +193,149 @@ Plan de preparacion y postulacion a fondos, aceleradoras y ferias.
 
 ---
 
+## 6. CORFO Capital Semilla Temprano
+
+**Organizan**: CORFO
+**Cierre**: 28 marzo 2026
+**Web**: https://www.corfo.cl/
+
+### Que ofrecen
+- Hasta **$35M CLP** (~USD $37K) en subsidio no reembolsable
+- Capital semilla para startups early-stage en Chile
+- Foco en validacion comercial y primeras ventas
+
+### Requisitos
+- Empresa constituida en Chile (persona juridica)
+- Inicio de actividades en SII
+- Proyecto innovador con potencial de escalabilidad
+
+### Fit con Hachiko Kids
+- Alto: MVP funcional + piloto en curso = perfil ideal para semilla temprano
+- $35M CLP cubriria desarrollo + piloto ampliado + primeros meses de operacion
+
+### BLOQUEANTE
+- Requiere persona juridica en Chile (mismo bloqueante que ChileMass)
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| 19-20 mar | Revisar bases completas en corfo.cl + verificar requisitos | Jose |
+| 20-22 mar | Adaptar pitch deck (foco validacion comercial + metricas piloto) | Jose + Edgar |
+| 23-25 mar | Completar formulario de postulacion | Jose |
+| 26-27 mar | Revision final + envio | Jose + Edgar |
+| **28 mar** | **DEADLINE** | — |
+
+---
+
+## 7. Wayra Colombia
+
+**Organizan**: Wayra (Telefonica)
+**Cierre**: 31 marzo 2026
+**Web**: https://www.wayra.com/
+
+### Que ofrecen
+- Inversion hasta **USD $100K**
+- Acceso al ecosistema Telefonica (distribucion, datos, clientes corporativos)
+- Aceleracion y mentoring
+
+### Verticales
+- Healthtech y Fintech (convocatoria actual)
+
+### Fit con Hachiko Kids
+- Parcial-alto: Hachiko califica como Healthtech
+- Wayra opera en LATAM, lo que abre canal de distribucion regional
+- Considerar: es Colombia, puede requerir presencia o vinculo local
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| 20-22 mar | Revisar bases y requisitos de elegibilidad (empresa chilena puede postular?) | Jose |
+| 23-26 mar | Preparar application (enfoque Healthtech + escalabilidad LATAM) | Jose + Edgar |
+| 27-30 mar | Completar formulario + revision final | Jose |
+| **31 mar** | **DEADLINE** | — |
+
+---
+
+## 8. Endeavor Scale-Up Program
+
+**Organizan**: Endeavor
+**Cierre**: Rolling (postulaciones abiertas)
+**Web**: https://www.endeavor.org/
+
+### Que ofrecen
+- Aceleracion con mentores de clase mundial (red Endeavor)
+- Acceso a red global de emprendedores de alto impacto
+- Conexion con inversionistas y corporativos
+
+### Fit con Hachiko Kids
+- Medio: Endeavor busca startups con traccion demostrada y potencial de alto crecimiento
+- Mejor postular cuando se tengan metricas solidas del piloto (D30, revenue)
+- No es urgente — rolling permite esperar al momento optimo
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| Abr-May | Evaluar momento optimo para postular (post-piloto con metricas) | Jose + Edgar |
+| Cuando sea GO | Preparar application con metricas de traccion | Jose |
+
+---
+
+## 9. Microsoft for Startups Founders Hub
+
+**Organizan**: Microsoft
+**Cierre**: Sin fecha fija (programa abierto)
+**Web**: https://www.microsoft.com/en-us/startups
+
+### Que ofrecen
+- Creditos Azure hasta USD $150K
+- Acceso a herramientas Microsoft (GitHub Enterprise, VS Code, etc.)
+- Mentoring tecnico y de negocio
+- Sin equity ni inversion directa
+
+### Fit con Hachiko Kids
+- Util como recurso complementario: creditos cloud si se migra o escala infra
+- Actualmente el stack es Supabase (free tier), pero Azure podria servir para IA/analytics a futuro
+- Bajo esfuerzo de aplicacion, alto valor potencial
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| Cualquier momento | Aplicar online (proceso rapido, ~1 semana aprobacion) | Jose |
+
+---
+
+## 10. ProChile Go Global Program
+
+**Organizan**: ProChile
+**Cierre**: Por confirmar (cupos limitados)
+**Web**: https://www.prochile.gob.cl/
+
+### Que ofrecen
+- Apoyo para internacionalizacion de startups chilenas
+- Acceso a mercados internacionales via red ProChile
+- Diferente a Enexpro (feria) — este es un programa de acompanamiento
+
+### Requisitos
+- Empresa chilena constituida
+- Producto/servicio con potencial de exportacion
+
+### Fit con Hachiko Kids
+- Medio-alto: app en espanol con potencial LATAM + USA hispano
+- Requiere persona juridica (mismo bloqueante)
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| 19-21 mar | Confirmar fecha de cierre y requisitos en prochile.gob.cl | Edgar |
+| Cuando se confirme | Evaluar si postular ahora o esperar a tener metricas del piloto | Jose + Edgar |
+
+---
+
 ## Calendario consolidado — Marzo / Abril 2026
 
 ### Semana 17-22 marzo (CRITICA)
@@ -201,20 +349,23 @@ Plan de preparacion y postulacion a fondos, aceleradoras y ferias.
 | **Vie 21** | Revision final Salcobrand + enviar | Salcobrand |
 | **Sab 22** | **DEADLINE Open Salcobrand** | Salcobrand |
 
-### Semana 24-28 marzo
+### Semana 24-28 marzo (CRITICA — 2 deadlines)
 
 | Dia | Actividad | Convocatoria |
 |-----|-----------|--------------|
-| Lun 24 | Decision GO/NO-GO Platanus (full-time) | Platanus |
-| Mar 25 | Buscar investigador aliado para COPEC UC | COPEC UC |
-| Mie-Vie | Preparar application Platanus (si es GO) | Platanus |
+| Lun 24 | Decision GO/NO-GO Platanus (full-time) + revisar bases CORFO Semilla | Platanus, CORFO |
+| Mar 25 | Buscar investigador aliado para COPEC UC + adaptar pitch CORFO Semilla | COPEC UC, CORFO |
+| Mie 26 | Completar formulario CORFO Semilla + revisar elegibilidad Wayra Colombia | CORFO, Wayra |
+| Jue 27 | Revision final CORFO Semilla + preparar application Wayra | CORFO, Wayra |
+| **Vie 28** | **DEADLINE CORFO Capital Semilla Temprano** | CORFO |
 
 ### Semana 31 mar - 5 abril
 
 | Dia | Actividad | Convocatoria |
 |-----|-----------|--------------|
-| Lun 31 | Enviar Platanus (early) | Platanus |
+| Lun 31 | Enviar Platanus (early) + **DEADLINE Wayra Colombia** | Platanus, Wayra |
 | Mar 1 - Vie 4 | Redactar propuesta COPEC UC | COPEC UC |
+| Cualquier dia | Aplicar a Microsoft for Startups (proceso rapido) | Microsoft |
 | **Dom 6** | **DEADLINE COPEC UC** | COPEC UC |
 
 ---

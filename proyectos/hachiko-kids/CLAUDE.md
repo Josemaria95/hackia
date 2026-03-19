@@ -280,10 +280,15 @@ Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendar
 |--------------|--------|--------|
 | Open Salcobrand (UDD Ventures) | 22 mar 2026 | URGENTE — piloto 6 meses en Salcobrand |
 | ChileMass Emprende (CORFO) | ~fines mar 2026 | ALTA — inmersión Boston, requiere persona jurídica |
+| CORFO Capital Semilla Temprano | 28 mar 2026 | ALTA — hasta $35M CLP, requiere persona jurídica |
+| Wayra Colombia | 31 mar 2026 | ALTA — Healthtech, hasta USD $100K |
 | I+D para Innovar (COPEC UC) | 6 abr 2026 | MEDIA — requiere base científica + universidad |
 | Platanus | Rolling | MEDIA — USD 200K x 5.5-7% equity, requiere full-time |
+| Endeavor Scale-Up Program | Rolling | MEDIA — aceleración + red global LATAM |
+| Microsoft for Startups | Sin cierre | BAJA — créditos Azure + mentoring, sin equity |
+| ProChile Go Global Program | Por confirmar | MEDIA — expansión internacional, cupos limitados |
 
-**BLOQUEANTES**: Persona jurídica en Chile (para ChileMass/ProChile). Decisión full-time (para Platanus).
+**BLOQUEANTES**: Persona jurídica en Chile (para ChileMass/ProChile/CORFO Semilla). Decisión full-time (para Platanus).
 
 **Materiales pendientes**: Pitch deck base, one-pager, video demo, métricas del piloto.
 

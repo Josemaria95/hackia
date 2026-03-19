@@ -21,6 +21,7 @@ import PetDisplay from "../../components/PetDisplay";
 import ScenarioCard from "../../components/ScenarioCard";
 import EmotionPicker from "../../components/EmotionPicker";
 import { scheduleMondaySummaryNotification } from "../../lib/notifications";
+import type { MicroActivity } from "../types/database";
 
 type Step = "loading" | "done_today" | "scenario" | "emotion" | "reaction" | "breathe" | "sticker" | "error";
 
@@ -41,6 +42,8 @@ export default function CheckInScreen() {
   const [petMood, setPetMood] = useState<PetMood>("happy");
   const [breathCycle, setBreathCycle] = useState(1);
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const [microActivity, setMicroActivity] = useState<MicroActivity | null>(null);
+  const sessionStartRef = useRef<number>(Date.now());
 
   const breathScale = useRef(new Animated.Value(1)).current;
   const stickerScale = useRef(new Animated.Value(0)).current;
@@ -91,6 +94,7 @@ export default function CheckInScreen() {
       if (done) {
         setStep("done_today");
       } else {
+        sessionStartRef.current = Date.now();
         setScenario(getScenarioForToday(c.id));
         setStep("scenario");
       }
@@ -116,15 +120,18 @@ export default function CheckInScreen() {
       setPetMood(r.mood);
 
       try {
-        const { error } = await supabase.from("checkins").insert({
-          child_id: child.id,
-          situation: scenario.id,
-          situation_choice: choiceValue,
-          emotion: emo,
+        const { error } = await supabase.rpc("upsert_checkin", {
+          p_child_id:         child.id,
+          p_situation:        scenario.id,
+          p_situation_choice: choiceValue,
+          p_emotion:          emo,
+          p_dimension:        scenario.dimension,
+          p_micro_activity:   null,   // updated in showSticker once activity is known
+          p_session_duration: null,
         });
         if (error) throw error;
       } catch (err) {
-        console.warn("checkin insert error:", err);
+        console.warn("checkin upsert error:", err);
       }
 
       setStep("reaction");
@@ -133,6 +140,7 @@ export default function CheckInScreen() {
   );
 
   const startBreathe = useCallback(() => {
+    setMicroActivity("breathe");
     setStep("breathe");
     setBreathCycle(1);
     const totalCycles = 4;
@@ -155,10 +163,10 @@ export default function CheckInScreen() {
         reset: () => {},
       } as Animated.CompositeAnimation,
     ]);
-    Animated.sequence(cycles).start(() => showSticker());
+    Animated.sequence(cycles).start(() => showSticker("breathe"));
   }, [breathScale]);
 
-  const showSticker = useCallback(async () => {
+  const showSticker = useCallback(async (activity?: MicroActivity) => {
     setStep("sticker");
     Animated.spring(stickerScale, {
       toValue: 1,
@@ -166,13 +174,33 @@ export default function CheckInScreen() {
       useNativeDriver: true,
     }).start();
 
-    if (child) {
+    if (child && scenario) {
+      const sessionDuration = Date.now() - sessionStartRef.current;
+      const resolvedActivity = activity ?? microActivity ?? null;
+
+      // Update the checkin with final micro_activity + session_duration_ms.
+      // ON CONFLICT DO UPDATE in upsert_checkin keeps existing values for null params.
+      try {
+        await supabase.rpc("upsert_checkin", {
+          p_child_id:         child.id,
+          p_situation:        scenario.id,
+          p_situation_choice: choiceValue,
+          p_emotion:          emotion,
+          p_dimension:        scenario.dimension,
+          p_micro_activity:   resolvedActivity,
+          p_session_duration: sessionDuration,
+        });
+      } catch (err) {
+        console.warn("checkin finalize error:", err);
+      }
+
+      // AsyncStorage remains as local UI cache (prevents re-showing scenario today)
       await AsyncStorage.setItem(todayKey(), "done");
     }
-  }, [stickerScale, child]);
+  }, [stickerScale, child, scenario, choiceValue, emotion, microActivity]);
 
   const skipToSticker = useCallback(() => {
-    showSticker();
+    showSticker(undefined);
   }, [showSticker]);
 
   if (step === "loading") {

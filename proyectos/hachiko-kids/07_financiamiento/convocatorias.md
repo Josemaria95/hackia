@@ -20,6 +20,11 @@ Repositorio de oportunidades de financiamiento, fondos, aceleradoras y ferias pa
 | Platanus | https://platan.us/programa | Aceleradora | **USD 200K x 5.5-7% equity**. 12 semanas. Rolling (early = mejor). Requiere full-time |
 | ChileMass Emprende 2026 | https://chilemass.org/chilemass-emprende/ | Aceleradora / Internacionalizacion | Inmersion Boston + CORFO. Cierre: **~fines marzo 2026**. Requiere persona juridica Chile |
 | Open Salcobrand — Soluciones Innovadoras | https://www.opensalcobrand.cl/soluciones-innovadoras | Convocatoria innovacion | 7a version con UDD Ventures. Cierre: **22 marzo 2026**. Piloto 6 meses en Salcobrand |
+| CORFO Capital Semilla Temprano | https://www.corfo.cl/ | Fondo publico | Hasta **$35M CLP**. Cierre: **28 marzo 2026**. Capital semilla para startups early-stage en Chile |
+| Endeavor Scale-Up Program | https://www.endeavor.org/ | Aceleradora / Red global | LATAM. Aceleracion + acceso a red global Endeavor. Postulaciones abiertas (rolling) |
+| Microsoft for Startups Founders Hub | https://www.microsoft.com/en-us/startups | Programa corporativo | Global. Creditos Azure hasta USD $150K + mentoring + herramientas. Sin equity. Sin fecha cierre |
+| Wayra Colombia | https://www.wayra.com/ | Corporate VC (Telefonica) | Healthtech y Fintech. Inversion hasta **USD $100K**. Cierre: **31 marzo 2026** |
+| ProChile Go Global Program | https://www.prochile.gob.cl/ | Internacionalizacion | Startups chilenas, expansion internacional. Cupos limitados. Verificar fecha cierre |
 
 ## Ferias de Negocios
 
@@ -31,7 +36,8 @@ Repositorio de oportunidades de financiamiento, fondos, aceleradoras y ferias pa
 
 ## Por investigar
 
-- [ ] CORFO — Seed, Crea y Valida, SSAF
+- [x] CORFO Capital Semilla Temprano — agregado arriba (cierre 28 mar 2026)
+- [ ] CORFO — Crea y Valida, SSAF
 - [ ] Start-Up Chile (CORFO)
 - [ ] FIA (Fundacion para la Innovacion Agraria) — si hay cruce salud/educacion
 - [ ] Fondos ANID para investigacion en salud mental infantil
