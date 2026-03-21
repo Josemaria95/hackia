@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hachiko Kids — Los niños no mienten cuando juegan</title>
+  <meta name="description" content="Tu hijo cuida una mascota virtual. Sin saberlo, te habla de cómo se siente, cómo socializa y cómo reacciona. Tú recibes los patrones cada semana.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #7B61FF;
+      --purple-dark: #5A3FD6;
+      --purple-glow: rgba(123, 97, 255, 0.15);
+      --purple-50: #F0EDFF;
+      --purple-300: #9C88FF;
+      --bg: #F9FAFB;
+      --text: #2D2D2D;
+      --text-light: #6B7280;
+      --text-muted: #9CA3AF;
+      --mint: #34D399;
+      --mint-bg: #ECFDF5;
+      --orange: #F97316;
+      --orange-bg: #FFF7ED;
+      --radius-card: 14px;
+      --radius-btn: 24px;
+      --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-card: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .nav-brand, .hero-badge, .section-label, .step-num, .proof-number, .share-hint {
+      font-family: 'Fredoka', 'Inter', sans-serif;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .animate-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { height: 36px; width: auto; }
+    .nav-brand { font-size: 1.4rem; font-weight: 700; color: var(--purple); letter-spacing: -0.5px; }
+    .nav-brand span { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-mascots {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .hero-mascots img {
+      height: 100px; width: auto;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+      transition: transform 0.3s;
+    }
+    .hero-mascots img:hover { transform: scale(1.1); }
+    .hero-mascots img:nth-child(1) { animation-delay: 0s; }
+    .hero-mascots img:nth-child(2) { animation-delay: 0.5s; }
+    .hero-mascots img:nth-child(3) { animation-delay: 1s; }
+    .hero-mascots img:nth-child(4) { animation-delay: 1.5s; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-50);
+      color: var(--purple);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--purple);
+      position: relative;
+    }
+    .hero h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 6px;
+      background: var(--purple-glow);
+      border-radius: 3px;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 580px;
+      margin: 0 auto 16px;
+      font-weight: 400;
+    }
+    .hero-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--text);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+    .hero-stat .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 18px 48px;
+      border-radius: var(--radius-btn);
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 8px 24px rgba(123, 97, 255, 0.35);
+    }
+    .hero-cta:hover {
+      background: var(--purple-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(123, 97, 255, 0.45);
+    }
+    .hero-sub { margin-top: 14px; font-size: 0.85rem; color: var(--text-muted); }
+
+    /* INSIGHT BLOCK */
+    .insight {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d1b6e 100%);
+      padding: 72px 24px;
+      text-align: center;
+      color: white;
+    }
+    .insight-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .insight-label {
+      display: inline-block;
+      background: rgba(123, 97, 255, 0.3);
+      color: var(--purple-300);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    .insight h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+      line-height: 1.2;
+      font-family: 'Fredoka', sans-serif;
+    }
+    .insight h2 em {
+      font-style: normal;
+      color: var(--purple-300);
+    }
+    .insight p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .insight p:last-child { margin-bottom: 0; }
+    .insight strong { color: white; }
+
+    /* PAIN POINTS */
+    .pains {
+      background: white;
+      padding: 72px 24px;
+    }
+    .pains-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+    .pains h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .pains-inner > p {
+      color: var(--text-light);
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+    .pain-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      text-align: left;
+    }
+    .pain-card {
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pain-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+    .pain-card .emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .pain-card strong { display: block; margin-bottom: 6px; font-size: 1rem; font-weight: 800; }
+    .pain-card span { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
+
+    /* HOW IT WORKS */
+    .how {
+      padding: 72px 24px;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .how h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .how > .how-sub {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 48px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+    .step {
+      background: white;
+      border-radius: var(--radius-card);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+    .step-icon {
+      width: 80px; height: 80px;
+      border-radius: var(--radius-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 20px;
+    }
+    .step:nth-child(1) .step-icon { background: var(--purple-50); }
+    .step:nth-child(2) .step-icon { background: var(--mint-bg); }
+    .step:nth-child(3) .step-icon { background: var(--orange-bg); }
+    .step-num {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .step h3 { font-size: 1.05rem; margin-bottom: 8px; font-weight: 700; }
+    .step p { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background: linear-gradient(135deg, var(--purple-50) 0%, #EDE8FF 100%);
+      padding: 72px 24px;
+    }
+    .testimonials-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonials h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    .testimonials > .testimonials-inner > p {
+      color: var(--text-light);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      text-align: left;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius-card);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .testimonial-card .quote {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testimonial-card .quote::before { content: '"'; color: var(--purple); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
+    .testimonial-card .quote::after { content: '"'; color: var(--purple); font-size: 1.4rem; font-style: normal; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+    .testimonial-author { font-size: 0.8rem; font-weight: 700; color: var(--text-light); }
+    .testimonial-role { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* STATS */
+    .proof {
+      background: white;
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.04);
+    }
+    .proof-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proof-item { display: flex; flex-direction: column; align-items: center; }
+    .proof-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .proof-label { font-size: 0.85rem; color: var(--text-light); font-weight: 600; text-align: center; }
+
+    /* FORM */
+    .form-section { background: var(--bg); padding: 72px 24px; }
+    .form-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-inner h2 { font-size: 1.8rem; margin-bottom: 8px; font-weight: 700; letter-spacing: -0.5px; }
+    .form-inner > p { color: var(--text-light); margin-bottom: 36px; font-size: 1.05rem; }
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mint-bg);
+      color: #059669;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    form { text-align: left; }
+    .field { margin-bottom: 28px; }
+    .field label { display: block; font-weight: 700; margin-bottom: 10px; font-size: 1rem; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border: 2px solid #E5E7EB;
+      border-radius: var(--radius-card);
+      font-size: 1rem;
+      font-family: inherit;
+      background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      color: var(--text);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px var(--purple-glow);
+    }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .field .hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .checkbox-group label {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      padding: 12px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      border: 2px solid #E5E7EB;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    .checkbox-group input { width: auto; padding: 0; accent-color: var(--purple); }
+    .checkbox-group label:hover { border-color: var(--purple-300); }
+    .checkbox-group label:has(input:checked) {
+      border-color: var(--purple);
+      background: var(--purple-50);
+      color: var(--purple-dark);
+    }
+    .radio-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .radio-card { position: relative; }
+    .radio-card input { position: absolute; opacity: 0; }
+    .radio-card span {
+      display: block;
+      padding: 16px 18px;
+      border: 2px solid #E5E7EB;
+      border-radius: var(--radius-card);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: white;
+    }
+    .radio-card span:hover { border-color: var(--purple-300); }
+    .radio-card input:checked + span {
+      border-color: var(--purple);
+      background: var(--purple-50);
+      color: var(--purple-dark);
+      font-weight: 700;
+      box-shadow: 0 0 0 4px var(--purple-glow);
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--purple);
+      color: white;
+      padding: 18px;
+      border: none;
+      border-radius: var(--radius-btn);
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+      box-shadow: 0 8px 24px rgba(123, 97, 255, 0.3);
+    }
+    .submit-btn:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(123, 97, 255, 0.4);
+    }
+    .submit-note { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 14px; }
+
+    /* Thank you */
+    .thank-you {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      animation: fadeInUp 0.5s ease;
+    }
+    .thank-you .emoji { font-size: 4rem; margin-bottom: 20px; display: block; }
+    .thank-you h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
+    .thank-you p { color: var(--text-light); font-size: 1.05rem; line-height: 1.6; }
+    .thank-you .share-hint {
+      margin-top: 20px;
+      display: inline-block;
+      background: var(--purple-50);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--purple);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    footer p + p { margin-top: 6px; }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 48px; }
+      .hero h1 { font-size: 2rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .hero-mascots img { height: 72px; }
+      .hero-mascots { gap: 10px; }
+      .hero::before { width: 350px; height: 350px; }
+      .pain-cards { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 20px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .radio-cards { grid-template-columns: 1fr; }
+      .pains, .form-section { padding: 48px 20px; }
+      .how { padding: 48px 20px; }
+      .insight { padding: 48px 20px; }
+      .testimonials { padding: 48px 20px; }
+      .proof-inner { gap: 32px; }
+      .proof-number { font-size: 1.8rem; }
+      .pains h2, .how h2, .form-inner h2, .insight h2, .testimonials h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.png" alt="Hachiko Kids logo" class="nav-logo">
+    <div class="nav-brand">Hachiko <span>Kids</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-mascots" aria-hidden="true">
+      <img src="mascotas/gato.png" alt="Gatito" style="height: 90px;">
+      <img src="mascotas/perro.png" alt="Perrito" style="height: 85px;">
+      <img src="mascotas/conejo.png" alt="Conejito">
+      <img src="mascotas/panda.png" alt="Pandita">
+    </div>
+    <div class="hero-badge">Para papás con hijos de 2 a 12 años</div>
+    <h1>Los niños no mienten<br><em>cuando juegan.</em></h1>
+    <p class="hero-subtitle">Cuando tu hijo decide cómo cuida a su mascota virtual, no sabe que te está hablando de sí mismo. Tú sí — con un resumen claro cada semana y tips concretos para esta semana.</p>
+    <div class="hero-stat">
+      <span class="dot"></span>
+      80% de los primeros papás que vieron el concepto dijeron que lo usarían
+    </div>
+    <br>
+    <a href="#formulario" class="hero-cta">Quiero entender a mi hijo</a>
+    <p class="hero-sub">6 preguntas (2 min). Sin compromiso.</p>
+  </section>
+
+  <!-- INSIGHT BLOCK -->
+  <section class="insight">
+    <div class="insight-inner animate-in">
+      <span class="insight-label">Por qué funciona</span>
+      <h2>El juego <em>elimina</em> la presión de verbalizar</h2>
+      <p>Cuando le preguntas a tu hijo <strong>"¿cómo estás?"</strong>, activas su filtro social. Te dice lo que cree que quieres escuchar, o simplemente "bien."</p>
+      <p>Cuando <strong>juega</strong>, ese filtro se apaga. Decide naturalmente: compartir o no compartir, seguir reglas o ignorarlas, pedir ayuda o aislarse. Esas decisiones, acumuladas día a día, son datos reales sobre cómo es tu hijo — no lo que él cree que debes pensar de él.</p>
+      <p>Hachiko captura eso. <strong>Tú lo lees cada lunes.</strong></p>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pains">
+    <div class="pains-inner animate-in">
+      <span class="section-label">Te suena familiar</span>
+      <h2>Tu hijo no puede explicarlo.<br>Tú no tienes cómo verlo.</h2>
+      <p>Hachiko cierra esa brecha — sin diagnósticos, sin culpa.</p>
+      <div class="pain-cards">
+        <div class="pain-card">
+          <span class="emoji">😤</span>
+          <strong>"No me hace caso y no sé si es normal"</strong>
+          <span>Le dices 5 veces lo mismo. No sabes si es su edad, su forma de ser, o algo que necesita atención.</span>
+        </div>
+        <div class="pain-card">
+          <span class="emoji">😢</span>
+          <strong>"No quiere ir al colegio y no me dice por qué"</strong>
+          <span>La profesora dice que "está distraído". Tú sientes que hay algo más, pero no tienes con qué sustentarlo.</span>
+        </div>
+        <div class="pain-card">
+          <span class="emoji">😠</span>
+          <strong>"Las rabietas son cada vez más intensas"</strong>
+          <span>Googlear a las 11pm solo te da 47 artículos contradictorios. Más angustia, menos claridad.</span>
+        </div>
+        <div class="pain-card">
+          <span class="emoji">😶</span>
+          <strong>"Se aísla y no sé cómo ayudarlo"</strong>
+          <span>En el recreo juega solo. En casa se encierra. Y no encuentras el ángulo para llegar a él.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="animate-in">
+      <span class="section-label">Cómo funciona</span>
+      <h2>60 segundos al día que cambian la conversación</h2>
+      <p class="how-sub">Para él es un juego. Para ti es información.</p>
+    </div>
+    <div class="steps">
+      <div class="step animate-in">
+        <div class="step-icon">🐱</div>
+        <p class="step-num">Paso 1</p>
+        <h3>Tu hijo juega sin saber que habla</h3>
+        <p>Elige una mascota, le pone nombre y decide cómo juega, qué siente, cómo reacciona ante distintas situaciones. Para él: diversión pura.</p>
+      </div>
+      <div class="step animate-in">
+        <div class="step-icon">📊</div>
+        <p class="step-num">Paso 2</p>
+        <h3>Tú acumulas semanas de patrones</h3>
+        <p>Cada semana recibes un resumen claro: si prefiere jugar solo, si sigue instrucciones, cómo maneja la frustración, cómo va su ánimo.</p>
+      </div>
+      <div class="step animate-in">
+        <div class="step-icon">💡</div>
+        <p class="step-num">Paso 3</p>
+        <h3>Actúas con información, no con intuición</h3>
+        <p>Tips concretos para esta semana, basados en lo que observaste. Si un patrón persiste, llegas al pediatra con datos — no solo con angustia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials animate-in">
+    <div class="testimonials-inner">
+      <span class="section-label">Lo que dicen quienes lo vieron primero</span>
+      <h2>El problema resuena. El mecanismo enamora.</h2>
+      <p>Respuestas reales de papás, profesionales y expertos en EdTech tras ver el concepto.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="quote">El juego siempre es un shortcut tremendo. El cerebro se activa de formas distintas al jugar — te saltas resistencias.</p>
+          <div class="testimonial-author">Rodrigo R.</div>
+          <div class="testimonial-role">Emprendedor · papá</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">Trabajo en EdTech y veo de cerca el mundo PIE. El gap de información es real y enorme. La idea del juego como observación indirecta me parece brillante.</p>
+          <div class="testimonial-author">Orlando V.</div>
+          <div class="testimonial-role">Experto en EdTech y programas escolares</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">Como papá, entender el comportamiento de mis hijas se vuelve frustrante. Herramientas que puedan medir el proceso serían un aporte real.</p>
+          <div class="testimonial-author">Jorge C.</div>
+          <div class="testimonial-role">Médico · papá</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="proof animate-in">
+    <div class="proof-inner">
+      <div class="proof-item">
+        <span class="proof-number">1 de 4</span>
+        <span class="proof-label">niños en Chile con<br>dificultades conductuales</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">0%</span>
+        <span class="proof-label">de los primeros papás<br>dijo que no la usaría</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">60 seg</span>
+        <span class="proof-label">al día es todo lo que<br>necesita tu hijo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="formulario">
+    <div class="form-inner animate-in">
+      <div class="form-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        10 familias ya respondieron — estás entre los primeros
+      </div>
+      <h2>Ayúdanos a construirla para ti</h2>
+      <p>Tus respuestas dan forma directa a lo que construimos. 6 preguntas, 2 minutos.</p>
+
+      <form id="hachiko-form">
+
+        <div class="field">
+          <label>1. ¿Cuántos hijos tienes y de qué edad?</label>
+          <input type="text" name="hijos" placeholder="Ej: 2 hijos, de 5 y 8 años" required>
+        </div>
+
+        <div class="field">
+          <label>2. ¿Qué comportamientos te preocupan?</label>
+          <p class="hint">Selecciona todos los que apliquen.</p>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="comportamientos" value="rabietas"> Rabietas intensas</label>
+            <label><input type="checkbox" name="comportamientos" value="no-sigue-instrucciones"> No sigue instrucciones</label>
+            <label><input type="checkbox" name="comportamientos" value="no-socializa"> No socializa</label>
+            <label><input type="checkbox" name="comportamientos" value="ansiedad-colegio"> Ansiedad por el colegio</label>
+            <label><input type="checkbox" name="comportamientos" value="aislamiento"> Se aísla</label>
+            <label><input type="checkbox" name="comportamientos" value="problemas-dormir"> Problemas para dormir</label>
+            <label><input type="checkbox" name="comportamientos" value="agresividad"> Agresividad</label>
+          </div>
+          <input type="text" name="comportamientos_otro" placeholder="Otro (opcional)" style="margin-top: 12px;">
+        </div>
+
+        <div class="field">
+          <label>3. ¿Usarías una app donde tu hijo cuida una mascota y tú recibes un resumen semanal de sus patrones de comportamiento?</label>
+          <div class="radio-cards">
+            <label class="radio-card"><input type="radio" name="usaria" value="si-seguro" required><span>Sí, seguro</span></label>
+            <label class="radio-card"><input type="radio" name="usaria" value="probablemente"><span>Probablemente sí</span></label>
+            <label class="radio-card"><input type="radio" name="usaria" value="no-se"><span>No estoy seguro/a</span></label>
+            <label class="radio-card"><input type="radio" name="usaria" value="no"><span>No la usaría</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>4. ¿Pagarías $3–5 USD/mes si realmente te ayuda a entender a tu hijo?</label>
+          <div class="radio-cards">
+            <label class="radio-card"><input type="radio" name="pagaria" value="si" required><span>Sí, lo vale</span></label>
+            <label class="radio-card"><input type="radio" name="pagaria" value="depende"><span>Depende de los resultados</span></label>
+            <label class="radio-card"><input type="radio" name="pagaria" value="solo-gratis"><span>Solo si es gratis</span></label>
+            <label class="radio-card"><input type="radio" name="pagaria" value="pagaria-mas"><span>Pagaría más si funciona</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>5. Tu email para avisarte cuando esté lista</label>
+          <input type="email" name="email" placeholder="tu@email.com" required>
+          <p class="hint">Solo para avisarte. Sin spam, lo prometemos.</p>
+        </div>
+
+        <div class="field">
+          <label>6. Tu WhatsApp si prefieres que te avisemos por ahí <span style="font-weight:400;color:var(--text-muted)">(opcional)</span></label>
+          <input type="tel" name="whatsapp" placeholder="Ej: +56 9 1234 5678">
+          <p class="hint">Nada de spam. Solo para avisarte cuando lancemos.</p>
+        </div>
+
+        <button type="submit" class="submit-btn">Quiero ser de los primeros</button>
+        <p class="submit-note">Tus respuestas nos ayudan a construir algo que realmente sirva.</p>
+      </form>
+
+      <div class="thank-you" id="thank-you">
+        <span class="emoji">🎉</span>
+        <h3>Eres parte del origen</h3>
+        <p>Te avisamos apenas esté lista. Estás ayudando a construir algo que genuinamente importa para las familias.</p>
+        <span class="share-hint">¿Conoces a otro papá o mamá que le interese? Comparte este link</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Hachiko Kids — Hecho con cariño en Chile</p>
+    <p>No reemplaza la consulta profesional. Si crees que tu hijo necesita ayuda urgente, consulta a tu pediatra.</p>
+  </footer>
+
+  <script>
+    document.querySelector('.hero-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#formulario').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-in').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    const form = document.getElementById('hachiko-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.submit-btn');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      const formData = new FormData(form);
+      const jsonData = {
+        hijos: formData.get('hijos'),
+        comportamientos: formData.getAll('comportamientos').join(', '),
+        comportamientos_otro: formData.get('comportamientos_otro'),
+        usaria: formData.get('usaria'),
+        pagaria: formData.get('pagaria'),
+        email: formData.get('email'),
+        whatsapp: formData.get('whatsapp') || ''
+      };
+
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(jsonData)
+        });
+        const result = await response.json();
+        if (result.ok) {
+          form.style.display = 'none';
+          document.getElementById('thank-you').style.display = 'block';
+        } else {
+          btn.textContent = 'Error — intenta de nuevo';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = 'Error — intenta de nuevo';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

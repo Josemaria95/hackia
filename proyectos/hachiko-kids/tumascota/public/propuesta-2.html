@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hachiko Kids — Semanas sin brújula</title>
+  <meta name="description" content="3 a 6 meses de espera para atención especializada. Tu hijo no puede esperar. Hachiko es lo que pasa entre consulta y consulta.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #7B61FF;
+      --purple-dark: #5A3FD6;
+      --purple-glow: rgba(123, 97, 255, 0.15);
+      --purple-50: #F0EDFF;
+      --purple-300: #9C88FF;
+      --bg: #F9FAFB;
+      --text: #2D2D2D;
+      --text-light: #6B7280;
+      --text-muted: #9CA3AF;
+      --mint: #34D399;
+      --mint-bg: #ECFDF5;
+      --orange: #F97316;
+      --orange-bg: #FFF7ED;
+      --red: #EF4444;
+      --red-bg: #FEF2F2;
+      --radius-card: 14px;
+      --radius-btn: 24px;
+      --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-card: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .nav-brand, .hero-badge, .section-label, .step-num, .proof-number, .share-hint, .timeline-label {
+      font-family: 'Fredoka', 'Inter', sans-serif;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .animate-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { height: 36px; width: auto; }
+    .nav-brand { font-size: 1.4rem; font-weight: 700; color: var(--purple); letter-spacing: -0.5px; }
+    .nav-brand span { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-mascots {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .hero-mascots img {
+      height: 100px; width: auto;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+      transition: transform 0.3s;
+    }
+    .hero-mascots img:hover { transform: scale(1.1); }
+    .hero-mascots img:nth-child(1) { animation-delay: 0s; }
+    .hero-mascots img:nth-child(2) { animation-delay: 0.5s; }
+    .hero-mascots img:nth-child(3) { animation-delay: 1s; }
+    .hero-mascots img:nth-child(4) { animation-delay: 1.5s; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-50);
+      color: var(--purple);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--purple);
+      position: relative;
+    }
+    .hero h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 6px;
+      background: var(--purple-glow);
+      border-radius: 3px;
+    }
+    .hero h1 .accent-red { color: var(--red); }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 16px;
+      font-weight: 400;
+    }
+    .hero-alert {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red-bg);
+      border: 1px solid rgba(239,68,68,0.2);
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--red);
+      margin-bottom: 32px;
+      font-weight: 700;
+    }
+    .hero-alert .blink {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: blink 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 18px 48px;
+      border-radius: var(--radius-btn);
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 8px 24px rgba(123, 97, 255, 0.35);
+    }
+    .hero-cta:hover {
+      background: var(--purple-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(123, 97, 255, 0.45);
+    }
+    .hero-sub { margin-top: 14px; font-size: 0.85rem; color: var(--text-muted); }
+
+    /* TIMELINE / PAIN POINTS */
+    .timeline {
+      background: white;
+      padding: 72px 24px;
+    }
+    .timeline-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+    .timeline h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .timeline > .timeline-inner > p {
+      color: var(--text-light);
+      margin-bottom: 48px;
+      font-size: 1.05rem;
+    }
+    .timeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .timeline-steps::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--purple-50), var(--purple), var(--orange), var(--red));
+    }
+    .tl-step {
+      display: flex;
+      gap: 24px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+    .tl-step:last-child { padding-bottom: 0; }
+    .tl-dot {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      position: relative;
+      z-index: 1;
+      margin-top: 4px;
+    }
+    .tl-step:nth-child(1) .tl-dot { background: var(--purple-50); }
+    .tl-step:nth-child(2) .tl-dot { background: var(--orange-bg); }
+    .tl-step:nth-child(3) .tl-dot { background: var(--red-bg); }
+    .tl-step:nth-child(4) .tl-dot { background: var(--purple-50); }
+    .tl-content { flex: 1; padding-top: 6px; }
+    .timeline-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .tl-content h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .tl-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+    .tl-step:last-child .tl-content {
+      background: var(--purple-50);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      border: 1px solid rgba(123,97,255,0.15);
+    }
+    .tl-step:last-child .tl-content h3 { color: var(--purple-dark); }
+    .tl-step:last-child .tl-content p { color: var(--purple-dark); opacity: 0.8; }
+
+    /* HOW IT WORKS */
+    .how {
+      padding: 72px 24px;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .how h2 { font-size: 1.8rem; margin-bottom: 12px; font-weight: 700; letter-spacing: -0.5px; }
+    .how > .how-sub { color: var(--text-light); font-size: 1.05rem; margin-bottom: 48px; }
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+    .step {
+      background: white;
+      border-radius: var(--radius-card);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+    .step-icon {
+      width: 80px; height: 80px;
+      border-radius: var(--radius-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 20px;
+    }
+    .step:nth-child(1) .step-icon { background: var(--purple-50); }
+    .step:nth-child(2) .step-icon { background: var(--mint-bg); }
+    .step:nth-child(3) .step-icon { background: var(--orange-bg); }
+    .step-num {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .step h3 { font-size: 1.05rem; margin-bottom: 8px; font-weight: 700; }
+    .step p { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+
+    /* PROOF STATS */
+    .proof {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d1b6e 100%);
+      padding: 64px 24px;
+      text-align: center;
+      color: white;
+    }
+    .proof-inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .proof-inner > p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    .proof-grid {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proof-item { display: flex; flex-direction: column; align-items: center; }
+    .proof-number {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      margin-bottom: 4px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    .proof-number span { color: var(--purple-300); }
+    .proof-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); font-weight: 600; text-align: center; line-height: 1.4; }
+    .proof-callout {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-card);
+      padding: 24px 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .proof-callout p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .proof-callout strong { color: white; }
+
+    /* BRIDGE SECTION */
+    .bridge {
+      background: var(--mint-bg);
+      padding: 56px 24px;
+      text-align: center;
+      border-top: 2px solid var(--mint);
+      border-bottom: 2px solid var(--mint);
+    }
+    .bridge-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .bridge h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #065F46;
+      letter-spacing: -0.5px;
+    }
+    .bridge p {
+      font-size: 1.05rem;
+      color: #047857;
+      line-height: 1.6;
+    }
+    .bridge strong { color: #065F46; }
+
+    /* FORM */
+    .form-section { background: white; padding: 72px 24px; }
+    .form-inner { max-width: 580px; margin: 0 auto; text-align: center; }
+    .form-inner h2 { font-size: 1.8rem; margin-bottom: 8px; font-weight: 700; letter-spacing: -0.5px; }
+    .form-inner > p { color: var(--text-light); margin-bottom: 36px; font-size: 1.05rem; }
+    form { text-align: left; }
+    .field { margin-bottom: 28px; }
+    .field label { display: block; font-weight: 700; margin-bottom: 10px; font-size: 1rem; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border: 2px solid #E5E7EB;
+      border-radius: var(--radius-card);
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      color: var(--text);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px var(--purple-glow);
+    }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .field .hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .checkbox-group label {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      padding: 12px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      border: 2px solid #E5E7EB;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    .checkbox-group input { width: auto; padding: 0; accent-color: var(--purple); }
+    .checkbox-group label:hover { border-color: var(--purple-300); }
+    .checkbox-group label:has(input:checked) {
+      border-color: var(--purple);
+      background: var(--purple-50);
+      color: var(--purple-dark);
+    }
+    .radio-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .radio-card { position: relative; }
+    .radio-card input { position: absolute; opacity: 0; }
+    .radio-card span {
+      display: block;
+      padding: 16px 18px;
+      border: 2px solid #E5E7EB;
+      border-radius: var(--radius-card);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: white;
+    }
+    .radio-card span:hover { border-color: var(--purple-300); }
+    .radio-card input:checked + span {
+      border-color: var(--purple);
+      background: var(--purple-50);
+      color: var(--purple-dark);
+      font-weight: 700;
+      box-shadow: 0 0 0 4px var(--purple-glow);
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--purple);
+      color: white;
+      padding: 18px;
+      border: none;
+      border-radius: var(--radius-btn);
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+      box-shadow: 0 8px 24px rgba(123, 97, 255, 0.3);
+    }
+    .submit-btn:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(123, 97, 255, 0.4);
+    }
+    .submit-note { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 14px; }
+
+    /* Thank you */
+    .thank-you {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      animation: fadeInUp 0.5s ease;
+    }
+    .thank-you .emoji { font-size: 4rem; margin-bottom: 20px; display: block; }
+    .thank-you h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
+    .thank-you p { color: var(--text-light); font-size: 1.05rem; line-height: 1.6; }
+    .thank-you .share-hint {
+      margin-top: 20px;
+      display: inline-block;
+      background: var(--purple-50);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--purple);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg);
+    }
+    footer p + p { margin-top: 6px; }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 48px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-mascots img { height: 72px; }
+      .hero-mascots { gap: 10px; }
+      .hero::before { width: 350px; height: 350px; }
+      .steps { grid-template-columns: 1fr; gap: 20px; }
+      .radio-cards { grid-template-columns: 1fr; }
+      .timeline, .form-section, .bridge { padding: 48px 20px; }
+      .how { padding: 48px 20px; }
+      .proof { padding: 48px 20px; }
+      .proof-grid { gap: 32px; }
+      .proof-number { font-size: 2rem; }
+      .timeline h2, .how h2, .form-inner h2 { font-size: 1.5rem; }
+      .timeline-steps::before { left: 20px; }
+      .tl-dot { width: 42px; height: 42px; font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="logo.png" alt="Hachiko Kids logo" class="nav-logo">
+    <div class="nav-brand">Hachiko <span>Kids</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-mascots" aria-hidden="true">
+      <img src="mascotas/gato.png" alt="Gatito" style="height: 90px;">
+      <img src="mascotas/perro.png" alt="Perrito" style="height: 85px;">
+      <img src="mascotas/conejo.png" alt="Conejito">
+      <img src="mascotas/panda.png" alt="Pandita">
+    </div>
+    <div class="hero-badge">Para papás entre consulta y consulta</div>
+    <h1><span class="accent-red">3 meses de espera.</span><br>Tu hijo cambia <em>cada semana.</em></h1>
+    <p class="hero-subtitle">Hachiko es lo que pasa entre las consultas. Tu hijo cuida su mascota. Tú ves los patrones. Cuando llegue la cita, no irás con intuiciones — irás con datos.</p>
+    <div class="hero-alert">
+      <span class="blink"></span>
+      3 a 6 meses: la espera promedio para atención especializada en Chile
+    </div>
+    <br>
+    <a href="#formulario" class="hero-cta">Quiero un resumen de mi hijo esta semana</a>
+    <p class="hero-sub">6 preguntas (2 min). Sin compromiso.</p>
+  </section>
+
+  <!-- TIMELINE / PAIN POINTS -->
+  <section class="timeline">
+    <div class="timeline-inner animate-in">
+      <span class="section-label">La historia que conoces</span>
+      <h2>No estás volando a ciegas por falta de amor.<br>Estás volando sin instrumentos.</h2>
+      <p>Este es el recorrido que hacen casi todos los padres antes de encontrar respuestas.</p>
+      <div class="timeline-steps">
+        <div class="tl-step">
+          <div class="tl-dot">😤</div>
+          <div class="tl-content">
+            <p class="timeline-label">La semana que notaste algo</p>
+            <h3>"Las rabietas son cada vez más intensas. No entiendo por qué."</h3>
+            <p>No es capricho, lo sabes. Pero tampoco sabes qué es. Googlear a las 11pm te da 47 artículos contradictorios y más angustia.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">📅</div>
+          <div class="tl-content">
+            <p class="timeline-label">Los días buscando ayuda</p>
+            <h3>"Me dijeron que hay 3 meses de lista de espera."</h3>
+            <p>Llamas al pediatra. Te pasan a un especialista. La primera hora disponible es en 90 días. Tu hijo no puede esperar 90 días.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">😶</div>
+          <div class="tl-content">
+            <p class="timeline-label">Los meses en el limbo</p>
+            <h3>"No sé si estoy reaccionando bien. No tengo con qué comparar."</h3>
+            <p>¿Lo corrijo con firmeza o lo dejo pasar? ¿Esto es una etapa o es algo más? Cada decisión se siente como adivinanza.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">💜</div>
+          <div class="tl-content">
+            <p class="timeline-label">Lo que Hachiko cambia</p>
+            <h3>Llegas a la consulta con semanas de patrones reales — no con un relato desde la memoria.</h3>
+            <p>El especialista pregunta cómo estuvo el mes. Tú abres el resumen: cómo socializó, cómo manejó la frustración, cómo fue su ánimo día a día. <strong>Eso es información que cambia la conversación.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="animate-in">
+      <span class="section-label">Cómo funciona</span>
+      <h2>60 segundos al día. Semanas de contexto.</h2>
+      <p class="how-sub">Tu hijo juega. Tú acumulas información. El especialista la usa.</p>
+    </div>
+    <div class="steps">
+      <div class="step animate-in">
+        <div class="step-icon">🐱</div>
+        <p class="step-num">Paso 1</p>
+        <h3>Tu hijo juega sin presión</h3>
+        <p>Cuida una mascota virtual: decide cómo juega, qué siente, cómo reacciona. Para él es un juego. Para ti es una ventana.</p>
+      </div>
+      <div class="step animate-in">
+        <div class="step-icon">📊</div>
+        <p class="step-num">Paso 2</p>
+        <h3>Tú ves los patrones cada semana</h3>
+        <p>Resumen claro: socializó, siguió instrucciones, manejó la frustración, cómo fue su ánimo. Semanas de datos, no intuición.</p>
+      </div>
+      <div class="step animate-in">
+        <div class="step-icon">🩺</div>
+        <p class="step-num">Paso 3</p>
+        <h3>Llegas a la consulta preparado</h3>
+        <p>Tips para esta semana basados en los patrones. Y cuando llegue la cita, tienes semanas de contexto listo para compartir.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="proof animate-in">
+    <div class="proof-inner">
+      <p>Por qué esto importa ahora</p>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <span class="proof-number"><span>3–6</span> meses</span>
+          <span class="proof-label">de espera para atención<br>especializada en Chile</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number">1 de <span>4</span></span>
+          <span class="proof-label">niños chilenos con<br>dificultades conductuales</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number"><span>0</span> rechazos</span>
+          <span class="proof-label">entre los primeros papás<br>que vieron el concepto</span>
+        </div>
+      </div>
+      <div class="proof-callout">
+        <p>"El problema me parece <strong>muy real</strong> — ese gap entre consultas es donde se pierde la información más útil."</p>
+        <p style="margin-top: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.45);">— Cristian T., emprendedor e inversionista VC · tras ver el concepto</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIDGE -->
+  <section class="bridge animate-in">
+    <div class="bridge-inner">
+      <h2>No reemplaza al especialista.<br>Lo hace más efectivo.</h2>
+      <p>Hachiko no es una app de diagnóstico. Es el <strong>puente entre las consultas</strong> — la forma de que los meses de espera no sean meses sin información. Cuando llegues a la cita, el especialista tiene semanas de contexto real. Eso cambia la calidad de la ayuda que tu hijo recibe.</p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="formulario">
+    <div class="form-inner animate-in">
+      <span class="section-label">Estamos construyéndola</span>
+      <h2>Dinos qué estás viviendo</h2>
+      <p>Tus respuestas dan forma directa a lo que construimos. 6 preguntas, 2 minutos.</p>
+
+      <form id="hachiko-form">
+
+        <div class="field">
+          <label>1. ¿Cuántos hijos tienes y de qué edad?</label>
+          <input type="text" name="hijos" placeholder="Ej: 2 hijos, de 5 y 8 años" required>
+        </div>
+
+        <div class="field">
+          <label>2. ¿Qué comportamientos te preocupan en este momento?</label>
+          <p class="hint">Selecciona todos los que apliquen.</p>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="comportamientos" value="rabietas"> Rabietas intensas</label>
+            <label><input type="checkbox" name="comportamientos" value="no-sigue-instrucciones"> No sigue instrucciones</label>
+            <label><input type="checkbox" name="comportamientos" value="no-socializa"> No socializa</label>
+            <label><input type="checkbox" name="comportamientos" value="ansiedad-colegio"> Ansiedad por el colegio</label>
+            <label><input type="checkbox" name="comportamientos" value="aislamiento"> Se aísla</label>
+            <label><input type="checkbox" name="comportamientos" value="problemas-dormir"> Problemas para dormir</label>
+            <label><input type="checkbox" name="comportamientos" value="agresividad"> Agresividad</label>
+          </div>
+          <input type="text" name="comportamientos_otro" placeholder="Otro (opcional)" style="margin-top: 12px;">
+        </div>
+
+        <div class="field">
+          <label>3. ¿Cuándo fue la última vez que sentiste que no tenías suficiente información sobre tu hijo para tomar una decisión?</label>
+          <div class="radio-cards">
+            <label class="radio-card"><input type="radio" name="usaria" value="si-seguro" required><span>Esta semana</span></label>
+            <label class="radio-card"><input type="radio" name="usaria" value="probablemente"><span>Este mes</span></label>
+            <label class="radio-card"><input type="radio" name="usaria" value="no-se"><span>Siempre / constantemente</span></label>
+            <label class="radio-card"><input type="radio" name="usaria" value="no"><span>No me ha pasado</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>4. ¿Pagarías $3–5 USD/mes por tener esa información lista antes de cada consulta?</label>
+          <div class="radio-cards">
+            <label class="radio-card"><input type="radio" name="pagaria" value="si" required><span>Sí, lo vale</span></label>
+            <label class="radio-card"><input type="radio" name="pagaria" value="depende"><span>Depende de los resultados</span></label>
+            <label class="radio-card"><input type="radio" name="pagaria" value="solo-gratis"><span>Solo si es gratis</span></label>
+            <label class="radio-card"><input type="radio" name="pagaria" value="pagaria-mas"><span>Pagaría más si funciona</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>5. Tu email para avisarte cuando esté lista</label>
+          <input type="email" name="email" placeholder="tu@email.com" required>
+          <p class="hint">Solo para avisarte. Sin spam, lo prometemos.</p>
+        </div>
+
+        <div class="field">
+          <label>6. Tu WhatsApp si prefieres que te avisemos por ahí <span style="font-weight:400;color:var(--text-muted)">(opcional)</span></label>
+          <input type="tel" name="whatsapp" placeholder="Ej: +56 9 1234 5678">
+          <p class="hint">Nada de spam. Solo para avisarte cuando lancemos.</p>
+        </div>
+
+        <button type="submit" class="submit-btn">Quiero el resumen de mi hijo cada semana</button>
+        <p class="submit-note">Tus respuestas nos ayudan a construir algo que realmente sirva.</p>
+      </form>
+
+      <div class="thank-you" id="thank-you">
+        <span class="emoji">💜</span>
+        <h3>Gracias — tu voz importa</h3>
+        <p>Te avisamos apenas esté lista. Estás ayudando a que los meses entre consultas dejen de ser meses a oscuras.</p>
+        <span class="share-hint">¿Conoces a otro papá o mamá que le interese? Comparte este link</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Hachiko Kids — Hecho con cariño en Chile</p>
+    <p>No reemplaza la consulta profesional. Si crees que tu hijo necesita ayuda urgente, consulta a tu pediatra.</p>
+  </footer>
+
+  <script>
+    document.querySelector('.hero-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#formulario').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-in').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    const form = document.getElementById('hachiko-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.submit-btn');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      const formData = new FormData(form);
+      const jsonData = {
+        hijos: formData.get('hijos'),
+        comportamientos: formData.getAll('comportamientos').join(', '),
+        comportamientos_otro: formData.get('comportamientos_otro'),
+        usaria: formData.get('usaria'),
+        pagaria: formData.get('pagaria'),
+        email: formData.get('email'),
+        whatsapp: formData.get('whatsapp') || ''
+      };
+
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(jsonData)
+        });
+        const result = await response.json();
+        if (result.ok) {
+          form.style.display = 'none';
+          document.getElementById('thank-you').style.display = 'block';
+        } else {
+          btn.textContent = 'Error — intenta de nuevo';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = 'Error — intenta de nuevo';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

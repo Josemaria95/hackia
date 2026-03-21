@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(du:*)"
+      "Bash(du:*)",
+      "Bash(pwd && git -C /Users/jm95/Documents/hackia/proyectos/hachiko-kids status)",
+      "Bash(git -C /Users/jm95/Documents/hackia/proyectos/hachiko-kids log --oneline -3)",
+      "Bash(git add:*)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "supabase"
+  ]
 }
