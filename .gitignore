@@ -3,3 +3,7 @@
 
 # Archivos temporales de Obsidian
 *.base
+
+# macOS
+.DS_Store
+**/.DS_Store
