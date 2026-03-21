@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de Centros de Salud Mental — Santiago & Lima</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card-hover: #222633;
+    --border: #2a2e3d;
+    --text: #e4e4e7;
+    --muted: #9ca3af;
+    --accent: #6366f1;
+    --accent2: #818cf8;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --orange: #f59e0b;
+    --red: #ef4444;
+    --pink: #ec4899;
+    --teal: #14b8a6;
+    --purple: #a855f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .3rem; }
+  .header p { color: var(--muted); font-size: .95rem; }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.2rem 2rem;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+    min-width: 80px;
+  }
+  .stat .num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent2);
+  }
+  .stat .label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    letter-spacing: .05em;
+  }
+
+  .controls {
+    padding: 1rem 2rem;
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .search {
+    flex: 1;
+    min-width: 200px;
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    font-size: .9rem;
+    outline: none;
+  }
+  .search:focus { border-color: var(--accent); }
+  .search::placeholder { color: var(--muted); }
+
+  .btn-group { display: flex; gap: 0; flex-wrap: wrap; }
+  .btn {
+    padding: .5rem .9rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    font-size: .78rem;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .btn:first-child { border-radius: 6px 0 0 6px; }
+  .btn:last-child { border-radius: 0 6px 6px 0; }
+  .btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn:hover:not(.active) { background: var(--card-hover); color: var(--text); }
+
+  .select-filter {
+    padding: .5rem .8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    font-size: .82rem;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    transition: all .2s;
+    cursor: default;
+    position: relative;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(99,102,241,.12);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: .8rem;
+    margin-bottom: .6rem;
+  }
+  .card-name {
+    font-size: .95rem;
+    font-weight: 600;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .badge {
+    font-size: .65rem;
+    padding: .2rem .5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-cosam { background: rgba(34,197,94,.15); color: var(--green); }
+  .badge-hospital { background: rgba(59,130,246,.15); color: var(--blue); }
+  .badge-privado { background: rgba(168,85,247,.15); color: var(--purple); }
+  .badge-especializado { background: rgba(245,158,11,.15); color: var(--orange); }
+  .badge-universitario { background: rgba(20,184,166,.15); color: var(--teal); }
+  .badge-adicciones { background: rgba(239,68,68,.15); color: var(--red); }
+  .badge-csmc { background: rgba(236,72,153,.15); color: var(--pink); }
+  .badge-institucional { background: rgba(156,163,175,.15); color: var(--muted); }
+
+  .card-meta {
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .card-meta .row {
+    display: flex;
+    gap: .4rem;
+    align-items: flex-start;
+  }
+  .card-meta .icon {
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .card-meta a {
+    color: var(--accent2);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .card-meta a:hover { text-decoration: underline; }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+    margin-top: .7rem;
+  }
+  .tag {
+    font-size: .65rem;
+    padding: .15rem .45rem;
+    background: rgba(99,102,241,.1);
+    color: var(--accent2);
+    border-radius: 4px;
+  }
+
+  .city-divider {
+    grid-column: 1 / -1;
+    padding: .8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .city-divider h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .city-divider .line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .city-divider .count {
+    font-size: .8rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .comuna-tag {
+    font-size: .7rem;
+    padding: .15rem .4rem;
+    background: rgba(255,255,255,.06);
+    border-radius: 4px;
+    color: var(--muted);
+    margin-left: .3rem;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; padding: 1rem; }
+    .controls { padding: .8rem 1rem; }
+    .header { padding: 1.5rem 1rem; }
+    .header h1 { font-size: 1.3rem; }
+    .stats-bar { gap: .8rem; padding: .8rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Centros de Salud Mental</h1>
+  <p>Santiago de Chile & Lima, Peru — Base de datos verificada</p>
+</div>
+
+<div class="stats-bar" id="statsBar"></div>
+
+<div class="controls">
+  <input type="text" class="search" id="search" placeholder="Buscar por nombre, comuna, especialidad...">
+  <div class="btn-group" id="cityFilter">
+    <button class="btn active" data-city="all">Todos</button>
+    <button class="btn" data-city="Santiago">Santiago</button>
+    <button class="btn" data-city="Lima">Lima</button>
+  </div>
+  <select class="select-filter" id="typeFilter">
+    <option value="all">Todos los tipos</option>
+  </select>
+  <select class="select-filter" id="comunaFilter">
+    <option value="all">Todas las comunas</option>
+  </select>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const DATA = {
+  santiago_centros: [
+    {id:"stgo-001",nombre:"Instituto Psiquiatrico Dr. Jose Horwitz Barak",comuna:"Recoleta",direccion:"Av. La Paz 841, Recoleta",telefono:"+56 2 2575 8850",web:"https://psiquiatrico.cl",tipo:"Hospital publico",especialidades:["Psiquiatria adultos","Psiquiatria forense","Adicciones","Rehabilitacion","Urgencia 24h","Telesalud"]},
+    {id:"stgo-002",nombre:"Clinica Psiquiatrica Universitaria — U. de Chile",comuna:"Recoleta",direccion:"Av. La Paz 1003, Recoleta",telefono:"+56 2 2978 8626",web:"https://cpuuchile.cl",tipo:"Centro universitario",especialidades:["Psiquiatria adultos","Psiquiatria infantojuvenil","Psicologia clinica","Trastornos del animo","TDAH","Terapia ocupacional"]},
+    {id:"stgo-004",nombre:"Instituto Chileno de Terapia Familiar (IChTF)",comuna:"La Reina",direccion:"Av. Alcalde F. Castillo Velasco 6925, La Reina",telefono:"+56 2 6469 0461",web:"https://terapiafamiliar.cl",tipo:"Centro especializado",especialidades:["Terapia familiar sistemica","Terapia de parejas","Psicoterapia individual","Crianza","Consumo problematico de drogas","Formacion de terapeutas"]},
+    {id:"stgo-005",nombre:"Clinica de Ansiedad Chile (CACH)",comuna:"Vitacura",direccion:"Chapultepec 5536, Vitacura",telefono:"+56 2 7640773",web:"https://www.clinicadeansiedad.cl",tipo:"Centro especializado",especialidades:["Trastornos de ansiedad","TOC","Terapia cognitivo-conductual","Psicologia infantil y adulto"]},
+    {id:"stgo-006",nombre:"PsicoMedica, Clinical & Research Group",comuna:"Providencia",direccion:"Av. Salvador 149, Ed. Galeno, Piso 10",telefono:"+56 2 2675 8700",web:"https://ww3.psicomedica.cl",tipo:"Clinica privada",especialidades:["Psiquiatria adultos e infanto-juvenil","Neurologia","Neuropsicologia","Psicoterapia","Psicodiagnostico"]},
+    {id:"stgo-007",nombre:"Grupo CETEP — Centro de Terapia del Comportamiento",comuna:"Providencia",direccion:"Nueva Los Leones 0200, Providencia",telefono:"+56 2 3210 1593",web:"https://web.cetep.cl",tipo:"Clinica privada",especialidades:["Psicologia adultos e infanto-juvenil","Psiquiatria","Terapia ocupacional","Psicopedagogia","Hospital de dia"]},
+    {id:"stgo-008",nombre:"CEAPSI — Centro de Atencion Psicologica Integral",comuna:"Las Condes",direccion:"Evaristo Lillo 78, Las Condes",telefono:"+56 2 2378 3728",web:"https://ceapsi.cl",tipo:"Centro especializado",especialidades:["Psicologia","Psiquiatria","Neurologia infanto-juvenil","Fonoaudiologia","Psicopedagogia","PIE"]},
+    {id:"stgo-009",nombre:"CAPs — Centro de Psicologia Aplicada, U. de Chile",comuna:"Nunoa",direccion:"Av. Cap. Ignacio Carrera Pinto 1045, Nunoa",telefono:"+56 2 9787806",web:"https://caps.facso.cl",tipo:"Centro universitario",especialidades:["Psicologia clinica adultos e infanto-juvenil","Terapia individual, familiar y de pareja","Evaluaciones psicologicas"]},
+    {id:"stgo-010",nombre:"Clinica Renacer",comuna:"Nunoa",direccion:"Av. Capitan Orella 2404, Nunoa",telefono:"+56 9 3468 0402",web:"https://www.clinicarenacer.cl",tipo:"Clinica privada",especialidades:["Psiquiatria","Hospitalizacion 24/7","Depresion","Trastorno bipolar","Adicciones","Rehabilitacion"]},
+    {id:"stgo-011",nombre:"Clinica Psiquiatrica El Cedro",comuna:"La Reina",direccion:"Julia Bernstein 1240, La Reina",telefono:"+56 9 8529 9808",web:"https://www.cedro.cl",tipo:"Clinica privada",especialidades:["Psiquiatria","Hospitalizacion","Jovenes y adultos","Rehabilitacion"]},
+    {id:"stgo-012",nombre:"Clinica Psiquiatrica Pocuro",comuna:"Vitacura",direccion:"Av. Pdte. Kennedy 9000, Vitacura",telefono:"+56 2 2220 4737",web:"https://clinicapsiquiatricapocuro.cl",tipo:"Clinica privada",especialidades:["Psiquiatria","Hospitalizacion 24/7","Depresion","Esquizofrenia","Adicciones"]},
+    {id:"stgo-013",nombre:"Clinica Los Tiempos",comuna:"La Reina",direccion:"Av. Jose Arrieta 6024, La Reina",telefono:"+56 2 2226 8672",web:"https://www.clinicalostiempos.cl",tipo:"Centro especializado",especialidades:["Psiquiatria infanto-juvenil","Hospitalizacion ninos y adolescentes","Enfermeria 24h"]},
+    {id:"stgo-014",nombre:"Clinica MirAndes Manquehue",comuna:"Las Condes",direccion:"La Capitania 983, Las Condes",telefono:"+56 2 2604 4000",web:"https://mirandes.cl",tipo:"Centro especializado",especialidades:["Salud mental infanto-adolescente","Hospitalizacion corta estadia","Programa diurno adolescentes"]},
+    {id:"stgo-015",nombre:"Clinica Psicologica UDP",comuna:"Santiago",direccion:"Vergara 275, Santiago",telefono:"+56 2 2676 2870",web:"https://clinicapsicologica.udp.cl",tipo:"Centro universitario",especialidades:["Psicologia adultos e infanto-juvenil","Psiquiatria","Trabajo social","Atencion comunitaria"]},
+    {id:"stgo-016",nombre:"Centro de Atencion Psicologica CAP — USACH",comuna:"Santiago",direccion:"Fanor Velasco 12, Santiago",telefono:"+56 9 5738 8896",web:"https://www.psicologiausach.cl/centro-de-atencion-psicologica-cap/",tipo:"Centro universitario",especialidades:["Psicologia clinica","Terapia individual y grupal","Formacion clinica"]},
+    {id:"stgo-019",nombre:"Centro de Terapia Integral",comuna:"Providencia",direccion:"General Salvo 173, Providencia",telefono:"+56 2 2236 4536",web:"https://centrodeterapiaintegral.cl",tipo:"Centro especializado",especialidades:["Psiquiatria","Psicologia","Terapia online y presencial"]},
+    {id:"stgo-020",nombre:"Alfa Adicciones",comuna:"Nunoa",direccion:"Av. Simon Bolivar 2581, Nunoa",telefono:"+56 9 9099 5951",web:"https://alfaadicciones.cl",tipo:"Centro de adicciones",especialidades:["Rehabilitacion drogas y alcohol","Programa ambulatorio","Desintoxicacion","Comunidad terapeutica"]},
+    {id:"stgo-021",nombre:"Centro Neveria",comuna:"Las Condes",direccion:"Evaristo Lillo 209 esq. Neveria, Las Condes",telefono:"+56 2 2981 0614",web:"https://www.neveria.cl",tipo:"Centro de adicciones",especialidades:["Adicciones alcohol y drogas","Tabaquismo","Ludopatia","Programa intensivo"]},
+    {id:"stgo-022",nombre:"Instituto de Terapia Familiar de Santiago (ITFS)",comuna:"Las Condes",direccion:"Felix de Amesti 350, Las Condes",telefono:"+56 2 2228 7830",web:"https://www.itfsantiago.cl",tipo:"Centro especializado",especialidades:["Terapia familiar sistemica","Terapia de pareja","Formacion de terapeutas"]}
+  ],
+  santiago_cosam: [
+    {id:"cosam-001",nombre:"COSAM Provisam (Dr. German Greve Schlegel)",comuna:"Providencia",direccion:"Manuel Montt 2051, Providencia",telefono:"+56 2 2341 4150",web:"https://comunaprovidencia.cl/listing/centro-de-salud-mental-y-comunitario-dr-german-greve-schlegel-provisam/",tipo:"COSAM"},
+    {id:"cosam-002",nombre:"COSAM Nunoa",comuna:"Nunoa",direccion:"Pichidangui 3650, Nunoa",telefono:"+56 2 2575 0203",web:"https://www.cmdsnunoa.cl/centro-de-salud-mental-cosam/",tipo:"COSAM"},
+    {id:"cosam-003",nombre:"COSAM Penalolen",comuna:"Penalolen",direccion:"Oriental 7250, Penalolen",telefono:"+56 2 2939 7283",web:"https://www.cormup.cl/salud/cosam/",tipo:"COSAM"},
+    {id:"cosam-004",nombre:"COSAM Santiago Centro",comuna:"Santiago",direccion:"San Ignacio 1217, Santiago",telefono:"+56 2 2498 5362",web:"https://www.saludstgo.cl/cosam/",tipo:"COSAM"},
+    {id:"cosam-005",nombre:"COSAM Pudahuel",comuna:"Pudahuel",direccion:"Santa Corina 8629, Pudahuel",telefono:"+56 2 2644 2614",web:"https://www.cosampudahuel.cl/",tipo:"COSAM"},
+    {id:"cosam-006",nombre:"COSAM Macul",comuna:"Macul",direccion:"Gregorio de la Fuente 3521, Macul",telefono:"+56 2 3238 0202",web:"https://www.corpomunimacul.cl/red-salud/cosam/",tipo:"COSAM"},
+    {id:"cosam-007",nombre:"COSAM La Reina",comuna:"La Reina",direccion:"Av. Alcalde F. Castillo Velasco 8580, La Reina",telefono:"+56 2 2912 4362",web:"https://www.corp-lareina.cl/centro-de-salud-mental-cosam/",tipo:"COSAM"},
+    {id:"cosam-008",nombre:"COSAM Maipu",comuna:"Maipu",direccion:"Av. O'Higgins 1000, Maipu",telefono:"+56 2 2532 1654",web:"",tipo:"COSAM"},
+    {id:"cosam-009",nombre:"COSAM Huechuraba",comuna:"Huechuraba",direccion:"Av. Recoleta 5696, Huechuraba",telefono:"+56 2 2485 0551",web:"https://www.huechuraba.cl/salud/centros-de-salud/centro-de-salud-mental-comunitaria",tipo:"COSAM"},
+    {id:"cosam-010",nombre:"COSAM Conchali",comuna:"Conchali",direccion:"Camberra 5860, Conchali",telefono:"+56 2 2324 441",web:"",tipo:"COSAM"},
+    {id:"cosam-011",nombre:"COSAM Independencia",comuna:"Independencia",direccion:"Av. Belisario Prats 1485, Independencia",telefono:"+56 2 2387 8662",web:"https://www.independencia.cl/salud/centros-de-salud/",tipo:"COSAM"},
+    {id:"cosam-012",nombre:"COSAM Recoleta",comuna:"Recoleta",direccion:"Inocencia 2705, Recoleta",telefono:"+56 2 2485 0551",web:"https://www.recoleta.cl/centro-comunitario-de-salud-mental-cosam/",tipo:"COSAM"},
+    {id:"cosam-013",nombre:"COSAM Dr. Luis Paz Campos",comuna:"Quilicura",direccion:"San Luis 330, Quilicura",telefono:"+56 2 2575 1350",web:"https://www.saludquilicura.cl/cosam-doctor-paz-campos",tipo:"COSAM"},
+    {id:"cosam-014",nombre:"COSAM Vitacura",comuna:"Vitacura",direccion:"Av. Vitacura 8620, 2° piso",telefono:"+56 2 2756 1178",web:"https://vitacura.cl/salud/cosam/",tipo:"COSAM"},
+    {id:"cosam-015",nombre:"COSAM Las Condes",comuna:"Las Condes",direccion:"Enrique Foster Sur 153, Las Condes",telefono:"+56 2 2335 8254",web:"http://www.corplascondes.cl/",tipo:"COSAM"},
+    {id:"cosam-016",nombre:"COSAM Lo Barnechea",comuna:"Lo Barnechea",direccion:"Robles 13730, Lo Barnechea",telefono:"+56 2 2827 3810",web:"https://lobarnechea.cl/servicios_municipales/cosam/",tipo:"COSAM"},
+    {id:"cosam-017",nombre:"COSAM La Florida",comuna:"La Florida",direccion:"Apollo XI s/n (Pasaje Cosmos 1232), La Florida",telefono:"+56 2 2904 6423",web:"https://comudef.cl/?page_id=95",tipo:"COSAM"},
+    {id:"cosam-018",nombre:"COSAM El Bosque",comuna:"El Bosque",direccion:"Av. Padre Alberto Hurtado 11480, El Bosque",telefono:"+56 2 2618 7071",web:"https://saludelbosque.cl/cosam/",tipo:"COSAM"},
+    {id:"cosam-019",nombre:"COSAM San Bernardo",comuna:"San Bernardo",direccion:"Av. Portales 964, San Bernardo",telefono:"+56 2 2576 1000",web:"https://www.corsaber.cl/",tipo:"COSAM"},
+    {id:"cosam-020",nombre:"COSAM Cerro Navia",comuna:"Cerro Navia",direccion:"Cinco de Febrero 2206, Cerro Navia",telefono:"+56 2 2574 5083",web:"https://www.cmcerronavia.cl/",tipo:"COSAM"},
+    {id:"cosam-021",nombre:"COSAM Lo Prado",comuna:"Lo Prado",direccion:"San Francisco 8130, Lo Prado",telefono:"+56 2 2800 0601",web:"https://corporacionloprado.cl/cosam-2/",tipo:"COSAM"},
+    {id:"cosam-022",nombre:"COSAM Renca",comuna:"Renca",direccion:"Los Platanos 1096, Renca",telefono:"+56 2 2352 3893",web:"http://cosamrenca.blogspot.com/",tipo:"COSAM"},
+    {id:"cosam-023",nombre:"COSAM Quinta Normal",comuna:"Quinta Normal",direccion:"Dr. Carlos Ottolenghi 5151, Quinta Normal",telefono:"+56 2 2666 9247",web:"http://cosamquintanormal.blogspot.com/",tipo:"COSAM"},
+    {id:"cosam-024",nombre:"COSAM Estacion Central",comuna:"Estacion Central",direccion:"Padre Vicente Irarrazabal 1313, Estacion Central",telefono:"+56 2 2776 4239",web:"",tipo:"COSAM"},
+    {id:"cosam-025",nombre:"COSAM La Granja",comuna:"La Granja",direccion:"Angol 8363, La Granja",telefono:"+56 2 2262 7146",web:"https://www.municipalidadlagranja.cl/centro-comunitarios-de-salud-mental-cosam/",tipo:"COSAM"},
+    {id:"cosam-026",nombre:"COSAM La Cisterna",comuna:"La Cisterna",direccion:"El Parron 548, La Cisterna",telefono:"+56 9 8204 1218",web:"",tipo:"COSAM"},
+    {id:"cosam-027",nombre:"COSAM La Pintana",comuna:"La Pintana",direccion:"Patagonia 12834, La Pintana",telefono:"+56 2 2545 7697",web:"",tipo:"COSAM"},
+    {id:"cosam-028",nombre:"COSAM Pedro Aguirre Cerda",comuna:"Pedro Aguirre Cerda",direccion:"Av. La Marina 2256, Pedro Aguirre Cerda",telefono:"+56 2 2396 5686",web:"http://cosampac.blogspot.com/",tipo:"COSAM"},
+    {id:"cosam-029",nombre:"COSAM La Bandera (San Ramon)",comuna:"San Ramon",direccion:"La Bandera 9696, San Ramon",telefono:"+56 2 2576 1806",web:"https://municipalidadsanramon.cl/salud/cosam/",tipo:"COSAM"},
+    {id:"cosam-030",nombre:"COSAM San Joaquin",comuna:"San Joaquin",direccion:"Alvarez de Toledo 569, San Joaquin",telefono:"+56 2 2553 9035",web:"https://ww2.sanjoaquinsaludable.cl/cesam-san-joaquin/",tipo:"COSAM"},
+    {id:"cosam-031",nombre:"COSAM CEIF Centro",comuna:"Puente Alto",direccion:"Tocornal 70, Puente Alto",telefono:"+56 2 2787 5489",web:"https://www.cmpuentealto.cl/cosam-ceif-centro/",tipo:"COSAM"},
+    {id:"cosam-032",nombre:"COSAM CEIF Norte",comuna:"Puente Alto",direccion:"Av. Concha y Toro 2531, Puente Alto",telefono:"+56 2 2797 5496",web:"https://www.cmpuentealto.cl/cosam-ceif-norte/",tipo:"COSAM"},
+    {id:"cosam-033",nombre:"COSAM Dr. Mario Vidal Climent",comuna:"San Miguel",direccion:"Ramon Barros Luco 3215, San Miguel",telefono:"",web:"https://web.sanmiguel.cl/inauguramos-el-centro-de-salud-mental-cosam/",tipo:"COSAM"},
+    {id:"cosam-034",nombre:"COSAM Lo Espejo (CESAM)",comuna:"Lo Espejo",direccion:"Pasaje 38 N° 6521, Lo Espejo",telefono:"+56 2 2428 8863",web:"",tipo:"COSAM"},
+    {id:"cosam-035",nombre:"COSAM Colina",comuna:"Colina",direccion:"Pedro Aguirre Cerda 7, Colina",telefono:"+56 2 2829 5500",web:"https://www.corporacioncolina.cl/salud-cosam/",tipo:"COSAM"},
+    {id:"cosam-036",nombre:"COSAM Penaflor",comuna:"Penaflor",direccion:"Rosales 849, Penaflor",telefono:"",web:"https://penaflor.cl/cosam-penaflor/",tipo:"COSAM"},
+    {id:"cosam-037",nombre:"COSAM Talagante",comuna:"Talagante",direccion:"Libertador Bernardo O'Higgins 2386, Talagante",telefono:"+56 2 2574 3503",web:"https://www.talasalud.cl/web/cosam/",tipo:"COSAM"}
+  ],
+  santiago_hospitales: [
+    {id:"hosp-003",nombre:"Hospital San Jose — Psiquiatria de Enlace",comuna:"Independencia",direccion:"San Jose 1196, Independencia",telefono:"+56 2 2383 2600",web:"https://complejohospitalariosanjose.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria de enlace"]},
+    {id:"hosp-004",nombre:"Hospital Roberto del Rio — Salud Mental Infantojuvenil",comuna:"Independencia",direccion:"Av. Profesor Zanartu 1085, Independencia",telefono:"+56 2 2575 8000",web:"https://www.hrrio.cl/",tipo:"Hospital publico",especialidades:["Salud mental infantojuvenil"]},
+    {id:"hosp-005",nombre:"Hospital San Borja Arriaran — Psiquiatria",comuna:"Santiago",direccion:"Av. Santa Rosa 1234, Santiago Centro",telefono:"+56 2 2574 9000",web:"https://www.hcsba.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria adulto e infantil"]},
+    {id:"hosp-006",nombre:"Hospital Barros Luco Trudeau — Psiquiatria",comuna:"San Miguel",direccion:"Gran Av. Jose Miguel Carrera 3204, San Miguel",telefono:"+56 2 2576 3000",web:"https://www.hospitalbarrosluco.gob.cl/psiquiatria/",tipo:"Hospital publico",especialidades:["Psiquiatria adulto e infantil"]},
+    {id:"hosp-007",nombre:"Hospital Exequiel Gonzalez Cortes — Salud Mental",comuna:"San Miguel",direccion:"Av. Jose Miguel Carrera 3300, San Miguel",telefono:"+56 2 2576 5650",web:"https://www.hegc.gob.cl/",tipo:"Hospital publico",especialidades:["Salud mental infantojuvenil"]},
+    {id:"hosp-008",nombre:"Hospital del Salvador — Psiquiatria Ambulatoria",comuna:"Providencia",direccion:"Av. Salvador 364, Providencia",telefono:"+56 2 2575 4000",web:"https://www.hsalvador.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria","Salud mental ambulatoria"]},
+    {id:"hosp-009",nombre:"Hospital Calvo Mackenna — Psiquiatria Infantojuvenil",comuna:"Providencia",direccion:"Av. Antonio Varas 360, Providencia",telefono:"+56 2 2575 5800",web:"https://www.calvomackenna.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria infantojuvenil"]},
+    {id:"hosp-010",nombre:"Hospital San Juan de Dios — Psiquiatria",comuna:"Quinta Normal",direccion:"Portales 3239, Quinta Normal",telefono:"+56 2 2574 1900",web:"https://hsjd.redsalud.gob.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria"]},
+    {id:"hosp-011",nombre:"Hospital Felix Bulnes — UHCIP Psiquiatria",comuna:"Cerro Navia",direccion:"Av. Mapocho, Cerro Navia",telefono:"+56 2 2574 4400",web:"https://felixbulnes.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria","UHCIP"]},
+    {id:"hosp-012",nombre:"Complejo Dr. Sotero del Rio — Psiquiatria",comuna:"Puente Alto",direccion:"Av. Concha y Toro 3459, Puente Alto",telefono:"+56 2 2576 2300",web:"https://www.hospitalsoterodelrio.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria","UHCE"]},
+    {id:"hosp-013",nombre:"Hospital Padre Hurtado — Psiquiatria",comuna:"San Ramon",direccion:"Esperanza 2150, San Ramon",telefono:"+56 2 2576 0600",web:"https://www.hph.cl/",tipo:"Hospital publico",especialidades:["Psiquiatria"]},
+    {id:"hosp-014",nombre:"Hospital Dra. Eloisa Diaz (La Florida)",comuna:"La Florida",direccion:"Froilan Roa 6542, La Florida",telefono:"+56 2 2612 1600",web:"https://www.hospitallaflorida.cl/",tipo:"Hospital publico",especialidades:["Salud mental ambulatoria"]},
+    {id:"hosp-015",nombre:"Hospital Psiquiatrico El Peral",comuna:"Puente Alto",direccion:"Av. Camilo Henriquez 2451, Puente Alto",telefono:"+56 2 2576 5330",web:"https://hpep.cl/",tipo:"Hospital publico",especialidades:["Mediana estadia","Psicogeriatria"]},
+    {id:"hosp-016",nombre:"Hospital Militar — Salud Mental",comuna:"La Reina",direccion:"Av. Fernando Castillo Velasco 9100, La Reina",telefono:"",web:"https://www.hms.cl/index.php/salud-mental/",tipo:"Hospital institucional",especialidades:["Psiquiatria","Psicologia","Terapia ocupacional"]},
+    {id:"hosp-017",nombre:"Hospital FACH — Salud Mental",comuna:"Las Condes",direccion:"Av. Las Condes 8631, Las Condes",telefono:"+56 2 2976 6000",web:"https://www.hospitalfach.cl/salud_mental.htm",tipo:"Hospital institucional",especialidades:["Psiquiatria","Salud mental"]},
+    {id:"hosp-018",nombre:"Hospital de Carabineros — Psiquiatria",comuna:"Nunoa",direccion:"Av. Antonio Varas 2500, Nunoa",telefono:"+56 2 2927 8000",web:"https://www.hoscar.cl/",tipo:"Hospital institucional",especialidades:["Psiquiatria"]},
+    {id:"hosp-019",nombre:"Clinica Alemana — Psiquiatria",comuna:"Vitacura",direccion:"Av. Vitacura 5951, Vitacura",telefono:"+56 2 2210 1111",web:"https://www.clinicaalemana.cl/especialidades/psiquiatria",tipo:"Clinica privada grande",especialidades:["Psiquiatria adulto e infantojuvenil"]},
+    {id:"hosp-020",nombre:"Clinica Las Condes — Psiquiatria",comuna:"Las Condes",direccion:"Lo Fontecilla 441, Las Condes",telefono:"+56 2 2610 4000",web:"https://www.clinicalascondes.cl/CENTROS-Y-ESPECIALIDADES/Especialidades/Psiquiatria",tipo:"Clinica privada grande",especialidades:["Psiquiatria adulto e infantil","Hospitalizacion","Crisis"]},
+    {id:"hosp-021",nombre:"Clinica Santa Maria — Salud Mental",comuna:"Providencia",direccion:"Av. Santa Maria 0810, Providencia",telefono:"+56 2 2913 0000",web:"https://www.clinicasantamaria.cl/especialidades/especialidad/salud-mental",tipo:"Clinica privada grande",especialidades:["Psiquiatria","Psicologia"]},
+    {id:"hosp-022",nombre:"Clinica Davila — Psiquiatria",comuna:"Recoleta",direccion:"Av. Recoleta 464, Recoleta",telefono:"+56 2 2730 8021",web:"https://www.davila.cl/especialidades/departamento-de-psiquiatria-y-salud-mental/",tipo:"Clinica privada grande",especialidades:["Psiquiatria","Neuropsicologia"]},
+    {id:"hosp-023",nombre:"Clinica INDISA — Psiquiatria",comuna:"Providencia",direccion:"Av. Santa Maria 1810, Providencia",telefono:"+56 2 2362 5298",web:"https://www.indisa.cl/",tipo:"Clinica privada grande",especialidades:["Psiquiatria"]},
+    {id:"hosp-024",nombre:"Red UC CHRISTUS — Salud Mental",comuna:"Santiago",direccion:"Marcoleta 367 / Lira 40, Santiago Centro",telefono:"+56 2 2676 7000",web:"https://www.ucchristus.cl/especialidades-y-servicios/especialidades/salud-mental",tipo:"Clinica privada grande",especialidades:["Psiquiatria","Centro diurno","Trastornos del animo"]},
+    {id:"hosp-025",nombre:"Clinica U. de los Andes — Salud Mental",comuna:"Las Condes",direccion:"Av. La Plaza 2501, Las Condes",telefono:"+56 2 2618 3000",web:"https://www.clinicauandes.cl/servicios-y-unidades/cirugia-y-hospitalizacion/hospitalizacion/hospitalizacion-de-salud-mental",tipo:"Clinica privada grande",especialidades:["Hospitalizacion salud mental","Urgencia psiquiatrica 24h"]}
+  ],
+  lima: [
+    {id:"lima-001",nombre:"INSM Honorio Delgado — Hideyo Noguchi",comuna:"San Martin de Porres",direccion:"Av. Eloy Espinoza Saldana 709, Urb. Palao",telefono:"(01) 748-5600",web:"https://www.insm.gob.pe",tipo:"Hospital publico",especialidades:["Psiquiatria general","Psiquiatria ninos y adolescentes","Adicciones","Emergencias","Investigacion"]},
+    {id:"lima-002",nombre:"Hospital Victor Larco Herrera",comuna:"Magdalena del Mar",direccion:"Av. Del Ejercito N° 600, Magdalena del Mar",telefono:"(01) 261-5516",web:"https://larcoherrera.gob.pe",tipo:"Hospital publico",especialidades:["Psiquiatria","Hospitalizacion","Rehabilitacion","Emergencias"]},
+    {id:"lima-003",nombre:"CSMC Carabayllo",comuna:"Carabayllo",direccion:"Av. San Martin S/N, Estadio Ricardo Palma",telefono:"920 016 327",web:"https://www.facebook.com/CSMentalComunitarioCarabayllo",tipo:"CSMC",especialidades:["Psiquiatria","Psicologia","Psicoterapia","Rehabilitacion","Terapia ocupacional"]},
+    {id:"lima-004",nombre:"Clinica San Juan de Dios Lima",comuna:"San Luis",direccion:"Av. Nicolas de Arriola N° 3250, San Luis",telefono:"(01) 319-1400",web:"https://clinicalima.sanjuandedios.pe",tipo:"Clinica privada",especialidades:["Psicologia","Psiquiatria","Centro TEA","Neurologia","Emergencias 24h"]},
+    {id:"lima-005",nombre:"Instituto Gestalt de Lima",comuna:"Magdalena del Mar",direccion:"Av. Brasil 3759, Magdalena del Mar",telefono:"+51 960 204 153",web:"https://www.institutoguestaltdelima.com",tipo:"Centro especializado",especialidades:["Terapia Gestalt","Psicoterapia","Adicciones","Coaching y PNL"]},
+    {id:"lima-006",nombre:"Clinica Ricardo Palma — Psiquiatria",comuna:"San Isidro",direccion:"Av. Javier Prado Este 1066, San Isidro",telefono:"(+51 1) 411-4550",web:"https://www.crp.com.pe",tipo:"Clinica privada grande",especialidades:["Psiquiatria","Psicologia","Neurologia","Emergencias 24/7"]},
+    {id:"lima-007",nombre:"CSMC Magdalena",comuna:"Magdalena del Mar",direccion:"Jr. Daniel Hernandez 290, Magdalena del Mar",telefono:"",web:"https://www.facebook.com/p/Centro-de-Salud-Mental-Comunitario-Magdalena-61556641292455/",tipo:"CSMC",especialidades:["Trastornos emocionales","Tendencias suicidas","Problemas psicosociales"]},
+    {id:"lima-008",nombre:"Hospital Hermilio Valdizan",comuna:"Santa Anita",direccion:"Carretera Central Km 3.5, N° 1315, Santa Anita",telefono:"(01) 494-2410",web:"http://www.hhv.gob.pe",tipo:"Hospital publico",especialidades:["Psiquiatria adultos e infantil","Adicciones","Rehabilitacion","Emergencias"]},
+    {id:"lima-009",nombre:"Clinica Pinel",comuna:"San Miguel",direccion:"Calle Dean Saavedra 148, San Miguel",telefono:"(01) 578-1118",web:"https://clinicapinel.com",tipo:"Clinica privada",especialidades:["Psiquiatria","Internamiento","Depresion","Ansiedad","Rehabilitacion"]},
+    {id:"lima-010",nombre:"Clinica Psiquiatrica Caravedo",comuna:"Chorrillos",direccion:"Calle Pedro Solari 242, Chorrillos",telefono:"(01) 467-3933",web:"http://www.clinicacaravedo.com.pe",tipo:"Clinica privada",especialidades:["Psiquiatria","Internamiento","Trastornos del animo","Rehabilitacion"]},
+    {id:"lima-011",nombre:"CEDRO",comuna:"Miraflores",direccion:"Av. Roca y Bolona 271, Miraflores",telefono:"(01) 446-6682",web:"https://cedro.org.pe",tipo:"Centro de adicciones",especialidades:["Prevencion de adicciones","Consejeria","Lugar de Escucha","Rehabilitacion","Salud mental juvenil"]},
+    {id:"lima-012",nombre:"CEISAM",comuna:"La Molina",direccion:"Av. Los Constructores 475, La Molina",telefono:"946-426-523",web:"https://ceisam.com",tipo:"Centro especializado",especialidades:["Psicologia infantil","Neuropsicologia","Psiquiatria","Terapia de aprendizaje"]},
+    {id:"lima-013",nombre:"IPOPS",comuna:"Lima",direccion:"Jr. Hernan Velarde 8, Lima",telefono:"(01) 325-9626",web:"https://ipops.pe",tipo:"Centro especializado",especialidades:["Terapia individual","Terapia de pareja y familia","Evaluacion psicologica","Orientacion vocacional"]},
+    {id:"lima-014",nombre:"CPPL — Psicoterapia Psicoanalitica de Lima",comuna:"San Borja",direccion:"Av. de las Artes Sur 390-392, San Borja",telefono:"972-088-110",web:"https://cppl.org",tipo:"Centro especializado",especialidades:["Psicoterapia psicoanalitica","Formacion en psicoanalisis"]},
+    {id:"lima-015",nombre:"IFASIL — Instituto Familiar Sistemico de Lima",comuna:"San Isidro",direccion:"Miguel Dasso 160, Of. 201, San Isidro",telefono:"(+51) 952-418-791",web:"https://ifasil.com",tipo:"Centro especializado",especialidades:["Terapia familiar sistemica","Terapia de pareja","Formacion"]},
+    {id:"lima-016",nombre:"Centro Peruano de Terapia Familiar",comuna:"Miraflores",direccion:"Av. Benavides 330, Of. 304, Miraflores",telefono:"988-619-895",web:"https://terapiasistemica.com",tipo:"Centro especializado",especialidades:["Terapia familiar","Terapia de pareja","Terapia sistemica"]},
+    {id:"lima-017",nombre:"Opcion de Vida",comuna:"San Borja",direccion:"Jr. Gozzoli Norte 654, Of. 101, San Borja",telefono:"(01) 226-5709",web:"https://opciondevida.org",tipo:"Centro de adicciones",especialidades:["Rehabilitacion adicciones","Alcoholismo","Ludopatia","Equinoterapia"]},
+    {id:"lima-018",nombre:"Calma Vital",comuna:"Miraflores",direccion:"Calle Cantuarias 160, Of. 402, Miraflores",telefono:"951-772-270",web:"https://calmavital.com.pe",tipo:"Centro especializado",especialidades:["Psiquiatria adultos e infantil","Psicoterapia","Depresion","Ansiedad"]},
+    {id:"lima-019",nombre:"Clinica San Felipe — Psiquiatria",comuna:"Jesus Maria",direccion:"Av. Gregorio Escobedo 650, Jesus Maria",telefono:"(01) 219-0000",web:"https://www.clinicasanfelipe.com/especialidades/psiquiatria",tipo:"Clinica privada grande",especialidades:["Psiquiatria","Trastornos emocionales","Diagnostico"]},
+    {id:"lima-020",nombre:"CSMC Lince",comuna:"Lince",direccion:"Distrito de Lince, Lima",telefono:"",web:"https://www.gob.pe/institucion/dirislimacentro",tipo:"CSMC",especialidades:["Ansiedad","Depresion","Psicosis","Adicciones","Violencia de genero"]},
+    {id:"lima-021",nombre:"CSMC Villa El Salvador",comuna:"Villa El Salvador",direccion:"Sector 6, Grupo 5, Mz. I, Lt. 19",telefono:"(01) 694-9688",web:"https://www.dirislimasur.gob.pe/centros-de-salud-mentales-comunitarios/",tipo:"CSMC",especialidades:["Psiquiatria comunitaria","Psicologia clinica","Adicciones"]},
+    {id:"lima-022",nombre:"CSMC 12 de Noviembre (SJM)",comuna:"San Juan de Miraflores",direccion:"Calle Las Americas s/n, Paradero Llanta",telefono:"(01) 285-7122",web:"https://www.dirislimasur.gob.pe/centros-de-salud-mentales-comunitarios/",tipo:"CSMC",especialidades:["Depresion","Ansiedad","Psicosis","Adicciones","Violencia familiar"]}
+  ]
+};
+
+function getAllCenters() {
+  const all = [];
+  DATA.santiago_centros.forEach(c => all.push({...c, ciudad: 'Santiago'}));
+  DATA.santiago_cosam.forEach(c => all.push({...c, ciudad: 'Santiago', especialidades: c.especialidades || ['Salud mental comunitaria','Psiquiatria','Psicologia','Drogas y alcohol']}));
+  DATA.santiago_hospitales.forEach(c => all.push({...c, ciudad: 'Santiago'}));
+  DATA.lima.forEach(c => all.push({...c, ciudad: 'Lima'}));
+  return all;
+}
+
+function getBadgeClass(tipo) {
+  const t = (tipo||'').toLowerCase();
+  if (t.includes('cosam')) return 'badge-cosam';
+  if (t.includes('csmc')) return 'badge-csmc';
+  if (t.includes('hospital publico') || t.includes('hospital psiq')) return 'badge-hospital';
+  if (t.includes('hospital institucional')) return 'badge-institucional';
+  if (t.includes('privada grande')) return 'badge-privado';
+  if (t.includes('privad') || t.includes('clinica')) return 'badge-privado';
+  if (t.includes('universitario')) return 'badge-universitario';
+  if (t.includes('especializ')) return 'badge-especializado';
+  if (t.includes('adiccion')) return 'badge-adicciones';
+  return 'badge-especializado';
+}
+
+function getBadgeLabel(tipo) {
+  const t = (tipo||'').toLowerCase();
+  if (t.includes('cosam')) return 'COSAM';
+  if (t.includes('csmc')) return 'CSMC';
+  if (t.includes('hospital publico') || t.includes('hospital psiq')) return 'Hospital';
+  if (t.includes('hospital institucional')) return 'FF.AA.';
+  if (t.includes('privada grande')) return 'Clinica Grande';
+  if (t.includes('clinica privad')) return 'Clinica Privada';
+  if (t.includes('centro privad')) return 'Centro Privado';
+  if (t.includes('universitario')) return 'Universidad';
+  if (t.includes('adiccion')) return 'Adicciones';
+  if (t.includes('especializ')) return 'Especializado';
+  return tipo;
+}
+
+const allCenters = getAllCenters();
+
+// Populate filters
+const types = [...new Set(allCenters.map(c => c.tipo))].sort();
+const typeSelect = document.getElementById('typeFilter');
+types.forEach(t => {
+  const opt = document.createElement('option');
+  opt.value = t;
+  opt.textContent = t;
+  typeSelect.appendChild(opt);
+});
+
+function updateComunaFilter(city) {
+  const comunaSelect = document.getElementById('comunaFilter');
+  comunaSelect.innerHTML = '<option value="all">Todas las comunas/distritos</option>';
+  const filtered = city === 'all' ? allCenters : allCenters.filter(c => c.ciudad === city);
+  const comunas = [...new Set(filtered.map(c => c.comuna))].sort();
+  comunas.forEach(com => {
+    const opt = document.createElement('option');
+    opt.value = com;
+    opt.textContent = com;
+    comunaSelect.appendChild(opt);
+  });
+}
+updateComunaFilter('all');
+
+// Stats
+function updateStats(centers) {
+  const stgo = centers.filter(c => c.ciudad === 'Santiago').length;
+  const lima = centers.filter(c => c.ciudad === 'Lima').length;
+  const cosam = centers.filter(c => (c.tipo||'').toLowerCase().includes('cosam')).length;
+  const hosp = centers.filter(c => (c.tipo||'').toLowerCase().includes('hospital')).length;
+  const comunas = new Set(centers.map(c => c.comuna)).size;
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat"><div class="num">${centers.length}</div><div class="label">Total centros</div></div>
+    <div class="stat"><div class="num">${stgo}</div><div class="label">Santiago</div></div>
+    <div class="stat"><div class="num">${lima}</div><div class="label">Lima</div></div>
+    <div class="stat"><div class="num">${cosam}</div><div class="label">COSAM/CSMC</div></div>
+    <div class="stat"><div class="num">${hosp}</div><div class="label">Hospitales</div></div>
+    <div class="stat"><div class="num">${comunas}</div><div class="label">Comunas</div></div>
+  `;
+}
+
+function renderCards(centers) {
+  const grid = document.getElementById('grid');
+  if (centers.length === 0) {
+    grid.innerHTML = '<div class="no-results">No se encontraron centros con esos filtros.</div>';
+    return;
+  }
+
+  // Group by city
+  const grouped = {};
+  centers.forEach(c => {
+    if (!grouped[c.ciudad]) grouped[c.ciudad] = [];
+    grouped[c.ciudad].push(c);
+  });
+
+  let html = '';
+  const cityOrder = ['Santiago', 'Lima'];
+  cityOrder.forEach(city => {
+    if (!grouped[city]) return;
+    const list = grouped[city];
+    html += `<div class="city-divider">
+      <h2>${city === 'Santiago' ? '🇨🇱 Santiago de Chile' : '🇵🇪 Lima, Peru'}</h2>
+      <div class="line"></div>
+      <div class="count">${list.length} centros</div>
+    </div>`;
+    list.forEach(c => {
+      const specs = (c.especialidades || []).slice(0, 5);
+      html += `<div class="card">
+        <div class="card-header">
+          <div class="card-name">${c.nombre}</div>
+          <span class="badge ${getBadgeClass(c.tipo)}">${getBadgeLabel(c.tipo)}</span>
+        </div>
+        <div class="card-meta">
+          <div class="row"><span class="icon">📍</span><span>${c.direccion} <span class="comuna-tag">${c.comuna}</span></span></div>
+          ${c.telefono ? `<div class="row"><span class="icon">📞</span><span>${c.telefono}</span></div>` : ''}
+          ${c.web ? `<div class="row"><span class="icon">🌐</span><a href="${c.web}" target="_blank" rel="noopener">${c.web.replace(/https?:\/\/(www\.)?/, '').replace(/\/$/, '').substring(0, 40)}${c.web.length > 50 ? '...' : ''}</a></div>` : ''}
+        </div>
+        ${specs.length ? `<div class="tags">${specs.map(s => `<span class="tag">${s}</span>`).join('')}</div>` : ''}
+      </div>`;
+    });
+  });
+  grid.innerHTML = html;
+}
+
+function applyFilters() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const city = document.querySelector('#cityFilter .btn.active').dataset.city;
+  const type = document.getElementById('typeFilter').value;
+  const comuna = document.getElementById('comunaFilter').value;
+
+  let filtered = allCenters;
+
+  if (city !== 'all') filtered = filtered.filter(c => c.ciudad === city);
+  if (type !== 'all') filtered = filtered.filter(c => c.tipo === type);
+  if (comuna !== 'all') filtered = filtered.filter(c => c.comuna === comuna);
+
+  if (query) {
+    filtered = filtered.filter(c => {
+      const text = [c.nombre, c.comuna, c.direccion, c.tipo, ...(c.especialidades || [])].join(' ').toLowerCase();
+      return text.includes(query);
+    });
+  }
+
+  updateStats(filtered);
+  renderCards(filtered);
+}
+
+// Events
+document.getElementById('search').addEventListener('input', applyFilters);
+document.getElementById('typeFilter').addEventListener('change', applyFilters);
+document.getElementById('comunaFilter').addEventListener('change', applyFilters);
+
+document.querySelectorAll('#cityFilter .btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#cityFilter .btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateComunaFilter(btn.dataset.city);
+    applyFilters();
+  });
+});
+
+// Init
+applyFilters();
+</script>
+</body>
+</html>

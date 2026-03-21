@@ -1,0 +1,336 @@
+[
+  {
+    "id": "cosam-001",
+    "nombre": "COSAM Dr. Germán Greve Schlegel (Provisam)",
+    "comuna": "Providencia",
+    "direccion": "Manuel Montt 2051, Providencia",
+    "telefono": "+56 2 2341 4150",
+    "web": "https://comunaprovidencia.cl/listing/centro-de-salud-mental-y-comunitario-dr-german-greve-schlegel-provisam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-002",
+    "nombre": "COSAM Ñuñoa",
+    "comuna": "Ñuñoa",
+    "direccion": "Pichidangui 3650, Ñuñoa",
+    "telefono": "+56 2 2575 0203",
+    "web": "https://www.cmdsnunoa.cl/centro-de-salud-mental-cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-003",
+    "nombre": "COSAM Peñalolén",
+    "comuna": "Peñalolén",
+    "direccion": "Oriental 7250, Peñalolén",
+    "telefono": "+56 2 2939 7283",
+    "web": "https://www.cormup.cl/salud/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-004",
+    "nombre": "COSAM Santiago Centro",
+    "comuna": "Santiago",
+    "direccion": "San Ignacio 1217, Santiago",
+    "telefono": "+56 2 2498 5362",
+    "web": "https://www.saludstgo.cl/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-005",
+    "nombre": "COSAM Pudahuel",
+    "comuna": "Pudahuel",
+    "direccion": "Santa Corina 8629, Pudahuel",
+    "telefono": "+56 2 2644 2614",
+    "web": "https://www.cosampudahuel.cl/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-006",
+    "nombre": "COSAM Macul",
+    "comuna": "Macul",
+    "direccion": "Gregorio de la Fuente 3521, Macul",
+    "telefono": "+56 2 3238 0202",
+    "web": "https://www.corpomunimacul.cl/red-salud/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-007",
+    "nombre": "COSAM La Reina",
+    "comuna": "La Reina",
+    "direccion": "Av. Alcalde Fernando Castillo Velasco 8580, La Reina",
+    "telefono": "+56 2 2912 4362",
+    "web": "https://www.corp-lareina.cl/centro-de-salud-mental-cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-008",
+    "nombre": "COSAM Maipú",
+    "comuna": "Maipú",
+    "direccion": "Av. O'Higgins 1000, Maipú",
+    "telefono": "+56 2 2532 1654",
+    "web": "",
+    "verificado": true
+  },
+  {
+    "id": "cosam-009",
+    "nombre": "COSAM Huechuraba",
+    "comuna": "Huechuraba",
+    "direccion": "Av. Recoleta 5696, Huechuraba",
+    "telefono": "+56 2 2485 0551",
+    "web": "https://www.huechuraba.cl/salud/centros-de-salud/centro-de-salud-mental-comunitaria",
+    "verificado": true
+  },
+  {
+    "id": "cosam-010",
+    "nombre": "COSAM Conchalí",
+    "comuna": "Conchalí",
+    "direccion": "Camberra 5860, Conchalí",
+    "telefono": "+56 2 2324 441",
+    "web": "",
+    "verificado": true
+  },
+  {
+    "id": "cosam-011",
+    "nombre": "COSAM Independencia",
+    "comuna": "Independencia",
+    "direccion": "Av. Belisario Prats 1485, Independencia",
+    "telefono": "+56 2 2387 8662",
+    "web": "https://www.independencia.cl/salud/centros-de-salud/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-012",
+    "nombre": "COSAM Recoleta",
+    "comuna": "Recoleta",
+    "direccion": "Inocencia 2705, Recoleta",
+    "telefono": "+56 2 2485 0551",
+    "web": "https://www.recoleta.cl/centro-comunitario-de-salud-mental-cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-013",
+    "nombre": "COSAM Dr. Luis Paz Campos",
+    "comuna": "Quilicura",
+    "direccion": "San Luis 330, Quilicura",
+    "telefono": "+56 2 2575 1350",
+    "web": "https://www.saludquilicura.cl/cosam-doctor-paz-campos",
+    "verificado": true
+  },
+  {
+    "id": "cosam-014",
+    "nombre": "COSAM Vitacura",
+    "comuna": "Vitacura",
+    "direccion": "Av. Vitacura 8620, 2° piso, Vitacura",
+    "telefono": "+56 2 2756 1178",
+    "web": "https://vitacura.cl/salud/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-015",
+    "nombre": "COSAM Las Condes",
+    "comuna": "Las Condes",
+    "direccion": "Enrique Foster Sur 153, Las Condes",
+    "telefono": "+56 2 2335 8254",
+    "web": "http://www.corplascondes.cl/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-016",
+    "nombre": "COSAM Lo Barnechea",
+    "comuna": "Lo Barnechea",
+    "direccion": "Robles 13730, Lo Barnechea",
+    "telefono": "+56 2 2827 3810",
+    "web": "https://lobarnechea.cl/servicios_municipales/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-017",
+    "nombre": "COSAM La Florida",
+    "comuna": "La Florida",
+    "direccion": "Apollo XI s/n (entrada por Pasaje Cosmos 1232), La Florida",
+    "telefono": "+56 2 2904 6423",
+    "web": "https://comudef.cl/?page_id=95",
+    "verificado": true
+  },
+  {
+    "id": "cosam-018",
+    "nombre": "COSAM El Bosque",
+    "comuna": "El Bosque",
+    "direccion": "Av. Padre Alberto Hurtado 11480, El Bosque",
+    "telefono": "+56 2 2618 7071",
+    "web": "https://saludelbosque.cl/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-019",
+    "nombre": "COSAM San Bernardo",
+    "comuna": "San Bernardo",
+    "direccion": "Av. Portales 964, San Bernardo",
+    "telefono": "+56 2 2576 1000",
+    "web": "https://www.corsaber.cl/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-020",
+    "nombre": "COSAM Cerro Navia",
+    "comuna": "Cerro Navia",
+    "direccion": "Cinco de Febrero 2206, Cerro Navia",
+    "telefono": "+56 2 2574 5083",
+    "web": "https://www.cmcerronavia.cl/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-021",
+    "nombre": "COSAM Lo Prado",
+    "comuna": "Lo Prado",
+    "direccion": "San Francisco 8130, esquina Tte. Cruz, Lo Prado",
+    "telefono": "+56 2 2800 0601",
+    "web": "https://corporacionloprado.cl/cosam-2/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-022",
+    "nombre": "COSAM Renca",
+    "comuna": "Renca",
+    "direccion": "Los Plátanos 1096, Renca",
+    "telefono": "+56 2 2352 3893",
+    "web": "http://cosamrenca.blogspot.com/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-023",
+    "nombre": "COSAM Quinta Normal",
+    "comuna": "Quinta Normal",
+    "direccion": "Dr. Carlos Ottolenghi 5151, Quinta Normal",
+    "telefono": "+56 2 2666 9247",
+    "web": "http://cosamquintanormal.blogspot.com/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-024",
+    "nombre": "COSAM Estación Central",
+    "comuna": "Estación Central",
+    "direccion": "Padre Vicente Irarrázabal 1313, Estación Central",
+    "telefono": "+56 2 2776 4239",
+    "web": "",
+    "verificado": true
+  },
+  {
+    "id": "cosam-025",
+    "nombre": "COSAM La Granja",
+    "comuna": "La Granja",
+    "direccion": "Angol 8363, La Granja",
+    "telefono": "+56 2 2262 7146",
+    "web": "https://www.municipalidadlagranja.cl/centro-comunitarios-de-salud-mental-cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-026",
+    "nombre": "COSAM La Cisterna",
+    "comuna": "La Cisterna",
+    "direccion": "El Parrón 548, La Cisterna",
+    "telefono": "+56 9 8204 1218",
+    "web": "",
+    "verificado": true
+  },
+  {
+    "id": "cosam-027",
+    "nombre": "COSAM La Pintana",
+    "comuna": "La Pintana",
+    "direccion": "Patagonia 12834, La Pintana",
+    "telefono": "+56 2 2545 7697",
+    "web": "",
+    "verificado": true
+  },
+  {
+    "id": "cosam-028",
+    "nombre": "COSAM Pedro Aguirre Cerda",
+    "comuna": "Pedro Aguirre Cerda",
+    "direccion": "Av. La Marina 2256, Pedro Aguirre Cerda",
+    "telefono": "+56 2 2396 5686",
+    "web": "http://cosampac.blogspot.com/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-029",
+    "nombre": "COSAM La Bandera (San Ramón)",
+    "comuna": "San Ramón",
+    "direccion": "La Bandera 9696, San Ramón",
+    "telefono": "+56 2 2576 1806",
+    "web": "https://municipalidadsanramon.cl/salud/cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-030",
+    "nombre": "COSAM San Joaquín",
+    "comuna": "San Joaquín",
+    "direccion": "Álvarez de Toledo 569, San Joaquín",
+    "telefono": "+56 2 2553 9035",
+    "web": "https://ww2.sanjoaquinsaludable.cl/cesam-san-joaquin/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-031",
+    "nombre": "COSAM CEIF Centro (Puente Alto)",
+    "comuna": "Puente Alto",
+    "direccion": "Tocornal 70, Puente Alto",
+    "telefono": "+56 2 2787 5489",
+    "web": "https://www.cmpuentealto.cl/cosam-ceif-centro/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-032",
+    "nombre": "COSAM CEIF Norte (Puente Alto)",
+    "comuna": "Puente Alto",
+    "direccion": "Av. Concha y Toro 2531, Puente Alto",
+    "telefono": "+56 2 2797 5496",
+    "web": "https://www.cmpuentealto.cl/cosam-ceif-norte/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-033",
+    "nombre": "COSAM Dr. Mario Vidal Climent",
+    "comuna": "San Miguel",
+    "direccion": "Ramón Barros Luco 3215, San Miguel",
+    "telefono": "",
+    "web": "https://web.sanmiguel.cl/inauguramos-el-centro-de-salud-mental-cosam/",
+    "notas": "Inaugurado marzo 2026",
+    "verificado": true
+  },
+  {
+    "id": "cosam-034",
+    "nombre": "COSAM Lo Espejo (CESAM)",
+    "comuna": "Lo Espejo",
+    "direccion": "Pasaje 38 N° 6521, Lo Espejo",
+    "telefono": "+56 2 2428 8863",
+    "web": "",
+    "verificado": true
+  },
+  {
+    "id": "cosam-035",
+    "nombre": "COSAM Colina",
+    "comuna": "Colina",
+    "direccion": "Pedro Aguirre Cerda 7, esquina El Alpatacal, Colina",
+    "telefono": "+56 2 2829 5500",
+    "web": "https://www.corporacioncolina.cl/salud-cosam/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-036",
+    "nombre": "COSAM Peñaflor",
+    "comuna": "Peñaflor",
+    "direccion": "Rosales 849, Peñaflor",
+    "telefono": "",
+    "web": "https://penaflor.cl/cosam-penaflor/",
+    "verificado": true
+  },
+  {
+    "id": "cosam-037",
+    "nombre": "COSAM Talagante",
+    "comuna": "Talagante",
+    "direccion": "Libertador Bernardo O'Higgins 2386, Talagante",
+    "telefono": "+56 2 2574 3503",
+    "web": "https://www.talasalud.cl/web/cosam/",
+    "verificado": true
+  }
+]
