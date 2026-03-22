@@ -22,7 +22,8 @@
       "mcp__clickup__clickup_create_folder",
       "mcp__clickup__clickup_create_list_in_folder",
       "mcp__clickup__clickup_get_workspace_members",
-      "mcp__clickup__clickup_create_task"
+      "mcp__clickup__clickup_create_task",
+      "Bash(CLOUDFLARE_API_TOKEN=cfat_96QbHxL2xJpMpHZB9SuP3e7bx1fqNiWUWqRaDRgI6d0be0b6 npx wrangler whoami 2>&1)"
     ]
   }
 }
