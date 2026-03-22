@@ -7,7 +7,7 @@ status: en-progreso
 
 # Influencers Maternidad y Crianza — Chile y Peru 2026
 
-Directorio verificado via web search (mar 2026).
+Directorio verificado via web search + WebFetch (mar 2026). Cuentas confirmadas como reales.
 Objetivo: DMs para distribuir encuesta + invitacion a comunidad "Crianza por Etapas".
 
 > Estrategia: priorizar micro (10K-100K) y mid (100K-500K) sobre macro (500K+).
@@ -20,26 +20,28 @@ Objetivo: DMs para distribuir encuesta + invitacion a comunidad "Crianza por Eta
 
 ### Psicologas y especialistas en crianza (mayor credibilidad — DM prioritario)
 
-| Cuenta | Nombre | Seguidores | Contenido | Por que contactar |
-|--------|--------|-----------|-----------|-------------------|
-| @carolinamora.psicologa | Caro Mora | **130K** | Psicologia Perinatal + Crianza | Audiencia exacta: mamas que buscan respuestas profesionales. Perfecta para validar Hachiko Kids con credibilidad clinica. |
-| @psiconeuroinfancia | — | Por verificar | Crianza + neurodesarrollo + psicologia infantil | Nicho exacto de Hachiko Kids. Buscar seguidores en IG directamente. |
-| @fundacion_crianza_compartida | Fundacion Crianza Compartida Chile | Por verificar | Crianza corresponsable, Santiago | Organizacion oficial — puede compartir en sus canales y grupos. |
+| Cuenta | Nombre | Seguidores | Contenido | Verificacion |
+|--------|--------|-----------|-----------|--------------|
+| @macatan | Maca Jordan | ~18K+ (2017, estimar crecimiento) | Psicologa clinica + mama de 4 hijos. Crianza, nutricion infantil, humor. Web: macatan.com | REAL — LinkedIn confirma: Macarena Jordan, Psicologa. Mencionada por Pampers Chile, 13.cl, guiainfantil.com. |
+| @fundacion_crianza_compartida | Fundacion Crianza Compartida Chile | Por verificar | Crianza corresponsable, Santiago | REAL — Cuenta IG existe + pagina FB verificada. Organizacion oficial. |
+| @mamam.grupos | Red MAMAM | Por verificar | Red de grupos coordinados por psicologas (embarazo, puerperio, crianza) | REAL — Cuenta IG confirmada por WebFetch. Alianza natural con "Crianza por Etapas". |
+| @reddecrianza | Red de Crianza | Por verificar | Organizacion crianza respetuosa Chile | REAL — "Red de Crianza" confirmado por WebFetch. |
 
-### Mamas influencers (maternidad + vida real)
+### Mamas influencers chilenas (maternidad + vida real)
 
-| Cuenta | Nombre | Seguidores | Contenido | Por que contactar |
-|--------|--------|-----------|-----------|-------------------|
-| @macatan | Maca Jordan | Por verificar | Psicóloga, crianza, nutricion infantil, 4 hijos | Doble valor: psicologa + mama. Mencionada en Pampers Chile, 13.cl, guiainfantil.com. Credibilidad alta. |
-| @mamialbanil | Bernardita Siutti | Por verificar | Maternidad real, reformas, "no hay nada imposible para nosotras". Libro publicado. | Tono muy alineado con el concepto (mama real, no perfecta). |
-| @faloonlarraguibel | Faloon Larraguibel | **2.4M** | TV personality, moda + familia | Alcance masivo. Para etapa de awareness, no smoke test. Alto costo de contacto. |
+| Cuenta | Nombre | Seguidores | Contenido | Verificacion |
+|--------|--------|-----------|-----------|--------------|
+| @mami.albanil | Bernardita Siutti | **1M** | Reformas + maternidad real. Libro publicado. "No hay nada imposible para nosotras." | REAL — 1M seguidores confirmados. Handle correcto: @mami.albanil (no @mamialbanil). Basada en Argentina pero audiencia CL/LATAM. |
+| @faloonlarraguibel | Faloon Larraguibel | **2.4M** | TV personality, moda + familia | REAL — Macro. Solo para etapa de awareness con presupuesto. |
 
-### Cuentas institucionales utiles
+### Cuentas LATAM — especialistas crianza (argentinas con audiencia Chile/Peru)
 
-| Cuenta | Descripcion | Accion |
-|--------|-------------|--------|
-| @mamam.grupos | Red de grupos coordinados por psicologas (planificacion, embarazo, puerperio, crianza) | DM — alianza natural con "Crianza por Etapas" |
-| @reddecrianza | Red de Crianza (oficial) | DM — pueden compartir el grupo en sus historias |
+> Nota: Estas cuentas son argentinas pero tienen audiencia hispanohablante masiva — relevantes para DM.
+
+| Cuenta | Nombre | Seguidores | Contenido | Verificacion |
+|--------|--------|-----------|-----------|--------------|
+| @carolinamora.psicologa | Caro Mora | **130K** | Psicologia Perinatal + Crianza. Libros publicados (Teta mama, Crecemos). Web: carolinamorapsicologa.com | REAL — 130K seg, 784 posts, 1.132 following. Psicologa clinica UBA + posgrado CIIPME CONICET. Argentina, audiencia LATAM. |
+| @psiconeuroinfancia | Mariana Fernandez + Carina Schwindt | **386K** | Crianza, neurodesarrollo y psicologia infantil | REAL — 386K seguidores, 1.391 posts. Psicologas. Argentina. Nicho exacto de Hachiko Kids. |
 
 ### Fuentes para buscar mas cuentas chilenas
 
@@ -52,16 +54,16 @@ Objetivo: DMs para distribuir encuesta + invitacion a comunidad "Crianza por Eta
 
 ## PERU
 
-### Mamas influencers con datos confirmados
+### Mamas influencers Peru — datos verificados
 
-| Cuenta | Nombre | Seguidores | Plataforma | Contenido | Por que contactar |
-|--------|--------|-----------|------------|-----------|-------------------|
-| @keysg | Keyla Sanchez | **857K** IG | Instagram | TV presenter, maternidad + moda + podcast | Macro con contenido de maternidad. Audiencia grande. Para awareness si hay presupuesto. |
-| @mamasviajeras | — | **244K** IG | Instagram | Maternidad + viajes, 2.656 posts | Comunidad establecida y activa. DM con propuesta de contenido conjunto. |
-| @mama.2blogg | Berova Munoz | **685.7K** TikTok / **88.1K** Threads | TikTok + IG | "Una mama que te ayuda a cocinar". Maternidad real. | Alta viralidad en TikTok. Tono autentico, alineado con el concepto. |
-| @porsegundavezblog | Jenni Tisnado | **60K** IG | Instagram | Mamá bloguera, recetas, manualidades, crianza | Micro con engagement probablemente alto. Contenido muy similar al target de Hachiko Kids. DM directo. |
-| @mamabloguera.peru | Claudia | **26K** IG | Instagram | "Una mama tal cual", actividades y recetas, hijos de 4 y bebe | Micro — engagement alto esperado. Hijos en el rango 2-4 del smoke test. DM prioritario. |
-| @mamaonlineblogperu | Yani | **150K** Facebook | Facebook + IG | Mama de 3, recetas faciles, maternidad real | Audiencia en Facebook — util para distribuir en grupos tambien. |
+| Cuenta | Nombre | Seguidores | Plataforma | Contenido | Verificacion |
+|--------|--------|-----------|------------|-----------|--------------|
+| @keysg | Keyla Sanchez | **857K** | Instagram | TV presenter Peru, maternidad + moda + podcast | REAL — 857K seguidores confirmados. Macro. Solo con presupuesto. |
+| @mamasviajeras | Johanna Saldon | **244K** | Instagram | Ex reportera TV, viajes con hijos + crianza. 2.656 posts. | REAL — 244K seg confirmados. Cuenta IG verificada por WebFetch. DM viable como mid-influencer. |
+| @mama.2blogg | Berova Munoz | **685.7K** TikTok / **88.1K** Threads | TikTok + Threads | "Una mama que te ayuda a cocinar". Maternidad real peruana. | REAL — Datos confirmados desde TikTok y Threads publicos. Alta viralidad. |
+| @porsegundavezblog | Jenni Tisnado | **60K** | Instagram | Mama bloguera peruana. Recetas, manualidades, crianza. Vive en Florida, mama de 4. | REAL — Cuenta IG verificada por WebFetch. 60K confirmados por inbeat.co. DM directo. |
+| @mamabloguera.peru | Claudia | **26K** | Instagram | "Una mama tal cual". Actividades + recetas. Hijos: Vienna Sophia (4) y Benjamin (bebe). | REAL — Cuenta IG verificada por WebFetch. Hijos en rango exacto del smoke test. DM prioritario. |
+| @mamaonlineblogperu | Yani | **150K** Facebook | Facebook + IG | Mama de 3, recetas faciles, maternidad real. | REAL — 150K likes en Facebook verificados. Util para distribuir en grupos FB tambien. |
 
 ### Comunidades Peru (para alianzas, no solo DMs)
 
@@ -101,15 +103,15 @@ de crianza por rango de edad — con gusto te pasamos el link.
 Gracias!
 ```
 
-| Cuenta | Tier | Cuando contactar |
-|--------|------|-----------------|
-| @carolinamora.psicologa | 1 — DM esta semana | Hoy |
-| @mamabloguera.peru | 1 — DM esta semana | Hoy |
-| @porsegundavezblog | 1 — DM esta semana | Hoy |
-| @macatan | 1 — DM esta semana | Hoy |
-| @psiconeuroinfancia | 1 — DM esta semana | Verificar @ primero |
-| @mamialbanil | 1 — DM esta semana | Hoy |
-| @mamam.grupos | 1 — DM esta semana | Hoy |
+| Cuenta | Tier | Pais | Seguidores | Cuando |
+|--------|------|------|-----------|--------|
+| @mamabloguera.peru | 1 | PE | 26K | Hoy — hijos en rango exacto 2-4 |
+| @porsegundavezblog | 1 | PE | 60K | Hoy — micro con contenido alineado |
+| @macatan | 1 | CL | ~18K+ | Hoy — psicologa + mama, credibilidad alta |
+| @mamam.grupos | 1 | CL | Por verificar | Hoy — alianza natural comunidad |
+| @carolinamora.psicologa | 1 | ARG/LATAM | 130K | Hoy — audiencia LATAM exacta |
+| @psiconeuroinfancia | 1 | ARG/LATAM | 386K | Hoy — mayor alcance, nicho perfecto |
+| @mami.albanil | 2 | ARG/CL | 1M | Esta semana — personalizar mucho el DM |
 
 ### Tier 2 — DM esta semana si queda tiempo
 
