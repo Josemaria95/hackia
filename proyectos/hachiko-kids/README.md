@@ -50,7 +50,8 @@ Hachiko Kids le da a tu hijo una mascota virtual que quiere cuidar. Cuando elige
 | 04 | Producto | [mvp-minimo](04_producto/mvp-minimo.md) · [instrumentos](04_producto/instrumentos-clinicos.md) | 80/20 del MVP, ciencia |
 | 05 | Validacion | [plan](05_validacion/plan-validacion.md) | Hipotesis, experimentos, GO/NO-GO |
 | 06 | Estrategia | [go-to-market](06_estrategia/go-to-market.md) | GTM, pricing, canales |
-| — | App | [app/](app/) | MVP móvil (Expo + Supabase) — por construir |
+| — | App | [app/](app/) | MVP móvil (Expo + Supabase) |
+| — | Contenido | [content/](content/) | Flyers, reels, pitch decks, research |
 
 ---
 

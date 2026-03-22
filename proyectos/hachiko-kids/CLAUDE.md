@@ -128,14 +128,12 @@ checkins (id UUID PK, child_id UUID FK, situation TEXT, situation_choice TEXT, e
 
 ## Estructura del proyecto
 
-Las carpetas numeradas (`01_` a `08_`) son **fases de planificación**. Las carpetas sin número (`app/`, `landing/`, `landing-piloto/`) son **artefactos de ejecución**.
+Las carpetas numeradas (`01_` a `08_`) son **planificación**. Las carpetas sin número son **ejecución**: producto (`app/`, `landing/`, etc.) y contenido (`content/`).
 
 ```
 hachiko-kids/
-├── CLAUDE.md                          ← Este archivo
-├── README.md                          ← Índice maestro del proyecto
-├── .gitignore
-├── .mcp.json                          ← Config MCP (Supabase)
+│
+├── 📋 PLANIFICACIÓN
 ├── 01_vision/
 │   └── manifiesto.md
 ├── 02_mercado/
@@ -157,6 +155,8 @@ hachiko-kids/
 │   └── calendario-convocatorias.md   ← Plan de preparación y postulación con fechas críticas
 ├── 08_agentes/
 │   └── propuesta-subagentes.md       ← 10 subagentes IA para acelerar crecimiento (prioridad + prompts)
+│
+├── 🔧 PRODUCTO
 ├── app/                               ← MVP móvil (Expo + Supabase)
 │   ├── app.json                      ← Config Expo + EAS project ID
 │   ├── eas.json                      ← Perfiles de build (preview, production)
@@ -198,8 +198,30 @@ hachiko-kids/
 │       └── gato.png                 ← Luna
 ├── landing-piloto/
 │   └── index.html                    ← Landing para familias piloto (QR + APK download + instrucciones)
-├── mascotas-app.png
-└── mascotas-no-kwai.jpeg              ← Referencia visual mascotas (estilo no-kawaii)
+├── brand/                             ← Assets de marca
+├── tumascota/                         ← Web tumascota
+│
+├── 📢 CONTENIDO (difusión + pitch + research)
+└── content/
+    ├── flyers/
+    │   ├── flyer-clinica.html         ← Flyer A5 clínicas psicológicas
+    │   └── .kntor-design-atomic/      ← Design system del flyer
+    ├── reels/
+    │   ├── reel-hachiko-kids.mp4
+    │   ├── reel-hachiko-kids-final.mp4
+    │   └── soundtrack_flyer.mp3
+    ├── pitch/
+    │   ├── guion_pitch1_inversionistas.docx
+    │   ├── guion_pitch2_clinicas_colegios.docx
+    │   ├── pitch1_inversionistas_spinpitch.pptx
+    │   └── pitch2_clinicas_colegios_spinpitch.pptx
+    └── research/
+        ├── 169_princi_pal_A_Moral_Dilemma.pdf
+        ├── Wang_2023_Data_autonomy_in.pdf
+        ├── Autonomía_de_Datos_para_Niños.mp4
+        ├── El_experimento_princi_pal.mp4
+        ├── El_Tamagotchi_que_cuestiona_tu_moralidad.mp3
+        └── IA_y_autonomía_de_datos_para_niños.m4a
 ```
 
 ## Flujo de datos (check-in diario)
