@@ -4,7 +4,20 @@
       "Bash(du:*)",
       "Bash(pwd && git -C /Users/jm95/Documents/hackia/proyectos/hachiko-kids status)",
       "Bash(git -C /Users/jm95/Documents/hackia/proyectos/hachiko-kids log --oneline -3)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git -C /Users/jm95/Documents/hackia/proyectos/hachiko-kids diff --staged --stat)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__clickup__clickup_get_workspace_hierarchy",
+      "mcp__clickup__clickup_get_workspace_members",
+      "mcp__clickup__clickup_filter_tasks",
+      "mcp__clickup__clickup_create_task",
+      "mcp__clickup__clickup_search",
+      "mcp__clickup__clickup_update_task",
+      "mcp__clickup__clickup_get_task",
+      "mcp__clickup__clickup_get_list",
+      "WebSearch",
+      "WebFetch(domain:www.tandfonline.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
