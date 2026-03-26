@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hachiko Kids — One-Pager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+  ╔═══════════════════════════════════════╗
+  ║  DESIGN TOKENS — Hachiko Kids         ║
+  ╚═══════════════════════════════════════╝
+  --ink-primary:    #1E1145
+  --ink-secondary:  #5B4E8A
+  --ink-tertiary:   #9388BE
+  --surface-0:      #FAFAFE
+  --surface-1:      #F2EFFC
+  --surface-2:      #E8E3F8
+  --surface-dark:   #1E1145
+  --brand:          #7B61FF
+  --mint:           #2EBD85
+  --orange:         #E8650E
+  --border-soft:    rgba(123,97,255,0.12)
+  --border-std:     rgba(123,97,255,0.20)
+  */
+
+  @page {
+    size: A4;
+    margin: 12mm 13mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAFAFE;
+    width: 184mm;
+    color: #1E1145;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    font-size: 9.5pt;
+    line-height: 1.3;
+  }
+
+  .page {
+    width: 184mm;
+    min-height: 267mm;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: #FAFAFE;
+  }
+
+  /* ─── HEADER ─────────────────────────── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 9px;
+    border-bottom: 1.5px solid rgba(123,97,255,0.18);
+    margin-bottom: 11px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .brand-name {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 18pt;
+    color: #7B61FF;
+    letter-spacing: -0.3px;
+  }
+
+  .brand-tagline {
+    font-size: 7.5pt;
+    color: #9388BE;
+    font-weight: 500;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+
+  .chip-outline {
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: #9388BE;
+    border: 1px solid rgba(123,97,255,0.22);
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  .chip-accent {
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: #fff;
+    background: #7B61FF;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  /* ─── HERO ───────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, #1E1145 0%, #2D1F6B 100%);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-left {
+    flex: 1;
+  }
+
+  .hero-title {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 20pt;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .hero-title em {
+    color: #B8AAFF;
+    font-style: normal;
+  }
+
+  .hero-sub {
+    font-size: 9pt;
+    color: #C4BDE0;
+    line-height: 1.4;
+    max-width: 110mm;
+  }
+
+  .hero-mascot {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.92;
+  }
+
+  .hero-mascot-placeholder {
+    width: 72px;
+    height: 72px;
+    background: rgba(123,97,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 28pt;
+    flex-shrink: 0;
+  }
+
+  /* ─── TWO-COL GRID ───────────────────── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ─── SECTION BLOCK ──────────────────── */
+  .block {
+    background: #F2EFFC;
+    border-radius: 10px;
+    border: 1px solid rgba(123,97,255,0.14);
+    padding: 11px 13px;
+  }
+
+  .block-full {
+    background: #F2EFFC;
+    border-radius: 10px;
+    border: 1px solid rgba(123,97,255,0.14);
+    padding: 11px 13px;
+    margin-bottom: 10px;
+  }
+
+  .block-label {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 7pt;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #7B61FF;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .block-label-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #7B61FF;
+    flex-shrink: 0;
+  }
+
+  /* ─── PROBLEMA ───────────────────────── */
+  .pain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 8.5pt;
+    color: #1E1145;
+    line-height: 1.3;
+  }
+
+  .pain-stat {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    color: #E8650E;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  /* ─── CÓMO FUNCIONA ──────────────────── */
+  .steps {
+    display: flex;
+    gap: 6px;
+  }
+
+  .step {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(123,97,255,0.12);
+    padding: 8px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .step-num {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #7B61FF;
+    color: #fff;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-label {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    color: #1E1145;
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-size: 7.5pt;
+    color: #5B4E8A;
+    line-height: 1.4;
+  }
+
+  /* ─── STATS BAND ─────────────────────── */
+  .stats {
+    background: #1E1145;
+    border-radius: 10px;
+    padding: 11px 14px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-sep {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    align-self: stretch;
+  }
+
+  .stat-val {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 16pt;
+    color: #B8AAFF;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .stat-label {
+    font-size: 6.5pt;
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* ─── MODELO DE NEGOCIO ──────────────── */
+  .model-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .model-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .model-badge {
+    font-size: 6.5pt;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .badge-b2c {
+    background: rgba(46,189,133,0.15);
+    color: #2EBD85;
+    border: 1px solid rgba(46,189,133,0.3);
+  }
+
+  .badge-b2b {
+    background: rgba(123,97,255,0.12);
+    color: #7B61FF;
+    border: 1px solid rgba(123,97,255,0.25);
+  }
+
+  .model-desc {
+    font-size: 8pt;
+    color: #1E1145;
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .model-price {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 9.5pt;
+    color: #2EBD85;
+    flex-shrink: 0;
+  }
+
+  /* ─── COMPETENCIA ────────────────────── */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .comp-table th {
+    font-size: 7pt;
+    font-weight: 600;
+    color: #9388BE;
+    text-align: left;
+    padding: 0 0 5px;
+    border-bottom: 1px solid rgba(123,97,255,0.15);
+  }
+
+  .comp-table td {
+    font-size: 7.5pt;
+    color: #1E1145;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(123,97,255,0.08);
+    vertical-align: top;
+    line-height: 1.3;
+  }
+
+  .comp-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comp-table td:first-child {
+    font-weight: 600;
+    width: 28%;
+  }
+
+  .comp-table td:nth-child(2) {
+    width: 37%;
+    color: #5B4E8A;
+    padding-right: 8px;
+  }
+
+  .comp-hachiko td {
+    color: #7B61FF !important;
+    font-weight: 600 !important;
+  }
+
+  .gap-pill {
+    display: inline-block;
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: #E8650E;
+    background: rgba(232,101,14,0.08);
+    border: 1px solid rgba(232,101,14,0.2);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .win-pill {
+    display: inline-block;
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: #2EBD85;
+    background: rgba(46,189,133,0.1);
+    border: 1px solid rgba(46,189,133,0.25);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* ─── TRACCIÓN ───────────────────────── */
+  .traction-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tpill {
+    font-size: 7.5pt;
+    color: #1E1145;
+    background: #fff;
+    border: 1px solid rgba(123,97,255,0.18);
+    border-radius: 6px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.3;
+  }
+
+  .tpill-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── EQUIPO ─────────────────────────── */
+  .team-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .team-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(123,97,255,0.12);
+    padding: 8px 10px;
+  }
+
+  .team-name {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: #1E1145;
+    margin-bottom: 2px;
+  }
+
+  .team-role {
+    font-size: 7pt;
+    color: #7B61FF;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .team-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .team-bullets li {
+    font-size: 7pt;
+    color: #5B4E8A;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    line-height: 1.3;
+  }
+
+  .team-bullets li::before {
+    content: '—';
+    color: #9388BE;
+    flex-shrink: 0;
+  }
+
+  /* ─── FOOTER ─────────────────────────── */
+  .footer {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(123,97,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    color: #7B61FF;
+  }
+
+  .footer-contact {
+    font-size: 7.5pt;
+    color: #9388BE;
+  }
+
+  .footer-contact a {
+    color: #7B61FF;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-cta {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 8pt;
+    color: #fff;
+    background: #7B61FF;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* ─── PRINT ──────────────────────────── */
+  @media print {
+    body { font-size: 9pt; }
+    .page { min-height: 0; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  @media screen {
+    body {
+      width: auto;
+      max-width: 210mm;
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 10pt;
+    }
+    .page {
+      width: 184mm;
+      margin: 0 auto;
+      box-shadow: 0 4px 40px rgba(30,17,69,0.12);
+      padding: 14mm;
+      background: #FAFAFE;
+      border-radius: 4px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <div>
+        <div class="brand-name">Hachiko Kids</div>
+        <div class="brand-tagline">Salud emocional infantil — mascota + datos + tips</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="chip-accent">MVP en piloto</span>
+      <span class="chip-outline">Mar 2026 · Chile</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-title">Tu hijo <em>juega</em>.<br>Tú lo entiendes.</div>
+      <div class="hero-sub">Tu hijo cuida a Luna, su mascota virtual. Cada decisión que toma revela patrones de comportamiento. Tú recibes un resumen semanal con tips concretos — sin culpa, sin diagnósticos, sin Google a las 11pm.</div>
+    </div>
+    <img src="../../brand/mascotas/gato.png" alt="Luna" class="hero-mascot">
+  </div>
+
+  <!-- PROBLEMA + CÓMO FUNCIONA (dos columnas) -->
+  <div class="grid-2">
+
+    <!-- PROBLEMA -->
+    <div class="block">
+      <div class="block-label"><div class="block-label-dot"></div>El problema</div>
+      <ul class="pain-list">
+        <li class="pain-item">
+          <span class="pain-stat">1 de 4</span>
+          <span>niños en Chile presenta dificultades emocionales o conductuales</span>
+        </li>
+        <li class="pain-item">
+          <span class="pain-stat">3–6 m</span>
+          <span>de espera en el sistema público para atención especializada</span>
+        </li>
+        <li class="pain-item">
+          <span class="pain-stat">0,2%</span>
+          <span>de visibilidad temprana — la mayoría llega en crisis, no en prevención</span>
+        </li>
+        <li class="pain-item">
+          <span class="pain-stat">400K</span>
+          <span>niños en programa PIE (Mineduc) sin herramientas de seguimiento continuo</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CÓMO FUNCIONA -->
+    <div class="block">
+      <div class="block-label"><div class="block-label-dot"></div>Cómo funciona</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-label">Niño cuida a Luna</div>
+          <div class="step-desc">Escenarios conductuales diarios en 60–90 seg. Elige qué hace su mascota.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-label">App registra patrones</div>
+          <div class="step-desc">5 dimensiones: instrucciones, socialización, conducta prosocial, regulación, ánimo.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-label">Papá actúa</div>
+          <div class="step-desc">Resumen semanal con dato concreto + tip accionable. Sin jerga clínica.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STATS BAND -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-val">$5–8B</div>
+      <div class="stat-label">TAM global salud mental infantil digital</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">$230M</div>
+      <div class="stat-label">SAM LATAM (Chile + México + Colombia)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">$1.85M</div>
+      <div class="stat-label">SOM ARR proyectado Año 3</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">7.8:1</div>
+      <div class="stat-label">LTV:CAC ratio B2C estimado</div>
+    </div>
+  </div>
+
+  <!-- MODELO + COMPETENCIA (dos columnas) -->
+  <div class="grid-2" style="margin-bottom: 10px;">
+
+    <!-- MODELO DE NEGOCIO -->
+    <div class="block">
+      <div class="block-label"><div class="block-label-dot"></div>Modelo de negocio</div>
+      <div class="model-rows">
+        <div class="model-row">
+          <span class="model-badge badge-b2c">B2C</span>
+          <span class="model-desc">Padres — freemium. Resúmenes diarios, tips personalizados, alertas</span>
+          <span class="model-price">$5/mes</span>
+        </div>
+        <div class="model-row">
+          <span class="model-badge badge-b2b">B2B</span>
+          <span class="model-desc">Clínicas psicológicas — dashboard + datos entre consultas</span>
+          <span class="model-price">$5–12/pac</span>
+        </div>
+        <div class="model-row">
+          <span class="model-badge badge-b2b">B2B</span>
+          <span class="model-desc">Colegios PIE (Mineduc) — licencia institucional con reportes</span>
+          <span class="model-price">$2–4/niño</span>
+        </div>
+      </div>
+      <div style="margin-top: 8px; padding-top: 7px; border-top: 1px solid rgba(123,97,255,0.12);">
+        <div style="font-size: 7pt; color: #9388BE; line-height: 1.4;">
+          Conversión free→premium esperada: <strong style="color: #1E1145;">15%</strong> en mes 3.
+          B2C primero (validación rápida) → B2B (escala).
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPETENCIA -->
+    <div class="block">
+      <div class="block-label"><div class="block-label-dot"></div>Competencia y ventaja</div>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Limitación</th>
+            <th>Nuestro gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Finch</td>
+            <td>Solo adultos, sin B2B</td>
+            <td><span class="gap-pill">Sin niños</span></td>
+          </tr>
+          <tr>
+            <td>Mightier</td>
+            <td>Hardware caro, solo USA</td>
+            <td><span class="gap-pill">Sin LATAM</span></td>
+          </tr>
+          <tr>
+            <td>Breathe (Sesame)</td>
+            <td>Sin datos continuos, sin dashboard</td>
+            <td><span class="gap-pill">Sin padre</span></td>
+          </tr>
+          <tr>
+            <td>Luca (Chile)</td>
+            <td>Solo académico, no emocional</td>
+            <td><span class="gap-pill">Sin emoción</span></td>
+          </tr>
+          <tr class="comp-hachiko">
+            <td>Hachiko Kids</td>
+            <td>Mascota + datos + dashboard + español</td>
+            <td><span class="win-pill">Todo junto</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- TRACCIÓN -->
+  <div class="block-full">
+    <div class="block-label"><div class="block-label-dot"></div>Tracción</div>
+    <div class="traction-pills">
+      <div class="tpill"><div class="tpill-dot" style="background:#2EBD85;"></div>MVP funcional — Android APK desplegado vía EAS Build</div>
+      <div class="tpill"><div class="tpill-dot" style="background:#7B61FF;"></div>Piloto activo con familias en curso (Mar 2026)</div>
+      <div class="tpill"><div class="tpill-dot" style="background:#E8650E;"></div>Costo de infraestructura: $0 (Supabase free tier + Expo)</div>
+      <div class="tpill"><div class="tpill-dot" style="background:#7B61FF;"></div>Red directa en colegios PIE y clínicas — canal validado</div>
+    </div>
+  </div>
+
+  <!-- EQUIPO -->
+  <div class="block-full">
+    <div class="block-label"><div class="block-label-dot"></div>Equipo</div>
+    <div class="team-row">
+      <div class="team-card">
+        <div class="team-name">Edgar</div>
+        <div class="team-role">Operaciones · Canal institucional</div>
+        <ul class="team-bullets">
+          <li>Coordinó médicos y colegios en CEAPSI (salud mental)</li>
+          <li>Experiencia directa en PIE — conoce el proceso de licitación por dentro</li>
+          <li>7+ años en operaciones y gestión (Newstilo Travel, Witwan)</li>
+          <li>Certificado en AI Agents y Claude Code</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Jose Muñoz</div>
+        <div class="team-role">Data Engineer · Desarrollo técnico</div>
+        <ul class="team-bullets">
+          <li>Data Engineer en Baufest — clientes enterprise LATAM y EE.UU.</li>
+          <li>Databricks, Azure, Spark, Delta Lake, Power BI</li>
+          <li>Ha visto cómo empresas grandes aprueban tecnología y compran</li>
+          <li>Construyó el MVP completo en 4 días con Claude Code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Hachiko Kids</div>
+    <div class="footer-contact">
+      <strong>Contacto:</strong> <a href="mailto:josemaria.munoz95@gmail.com">josemaria.munoz95@gmail.com</a>
+      &nbsp;·&nbsp; <strong>Piloto:</strong> Android APK disponible
+      &nbsp;·&nbsp; <span style="font-size: 7pt; color: #C4BDE0;">Lenguaje conductual, no clínico — datos de niños nunca se venden</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
