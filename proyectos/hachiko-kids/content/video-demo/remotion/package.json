@@ -1,0 +1,26 @@
+{
+  "name": "hachiko-kids-video",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx remotion studio src/Root.tsx",
+    "render": "npx remotion render src/Root.tsx HachikoKidsDemo ../reels/demo-hachiko-kids-v1.mp4 --codec=h264"
+  },
+  "dependencies": {
+    "@remotion/captions": "^4.0.290",
+    "@remotion/cli": "4.0.290",
+    "@remotion/google-fonts": "4.0.290",
+    "@remotion/transitions": "4.0.290",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-qr-code": "^2.0.18",
+    "remotion": "4.0.290",
+    "zod": "^3.22.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "prettier": "^2.8.8",
+    "typescript": "^5.4.5"
+  }
+}
