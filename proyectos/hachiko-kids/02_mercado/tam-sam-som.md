@@ -149,9 +149,11 @@ Ministerio de Educacion (Mineduc). (2024). *Reporte Nacional de Matricula y Prog
 
 ### Fuentes Cientificas y de Salud
 
-Vicente, B., et al. (s.f.). *Prevalencia de Trastornos de Salud Mental en la Poblacion Infanto-Juvenil en Chile.*
+Vicente, B., Saldivia, S., de la Barra, F., Melipillan, R., Valdivia, M., & Kohn, R. (2012). *Salud mental infanto-juvenil en Chile y brechas de atencion sanitarias.* Revista Medica de Chile, 140(4), 447-457. [Prevalencia con deterioro funcional: 22.5%]
 
-Estadisticas de Salud Publica. (2023). *Analisis de Urgencias Psiquiatricas Infantiles: Variacion Historica 2019-2023.*
+Portilla-Saavedra, D., Castillo-Morales, K., Leiva-Gutierrez, J., Moreno, V., & Casapia, T. (2025). *Prevalencia de atenciones de trastornos de salud mental de urgencia en Chile (2021-2023).* Terapia Psicologica, 43(2), 183-201. [Atenciones totales urgencia: 235.705 (2021) → 307.407 (2023)]
+
+Retamal Parra, M. D., & Munoz Pareja, M. (2023). *Salud mental de ninos, ninas y adolescentes durante la pandemia COVID-19: descripcion de diagnosticos atendidos en urgencia psiquiatrica Hospital Las Higueras, Talcahuano.* ARS MEDICA Revista de Ciencias Medicas, 48(1). https://doi.org/10.11565/arsmed.v48i1.1942
 
 ### Marco Legal y Regulatorio (Chile)
 
