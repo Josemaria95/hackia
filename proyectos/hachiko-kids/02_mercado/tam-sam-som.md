@@ -127,5 +127,39 @@ status: en-progreso
 
 ---
 
+## Referencias Bibliograficas (APA)
+
+### Fuentes de Mercado Global (TAM)
+
+Allied Market Research. (2025). *Mental Health Apps Market for Children: Global Opportunity Analysis and Industry Forecast.*
+
+Fortune Business Insights. (2025). *Pediatric Telehealth Market Size, Share & COVID-19 Impact Analysis.*
+
+Grand View Research. (2025). *Digital Child Mental Health Market Size, Share & Trends Analysis Report 2025-2030.*
+
+HolonIQ. (2025). *Social Emotional Learning (SEL) Technology Market: Global Landscape and Projections.*
+
+### Fuentes Institucionales y Demograficas (Chile)
+
+Colegio Medico de Chile. (2024). *Registro de Medicos Especialistas: Pediatria y Salud Publica.*
+
+Instituto Nacional de Estadisticas (INE). (2024). *Proyecciones de Poblacion: Segmento Infantil 4-12 anos.*
+
+Ministerio de Educacion (Mineduc). (2024). *Reporte Nacional de Matricula y Programa de Integracion Escolar (PIE).*
+
+### Fuentes Cientificas y de Salud
+
+Vicente, B., et al. (s.f.). *Prevalencia de Trastornos de Salud Mental en la Poblacion Infanto-Juvenil en Chile.*
+
+Estadisticas de Salud Publica. (2023). *Analisis de Urgencias Psiquiatricas Infantiles: Variacion Historica 2019-2023.*
+
+### Marco Legal y Regulatorio (Chile)
+
+Biblioteca del Congreso Nacional. (2022). *Ley N° 21.430: Sobre garantias y proteccion integral de los derechos de la ninez y adolescencia.*
+
+Biblioteca del Congreso Nacional. (2023). *Ley N° 21.545: Establece la promocion de la inclusion, la atencion integral y la proteccion de los derechos de las personas con trastorno del espectro autista (Ley TEA).*
+
+---
+
 > Contexto: [[hachiko-kids]]
 > Equipo: [[perfil-edgar-recursos-estrategicos]] · [[perfil-jose-recursos-estrategicos]]
