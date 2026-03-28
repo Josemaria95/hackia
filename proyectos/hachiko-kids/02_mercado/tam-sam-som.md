@@ -105,7 +105,7 @@ status: en-progreso
 - Hachiko Kids como complemento digital al seguimiento
 
 ### 4. Crisis post-pandemia
-- Urgencias psiquiatricas infantiles aumentaron 72% (2019-2023)
+- Atenciones de urgencia por salud mental aumentaron 31% entre 2021 y 2023 (235.705 → 307.407 atenciones) — Portilla-Saavedra et al., 2025
 - Listas de espera en sistema publico: 3-6 meses
 - Padres buscan alternativas digitales activamente
 

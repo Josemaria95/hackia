@@ -227,7 +227,7 @@ Estructura: **HOLA → SPIN → SOMOS → GENIALES**
 ### Slide 11 — WHY NOW
 
 **Lo que se ve en pantalla:**
-> 1. +72% urgencias psiquiátricas infantiles post-pandemia
+> 1. +31% atenciones urgencia salud mental (2021-2023) — 307.000 atenciones en 2023
 > 2. Ley 21.430 + Ley TEA: monitoreo continuo obligatorio
 > 3. PIE: partidas abiertas, 400.000 niños financiados
 > 4. Los padres ya buscan apps — la pregunta es si llegan a usted con datos o con angustia
@@ -236,7 +236,7 @@ Estructura: **HOLA → SPIN → SOMOS → GENIALES**
 
 "Cuatro razones por las que este es el momento."
 
-"La crisis es real: urgencias psiquiátricas infantiles subieron 72% desde 2019. Ustedes lo están viendo."
+"La crisis es real: las atenciones de urgencia por salud mental subieron 31% entre 2021 y 2023 — 307.000 atenciones el año pasado, con ideación suicida creciendo 2% mensual. Ustedes lo están viendo."
 
 "El marco legal los respalda: la Ley 21.430 y la Ley TEA crean obligaciones de seguimiento continuo que las herramientas digitales pueden cumplir."
 

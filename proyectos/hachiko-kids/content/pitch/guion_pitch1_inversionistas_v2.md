@@ -222,7 +222,7 @@ Estructura: **HOLA → SPIN → SOMOS → GENIALES**
 
 **Lo que se ve en pantalla:**
 > 4 razones:
-> 1. Crisis post-pandemia: urgencias psiquiátricas infantiles +72% (2019-2023)
+> 1. Crisis post-pandemia: atenciones de urgencia por salud mental +31% (2021-2023), ideación suicida creciendo 2% mensual
 > 2. Ley 21.430 y Ley TEA: demanda institucional de herramientas de monitoreo
 > 3. PIE: 400.000 niños ya financiados, partidas abiertas para "recursos de apoyo"
 > 4. Las instituciones ya buscan herramientas digitales — la distribución B2B2C es posible hoy
@@ -231,7 +231,7 @@ Estructura: **HOLA → SPIN → SOMOS → GENIALES**
 
 "El timing es específico."
 
-"Primero: la crisis. Las urgencias psiquiátricas infantiles subieron 72% entre 2019 y 2023. Los padres están angustiados y buscan respuestas."
+"Primero: la crisis. Las atenciones de urgencia por salud mental subieron 31% entre 2021 y 2023 — 307.000 atenciones solo el último año. La ideación suicida crece a un 2% mensual. Los padres están angustiados y buscan respuestas."
 
 "Segundo: el marco legal. La Ley 21.430 y la Ley TEA crean obligaciones institucionales de monitoreo continuo. Hay demanda regulatoria."
 

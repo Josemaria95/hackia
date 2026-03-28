@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hachiko Kids — Ge Tiffany Wang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --navy:       #0F1F3D;
+      --navy-mid:   #1E3A5F;
+      --teal:       #2A7F7F;
+      --teal-light: #E8F4F4;
+      --bg:         #FAFAF8;
+      --divider:    #E8E4DC;
+      --body:       #2D3748;
+      --muted:      #718096;
+      --accent-stat:#1A5F5F;
+
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Inter', system-ui, sans-serif;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── PAGE / BODY ────────────────────────────────────────── */
+    html, body {
+      background: #E8E4DC;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── DOCUMENT SHELL ─────────────────────────────────────── */
+    .page {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 64px 72px 56px;
+      position: relative;
+    }
+
+    /* ─── ATOMS: TYPOGRAPHY ──────────────────────────────────── */
+
+    /* Wordmark */
+    .wordmark {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    /* Document title */
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-top: var(--space-3);
+      letter-spacing: -0.01em;
+    }
+
+    /* Document subtitle */
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: var(--space-2);
+      font-style: italic;
+    }
+
+    /* Section headings */
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: var(--space-3);
+      letter-spacing: 0.01em;
+    }
+
+    /* Body copy */
+    p {
+      margin-bottom: var(--space-4);
+      color: var(--body);
+      font-size: 13.5px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    strong { font-weight: 600; color: var(--navy); }
+
+    /* ─── ATOMS: DIVIDER ─────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--divider);
+      margin: var(--space-6) 0;
+    }
+
+    /* ─── ATOMS: STAT CALLOUT ────────────────────────────────── */
+    .stat {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--teal);
+      font-style: italic;
+    }
+
+    /* ─── ATOMS: BLOCKQUOTE ──────────────────────────────────── */
+    blockquote {
+      border-left: 2.5px solid var(--teal);
+      padding: var(--space-3) var(--space-5);
+      margin: var(--space-5) 0;
+      background: var(--teal-light);
+    }
+    blockquote p {
+      font-style: italic;
+      color: var(--navy-mid);
+      font-size: 13px;
+      margin: 0;
+    }
+    blockquote p + p {
+      margin-top: var(--space-2);
+    }
+
+    /* ─── ATOMS: LIST ITEMS ──────────────────────────────────── */
+    ul {
+      padding-left: var(--space-5);
+      margin-bottom: var(--space-4);
+    }
+    ul li {
+      margin-bottom: var(--space-2);
+      font-size: 13.5px;
+      color: var(--body);
+    }
+    ul li::marker {
+      color: var(--teal);
+    }
+
+    /* ─── ATOMS: PRIVACY COMMITMENT ─────────────────────────── */
+    .privacy-note {
+      background: #F5F0E8;
+      border-left: 3px solid var(--navy);
+      padding: var(--space-3) var(--space-5);
+      margin: var(--space-5) 0;
+    }
+    .privacy-note p {
+      font-size: 12.5px;
+      color: var(--navy-mid);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* ─── ATOMS: RESEARCH QUESTION ITEM ─────────────────────── */
+    ol.research-qs {
+      padding-left: var(--space-5);
+      margin-bottom: var(--space-4);
+      counter-reset: rq-counter;
+      list-style: none;
+    }
+    ol.research-qs li {
+      counter-increment: rq-counter;
+      position: relative;
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-3);
+      font-size: 13.5px;
+      color: var(--body);
+    }
+    ol.research-qs li::before {
+      content: counter(rq-counter);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+      width: 20px;
+    }
+
+    /* ─── MOLECULES: HEADER ──────────────────────────────────── */
+    .doc-header {
+      margin-bottom: var(--space-8);
+      padding-bottom: var(--space-6);
+      border-bottom: 2px solid var(--navy);
+    }
+
+    /* ─── MOLECULES: OPENING HOOK ────────────────────────────── */
+    .opening-hook {
+      margin-bottom: var(--space-5);
+    }
+    .opening-hook .hook-stat-line {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: var(--space-3);
+    }
+    .opening-hook .hook-stat-line .stat {
+      font-size: 22px;
+    }
+
+    /* ─── MOLECULES: SECTION BLOCK ───────────────────────────── */
+    .section {
+      margin-bottom: var(--space-6);
+    }
+
+    /* ─── MOLECULES: STATUS LIST ─────────────────────────────── */
+    .status-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: var(--space-4);
+    }
+    .status-list li {
+      display: flex;
+      gap: var(--space-3);
+      align-items: baseline;
+      margin-bottom: var(--space-2);
+      font-size: 13.5px;
+    }
+    .status-list li::before {
+      content: "→";
+      color: var(--teal);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* ─── MOLECULES: TEAM MEMBER ─────────────────────────────── */
+    .team-member {
+      margin-bottom: var(--space-4);
+    }
+    .team-member .name {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 13.5px;
+    }
+    .team-member p {
+      margin-top: var(--space-1);
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* ─── MOLECULES: CONTACT BLOCK ───────────────────────────── */
+    .contact-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3) var(--space-8);
+      margin-bottom: var(--space-5);
+    }
+    .contact-item .contact-name {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 13px;
+    }
+    .contact-item .contact-email {
+      font-size: 12.5px;
+      color: var(--teal);
+      font-family: var(--font-sans);
+    }
+
+    /* ─── ORGANISMS: FOOTER ──────────────────────────────────── */
+    .doc-footer {
+      margin-top: var(--space-6);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--divider);
+    }
+    .closing-line {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--navy-mid);
+      line-height: 1.6;
+    }
+
+    /* ─── PRINT / PDF ────────────────────────────────────────── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 18mm 0 0 0;
+      }
+
+      @page :first {
+        margin-top: 0;
+      }
+
+      html, body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        max-width: 100%;
+        width: 210mm;
+        min-height: 297mm;
+        padding: 18mm 20mm 16mm;
+        box-shadow: none;
+      }
+
+      /* Prevent section breaks mid-content */
+      .section        { break-inside: avoid; }
+      .team-member    { break-inside: avoid; }
+      blockquote      { break-inside: avoid; }
+      .privacy-note   { break-inside: avoid; }
+      .doc-footer     { break-inside: avoid; }
+
+      /* Keep headings with following content */
+      h2 { break-after: avoid; }
+
+      /* Ensure links print legibly */
+      a { color: var(--teal) !important; text-decoration: none; }
+
+      /* Slightly tighter for print */
+      p { font-size: 12.5px; }
+      ul li, ol.research-qs li, .status-list li { font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── HEADER ──────────────────────────────────────────── -->
+    <header class="doc-header">
+      <div class="wordmark">Hachiko Kids</div>
+      <h1>Behavioral data from children's play —<br>designed around their autonomy</h1>
+      <p class="subtitle">A note for Ge Tiffany Wang · March 2026</p>
+    </header>
+
+    <!-- ── SECTION 1: The Research Gap ───────────────────── -->
+    <section class="section">
+      <h2>The research gap we're standing in</h2>
+
+      <div class="opening-hook">
+        <p class="hook-stat-line">
+          Latin America is home to <span class="stat">180 million children under 15</span> — and virtually none of them appear in the studies that shape how we design technology for children.
+        </p>
+      </div>
+
+      <p>Every dataset on children's digital behavior and mental health comes from the Global North. The children co-designing with researchers at Oxford, Stanford, and CMU are not the same children navigating WhatsApp family groups at age 6, sharing tablets with siblings, or living in cities where a child psychologist has a 3–6 month waitlist.</p>
+
+      <p><strong>Hachiko Kids exists at that gap.</strong></p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── SECTION 2: What We Built ───────────────────────── -->
+    <section class="section">
+      <h2>What we built</h2>
+
+      <p>A mobile app where children aged 4–12 care for a virtual pet — <strong>Luna</strong> — by making daily choices in behavioral scenarios:</p>
+
+      <blockquote>
+        <p>"Luna wants to play. Does she play alone or with friends?"</p>
+        <p>"Luna is angry. What does she want to do?"</p>
+      </blockquote>
+
+      <p>The child is never evaluated. Luna never dies. The session lasts 60–90 seconds.</p>
+
+      <p>Each choice maps to one of <strong>five behavioral dimensions</strong> grounded in developmental psychology: instruction-following, socialization, prosocial behavior, emotional regulation, and general mood. Parents receive a weekly summary with observable patterns and actionable tips — in behavioral language, never clinical.</p>
+
+      <p>A pathway to professional care opens organically: if a pattern persists for 3–4 weeks, the app suggests mentioning it at the next pediatrician visit. <em>The child activates the clinician — not the other way around.</em></p>
+
+      <div class="privacy-note">
+        <p>No child data is ever sold. No individual data is shared without explicit parental consent. If the system detects signals of self-harm or abuse, a crisis protocol activates — the data is never stored for analytics.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── SECTION 3: Why This Population ────────────────── -->
+    <section class="section">
+      <h2>Why this population is scientifically underrepresented — and why that matters</h2>
+
+      <p>Your work on datafication and children's data autonomy <em>("Treat me as your friend, not a number")</em> documented how children feel reduced to data points by systems designed without their consent. That research was conducted in the UK.</p>
+
+      <p>Latin American children face compounded versions of those same dynamics — with almost no academic visibility:</p>
+
+      <ul>
+        <li>Digital literacy programs are sparse or nonexistent</li>
+        <li>Parental mediation of technology is lower — more unsupervised screen time, earlier onset</li>
+        <li>Children in Chile's PIE program interact with clinical systems that collect data on them with zero transparency or participation</li>
+        <li><strong>22.5% of Chilean children</strong> meet criteria for a mental health disorder (Vicente et al.) — with no continuous monitoring between clinical visits</li>
+      </ul>
+
+      <p>A behavioral dataset generated through autonomous, game-based interaction — where the child is the agent of every data point — would be academically unprecedented in this context.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── SECTION 4: Prevention Thesis ──────────────────── -->
+    <section class="section">
+      <h2>The prevention thesis</h2>
+
+      <p>We believe the most powerful thing we can do for adult mental health is intervene at age 6, not age 26.</p>
+
+      <p>Early childhood is when regulation patterns, social preferences, and emotional response strategies are forming. A child who learns to name emotions through play, whose parents receive concrete weekly guidance, and whose behavioral patterns are visible enough to prompt early professional consultation — that child enters adolescence with a fundamentally different foundation.</p>
+
+      <p>Chile's post-pandemic data shows a <strong>31% increase in psychiatric emergency visits (2021–2023)</strong>, reaching 307,407 cases in 2023, with suicidal ideation growing at 2% per month. Waitlists are 3–6 months long. The system is reactive by design. Hachiko Kids is a prevention layer that fits inside families' daily routines — not a clinical tool, not a replacement for therapy, but the continuous, low-friction signal that makes early action possible.</p>
+
+      <p><strong>Prevention at childhood scale is the highest-leverage intervention available for the adult mental health crisis.</strong></p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── SECTION 5: Status + Team (two-column feel) ────── -->
+    <section class="section">
+      <h2>Current status</h2>
+      <ul class="status-list">
+        <li><span><strong>MVP live:</strong> Android APK deployed, Supabase backend active</span></li>
+        <li><span><strong>Pilot:</strong> Recruiting 20–30 families in Chile (March 2026)</span></li>
+        <li><span><strong>Funding pipeline:</strong> Open Salcobrand (UDD Ventures), CORFO Capital Semilla, Wayra Colombia, ChileMass</span></li>
+        <li><span><strong>Regulatory alignment:</strong> Chile's Ley 21.430 (2022) and Ley TEA 21.545 (2023) create institutional demand for exactly this type of tool</span></li>
+      </ul>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="section">
+      <h2>The team</h2>
+
+      <div class="team-member">
+        <span class="name">Edgar Gomero</span>
+        <p>Operated Chile's PIE program at CEAPSI, coordinating psychologists, physicians, and public schools. Knows the clinical-institutional flow from the inside: how resources move, who makes decisions, what breaks. His purpose: quality education adapted to every child.</p>
+      </div>
+
+      <div class="team-member">
+        <span class="name">José María Muñoz</span>
+        <p>Data Engineer (Databricks, Azure, Spark) with enterprise-scale experience in sensitive data pipelines across LATAM. Built the MVP with AI assistance. His purpose: technology that genuinely helps people.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── SECTION 6: Why Reaching Out ───────────────────── -->
+    <section class="section">
+      <h2>Why we're reaching out to you</h2>
+
+      <p>Your framework of <strong>12 design mechanisms for children's digital autonomy</strong> is the closest academic foundation to what we're building. Your observation that children want to be treated as agents — not as data points — is embedded in every design decision we made.</p>
+
+      <p>We believe Hachiko Kids could be a fieldsite for research questions your lab is already asking:</p>
+
+      <ol class="research-qs">
+        <li>How do children in LATAM perceive datafication differently from children in the UK or US?</li>
+        <li>Can a behavioral interface designed around autonomy principles generate higher-quality and more ethically grounded data than passive tracking?</li>
+        <li>What does it look like to design for children's data autonomy in under-resourced contexts — where privacy literacy is lower but stakes are higher?</li>
+        <li>Can early behavioral signals detected through play correlate with validated clinical instruments (SDQ, CBCL)?</li>
+      </ol>
+
+      <p>We're not asking for endorsement. We're asking if there's a conversation worth having — about mentorship, about research collaboration, or simply about whether what we're building is pointed in the right direction.</p>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────────────────── -->
+    <footer class="doc-footer">
+      <div class="contact-block">
+        <div class="contact-item">
+          <div class="contact-name">José María Muñoz</div>
+          <div class="contact-email">josemaria.munoz95@gmail.com</div>
+          <div class="contact-email"><a href="https://www.linkedin.com/in/josemunoz95/" target="_blank">linkedin.com/in/josemunoz95</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-name">Edgar Gomero</div>
+          <div class="contact-email">edgar@kntor.io</div>
+          <div class="contact-email"><a href="https://www.linkedin.com/in/edgar-gomero/" target="_blank">linkedin.com/in/edgar-gomero</a></div>
+        </div>
+      </div>
+      <p class="closing-line">"We read 'Treat me as your friend, not a number in your database.' We are trying to build exactly that — for children who never appear in that kind of study."</p>
+    </footer>
+
+  </div>
+</body>
+</html>

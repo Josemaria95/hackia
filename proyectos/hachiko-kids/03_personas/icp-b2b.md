@@ -43,7 +43,7 @@ Ambos canales operan en el mismo entorno regulatorio. Entenderlo es ventaja de v
 |-------|----------------|
 | **Ley 21.430** (Garantías de la Niñez, 2022) | Obliga al Estado a generar políticas de prevención y detección temprana. Crea demanda institucional de herramientas complementarias. |
 | **Ley 21.545** (Ley TEA, 2023) | Niños con TEA tienen derecho a seguimiento continuo. Herramientas de monitoreo emocional forman parte del protocolo. |
-| **Crisis post-pandemia** | Urgencias psiquiátricas infantiles +72% (2019-2023). Listas de espera 3-6 meses en sistema público. Demanda institucional sin oferta suficiente. |
+| **Crisis post-pandemia** | Atenciones de urgencia por salud mental +31% entre 2021 y 2023 (235.705 → 307.407). Ideación suicida creciendo 2% mensual. Listas de espera 3-6 meses en sistema público. Demanda institucional sin oferta suficiente. |
 | **Programa PIE (Mineduc)** | ~400,000 niños en PIE. Subsidio de ~$1.5M USD/colegio/año con partidas explícitas para "recursos de apoyo". Hachiko Kids califica para esa línea presupuestaria. |
 
 ---
