@@ -5,7 +5,7 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 
 **Pivot** del concepto original Hachiko Corporativo (bienestar adulto) hacia salud mental infantil.
 
-**Estado actual**: MVP funcional desplegado. App Android (APK via EAS Build) + Supabase backend + landing page + landing piloto. En fase de piloto con familias. Buscando activamente financiamiento (Salcobrand, ChileMass, Platanus, COPEC UC).
+**Estado actual**: MVP funcional desplegado. App Android (APK via EAS Build) + Supabase backend + landing page + landing piloto. En fase de piloto con familias. Buscando activamente financiamiento (Start-Up Chile Ignite, Y Combinator S26, Techstars Healthcare, Platanus, y otros).
 
 ## Equipo
 - **Edgar** — Experiencia directa en PIE (Programa de Integración Escolar del Mineduc). Coordinó médicos y colegios en CEAPSI. Conoce el flujo clínico-institucional desde adentro. Rol: assets, reclutamiento de familias/clínicos, canal B2B institucional.
@@ -298,21 +298,33 @@ Lunes 10am → Push notification al padre → Padre abre resumen
 
 Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendario-convocatorias.md`.
 
-| Convocatoria | Cierre | Status |
-|--------------|--------|--------|
-| Open Salcobrand (UDD Ventures) | 22 mar 2026 | URGENTE — piloto 6 meses en Salcobrand |
-| ChileMass Emprende (CORFO) | ~fines mar 2026 | ALTA — inmersión Boston, requiere persona jurídica |
-| CORFO Capital Semilla Temprano | 28 mar 2026 | ALTA — hasta $35M CLP, requiere persona jurídica |
-| Wayra Colombia | 31 mar 2026 | ALTA — Healthtech, hasta USD $100K |
-| I+D para Innovar (COPEC UC) | 6 abr 2026 | MEDIA — requiere base científica + universidad |
-| Platanus | Rolling | MEDIA — USD 200K x 5.5-7% equity, requiere full-time |
-| Endeavor Scale-Up Program | Rolling | MEDIA — aceleración + red global LATAM |
-| Microsoft for Startups | Sin cierre | BAJA — créditos Azure + mentoring, sin equity |
-| ProChile Go Global Program | Por confirmar | MEDIA — expansión internacional, cupos limitados |
+| Convocatoria | Cierre | Inversión | Equity | Status |
+|--------------|--------|-----------|--------|--------|
+| Open Salcobrand (UDD Ventures) | 22 mar 2026 | Piloto 6 meses | 0% | VENCIDA |
+| ChileMass Emprende (CORFO) | ~fines mar 2026 | Inmersión Boston | 0% | ALTA — requiere persona jurídica |
+| CORFO Capital Semilla Temprano | 28 mar 2026 | $35M CLP | 0% | ALTA — requiere persona jurídica |
+| Wayra Colombia | 31 mar 2026 | USD $100K | Por definir | ALTA — Healthtech |
+| I+D para Innovar (COPEC UC) | 6 abr 2026 | I+D | 0% | MEDIA — base científica |
+| **Y Combinator S26** | **4 may 2026** | **$500K** | **7% + MFN** | **ALTA — video 1 min requerido** |
+| **Start-Up Chile — Ignite** | **7 may 2026** | **$27K + $22K** | **0%** | **ALTA — máxima prioridad** |
+| **Techstars Healthcare** | **10 jun 2026** | **$220K** | **5% + MFN** | **MEDIA — post-YC** |
+| Platanus | Rolling | USD $200K | 5.5-7% | MEDIA — requiere full-time |
+| AceleraLatam (ALGEN) | Por confirmar | ~$300K red | Coinversión | MEDIA |
+| Magical | Rolling | $125K | Nota | MEDIA |
+| Rockstart LATAM | 2026 por anunciar | $100K | 6% | MEDIA |
+| Embarca | Rolling | $50K + follow-on | 10% | MEDIO-ALTO |
+| Parallel18 | ~jun 2026 | $100K | SAFE | MEDIA — requiere incorporación USA |
+| LAN Accelerator | 2026 por abrir | $150K | SAFE | BAJA |
+| UTEC Ventures | Por confirmar | $25K | Nota | BAJA |
+| Microsoft for Startups | Sin cierre | $150K créditos | 0% | BAJA |
 
-**BLOQUEANTES**: Persona jurídica en Chile (para ChileMass/ProChile/CORFO Semilla). Decisión full-time (para Platanus).
+**BLOQUEANTES**:
+- Persona jurídica en Chile (ChileMass/ProChile/CORFO Semilla)
+- Decisión full-time (Platanus)
+- Decisión relocalización SF 3 meses (YC)
+- Video founders 1 min (YC — sin esto no se puede postular)
 
-**Materiales pendientes**: Pitch deck base, one-pager, video demo, métricas del piloto.
+**Materiales pendientes**: Pitch deck base, one-pager, video demo app, video founders 1 min (YC), métricas del piloto.
 
 ## Dependencias principales (app)
 

@@ -13,19 +13,29 @@ Plan de preparacion y postulacion a fondos, aceleradoras y ferias.
 
 ## Vista rapida — Fechas criticas
 
-| Convocatoria | Cierre postulacion | Urgencia | Aplica a Hachiko Kids |
-|--------------|-------------------|----------|----------------------|
-| Enexpro ProChile (Pitch Day) | **19 marzo 2026** | VENCIDA | Si — HealthTech |
-| Open Salcobrand — Soluciones Innovadoras | **22 marzo 2026** | URGENTE (5 dias) | Si — salud y bienestar |
-| ChileMass Emprende 2026 | **~Fines marzo 2026** (estimado) | ALTA | Si — tech con potencial global |
-| I+D para Innovar (COPEC UC) | **6 abril 2026** | MEDIA | Parcial — requiere base cientifica |
-| Platanus | Rolling (ventana abierta) | MEDIA | Si — startup tech early-stage |
-| CORFO Capital Semilla Temprano | **28 marzo 2026** | ALTA (9 dias) | Si — fondo early-stage Chile |
-| Wayra Colombia | **31 marzo 2026** | ALTA (12 dias) | Parcial — Healthtech, pero es Colombia |
-| Endeavor Scale-Up Program | Rolling | MEDIA | Si — aceleracion LATAM + red global |
-| Microsoft for Startups Founders Hub | Sin cierre | BAJA (aplicar cuando convenga) | Si — creditos Azure + mentoring, sin equity |
-| ProChile Go Global Program | Por confirmar | MEDIA | Si — expansion internacional, requiere empresa chilena |
-| ANID IDeA Investigacion Tecnologica | **19 marzo 2026** | VENCIDA | Parcial — requiere institucion |
+| Convocatoria | Cierre postulacion | Urgencia | Fit | Equity |
+|--------------|-------------------|----------|-----|--------|
+| Enexpro ProChile (Pitch Day) | **19 marzo 2026** | VENCIDA | Si — HealthTech | 0% |
+| Open Salcobrand — Soluciones Innovadoras | **22 marzo 2026** | VENCIDA | Si — salud y bienestar | 0% |
+| ChileMass Emprende 2026 | **~Fines marzo 2026** (estimado) | ALTA | Si — tech con potencial global | 0% |
+| CORFO Capital Semilla Temprano | **28 marzo 2026** | ALTA | Si — fondo early-stage Chile | 0% |
+| Wayra Colombia | **31 marzo 2026** | ALTA | Parcial — Healthtech | Por definir |
+| I+D para Innovar (COPEC UC) | **6 abril 2026** | MEDIA | Parcial — requiere base cientifica | 0% |
+| **Y Combinator S26** | **4 mayo 2026** | **ALTA** | MUY ALTO — MVP + healthtech infantil | 7% + MFN |
+| **Start-Up Chile — Ignite** | **7 mayo 2026** | **ALTA** | MUY ALTO — healthtech, Chile, 0% equity | **0%** |
+| **Techstars Healthcare** | **10 junio 2026** | MEDIA | ALTO — salud + tech | 5% + MFN |
+| Parallel18 (Gen 14) | **~junio 2026** | MEDIA | MEDIO — requiere incorporacion USA | SAFE |
+| Platanus | Rolling | MEDIA | ALTO — startup tech early-stage | 5.5-7% |
+| Magical | Rolling | MEDIA | ALTO — sector agnostic, LATAM | Nota convertible |
+| AceleraLatam (ALGEN) | Por confirmar | MEDIA | ALTO — red inversores Chile | Coinversion |
+| Rockstart LATAM | 2026 por anunciar | MEDIA | ALTO — Bogota, 6 meses | 6% |
+| Embarca | Rolling (Booster abierto) | MEDIA | MEDIO-ALTO — healthtech, Mendoza | 10% |
+| LAN Accelerator | 2026 por abrir | BAJA | MEDIO — startups LATAM | SAFE |
+| UTEC Ventures | Por confirmar | BAJA | MEDIO — health + wellness | Nota convertible |
+| Endeavor Scale-Up Program | Rolling | BAJA | MEDIO — requiere traccion solida | Sin inversion |
+| Microsoft for Startups Founders Hub | Sin cierre | BAJA | Si — creditos Azure, sin equity | 0% |
+| ProChile Go Global Program | Por confirmar | BAJA | Si — expansion internacional | 0% |
+| ANID IDeA Investigacion Tecnologica | **19 marzo 2026** | VENCIDA | Parcial — requiere institucion | 0% |
 
 ---
 
@@ -336,7 +346,171 @@ Plan de preparacion y postulacion a fondos, aceleradoras y ferias.
 
 ---
 
-## Calendario consolidado — Marzo / Abril 2026
+## 11. Start-Up Chile — Ignite (PRIORIDAD #1 mayo 2026)
+
+**Organizan**: CORFO / Start-Up Chile
+**Cierre**: 7 mayo 2026 (convocatoria BIG 8, apertura 16 abril 2026)
+**Web**: https://startupchile.org/en/apply/ignite/
+
+### Que ofrecen
+- CLP $25M (~$27K USD) en subsidio directo
+- Extension adicional de $22K USD
+- **0% equity** — programa puente, sin dilucion
+- 4 meses en Santiago (espacio de trabajo + mentoring)
+- Red de alumni y acceso al ecosistema CORFO
+
+### Requisitos
+- Producto funcional + validacion temprana (Hachiko cumple: MVP desplegado + piloto)
+- Startup con menos de 3 anos de vida
+- Al menos 1 fundador dedicado al programa durante los 4 meses
+- Sin restriccion de sector (Healthtech es sector #1 del portfolio historico: 16%)
+
+### Por que es PRIORIDAD #1
+- Cero equity = sin dilucion en etapa pre-seed
+- Basado en Chile = sin necesidad de relocalizar a otro pais
+- Sector perfectamente alineado (healthtech infantil)
+- Deadline alcanzable con materiales ya existentes del piloto
+- Stepping stone ideal antes de postular a YC o Techstars
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| 16 abr | Apertura convocatoria — revisar bases completas | Jose |
+| 17-20 abr | Adaptar pitch deck para Start-Up Chile (foco traccion + equipo + mercado Chile) | Jose + Edgar |
+| 21-24 abr | Completar formulario online con metricas del piloto | Jose |
+| 25-28 abr | Revision final (storytelling, video si aplica) | Jose + Edgar |
+| 29 abr - 5 may | Buffer + ajustes finales | Jose |
+| **7 may** | **DEADLINE** | — |
+
+---
+
+## 12. Y Combinator Summer 2026 (PRIORIDAD #2 mayo 2026)
+
+**Organizan**: Y Combinator
+**Cierre**: 4 mayo 2026 (8pm PT). Decisiones: ~5 junio 2026
+**Web**: https://www.ycombinator.com/apply
+
+### Que ofrecen
+- $125K SAFE a 7% equity
+- $375K adicional en MFN uncapped SAFE
+- **Total: $500K** por 7% equity
+- 3 meses presenciales en San Francisco (batch S26)
+- Red YC: 10,000+ founders, acceso a inversores globales, Demo Day
+
+### Requisitos
+- Sin restriccion geografica ni de etapa
+- Presencial en SF obligatorio durante el batch (jun-sep 2026)
+- Video de 1 minuto (founders hablando a camara — requisito critico)
+- Application escrita: problema, solucion, traccion, equipo
+
+### Por que es PRIORIDAD #2
+- Mejor deal financiero del mercado venture para early-stage
+- Tener MVP desplegado con familias piloto es diferenciador real
+- ~1% tasa de aceptacion — pero aplicar cuesta solo tiempo
+
+### Bloqueantes
+- **Relocalicion a SF 3 meses** (jun-sep 2026) — ambos founders deben decidir si es viable
+- Requiere persona juridica (Delaware C-Corp o equivalente para SAFE)
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| Ahora | Decision GO/NO-GO sobre relocalision SF | Jose + Edgar |
+| 1-7 abr | Grabar video de 1 minuto (founders a camara, problema + solucion + traccion) | Edgar (cara) + Jose (edicion) |
+| 7-20 abr | Redactar application escrita (storytelling + metricas piloto + vision) | Jose |
+| 21-28 abr | Revisar application con founders YC alumni (buscar en red) | Edgar |
+| 29 abr - 3 may | Ajustes finales + revision de calidad | Jose + Edgar |
+| **4 may (8pm PT)** | **DEADLINE** | — |
+
+---
+
+## 13. Techstars Healthcare (PRIORIDAD #3 junio 2026)
+
+**Organizan**: Techstars + Permanente Medicine (Kaiser)
+**Programa**: Techstars Healthcare powered by Permanente Medicine — Washington DC
+**Cierre**: 10 junio 2026. Inicio: 14 sept 2026. Demo Day: 9 dic 2026
+**Web**: https://www.techstars.com/accelerators/healthcare
+
+### Que ofrecen
+- $20K por 5% equity + $200K MFN uncapped SAFE
+- **Total: $220K**
+- 3 meses presenciales en Washington DC
+- Acceso a red Permanente Medicine (Kaiser Permanente — mayor HMO de USA)
+- Techstars alumni network global
+
+### Requisitos
+- Startup healthtech early-stage
+- Presencial en DC (sept-dic 2026)
+- Equipo con al menos 1 co-fundador tecnico
+
+### Fit con Hachiko Kids
+- Alto: salud mental infantil califica perfectamente como healthtech
+- Conexion con Kaiser abre potencial de canal B2B en USA (pediatras, psicologos infantiles)
+- Pero requiere relocalicion DC y empresa constituida
+
+### Actividades de preparacion
+
+| Fecha | Actividad | Responsable |
+|-------|-----------|-------------|
+| Mayo | Decision GO/NO-GO (post-YC, si no quedaron) | Jose + Edgar |
+| 1-15 jun | Preparar application con metricas del piloto maduras | Jose |
+| **10 jun** | **DEADLINE** | — |
+
+---
+
+## 14. Pipeline — Rolling y por abrir 2026
+
+### AceleraLatam (ALGEN)
+- **Web**: https://www.aceleralatam.cl/
+- **Inversion**: Red de 136+ inversores (startups levantan ~$300K promedio via coinversion)
+- **Track record**: 500+ startups, $40M+ levantado
+- **Ubicacion**: Concepcion, Chile
+- **Accion**: Contactar para conocer proxima convocatoria ALGEN
+
+### Magical
+- **Web**: https://magicalstartups.com/
+- **Inversion**: $125K nota convertible. Fee programa: $25K
+- **Duracion**: 6 meses. Sector-agnostic, problemas criticos LATAM
+- **Accion**: Postular cuando se tengan metricas solidas del piloto (D30)
+
+### Rockstart LATAM
+- **Web**: https://rockstart.com/latam/
+- **Inversion**: $100K por 6% equity + "equity-back" guarantee si no siguen invirtiendo
+- **Duracion**: 6 meses en Bogota. 10 startups/batch
+- **Accion**: Monitorear apertura convocatoria 2026 (normalmente Q2-Q3)
+
+### Embarca
+- **Web**: https://www.embarca.tech/
+- **Inversion**: $50K aceleracion (10% equity) + Booster 1-5% + posible $25K adicional + follow-on hasta $100K
+- **Duracion**: 5 meses presencial en Mendoza, Argentina
+- **Healthtech**: Sector explicito en su portfolio
+- **Accion**: Booster 2026 esta abierto — evaluar si vale el 10%
+
+### Parallel18
+- **Web**: https://parallel18.com/
+- **Inversion**: $100K via SAFE. 16 semanas presenciales en Puerto Rico
+- **Requisitos**: Incorporacion USA o PR. 2 co-founders full-time. Presencial obligatorio
+- **Deadline estimado**: Decisiones Gen 14 junio 2026
+- **Accion**: Evaluar viabilidad de incorporacion USA antes de postular
+
+### LAN Accelerator
+- **Web**: https://lanaccelerator.com/
+- **Inversion**: Hasta $150K via SAFE. 12 semanas
+- **Requisitos**: 1 co-founder tecnico (Jose cumple). Startups LATAM
+- **Accion**: Monitorear apertura convocatoria 2026
+
+### UTEC Ventures
+- **Web**: https://utecventures.com/
+- **Inversion**: $25K ($15K cash + $10K servicios). Nota convertible, cap $1M. 12 semanas
+- **Tesis**: "Health, wellness, preventive care" + "Productivity, education" — fit perfecto
+- **Ubicacion**: Lima, Peru
+- **Accion**: Confirmar proxima convocatoria 2026
+
+---
+
+## Calendario consolidado — Marzo / Abril / Mayo / Junio 2026
 
 ### Semana 17-22 marzo (CRITICA)
 
@@ -368,6 +542,47 @@ Plan de preparacion y postulacion a fondos, aceleradoras y ferias.
 | Cualquier dia | Aplicar a Microsoft for Startups (proceso rapido) | Microsoft |
 | **Dom 6** | **DEADLINE COPEC UC** | COPEC UC |
 
+### Semana 7-14 abril (preparacion YC + SUChile)
+
+| Dia | Actividad | Convocatoria |
+|-----|-----------|--------------|
+| 7-10 abr | Decision GO/NO-GO relocalision SF (YC) | YC |
+| 7-10 abr | Grabar video 1 min YC (founders a camara) | YC |
+| 7-14 abr | Redactar application YC (borrador) | YC |
+
+### Semana 16-22 abril (apertura SUChile + avance YC)
+
+| Dia | Actividad | Convocatoria |
+|-----|-----------|--------------|
+| **16 abr** | **APERTURA Start-Up Chile Ignite** — revisar bases | SUChile |
+| 17-20 abr | Adaptar pitch deck para SUChile | SUChile |
+| 17-22 abr | Pulir application YC (revision externa si posible) | YC |
+
+### Semana 24-30 abril
+
+| Dia | Actividad | Convocatoria |
+|-----|-----------|--------------|
+| 24-27 abr | Completar formulario SUChile | SUChile |
+| 24-27 abr | Application YC lista para revision final | YC |
+| 28-30 abr | Buffer y ajustes finales (ambas) | YC + SUChile |
+
+### Semana 1-7 mayo (DEADLINES CRITICOS)
+
+| Dia | Actividad | Convocatoria |
+|-----|-----------|--------------|
+| 1-3 may | Ultimas revisiones YC | YC |
+| **4 may (8pm PT)** | **DEADLINE Y Combinator S26** | YC |
+| 5-6 may | Ajustes finales SUChile | SUChile |
+| **7 may** | **DEADLINE Start-Up Chile Ignite** | SUChile |
+
+### Junio 2026
+
+| Fecha | Actividad | Convocatoria |
+|-------|-----------|--------------|
+| 1-9 jun | Preparar application Techstars Healthcare (si YC = NO) | Techstars |
+| ~jun | Decisiones Parallel18 Gen 14 | Parallel18 |
+| **10 jun** | **DEADLINE Techstars Healthcare** | Techstars |
+
 ---
 
 ## Materiales a preparar (reutilizables)
@@ -377,8 +592,10 @@ Estos materiales sirven para multiples postulaciones:
 - [ ] **Pitch deck base** — problema, solucion, mercado, traccion, equipo (adaptable por convocatoria)
 - [ ] **One-pager Hachiko Kids** — resumen ejecutivo de 1 pagina
 - [ ] **Video demo de la app** — 2 min mostrando flujo nino + dashboard padre
-- [ ] **Metricas del piloto** — cuando esten disponibles (retención D7, D14, etc.)
+- [ ] **Video founders YC (1 min)** — founders a camara hablando del problema, solucion y traccion. CRITICO para YC — sin este no se puede postular
+- [ ] **Metricas del piloto** — cuando esten disponibles (retencion D7, D14, D30, NPS, apertura resumenes)
 - [ ] **Persona juridica en Chile** — BLOQUEANTE para ChileMass y ProChile
+- [ ] **Incorporacion USA (Delaware C-Corp o LLC)** — BLOQUEANTE para Parallel18 y beneficioso para YC
 - [ ] **Pitch deck inversionistas** — version enfocada en unit economics y escalabilidad
 
 ---
