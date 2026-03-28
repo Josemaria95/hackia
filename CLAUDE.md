@@ -106,11 +106,11 @@ Al evaluar una idea, consultar `equipo/` para saber quién puede ejecutar qué p
 | `ideas/` | 11 archivos `.md` | 1 hub estrategico (`espacio-de-oportunidad.md`) + 10 hipotesis |
 | `equipo/` | 2 archivos `.md` | Perfiles de Edgar y Jose con habilidades por hipotesis |
 | `deepresearch/` | 9 archivos `.md` | TAM/SAM/SOM y analisis competitivo por hipotesis |
-| `proyectos/` | 4 archivos + `hachiko-kids/` (11 archivos) | Proyecto Hachiko (maestro + arquitectura + pitch + propuesta original) + pivot Kids |
+| `proyectos/` | 4 archivos + `hachiko-kids/` (en crecimiento activo) | Proyecto Hachiko + pivot Kids |
 | `startup-hachiko/` | 52 archivos `.md` + 2 `.html` | Playbook operativo: 20 secciones + planes + presentaciones |
 | `assets/` | 4 archivos + 2 PDFs | Brand book, research YC, Octalysis, perfiles |
 | raiz | `hachiko-app-memory.md` | Especificacion tecnica completa de la app |
-| **Total** | **~139 archivos** | |
+| **Total** | **~139+ archivos** (verificar con `find . -name "*.md" \| wc -l`) | |
 
 ### Mapa de relaciones (wikilinks)
 

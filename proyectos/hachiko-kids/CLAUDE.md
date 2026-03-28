@@ -210,11 +210,20 @@ hachiko-kids/
     │   ├── reel-hachiko-kids.mp4
     │   ├── reel-hachiko-kids-final.mp4
     │   └── soundtrack_flyer.mp3
+    ├── one-pager/
+    │   ├── one-pager-hachiko-kids.html
+    │   └── one-pager-hachiko-kids-v2.html
     ├── pitch/
-    │   ├── guion_pitch1_inversionistas.docx
-    │   ├── guion_pitch2_clinicas_colegios.docx
-    │   ├── pitch1_inversionistas_spinpitch.pptx
-    │   └── pitch2_clinicas_colegios_spinpitch.pptx
+    │   ├── guion_pitch1_inversionistas_v2.md    ← versión activa (spinpitch)
+    │   ├── guion_pitch2_clinicas_colegios_v2.md ← versión activa
+    │   ├── pitch1_inversionistas_v2.pptx
+    │   ├── pitch2_clinicas_colegios_v2.pptx
+    │   ├── hachiko-kids-research.pdf
+    │   ├── one-pager-research.html / .md
+    │   └── onboarding-prototype.html
+    ├── video-demo/
+    │   ├── guion-video-demo.md
+    │   └── app-prototype.html
     └── research/
         ├── 169_princi_pal_A_Moral_Dilemma.pdf
         ├── Wang_2023_Data_autonomy_in.pdf
@@ -303,7 +312,6 @@ Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendar
 | Open Salcobrand (UDD Ventures) | 22 mar 2026 | Piloto 6 meses | 0% | VENCIDA |
 | ChileMass Emprende (CORFO) | ~fines mar 2026 | Inmersión Boston | 0% | ALTA — requiere persona jurídica |
 | CORFO Capital Semilla Temprano | 28 mar 2026 | $35M CLP | 0% | ALTA — requiere persona jurídica |
-| Wayra Colombia | 31 mar 2026 | USD $100K | Por definir | ALTA — Healthtech |
 | I+D para Innovar (COPEC UC) | 6 abr 2026 | I+D | 0% | MEDIA — base científica |
 | **Y Combinator S26** | **4 may 2026** | **$500K** | **7% + MFN** | **ALTA — video 1 min requerido** |
 | **Start-Up Chile — Ignite** | **7 may 2026** | **$27K + $22K** | **0%** | **ALTA — máxima prioridad** |
