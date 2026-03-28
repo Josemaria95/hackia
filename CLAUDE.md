@@ -197,3 +197,9 @@ App B2B2C de bienestar emocional gamificado para empleados. Ver `proyectos/hachi
 | `18_subagents/` – `20_next_steps/` | Catalogo subagentes, riesgos, checklist Platanus, roadmap |
 | `planes/` | Plan estrategico + tactico + operativo |
 | `presentaciones/` | Presentacion HTML + version "para dummies" |
+
+## Git — reglas de staging
+
+- NUNCA commitear `images/`, `.claude/settings.local.json`
+- `.claude/settings.json` SÍ se commitea — configuracion compartida del equipo
+- Siempre hacer `git add` de archivos especificos, nunca `git add -A` o `git add .`

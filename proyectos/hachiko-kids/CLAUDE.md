@@ -355,3 +355,9 @@ Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendar
 - `.npmrc` con `legacy-peer-deps=true` es requerido para que EAS Build funcione
 - Variables de entorno `EXPO_PUBLIC_*` están configuradas en EAS (environment: preview)
 - Nuevo build necesario si se agregan/cambian dependencias nativas (expo-font, expo-splash-screen, expo-updates ya incluidos)
+
+## Datos y referencias
+
+- Referencias bibliográficas generadas por LLMs deben verificarse antes de commitear — títulos de reportes de mercado (Grand View, Allied, etc.) son frecuentemente parafraseados o inventados
+- Dato verificado para crisis salud mental: "+31% atenciones urgencia (2021-2023), 235.705 → 307.407" — Portilla-Saavedra et al. (2025), Terapia Psicológica 43(2). El "72% (2019-2023)" que circulaba era no verificable
+- Convocatorias de fuentes secundarias (agregadores, posts LinkedIn) requieren verificación directa en el sitio oficial antes de incluirlas como activas — Wayra Colombia no fue verificable
