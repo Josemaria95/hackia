@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de Intención — CEAPSI × Hachiko Kids</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1B75BC;
+      --text: #1a1a2e;
+      --muted: #666;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', 'Arial', sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.7;
+      color: var(--text);
+      background: #e8e8e8;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      padding: 18mm 22mm 24mm;
+      background: #fff;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+    }
+
+    /* ── LETTERHEAD ── */
+    .letterhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 14px;
+      border-bottom: 2.5px solid var(--blue);
+      margin-bottom: 22px;
+    }
+
+    .logo img {
+      width: 260px;
+      height: auto;
+      display: block;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 7.8pt;
+      color: var(--blue);
+      line-height: 1.6;
+    }
+
+    /* ── META ── */
+    .meta { margin-bottom: 20px; font-size: 10pt; }
+    .meta .date { margin-bottom: 14px; }
+    .meta .sender { font-weight: 700; }
+    .meta .sender span { font-weight: 400; }
+
+    .addressee {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 10.5pt;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: var(--blue);
+      text-align: center;
+      margin: 0 0 18px;
+      line-height: 1.4;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 14px 0;
+    }
+
+    h2 {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--blue);
+      margin: 20px 0 8px;
+      padding-left: 9px;
+      border-left: 3px solid var(--blue);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    p { margin-bottom: 10px; text-align: justify; }
+
+    ol { padding-left: 22px; margin-bottom: 10px; }
+    ol li { margin-bottom: 9px; text-align: justify; }
+
+    strong { font-weight: 700; }
+
+    /* ── TABLA HOJA DE RUTA ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9.5pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    th {
+      background: var(--blue);
+      color: #fff;
+      padding: 7px 10px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #e0e8f0;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: #f4f8fc; }
+
+    td:first-child { font-weight: 600; white-space: nowrap; color: var(--blue); }
+
+    /* ── SIGNATURE ── */
+    .signature-area {
+      margin-top: 32px;
+      page-break-inside: avoid;
+    }
+
+    .signature-row {
+      display: flex;
+      gap: 48px;
+      margin-top: 24px;
+      align-items: flex-start;
+    }
+
+    .signer { flex: 1; }
+    .sign-line { height: 72px; border-bottom: 1.5px solid #333; margin-bottom: 6px; }
+    .sign-caption { font-size: 8pt; color: var(--muted); margin-bottom: 3px; }
+    .sign-name { font-weight: 700; font-size: 10pt; margin-top: 3px; }
+    .sign-role { font-size: 8.5pt; color: var(--muted); }
+
+    .stamp-box {
+      flex: 0 0 130px;
+      height: 72px;
+      border: 1.5px dashed #bbb;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 8pt;
+      text-align: center;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+      }
+      @page { size: A4; margin: 22mm 24mm; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════ LETTERHEAD ════ -->
+  <div class="letterhead">
+    <div class="logo">
+      <img src="logo-ceapsi-white.png" alt="CEAPSI — Centro de Salud Mental">
+    </div>
+    <div class="contact-block">
+      <strong>Salud Integral CEAPSI SpA</strong><br>
+      RUT: 76.225.357-7<br>
+      Evaristo Lillo 78, Las Condes, Santiago<br>
+      +56 2 2378 3728<br>
+      miguel@ceapsi.cl
+    </div>
+  </div>
+
+  <!-- ════ META ════ -->
+  <div class="meta">
+    <div class="date">Santiago, ___ de __________________ de 2026</div>
+    <div class="sender">Salud Integral CEAPSI SpA<br><span>RUT: 76.225.357-7</span></div>
+  </div>
+
+  <div class="addressee">A QUIEN CORRESPONDA</div>
+
+  <h1>Carta de Intención de Colaboración con el Proyecto Hachiko Kids</h1>
+
+  <p>
+    Por medio de la presente, <strong>Salud Integral CEAPSI SpA</strong>, RUT 76.225.357-7,
+    representada por <strong>Miguel Ramírez</strong>, en su calidad de <strong>CEO</strong>,
+    declara su intención de colaborar con <strong>el proyecto Hachiko Kids</strong> —iniciativa
+    de los cofundadores Edgar Gomero y José María Muñoz, contacto: contacto@tumascota.app— en los
+    términos que se describen a continuación.
+  </p>
+
+  <hr class="divider">
+
+  <!-- §1 -->
+  <h2>1. Sobre nuestra institución</h2>
+  <p>
+    El <strong>Centro de Atención Psicológica Integral (CEAPSI)</strong>, fundado en 2012 y con
+    sede en Las Condes, Santiago, es un centro de salud mental de atención multidisciplinaria
+    especializado en niños, niñas y adolescentes. Nuestro equipo integra psicólogos, psiquiatras,
+    psicopedagogos, fonoaudiólogos, terapeutas ocupacionales y neurólogos infantojuveniles, todos
+    orientados a brindar tratamientos de excelencia que sean accesibles y personalizados para
+    cada paciente y su entorno.
+  </p>
+  <p>
+    Entre nuestros programas, somos prestadores del <strong>Programa de Integración Escolar
+    (PIE)</strong> del Ministerio de Educación, a través del cual acompañamos a establecimientos
+    educacionales en la evaluación, certificación y atención de estudiantes con necesidades
+    educativas especiales (NEE) —incluyendo niños con TDAH, TEA, dificultades de aprendizaje
+    y otras condiciones del neurodesarrollo.
+  </p>
+  <p>
+    En el ejercicio de este trabajo hemos identificado con claridad una brecha persistente:
+    <strong>los profesionales clínicos tienen visibilidad del comportamiento de los niños
+    únicamente durante las sesiones de atención</strong>, sin acceso a información sistemática
+    sobre sus patrones conductuales y emocionales en el entorno cotidiano. Esta limitación
+    dificulta tanto la toma de decisiones clínicas como la comunicación efectiva con las familias
+    entre sesiones.
+  </p>
+
+  <!-- §2 -->
+  <h2>2. Sobre el proyecto Hachiko Kids</h2>
+  <p>
+    <strong>Hachiko Kids</strong> es una aplicación móvil desarrollada en Chile que permite a
+    niños entre 4 y 12 años interactuar diariamente con una mascota virtual a través de
+    situaciones de la vida cotidiana. A partir de esas interacciones, la app genera para los
+    padres <strong>resúmenes semanales de patrones conductuales</strong> —seguimiento de
+    instrucciones, socialización, conducta prosocial, regulación emocional y ánimo general—
+    expresados en lenguaje accesible y acompañados de orientaciones concretas de crianza.
+  </p>
+  <p>
+    El producto está diseñado para que el niño nunca se sienta evaluado: la experiencia completa
+    se presenta como un juego con su mascota. La información registrada es conductual, no
+    diagnóstica, y está orientada a enriquecer la comunicación entre el profesional, el niño y
+    su familia.
+  </p>
+
+  <!-- §3 -->
+  <h2>3. Interés en la colaboración</h2>
+  <p>
+    Consideramos que Hachiko Kids responde directamente al vacío que observamos en nuestra
+    práctica diaria: <strong>proporciona continuidad entre sesiones</strong> mediante datos
+    conductuales del entorno natural del niño, registrados de forma lúdica y sin requerir
+    intervención clínica directa en cada punto de captura.
+  </p>
+  <p>
+    Esta propuesta es consistente con nuestro enfoque de atención integral y personalizada: no
+    reemplaza la intervención clínica, sino que la complementa con información continua del mundo
+    real del niño. Valoramos que Hachiko Kids haya adoptado principios que compartimos: respeto
+    absoluto a la privacidad de los menores, lenguaje accesible para familias —nunca diagnóstico
+    ni clínico— y una experiencia positiva y libre de juicios para el niño.
+  </p>
+
+  <!-- §4 -->
+  <h2>4. Hoja de ruta del piloto</h2>
+  <p>
+    La colaboración se estructurará en torno a un <strong>piloto de 60 días</strong> con el
+    siguiente cronograma propuesto:
+  </p>
+  <table>
+    <tr>
+      <th>Período</th>
+      <th>Actividad</th>
+    </tr>
+    <tr>
+      <td>Mayo 2026</td>
+      <td>Firma del convenio de piloto. Onboarding de familias participantes con consentimiento informado. Acceso a la app.</td>
+    </tr>
+    <tr>
+      <td>Semanas 1–2</td>
+      <td>Configuración de perfiles, familiarización de niños con la mascota, capacitación al equipo clínico de CEAPSI.</td>
+    </tr>
+    <tr>
+      <td>Semanas 3–8</td>
+      <td>Uso activo de la app. Sesiones regulares de check-in por parte de los niños.</td>
+    </tr>
+    <tr>
+      <td>Semana 9</td>
+      <td>Reporte de resultados agregados. Reunión conjunta de revisión.</td>
+    </tr>
+  </table>
+  <p>
+    <strong>Alcance del piloto:</strong> 20 a 30 niños de los programas de atención de CEAPSI,
+    con consentimiento informado de sus padres o tutores legales.
+  </p>
+
+  <!-- §5 -->
+  <h2>5. Compromisos de CEAPSI</h2>
+  <p>En el marco de este acuerdo de intención, <strong>Salud Integral CEAPSI SpA</strong>
+  manifiesta su disposición a:</p>
+  <ol>
+    <li>
+      <strong>Facilitar el acceso a familias</strong> de sus programas de atención para participar
+      en el piloto, bajo consentimiento informado de los padres y/o tutores legales, respetando
+      en todo momento la confidencialidad de los datos de los menores y los estándares éticos
+      de la institución.
+    </li>
+    <li>
+      <strong>Proveer retroalimentación clínica y psicopedagógica profesional</strong> sobre la
+      herramienta, incluyendo la pertinencia conductual de los escenarios, la claridad de los
+      resúmenes para padres y la utilidad de los patrones reportados para el seguimiento clínico
+      —en particular para niños con TDAH, TEA y dificultades de regulación emocional.
+    </li>
+    <li>
+      <strong>Evaluar la adopción de Hachiko Kids como herramienta complementaria</strong> en
+      sus programas de atención —incluyendo el PIE— siempre que los resultados del piloto sean
+      satisfactorios y el producto cumpla los estándares de seguridad, privacidad y pertinencia
+      clínica exigidos.
+    </li>
+  </ol>
+
+  <!-- §6 -->
+  <h2>6. Compromisos de Hachiko Kids</h2>
+  <p>Por su parte, el equipo de <strong>Hachiko Kids</strong> manifiesta su disposición a:</p>
+  <ol>
+    <li>
+      <strong>Proveer acceso gratuito a la aplicación</strong> durante todo el período del piloto
+      para las familias participantes y el equipo clínico de CEAPSI.
+    </li>
+    <li>
+      <strong>Entregar un reporte de resultados agregados</strong> al finalizar el piloto, con
+      datos conductuales estadísticos de los niños participantes (sin identificación individual),
+      junto con un análisis de uso y hallazgos relevantes.
+    </li>
+    <li>
+      <strong>Brindar soporte técnico</strong> durante el piloto para el equipo de CEAPSI y las
+      familias participantes, incluyendo capacitación inicial y atención de incidencias.
+    </li>
+    <li>
+      <strong>Ofrecer condiciones preferenciales</strong> a CEAPSI si la institución decide
+      adoptar Hachiko Kids como herramienta complementaria en sus programas tras la finalización
+      del piloto.
+    </li>
+  </ol>
+
+  <!-- §7 -->
+  <h2 style="break-before: page; page-break-before: always;">7. Confidencialidad</h2>
+  <p>
+    Ambas partes se obligan a mantener la más estricta confidencialidad sobre la información
+    intercambiada en el marco de esta colaboración, en particular:
+  </p>
+  <ol>
+    <li>
+      <strong>Datos de niños y familias:</strong> cualquier información personal o conductual de
+      los menores participantes no será divulgada a terceros bajo ninguna circunstancia. Los datos
+      no serán vendidos, cedidos ni utilizados con fines distintos a los del piloto.
+    </li>
+    <li>
+      <strong>Tecnología e información de negocio:</strong> la información técnica, metodológica
+      y comercial del proyecto Hachiko Kids, así como la información clínica y operativa de
+      CEAPSI, serán tratadas como confidenciales por la contraparte.
+    </li>
+  </ol>
+  <p>
+    Esta obligación de confidencialidad se extiende por un período de <strong>dos (2) años</strong>
+    desde la fecha de firma de la presente carta, independientemente del resultado del piloto.
+  </p>
+
+  <!-- §8 -->
+  <h2>8. Naturaleza de esta carta</h2>
+  <p>
+    <strong>Esta carta expresa una intención de colaboración y no constituye un compromiso
+    contractual vinculante.</strong> Los términos definitivos del piloto —incluyendo condiciones
+    técnicas, protocolos de consentimiento, tratamiento de datos y condiciones económicas
+    post-piloto— serán establecidos en un convenio formal separado, sujeto a la aprobación de
+    ambas partes y al cumplimiento de los requisitos éticos y legales aplicables.
+  </p>
+
+  <hr class="divider">
+
+  <!-- ════ FIRMA ════ -->
+  <div class="signature-area">
+    <p>Atentamente,</p>
+    <div class="signature-row">
+      <div class="signer">
+        <div class="sign-line"></div>
+        <div class="sign-caption">Firma</div>
+        <div class="sign-name">Miguel Ramírez</div>
+        <div class="sign-role">CEO — Salud Integral CEAPSI SpA</div>
+        <div class="sign-role">RUT empresa: 76.225.357-7</div>
+        <div class="sign-role" style="margin-top:5px">Santiago, ___ de __________________ de 2026</div>
+        <div class="sign-role">miguel@ceapsi.cl &nbsp;|&nbsp; +56 9 8230 5408</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

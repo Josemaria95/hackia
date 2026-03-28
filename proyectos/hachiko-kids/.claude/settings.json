@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "kntor-design-atomic@kntor-marketplace": true,
+    "claude-md-management@claude-plugins-official": true
+  }
+}

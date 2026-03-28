@@ -9,7 +9,7 @@ App móvil que ayuda a padres a entender patrones conductuales de sus hijos (4-1
 
 ## Equipo
 - **Edgar** — Experiencia directa en PIE (Programa de Integración Escolar del Mineduc). Coordinó médicos y colegios en CEAPSI. Conoce el flujo clínico-institucional desde adentro. Rol: assets, reclutamiento de familias/clínicos, canal B2B institucional.
-- **Jose Muñoz** — Data Engineer (Databricks, Azure, Spark). Rol: desarrollo técnico del MVP con asistencia de IA. Contacto: josemaria.munoz95@gmail.com
+- **José María Muñoz** — Data Engineer (Databricks, Azure, Spark). Rol: desarrollo técnico del MVP con asistencia de IA. Contacto: josemaria.munoz95@gmail.com
 
 ## Propuesta de valor (lenguaje conductual, NO clínico)
 > "Entiende por qué tu hijo se comporta así — a través de cómo cuida a su mascota."
@@ -363,6 +363,18 @@ Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendar
 - `.npmrc` con `legacy-peer-deps=true` es requerido para que EAS Build funcione
 - Variables de entorno `EXPO_PUBLIC_*` están configuradas en EAS (environment: preview)
 - Nuevo build necesario si se agregan/cambian dependencias nativas (expo-font, expo-splash-screen, expo-updates ya incluidos)
+
+## Generación de PDFs (Chrome headless)
+
+```bash
+# Comando correcto — sin headers/footers, path absoluto obligatorio
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --headless --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf="/ruta/absoluta/archivo.pdf" \
+  "file:///ruta/absoluta/archivo.html"
+```
+- Flag correcto: `--no-pdf-header-footer` (NO `--print-to-pdf-no-header`)
+- Sin path absoluto en `--print-to-pdf`, Chrome guarda en `~/` — siempre usar ruta absoluta
 
 ## Datos y referencias
 
