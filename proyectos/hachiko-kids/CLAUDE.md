@@ -316,7 +316,7 @@ Pipeline de postulaciones en `07_financiamiento/`. Detalle completo en `calendar
 | **Y Combinator S26** | **4 may 2026** | **$500K** | **7% + MFN** | **ALTA — video 1 min requerido** |
 | **Start-Up Chile — Ignite** | **7 may 2026** | **$27K + $22K** | **0%** | **ALTA — máxima prioridad** |
 | **Techstars Healthcare** | **10 jun 2026** | **$220K** | **5% + MFN** | **MEDIA — post-YC** |
-| Platanus | Rolling | USD $200K | 5.5-7% | MEDIA — requiere full-time |
+| Platanus | Temprana 30 mar / General 30 abr 2026 | USD $200K | 7% (SAFE post-money) | MEDIA — requiere full-time al iniciar programa (jun 2026) |
 | AceleraLatam (ALGEN) | Por confirmar | ~$300K red | Coinversión | MEDIA |
 | Magical | Rolling | $125K | Nota | MEDIA |
 | Rockstart LATAM | 2026 por anunciar | $100K | 6% | MEDIA |
